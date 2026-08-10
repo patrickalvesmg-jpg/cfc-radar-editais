@@ -65,6 +65,30 @@
 .menu-btn svg{width:20px;height:20px;stroke:var(--branco)}
 
 /* ============================================================
+   FAIXA DE DEMONSTRAÇÃO
+   Enquanto os editais forem exemplos, isto precisa estar visível.
+   Alguém pode planejar meses de estudo com base numa data — dado
+   inventado com aparência de oficial engana de verdade.
+   Remover quando o conteúdo for 100% real e revisado.
+   ============================================================ */
+.faixa-demo{
+  position:fixed;top:var(--topbar-h);left:0;right:0;z-index:80;
+  display:flex;align-items:center;justify-content:center;gap:10px;
+  flex-wrap:wrap;text-align:center;
+  padding:10px 20px;
+  background:var(--warn);color:#1a1400;
+  font-size:var(--t-xs);font-weight:600;
+  border-bottom:1px solid rgba(0,0,0,.2);
+}
+.faixa-demo b{font-family:var(--display);font-weight:800;text-transform:uppercase;letter-spacing:.06em}
+
+/* Empurra o conteúdo para a faixa não cobrir nada. */
+body.tem-demo .hero{padding-top:calc(var(--topbar-h) + var(--faixa-demo-h,42px) + var(--s-8))}
+body.tem-demo .busca-wrap{top:calc(var(--topbar-h) + var(--faixa-demo-h,42px))}
+body.tem-demo #painel{scroll-margin-top:calc(var(--topbar-h) + var(--faixa-demo-h,42px) + var(--busca-h,146px))}
+body.tem-demo .boas-vindas{padding-top:calc(var(--topbar-h) + var(--faixa-demo-h,42px) + var(--s-6))}
+
+/* ============================================================
    HERO — radar
    ============================================================ */
 .hero{
