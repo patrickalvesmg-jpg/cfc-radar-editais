@@ -82,9 +82,26 @@ Documentada em [`IDENTIDADE-VISUAL.md`](IDENTIDADE-VISUAL.md). Resumo:
 
 ---
 
+## Atualização automática
+
+O radar se atualiza sozinho: um robô em Python roda **todo dia às 06:00**
+no GitHub Actions — sem depender de nenhum computador ligado — varre os
+diários oficiais municipais e **abre um Pull Request** com o que achou.
+
+Nada vai ao ar sem sua aprovação: data de inscrição errada prejudica
+candidato de verdade, e extração automática erra.
+
+Detalhes, filtro e processo de revisão em [`robo/README.md`](robo/README.md).
+
+```bash
+python robo/atualizar.py --dry-run   # ver o que acharia, sem gravar
+```
+
+---
+
 ## Pendências para a fase 2
 
-- Backend do robô de captura (varredura dos diários oficiais)
+- Ampliar fontes (bancas, diários estaduais, API oficial da Imprensa Nacional)
 - Autenticação real — `js/sessao.js` é substituído por completo
 - Banco de dados e painel admin para cadastrar editais
 - Alertas por e-mail/WhatsApp

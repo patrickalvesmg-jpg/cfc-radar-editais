@@ -1,0 +1,80 @@
+name: Varredura de editais
+
+# Roda na infraestrutura do GitHub — não depende de nenhum computador ligado.
+on:
+  schedule:
+    # 09:00 UTC = 06:00 em Brasília. Os diários municipais do dia
+    # anterior já estão indexados a essa hora.
+    - cron: "0 9 * * *"
+  workflow_dispatch:        # permite rodar manualmente pela aba Actions
+
+permissions:
+  contents: write
+  pull-requests: write
+
+# Duas execuções mexendo no mesmo JSON dariam conflito de merge.
+concurrency:
+  group: radar-editais
+  cancel-in-progress: false
+
+jobs:
+  varrer:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      # Sem dependências externas: o robô usa só a biblioteca padrão,
+      # então não há requirements.txt para instalar nem cadeia de
+      # suprimentos para auditar.
+
+      - name: Varrer fontes
+        run: python robo/atualizar.py --limite 30
+
+      - name: Verificar se houve mudança
+        id: diff
+        run: |
+          if git diff --quiet -- data/editais.json; then
+            echo "mudou=false" >> "$GITHUB_OUTPUT"
+            echo "Nenhum edital novo hoje."
+          else
+            echo "mudou=true" >> "$GITHUB_OUTPUT"
+            git diff --stat -- data/editais.json
+          fi
+
+      # Pull Request em vez de commit direto: nada vai ao ar sem
+      # revisão humana. Data de inscrição errada prejudica candidato
+      # de verdade, e a extração automática erra.
+      - name: Abrir Pull Request
+        if: steps.diff.outputs.mudou == 'true'
+        uses: peter-evans/create-pull-request@v6
+        with:
+          commit-message: "chore(radar): editais capturados em ${{ github.run_id }}"
+          branch: radar/varredura-automatica
+          delete-branch: true
+          title: "Radar: novos editais para revisão"
+          body: |
+            Varredura automática do Radar de Editais.
+
+            **Antes de aprovar, confira nos itens marcados `"revisado": false`:**
+
+            - [ ] É mesmo concurso da área contábil (não licitação ou nomeação)
+            - [ ] Datas de inscrição conferem com o edital oficial
+            - [ ] Salário é a remuneração do cargo (não taxa nem valor de contrato)
+            - [ ] Órgão e cargo estão legíveis para quem vai ler o site
+
+            Ao revisar um item, marque `"revisado": true` — o robô passa a
+            respeitar os campos curados e não sobrescreve mais a correção.
+
+            O campo `_trecho` traz o texto de origem, para conferir sem
+            abrir o diário oficial.
+
+            Itens com `"confianca": "baixa"` são os que mais erram.
+          labels: |
+            radar
+            revisar

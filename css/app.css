@@ -288,6 +288,8 @@
 }
 .salario{font-family:var(--display);font-weight:900;font-size:1.5rem;color:var(--lima);line-height:1;font-variant-numeric:tabular-nums}
 .salario small{display:block;font-family:var(--body);font-weight:500;font-size:var(--t-micro);color:var(--cinza-esc);letter-spacing:.06em;text-transform:uppercase;margin-bottom:5px}
+/* Salário ainda não extraído: não fingir número que não temos. */
+.salario .pendente{font-family:var(--body);font-weight:500;font-size:.86rem;color:var(--cinza-esc);letter-spacing:0}
 .prazo{font-size:var(--t-xs);color:var(--cinza)}
 .prazo b{display:block;font-family:var(--display);font-weight:800;font-size:1rem;color:var(--branco);font-variant-numeric:tabular-nums}
 .prazo.urgente b{color:var(--warn)}

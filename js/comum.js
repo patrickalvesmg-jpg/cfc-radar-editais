@@ -122,7 +122,14 @@ export function cardEdital(e, { favorito = false, interativo = true } = {}){
 
   const salarioHtml = e.salario
     ? `<div class="salario"><small>Até</small>${brl.format(e.salario)}</div>`
-    : `<div class="salario"><small>Salário</small>—</div>`;
+    : `<div class="salario"><small>Salário</small><span class="pendente">a confirmar</span></div>`;
+
+  /* Editais recém-capturados podem vir sem cidade ou sem UF: o robô só
+     preenche o que consegue afirmar. Montamos o local com o que existe. */
+  const local = e.cidade && e.uf ? `<b>${esc(e.cidade)}</b>/${esc(e.uf)}`
+              : e.cidade         ? `<b>${esc(e.cidade)}</b>`
+              : e.uf             ? `<b>${esc(e.uf)}</b>`
+              : '';
 
   const acoes = interativo ? `
       <div class="edital-acoes">
@@ -153,9 +160,9 @@ export function cardEdital(e, { favorito = false, interativo = true } = {}){
       <p class="orgao">${esc(e.orgao)}</p>
 
       <div class="edital-meta">
-        ${item('local', `<b>${esc(e.cidade)}</b>/${esc(e.uf)}`)}
-        ${item('banca', `Banca <b>${esc(e.banca)}</b>`)}
-        ${item('vagas', `<b>${esc(e.vagas)}</b> vagas`)}
+        ${local ? item('local', local) : ''}
+        ${e.banca ? item('banca', `Banca <b>${esc(e.banca)}</b>`) : ''}
+        ${e.vagas ? item('vagas', `<b>${esc(e.vagas)}</b> vagas`) : ''}
         ${e.dataProva ? item('prova', `Prova <b>${dataBR(e.dataProva)}</b>`) : ''}
         ${item('fonte', `${esc(e.fonte)} · ${hora(e.capturadoEm)}`)}
       </div>
