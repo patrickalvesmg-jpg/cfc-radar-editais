@@ -195,31 +195,39 @@ def montar(achado: dict) -> dict:
     texto = achado["texto"]
     orgao = _limpar_orgao(achado.get("orgao_bruto", ""), achado["titulo"])
 
-    inicio, fim = extrair_periodo_inscricao(texto)
-    salario = extrair_salario(texto)
-    cargo = extrair_cargo(achado["titulo"], texto)
+    # Campo entregue pela fonte de forma estruturada sempre ganha do que
+    # a regex infere do texto corrido. O CEBRASPE, por exemplo, dá o nome
+    # oficial do cargo e o período de inscrição — inferir seria pior.
+    inicio = achado.get("_inscricao_inicio") or ""
+    fim = achado.get("_inscricao_fim") or ""
+    if not fim:
+        inicio, fim = extrair_periodo_inscricao(texto)
 
-    # Quando a fonte já entrega município e UF de forma estruturada
-    # (caso do Querido Diário), confiamos nela em vez de adivinhar no texto.
+    salario = achado.get("_salario") or extrair_salario(texto)
+    cargo = achado.get("_cargo") or extrair_cargo(achado["titulo"], texto)
+    banca = achado.get("_banca") or extrair_banca(texto)
+    vagas = achado.get("_vagas") or extrair_vagas(texto)
     uf = achado.get("_uf") or extrair_uf(texto, orgao)
     cidade = achado.get("_cidade", "")
 
-    completos = sum(bool(x) for x in (cargo, fim, salario))
-    confianca = "alta" if completos == 3 else "media" if completos == 2 else "baixa"
+    confianca = achado.get("_confianca")
+    if not confianca:
+        completos = sum(bool(x) for x in (cargo, fim, salario))
+        confianca = "alta" if completos == 3 else "media" if completos == 2 else "baixa"
 
     return {
         "id": id_estavel(achado["titulo"], orgao, achado["url"]),
         "orgao": orgao,
         "cargo": cargo or "Área contábil — verificar edital",
-        "banca": extrair_banca(texto),
+        "banca": banca,
         "uf": uf,
         "cidade": cidade,
-        "vagas": extrair_vagas(texto),
+        "vagas": vagas,
         "salario": salario or 0,
         "salarioObs": "",
         "cargaHoraria": "",
         "escolaridade": extrair_escolaridade(texto),
-        "nivel": extrair_esfera(orgao, texto),
+        "nivel": achado.get("_esfera") or extrair_esfera(orgao, texto),
         "status": "aberto" if fim else "previsto",
         "inscricaoInicio": inicio or "",
         "inscricaoFim": fim or "",

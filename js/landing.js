@@ -29,6 +29,35 @@ function ajustarParaLogado(){
   if(entrar){ entrar.textContent = 'Meus editais'; entrar.href = 'app.html'; }
 }
 
+/**
+ * Sem editais bloqueados, o argumento de cadastro deixa de ser "veja o
+ * resto" e passa a ser "seja avisado quando abrir" — que é verdadeiro
+ * mesmo com o acervo pequeno, e é o valor real da conta.
+ */
+function ajustarSemBloqueio(total){
+  const head = document.querySelector('#amostra .blk-head p');
+  if(head){
+    head.textContent = total === 1
+      ? 'Este é o concurso da área contábil com inscrição aberta no radar neste momento.'
+      : `Estes são os ${total} concursos da área contábil com inscrição aberta no radar neste momento.`;
+  }
+
+  const alvo = document.getElementById('trancado');
+  if(!alvo) return;
+
+  alvo.insertAdjacentHTML('afterend', `
+    <div class="cta up" style="margin-top:var(--s-6)">
+      <span class="eyebrow">Conta gratuita</span>
+      <h2>Concurso de contador não abre todo dia.</h2>
+      <p>
+        O radar varre diários oficiais e bancas todos os dias. Crie sua conta
+        para ser avisado assim que abrir um concurso do seu perfil — em vez de
+        precisar voltar aqui para conferir.
+      </p>
+      <a href="cadastro.html" class="btn btn-lima">Criar conta grátis</a>
+    </div>`);
+}
+
 async function iniciar(){
   ligarMenuMobile();
 
@@ -69,7 +98,11 @@ async function iniciar(){
       .map(e => cardEdital(e, { interativo:false })).join('');
     document.getElementById('n-bloqueados').textContent = bloqueados.length;
   }else{
+    // Acervo menor que o limite grátis: não há o que bloquear. Some o
+    // paywall e troca o discurso — prometer "veja o restante" quando não
+    // há restante quebra a confiança logo na primeira visita.
     trancado.style.display = 'none';
+    ajustarSemBloqueio(ordenados.length);
   }
 
   ajustarParaLogado();
