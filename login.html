@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<meta name="theme-color" content="#0a0f0a" />
+<title>Entrar · Radar de Editais — CFC Academy</title>
+<meta name="description" content="Entre na sua conta do Radar de Editais da CFC Academy." />
+<meta name="robots" content="noindex" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Archivo:wght@600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+
+<main class="auth">
+
+  <aside class="auth-lado">
+    <a href="index.html" class="marca" style="margin-bottom:var(--s-6)">
+      <span class="mk" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/>
+        </svg>
+      </span>
+      <span class="txt">Radar de Editais<small>CFC Academy</small></span>
+    </a>
+
+    <span class="eyebrow">Bem-vindo de volta</span>
+    <h2>Seus editais continuam <span style="color:var(--lima)">sendo vigiados</span>.</h2>
+    <p class="sub">
+      Enquanto você esteve fora, o radar seguiu varrendo diários oficiais
+      e portais de banca. Entre para ver o que mudou.
+    </p>
+  </aside>
+
+  <section class="auth-form">
+    <div class="caixa">
+      <a href="index.html" class="voltar">
+        <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        Voltar para o site
+      </a>
+
+      <h1>Entrar</h1>
+      <p class="apoio">Acesse sua conta para ver todos os editais.</p>
+
+      <div class="aviso">
+        <span aria-hidden="true">⚠</span>
+        <span>
+          <b>Demonstração</b>
+          Login simulado — qualquer e-mail válido entra, e nada é enviado.
+        </span>
+      </div>
+
+      <div class="aviso erro-geral" id="erro-geral" style="display:none" role="alert">
+        <span aria-hidden="true">✕</span>
+        <span id="erro-geral-txt"></span>
+      </div>
+
+      <form id="form" novalidate>
+        <div class="campo-grupo" id="g-email">
+          <label for="email">E-mail</label>
+          <input type="email" id="email" name="email" class="campo" autocomplete="email" placeholder="voce@email.com">
+          <span class="erro">Informe um e-mail válido.</span>
+        </div>
+
+        <div class="campo-grupo" id="g-senha">
+          <label for="senha">Senha</label>
+          <input type="password" id="senha" name="senha" class="campo" autocomplete="current-password" placeholder="Sua senha">
+          <span class="erro">Informe sua senha.</span>
+        </div>
+
+        <button type="submit" class="btn btn-lima btn-block" id="enviar" style="margin-top:var(--s-5)">
+          Entrar
+        </button>
+      </form>
+
+      <p class="troca">Ainda não tem conta? <a href="cadastro.html">Criar conta grátis</a></p>
+    </div>
+  </section>
+
+</main>
+
+<script type="module" src="js/auth.js"></script>
+</body>
+</html>

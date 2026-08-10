@@ -1,0 +1,590 @@
+/* ============================================================
+   CFC ACADEMY · RADAR DE EDITAIS
+   Design System — camada 3: componentes da plataforma
+   ============================================================ */
+
+/* ============================================================
+   TOPBAR — barra de status do robô de captura.
+   Conceito: a plataforma se anuncia como MÁQUINA LIGADA.
+   ============================================================ */
+.topbar{
+  position:fixed;top:0;left:0;right:0;z-index:90;
+  height:var(--topbar-h);
+  background:rgba(10,15,10,.82);
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--linha);
+}
+.topbar-inner{
+  height:100%;width:min(100% - 40px,var(--max));margin-inline:auto;
+  display:flex;align-items:center;justify-content:space-between;gap:var(--s-5);
+}
+
+.marca{display:inline-flex;align-items:center;gap:11px}
+.marca .mk{
+  width:38px;height:38px;border-radius:10px;flex-shrink:0;
+  background:var(--lima);color:var(--preto);
+  display:grid;place-items:center;
+  box-shadow:0 0 22px rgba(159,227,26,.35);
+}
+.marca .mk svg{width:21px;height:21px}
+.marca .txt{font-family:var(--display);font-weight:900;font-size:1.02rem;letter-spacing:-.01em;line-height:1.1}
+.marca .txt small{
+  display:block;font-family:var(--body);font-weight:500;
+  font-size:var(--t-micro);color:var(--cinza);letter-spacing:.04em;
+}
+
+.nav{display:flex;align-items:center;gap:var(--s-5)}
+.nav a{
+  font-size:var(--t-sm);font-weight:500;color:var(--cinza);
+  padding:6px 0;position:relative;transition:color var(--dur-1);
+}
+.nav a::after{
+  content:"";position:absolute;left:0;right:0;bottom:0;height:2px;
+  background:var(--lima);transform:scaleX(0);transform-origin:left;
+  transition:transform var(--dur-2) var(--ease);
+}
+.nav a:hover{color:var(--branco)}
+.nav a:hover::after,.nav a[aria-current="page"]::after{transform:scaleX(1)}
+.nav a[aria-current="page"]{color:var(--lima);font-weight:600}
+
+/* pulso de captura ao vivo */
+.pulso{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:var(--t-micro);font-weight:600;color:var(--cinza);
+  letter-spacing:.04em;padding:6px 13px;
+  border:1px solid var(--linha);border-radius:var(--r-pill);
+  background:var(--lima-wash-2);
+}
+.pulso i{
+  width:7px;height:7px;border-radius:50%;background:var(--lima);
+  box-shadow:0 0 10px var(--lima-glow);animation:blink 1.5s infinite;
+}
+.pulso b{color:var(--lima);font-variant-numeric:tabular-nums}
+
+.menu-btn{display:none;width:40px;height:40px;place-items:center;border-radius:var(--r-sm);border:1px solid var(--linha)}
+.menu-btn svg{width:20px;height:20px;stroke:var(--branco)}
+
+/* ============================================================
+   HERO — radar
+   ============================================================ */
+.hero{
+  position:relative;overflow:hidden;
+  padding:calc(var(--topbar-h) + var(--s-9)) 0 var(--s-9);
+  background:radial-gradient(900px 520px at 78% -8%,rgba(159,227,26,.15),transparent 62%),var(--preto);
+}
+.hero::before{
+  content:"";position:absolute;inset:0;
+  background-image:var(--mesh);background-size:var(--mesh-size);
+  mask-image:radial-gradient(720px 520px at 70% 18%,#000,transparent 76%);
+  -webkit-mask-image:radial-gradient(720px 520px at 70% 18%,#000,transparent 76%);
+  opacity:.55;pointer-events:none;
+}
+.hero .container{position:relative;z-index:1}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:var(--s-8);align-items:center}
+.hero h1{font-size:var(--t-hero);margin:var(--s-5) 0}
+.hero h1 .g{color:var(--lima);text-shadow:0 0 44px var(--lima-glow)}
+.hero .lead{font-size:1.14rem;color:var(--cinza);max-width:540px;margin-bottom:var(--s-6)}
+.hero .lead b{color:var(--branco);font-weight:600}
+.hero .acoes{display:flex;gap:var(--s-3);flex-wrap:wrap}
+.hero .micro{
+  margin-top:var(--s-5);font-size:var(--t-sm);color:var(--cinza-esc);
+  display:flex;align-items:center;gap:8px;
+}
+.hero .micro::before{content:"✓";color:var(--lima);font-weight:800}
+
+/* ---------- painel de varredura (mock do robô) ---------- */
+.scanner{
+  position:relative;overflow:hidden;
+  background:linear-gradient(160deg,var(--carvao),var(--preto-2));
+  border:1px solid var(--linha);border-radius:22px;
+  padding:var(--s-5);box-shadow:var(--sombra-3),inset 0 1px 0 rgba(255,255,255,.03);
+}
+.scanner::before{
+  content:"";position:absolute;top:-40%;right:-20%;
+  width:320px;height:320px;border-radius:50%;
+  background:radial-gradient(circle,var(--lima-glow),transparent 66%);
+  opacity:.22;filter:blur(22px);pointer-events:none;
+}
+/* linha de varredura que atravessa o painel */
+.scanner::after{
+  content:"";position:absolute;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,transparent,var(--lima),transparent);
+  box-shadow:0 0 18px var(--lima-glow);
+  animation:varrer 3.8s var(--ease) infinite;pointer-events:none;
+}
+@keyframes varrer{
+  0%{top:0;opacity:0}
+  12%{opacity:1}
+  88%{opacity:1}
+  100%{top:100%;opacity:0}
+}
+.scanner-top{
+  position:relative;display:flex;align-items:center;justify-content:space-between;
+  padding-bottom:var(--s-4);margin-bottom:var(--s-4);
+  border-bottom:1px solid var(--linha);
+}
+.scanner-top .rot{
+  font-size:var(--t-micro);text-transform:uppercase;letter-spacing:.14em;
+  color:var(--cinza);font-weight:700;
+}
+.scanner-feed{position:relative;display:grid;gap:2px}
+.feed-item{
+  display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:var(--s-3);
+  padding:11px 0;border-top:1px solid rgba(255,255,255,.05);
+  font-size:var(--t-sm);
+  animation:entra .5s var(--ease) both;
+}
+.feed-item:first-child{border-top:0}
+@keyframes entra{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+.feed-item .dot{width:7px;height:7px;border-radius:50%;background:var(--lima);box-shadow:0 0 8px var(--lima-glow)}
+.feed-item .org{color:var(--branco);font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.feed-item .org span{display:block;font-size:var(--t-micro);color:var(--cinza-esc);font-weight:400}
+.feed-item .hora{font-family:var(--mono);font-size:var(--t-micro);color:var(--cinza-esc)}
+
+.scanner-rodape{
+  display:flex;align-items:center;justify-content:space-between;
+  margin-top:var(--s-4);padding-top:var(--s-4);
+  border-top:1px solid var(--linha);
+  font-size:var(--t-micro);color:var(--cinza-esc);
+}
+.scanner-rodape b{color:var(--lima);font-variant-numeric:tabular-nums}
+
+/* ============================================================
+   FAIXA DE NÚMEROS
+   ============================================================ */
+.strip{border-block:1px solid var(--linha);background:var(--preto-2)}
+.strip .container{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:var(--s-5);
+  padding:var(--s-6) 0;text-align:center;
+}
+.strip .n{
+  font-family:var(--display);font-weight:900;font-size:1.9rem;
+  color:var(--lima);line-height:1;font-variant-numeric:tabular-nums;
+}
+.strip .l{font-size:var(--t-xs);color:var(--cinza);margin-top:6px}
+
+/* ============================================================
+   SEÇÕES
+   ============================================================ */
+.blk{padding:var(--s-9) 0;position:relative}
+.blk-head{max-width:var(--max-txt);margin-bottom:var(--s-7)}
+.blk-head h2{margin:var(--s-3) 0 var(--s-4)}
+.blk-head p{color:var(--cinza);font-size:1.05rem}
+
+/* ============================================================
+   BARRA DE BUSCA + FILTROS
+   ============================================================ */
+/* Âncoras precisam descontar a topbar fixa. #painel tem regra própria
+   (mais abaixo) porque a barra de busca sticky também o cobre. */
+:where([id]){scroll-margin-top:calc(var(--topbar-h) + 12px)}
+
+.busca-wrap{
+  position:sticky;top:var(--topbar-h);z-index:60;
+  background:rgba(10,15,10,.9);
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--linha);
+  padding:var(--s-4) 0;
+}
+.busca-linha{display:grid;grid-template-columns:1fr auto auto;gap:var(--s-3);align-items:center}
+.busca-campo{position:relative}
+.busca-campo svg{
+  position:absolute;left:15px;top:50%;transform:translateY(-50%);
+  width:17px;height:17px;stroke:var(--cinza-esc);pointer-events:none;
+}
+.busca-campo .campo{padding-left:44px}
+
+.filtros{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+  gap:var(--s-3);margin-top:var(--s-3);
+}
+.filtros.oculto{display:none}
+.filtro-grupo label{
+  display:block;font-size:var(--t-micro);text-transform:uppercase;
+  letter-spacing:.12em;color:var(--cinza-esc);font-weight:700;margin-bottom:6px;
+}
+.chips-ativos{display:flex;flex-wrap:wrap;gap:var(--s-2);margin-top:var(--s-3)}
+.chips-ativos:empty{display:none}
+
+/* abas de status */
+.abas{display:flex;gap:var(--s-1);overflow-x:auto;padding-bottom:2px;scrollbar-width:none}
+.abas::-webkit-scrollbar{display:none}
+.aba{
+  display:inline-flex;align-items:center;gap:8px;white-space:nowrap;
+  font-family:var(--display);font-weight:700;font-size:var(--t-xs);
+  text-transform:uppercase;letter-spacing:.06em;
+  padding:10px 16px;border-radius:var(--r-pill);
+  color:var(--cinza);border:1px solid transparent;
+  transition:color var(--dur-1),background var(--dur-1),border-color var(--dur-1);
+}
+.aba:hover{color:var(--branco);background:rgba(243,247,240,.04)}
+.aba[aria-selected="true"]{
+  color:var(--lima);background:var(--lima-wash);border-color:rgba(159,227,26,.28);
+}
+.aba .cont{
+  font-size:var(--t-micro);padding:2px 7px;border-radius:var(--r-pill);
+  background:rgba(243,247,240,.08);font-variant-numeric:tabular-nums;
+}
+.aba[aria-selected="true"] .cont{background:rgba(159,227,26,.22)}
+
+/* ============================================================
+   CARD DE EDITAL — o componente central do produto
+   ============================================================ */
+/* No fluxo normal a seção já nasce abaixo da barra — o que falta é só respiro.
+   O espaço extra sob a barra sticky é resolvido no #painel via scroll-margin
+   (abaixo), que só age quando se chega aqui por âncora. */
+.blk-resultados{padding-top:var(--s-6)}
+
+/* Ao pular para #painel, descontar topbar + barra de busca (altura medida em
+   --busca-h pelo JS, porque ela cresce quando os filtros abrem). */
+#painel{scroll-margin-top:calc(var(--topbar-h) + var(--busca-h,146px))}
+
+.lista{display:grid;gap:var(--s-4)}
+
+.edital{
+  position:relative;overflow:hidden;
+  display:grid;grid-template-columns:1fr auto;gap:var(--s-5);
+  padding:var(--s-5);
+  background:linear-gradient(165deg,var(--carvao),var(--preto-2));
+  border:1px solid var(--linha);border-radius:var(--r-lg);
+  transition:border-color var(--dur-2),transform var(--dur-2) var(--ease),box-shadow var(--dur-2);
+}
+/* trilho de status na borda esquerda — leitura periférica rápida */
+.edital::before{
+  content:"";position:absolute;left:0;top:0;bottom:0;width:3px;
+  background:var(--cinza-esc);transition:box-shadow var(--dur-2);
+}
+.edital[data-status="aberto"]::before{background:var(--ok);box-shadow:0 0 16px var(--lima-glow)}
+.edital[data-status="encerrando"]::before{background:var(--warn);box-shadow:0 0 16px rgba(227,179,65,.5)}
+.edital[data-status="previsto"]::before{background:var(--info)}
+.edital[data-status="encerrado"]::before{background:var(--crit)}
+.edital:hover{
+  border-color:rgba(159,227,26,.34);
+  transform:translateY(-3px);
+  box-shadow:var(--sombra-2),0 0 0 1px var(--linha-fraca);
+}
+
+.edital-main{min-width:0}
+.edital-topo{display:flex;align-items:center;gap:var(--s-2);flex-wrap:wrap;margin-bottom:var(--s-3)}
+.edital h3{
+  font-size:1.22rem;margin-bottom:6px;
+  display:flex;align-items:baseline;gap:var(--s-2);flex-wrap:wrap;
+}
+.edital h3 a{transition:color var(--dur-1)}
+.edital:hover h3 a{color:var(--lima)}
+.edital .orgao{color:var(--cinza);font-size:var(--t-sm);margin-bottom:var(--s-4)}
+
+.edital-meta{
+  display:flex;flex-wrap:wrap;gap:var(--s-2) var(--s-5);
+  font-size:var(--t-xs);color:var(--cinza);
+}
+.edital-meta .item{display:inline-flex;align-items:center;gap:7px}
+.edital-meta .item svg{width:14px;height:14px;stroke:var(--cinza-esc);flex-shrink:0}
+.edital-meta .item b{color:var(--branco);font-weight:600}
+
+/* coluna direita — salário e prazo, os dois dados que decidem clique */
+.edital-lado{
+  display:flex;flex-direction:column;align-items:flex-end;justify-content:space-between;
+  gap:var(--s-4);text-align:right;flex-shrink:0;
+}
+.salario{font-family:var(--display);font-weight:900;font-size:1.5rem;color:var(--lima);line-height:1;font-variant-numeric:tabular-nums}
+.salario small{display:block;font-family:var(--body);font-weight:500;font-size:var(--t-micro);color:var(--cinza-esc);letter-spacing:.06em;text-transform:uppercase;margin-bottom:5px}
+.prazo{font-size:var(--t-xs);color:var(--cinza)}
+.prazo b{display:block;font-family:var(--display);font-weight:800;font-size:1rem;color:var(--branco);font-variant-numeric:tabular-nums}
+.prazo.urgente b{color:var(--warn)}
+
+.edital-acoes{display:flex;gap:var(--s-2);align-items:center}
+.icone-btn{
+  width:38px;height:38px;display:grid;place-items:center;
+  border-radius:var(--r-sm);border:1px solid var(--linha);
+  transition:border-color var(--dur-1),background var(--dur-1),color var(--dur-1);
+  color:var(--cinza);
+}
+.icone-btn svg{width:17px;height:17px;stroke:currentColor;fill:none}
+.icone-btn:hover{border-color:var(--lima);color:var(--lima);background:var(--lima-wash-2)}
+.icone-btn[aria-pressed="true"]{color:var(--lima);border-color:var(--lima);background:var(--lima-wash)}
+.icone-btn[aria-pressed="true"] svg{fill:var(--lima)}
+
+/* ============================================================
+   PAYWALL — editais bloqueados na landing
+   O visitante vê que existe mais coisa, mas não lê o conteúdo.
+   ============================================================ */
+.trancado{position:relative}
+.trancado .edital{
+  filter:blur(5px);
+  opacity:.5;
+  pointer-events:none;
+  user-select:none;
+}
+/* degradê que funde os cards borrados no fundo da página */
+.trancado::after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg,transparent,var(--preto) 82%);
+  pointer-events:none;
+}
+
+.paywall{
+  position:absolute;left:50%;bottom:var(--s-7);transform:translateX(-50%);
+  z-index:2;width:min(100% - 32px,520px);text-align:center;
+  padding:var(--s-6) var(--s-5);
+  background:linear-gradient(150deg,rgba(159,227,26,.16),var(--carvao) 60%);
+  border:1px solid rgba(159,227,26,.34);border-radius:var(--r-lg);
+  box-shadow:var(--sombra-3);
+}
+.paywall .cadeado{
+  width:52px;height:52px;margin:0 auto var(--s-4);
+  display:grid;place-items:center;border-radius:50%;
+  background:var(--lima);color:var(--preto);
+  box-shadow:0 0 28px var(--lima-glow);
+}
+.paywall .cadeado svg{width:24px;height:24px;stroke:currentColor;fill:none;stroke-width:2.2}
+.paywall h3{font-size:1.35rem;margin-bottom:var(--s-3)}
+.paywall p{color:var(--cinza);font-size:var(--t-sm);margin-bottom:var(--s-5)}
+.paywall .btn{width:100%}
+.paywall .micro{
+  margin-top:var(--s-3);font-size:var(--t-micro);color:var(--cinza-esc);
+}
+
+/* comparativo visitante × cadastrado — colapsa em uma coluna no mobile */
+.planos-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:var(--s-4);align-items:start;
+}
+
+/* lista de vantagens do cadastro */
+.vantagens{
+  display:grid;gap:var(--s-2);text-align:left;
+  margin:0 auto var(--s-5);max-width:300px;
+}
+.vantagens li{
+  display:flex;align-items:flex-start;gap:9px;
+  font-size:var(--t-sm);color:var(--branco);
+}
+.vantagens li::before{
+  content:"✓";color:var(--lima);font-weight:800;flex-shrink:0;line-height:1.5;
+}
+
+/* ============================================================
+   AUTENTICAÇÃO — cadastro e login
+   ============================================================ */
+.auth{
+  min-height:100vh;display:grid;grid-template-columns:1fr 1fr;
+}
+.auth-lado{
+  position:relative;overflow:hidden;padding:var(--s-9) var(--s-7);
+  display:flex;flex-direction:column;justify-content:center;
+  background:radial-gradient(700px 500px at 30% 10%,rgba(159,227,26,.14),transparent 62%),var(--preto-2);
+  border-right:1px solid var(--linha);
+}
+.auth-lado::before{
+  content:"";position:absolute;inset:0;
+  background-image:var(--mesh);background-size:var(--mesh-size);
+  mask-image:radial-gradient(600px 500px at 40% 30%,#000,transparent 78%);
+  -webkit-mask-image:radial-gradient(600px 500px at 40% 30%,#000,transparent 78%);
+  opacity:.5;pointer-events:none;
+}
+.auth-lado > *{position:relative}
+.auth-lado h2{font-size:clamp(1.8rem,3vw,2.6rem);margin:var(--s-4) 0}
+.auth-lado .sub{color:var(--cinza);max-width:40ch;margin-bottom:var(--s-6)}
+
+.auth-form{
+  padding:var(--s-9) var(--s-7);
+  display:flex;flex-direction:column;justify-content:center;
+}
+.auth-form .caixa{width:min(100%,420px);margin-inline:auto}
+.auth-form h1{font-size:1.9rem;margin-bottom:var(--s-2)}
+.auth-form .apoio{color:var(--cinza);font-size:var(--t-sm);margin-bottom:var(--s-6)}
+
+.campo-grupo{margin-bottom:var(--s-4)}
+.campo-grupo label{
+  display:block;font-size:var(--t-xs);font-weight:600;
+  color:var(--branco);margin-bottom:7px;
+}
+.campo-grupo .dica{font-size:var(--t-micro);color:var(--cinza-esc);margin-top:6px}
+.campo-grupo .erro{
+  display:none;font-size:var(--t-micro);color:var(--crit);margin-top:6px;
+}
+.campo-grupo.invalido .campo{border-color:var(--crit)}
+.campo-grupo.invalido .erro{display:block}
+
+.dupla{display:grid;grid-template-columns:1fr 1fr;gap:var(--s-3)}
+
+.aviso{
+  display:flex;gap:11px;align-items:flex-start;
+  padding:13px 15px;border-radius:var(--r-sm);
+  background:var(--warn-wash);border:1px solid rgba(227,179,65,.3);
+  font-size:var(--t-xs);color:var(--branco);margin-bottom:var(--s-5);
+}
+.aviso.erro-geral{background:var(--crit-wash);border-color:rgba(239,106,106,.35)}
+.aviso b{display:block;margin-bottom:2px}
+
+.troca{
+  text-align:center;margin-top:var(--s-5);
+  font-size:var(--t-sm);color:var(--cinza);
+}
+.troca a{color:var(--lima);font-weight:600}
+.troca a:hover{text-decoration:underline}
+
+.voltar{
+  display:inline-flex;align-items:center;gap:7px;
+  font-size:var(--t-sm);color:var(--cinza);margin-bottom:var(--s-6);
+  transition:color var(--dur-1);
+}
+.voltar:hover{color:var(--lima)}
+.voltar svg{width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:2}
+
+/* ============================================================
+   MENU DE CONTA (topbar da plataforma)
+   ============================================================ */
+.conta{position:relative}
+.conta-btn{
+  display:inline-flex;align-items:center;gap:9px;
+  padding:6px 12px 6px 6px;border-radius:var(--r-pill);
+  border:1px solid var(--linha);transition:border-color var(--dur-1);
+}
+.conta-btn:hover{border-color:var(--lima)}
+.avatar{
+  width:29px;height:29px;border-radius:50%;flex-shrink:0;
+  display:grid;place-items:center;
+  background:var(--lima);color:var(--preto);
+  font-family:var(--display);font-weight:900;font-size:var(--t-xs);
+}
+.conta-btn .nome{font-size:var(--t-xs);font-weight:600;color:var(--branco)}
+
+.conta-menu{
+  position:absolute;right:0;top:calc(100% + 10px);min-width:210px;
+  background:var(--carvao);border:1px solid var(--linha);
+  border-radius:var(--r);box-shadow:var(--sombra-3);
+  padding:var(--s-2);z-index:100;
+  opacity:0;visibility:hidden;transform:translateY(-6px);
+  transition:opacity var(--dur-1),transform var(--dur-1),visibility var(--dur-1);
+}
+.conta-menu.aberto{opacity:1;visibility:visible;transform:none}
+.conta-menu .cabeca{
+  padding:10px 12px;border-bottom:1px solid var(--linha);margin-bottom:var(--s-2);
+}
+.conta-menu .cabeca b{display:block;font-size:var(--t-sm)}
+.conta-menu .cabeca span{font-size:var(--t-micro);color:var(--cinza-esc)}
+.conta-menu button,.conta-menu a{
+  display:flex;width:100%;align-items:center;gap:10px;
+  padding:10px 12px;border-radius:var(--r-sm);
+  font-size:var(--t-sm);color:var(--cinza);text-align:left;
+  transition:background var(--dur-1),color var(--dur-1);
+}
+.conta-menu button:hover,.conta-menu a:hover{background:var(--carvao-2);color:var(--branco)}
+.conta-menu .sair-item:hover{color:var(--crit)}
+
+@media (max-width:860px){
+  .auth{grid-template-columns:1fr}
+  .auth-lado{display:none}
+  .auth-form{padding:var(--s-7) var(--s-5);min-height:100vh}
+}
+@media (max-width:760px){
+  .conta-btn .nome{display:none}
+  .paywall{bottom:var(--s-5);padding:var(--s-5) var(--s-4)}
+  .dupla{grid-template-columns:1fr}
+}
+
+/* ============================================================
+   ESTADO VAZIO
+   ============================================================ */
+.vazio{
+  text-align:center;padding:var(--s-9) var(--s-5);
+  border:1px dashed var(--linha);border-radius:var(--r-lg);
+  background:var(--lima-wash-2);
+}
+.vazio .ico{
+  width:56px;height:56px;margin:0 auto var(--s-4);
+  display:grid;place-items:center;border-radius:50%;
+  background:var(--lima-wash);color:var(--lima);
+}
+.vazio .ico svg{width:26px;height:26px;stroke:currentColor;fill:none}
+.vazio h3{margin-bottom:var(--s-2)}
+.vazio p{color:var(--cinza);font-size:var(--t-sm);max-width:420px;margin:0 auto var(--s-5)}
+
+/* ============================================================
+   CTA — ponte para o curso (ângulo comercial da CFC)
+   ============================================================ */
+.cta{
+  position:relative;overflow:hidden;
+  padding:var(--s-8) var(--s-6);border-radius:var(--r-lg);
+  background:linear-gradient(150deg,rgba(159,227,26,.15),var(--carvao) 55%);
+  border:1px solid rgba(159,227,26,.3);text-align:center;
+}
+.cta::before{
+  content:"";position:absolute;inset:0;
+  background-image:var(--mesh);background-size:var(--mesh-size);
+  opacity:.4;pointer-events:none;
+}
+.cta > *{position:relative}
+.cta h2{margin:var(--s-3) auto var(--s-4);max-width:16ch}
+.cta p{color:var(--cinza);max-width:52ch;margin:0 auto var(--s-6)}
+
+/* ============================================================
+   RODAPÉ
+   ============================================================ */
+.rodape{border-top:1px solid var(--linha);background:var(--preto-2);padding:var(--s-8) 0 var(--s-6)}
+.rodape-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:var(--s-7);margin-bottom:var(--s-7)}
+.rodape h4{font-size:var(--t-xs);text-transform:uppercase;letter-spacing:.14em;color:var(--cinza-esc);margin-bottom:var(--s-4)}
+.rodape ul{display:grid;gap:var(--s-3)}
+.rodape ul a{font-size:var(--t-sm);color:var(--cinza);transition:color var(--dur-1)}
+.rodape ul a:hover{color:var(--lima)}
+.rodape .sobre{font-size:var(--t-sm);color:var(--cinza);max-width:38ch;margin-top:var(--s-4)}
+.rodape-base{
+  border-top:1px solid var(--linha);padding-top:var(--s-5);
+  display:flex;justify-content:space-between;gap:var(--s-4);flex-wrap:wrap;
+  font-size:var(--t-micro);color:var(--cinza-esc);
+}
+
+/* ============================================================
+   RESPONSIVO
+   ============================================================ */
+@media (max-width:960px){
+  .hero-grid{grid-template-columns:1fr;gap:var(--s-7)}
+  .hero .lead{max-width:none}
+  .rodape-grid{grid-template-columns:1fr 1fr;gap:var(--s-6)}
+  .strip .container{grid-template-columns:repeat(2,1fr);gap:var(--s-6)}
+}
+
+@media (max-width:760px){
+  .nav{
+    position:fixed;inset:var(--topbar-h) 0 auto 0;
+    flex-direction:column;align-items:stretch;gap:0;
+    background:var(--preto-2);border-bottom:1px solid var(--linha);
+    padding:var(--s-3) 20px var(--s-5);
+    transform:translateY(-120%);transition:transform var(--dur-2) var(--ease);
+  }
+  .nav.aberto{transform:none}
+  .nav a{padding:13px 0;border-bottom:1px solid var(--linha-fraca)}
+  .nav a::after{display:none}
+  .menu-btn{display:grid}
+  .pulso{display:none}
+
+  .busca-linha{grid-template-columns:1fr}
+  .edital{grid-template-columns:1fr;gap:var(--s-4)}
+  .edital-lado{
+    flex-direction:row;align-items:center;text-align:left;
+    padding-top:var(--s-4);border-top:1px solid var(--linha-fraca);
+  }
+  .salario{font-size:1.3rem}
+  .salario small{margin-bottom:2px}
+  .prazo b{font-size:.92rem}
+  .blk{padding:var(--s-8) 0}
+  .hero{padding-top:calc(var(--topbar-h) + var(--s-7))}
+}
+
+@media (max-width:460px){
+  .strip .container{grid-template-columns:1fr;gap:var(--s-5)}
+  .rodape-grid{grid-template-columns:1fr}
+  .edital-lado{flex-direction:column;align-items:flex-start;gap:var(--s-3)}
+}
+
+/* ============================================================
+   IMPRESSÃO — um edital salvo em PDF ainda precisa ser legível
+   ============================================================ */
+@media print{
+  .topbar,.busca-wrap,.edital-acoes,.cta,.scanner{display:none !important}
+  body{background:#fff;color:#000}
+  .edital{border:1px solid #ccc;background:none;break-inside:avoid}
+  .salario{color:#000}
+}

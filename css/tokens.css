@@ -1,0 +1,103 @@
+/* ============================================================
+   CFC ACADEMY · RADAR DE EDITAIS
+   Design System — camada 1: tokens
+   ------------------------------------------------------------
+   Identidade herdada das propriedades CFC Academy:
+   landing-pages/cfc-questoes, cfc-express, quiz-cfc.
+   Conceito desta plataforma: PAINEL DE MONITORAMENTO.
+   Lima fosforescente sobre preto. Nada decorativo sem função.
+   Ponto ÚNICO de calibração — não redefinir cor fora daqui.
+   ============================================================ */
+
+:root{
+  /* ---------- superfícies ---------- */
+  --preto:#0a0f0a;          /* fundo raiz (preto esverdeado CFC) */
+  --preto-2:#0f1710;        /* elevação 1 — faixas, barras */
+  --carvao:#141c14;         /* elevação 2 — cards, painéis */
+  --carvao-2:#18211a;       /* elevação 3 — hover / aninhado */
+  --carvao-3:#1e2a1f;       /* elevação 4 — inputs, chips */
+
+  /* ---------- acento ---------- */
+  --lima:#9FE31A;
+  --lima-esc:#76A41C;
+  --lima-claro:#B6EF4A;     /* hover sobre escuro */
+  --lima-glow:rgba(159,227,26,.5);
+  --lima-wash:rgba(159,227,26,.12);
+  --lima-wash-2:rgba(159,227,26,.06);
+
+  /* ---------- tinta ---------- */
+  --branco:#F3F7F0;
+  --cinza:#9aa79a;
+  --cinza-esc:#5f6b5f;
+
+  /* ---------- linhas ---------- */
+  --linha:rgba(159,227,26,.16);
+  --linha-fraca:rgba(159,227,26,.08);
+  --linha-neutra:rgba(243,247,240,.10);
+
+  /* ---------- semânticos ---------- *
+     Regra: lima é reservado a "aberto/ativo". Os demais estados
+     usam âmbar/vermelho/cinza para não competir com o acento. */
+  --ok:#9FE31A;             /* inscrições abertas */
+  --ok-wash:rgba(159,227,26,.12);
+  --warn:#E3B341;           /* encerrando / previsto */
+  --warn-wash:rgba(227,179,65,.14);
+  --crit:#EF6A6A;           /* encerrado */
+  --crit-wash:rgba(239,106,106,.13);
+  --info:#5BC8E3;           /* banca definida / andamento */
+  --info-wash:rgba(91,200,227,.13);
+
+  /* ---------- tipografia ---------- */
+  --display:'Archivo',ui-sans-serif,system-ui,sans-serif;
+  --body:'Sora',ui-sans-serif,system-ui,-apple-system,sans-serif;
+  --mono:'JetBrains Mono',ui-monospace,'Cascadia Mono',Consolas,monospace;
+
+  /* escala tipográfica (fluida) */
+  --t-hero:clamp(2.6rem,6vw,4.6rem);
+  --t-h1:clamp(2rem,4vw,3rem);
+  --t-h2:clamp(1.5rem,2.6vw,2.1rem);
+  --t-h3:1.18rem;
+  --t-body:1rem;
+  --t-sm:.88rem;
+  --t-xs:.78rem;
+  --t-micro:.71rem;
+
+  /* ---------- espaço ---------- */
+  --s-1:4px;  --s-2:8px;  --s-3:12px; --s-4:16px;
+  --s-5:24px; --s-6:32px; --s-7:48px; --s-8:64px; --s-9:96px;
+
+  /* ---------- raio ---------- */
+  --r-xs:6px; --r-sm:10px; --r:14px; --r-lg:20px; --r-pill:999px;
+
+  /* ---------- sombra ---------- */
+  --sombra-1:0 2px 8px rgba(0,0,0,.4);
+  --sombra-2:0 12px 40px -12px rgba(0,0,0,.7);
+  --sombra-3:0 40px 90px rgba(0,0,0,.55);
+  --sombra-lima:0 14px 34px rgba(159,227,26,.28);
+
+  /* ---------- layout ---------- */
+  --max:1240px;
+  --max-txt:720px;
+  --topbar-h:56px;
+
+  /* ---------- motion ---------- */
+  --ease:cubic-bezier(.2,.8,.2,1);
+  --dur-1:.18s; --dur-2:.28s; --dur-3:.6s;
+}
+
+/* Grid mesh — assinatura visual herdada da CFC.
+   Usado como textura de fundo em heros e painéis. */
+:root{
+  --mesh:linear-gradient(var(--linha) 1px,transparent 1px),
+         linear-gradient(90deg,var(--linha) 1px,transparent 1px);
+  --mesh-size:52px 52px;
+}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{
+    animation-duration:.01ms !important;
+    animation-iteration-count:1 !important;
+    transition-duration:.01ms !important;
+    scroll-behavior:auto !important;
+  }
+}

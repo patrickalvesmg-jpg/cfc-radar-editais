@@ -1,0 +1,93 @@
+# Radar de Editais · CFC Academy
+
+Plataforma que reúne editais de concursos públicos da área contábil no Brasil.
+Esta entrega é o **front-end** — a captura automática dos editais é a fase 2.
+
+> **Demonstração.** Os editais são exemplos realistas, **não são dados reais**.
+> O cadastro e o login são simulados no navegador (localStorage), sem backend.
+
+---
+
+## Como navegar
+
+| Página | Arquivo | Acesso |
+|---|---|---|
+| Landing (vitrine) | `index.html` | Público |
+| Criar conta | `cadastro.html` | Público |
+| Entrar | `login.html` | Público |
+| Plataforma | `app.html` | **Exige sessão** |
+
+**Fluxo:** a landing mostra **3 editais completos** e o restante borrado, com o
+paywall por cima. Ao criar conta, todos os editais são liberados em `app.html`.
+Quem tenta abrir `app.html` sem sessão é mandado para o cadastro e volta para lá
+depois de entrar.
+
+Para testar de novo do zero, limpe o `localStorage` do site (DevTools →
+Application → Local Storage) ou use uma janela anônima.
+
+---
+
+## Rodar localmente
+
+Os módulos ES e o `fetch` do JSON não funcionam abrindo o arquivo direto
+(`file://`). Suba um servidor estático na pasta:
+
+```bash
+npx serve .
+# ou
+python -m http.server 8080
+```
+
+E abra `http://localhost:8080`.
+
+---
+
+## Estrutura
+
+```
+index.html        landing pública, amostra + paywall
+cadastro.html     criar conta
+login.html        entrar
+app.html          plataforma (protegida)
+
+css/
+  tokens.css      variáveis — ponto único de calibração da identidade
+  base.css        reset, tipografia, primitivos (.btn .badge .chip .campo)
+  app.css         componentes (topbar, hero, cards, filtros, paywall, auth)
+
+js/
+  sessao.js       sessão simulada em localStorage
+  comum.js        formatação, ordenação e o card de edital (compartilhado)
+  landing.js      landing pública
+  auth.js         cadastro e login
+  app.js          plataforma
+
+data/
+  editais.json    12 editais de exemplo
+```
+
+Sem build, sem npm, sem framework — HTML/CSS/JS puro com módulos ES.
+
+---
+
+## Identidade visual
+
+Documentada em [`IDENTIDADE-VISUAL.md`](IDENTIDADE-VISUAL.md). Resumo:
+
+- Tema **dark**: preto esverdeado `#0a0f0a` com acento **verde-lima `#9FE31A`**
+- Fontes **Archivo** (títulos) + **Sora** (corpo) + **JetBrains Mono** (horários)
+- Conceito: **painel de monitoramento** — varredura, feed ao vivo, status
+
+**Regra:** nenhuma cor literal fora de `css/tokens.css`.
+
+---
+
+## Pendências para a fase 2
+
+- Backend do robô de captura (varredura dos diários oficiais)
+- Autenticação real — `js/sessao.js` é substituído por completo
+- Banco de dados e painel admin para cadastrar editais
+- Alertas por e-mail/WhatsApp
+- Logo oficial da CFC Academy (hoje há um ícone de radar como marcador)
+- Links reais do curso e da comunidade
+- Definir domínio final

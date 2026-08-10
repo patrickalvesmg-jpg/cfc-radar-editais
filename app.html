@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<meta name="theme-color" content="#0a0f0a" />
+<title>Radar de Editais · CFC Academy — Todo concurso de contabilidade do Brasil, em um lugar</title>
+<meta name="description" content="A plataforma que varre diários oficiais e portais de banca 24 horas por dia e reúne todo edital de concurso público para contadores do Brasil. Salário, prazo e banca em um só painel." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Archivo:wght@600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+
+<a href="#painel" class="skip-link">Pular para os editais</a>
+
+<!-- ============================================================
+     TOPBAR
+     ============================================================ -->
+<header class="topbar">
+  <div class="topbar-inner">
+    <a href="app.html" class="marca" aria-label="CFC Academy — Radar de Editais">
+      <span class="mk" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/>
+        </svg>
+      </span>
+      <span class="txt">Radar de Editais<small>CFC Academy</small></span>
+    </a>
+
+    <nav class="nav" id="nav" aria-label="Navegação principal">
+      <a href="#painel" aria-current="page">Editais</a>
+      <a href="#agenda">Agenda de provas</a>
+      <a href="#como">Como funciona</a>
+      
+    </nav>
+
+    <div style="display:flex;align-items:center;gap:12px">
+      <span class="pulso" title="Última varredura automática">
+        <i aria-hidden="true"></i> Varredura ativa · <b id="pulso-hora">--:--</b>
+      </span>
+
+      <div class="conta">
+        <button class="conta-btn" id="conta-btn" aria-expanded="false" aria-haspopup="true" aria-controls="conta-menu">
+          <span class="avatar" id="avatar">?</span>
+          <span class="nome" id="conta-nome">Conta</span>
+        </button>
+        <div class="conta-menu" id="conta-menu" role="menu">
+          <div class="cabeca">
+            <b id="menu-nome">—</b>
+            <span id="menu-email">—</span>
+          </div>
+          <a href="index.html" role="menuitem">Página inicial</a>
+          <button type="button" class="sair-item" id="sair" role="menuitem">Sair da conta</button>
+        </div>
+      </div>
+
+      <button class="menu-btn" id="menu-btn" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ============================================================
+     BOAS-VINDAS
+     ============================================================ -->
+<section style="padding:calc(var(--topbar-h) + var(--s-6)) 0 var(--s-5);background:radial-gradient(700px 400px at 78% -20%,rgba(159,227,26,.12),transparent 62%),var(--preto)">
+  <div class="container">
+    <span class="eyebrow">Seu painel</span>
+    <h1 style="font-size:clamp(1.7rem,3.4vw,2.5rem);margin:var(--s-3) 0 var(--s-2)">
+      Olá, <span style="color:var(--lima)" id="saudacao">contador</span>. Isto é o que o radar encontrou.
+    </h1>
+    <p style="color:var(--cinza);max-width:60ch">
+      Todos os editais liberados. Use a busca e os filtros para chegar no que interessa a você.
+    </p>
+  </div>
+</section>
+
+<!-- ============================================================
+     FAIXA DE NÚMEROS
+     ============================================================ -->
+<section class="strip">
+  <div class="container">
+    <div><div class="n num" id="s-abertos">0</div><div class="l">Editais abertos agora</div></div>
+    <div><div class="n num" id="s-vagas">0</div><div class="l">Vagas mapeadas</div></div>
+    <div><div class="n num" id="s-salario">R$ 0</div><div class="l">Maior salário no radar</div></div>
+    <div><div class="n num">24/7</div><div class="l">Varredura automática</div></div>
+  </div>
+</section>
+
+<!-- ============================================================
+     PAINEL DE EDITAIS
+     ============================================================ -->
+<main id="painel">
+  <div class="busca-wrap">
+    <div class="container">
+      <div class="busca-linha">
+        <div class="busca-campo">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+          <input type="search" id="busca" class="campo" placeholder="Buscar por órgão, cargo, banca, cidade ou estado…" aria-label="Buscar editais">
+        </div>
+        <select id="ordem" class="campo" aria-label="Ordenar editais" style="width:auto">
+          <option value="prazo">Prazo acabando</option>
+          <option value="salario">Maior salário</option>
+          <option value="vagas">Mais vagas</option>
+          <option value="recente">Capturado agora</option>
+        </select>
+        <button class="btn btn-ghost btn-sm" id="btn-filtros" aria-expanded="false" aria-controls="filtros">Filtros</button>
+      </div>
+
+      <div class="filtros oculto" id="filtros">
+        <div class="filtro-grupo">
+          <label for="f-uf">Estado</label>
+          <select id="f-uf" class="campo" data-filtro="uf"><option value="">Todos</option></select>
+        </div>
+        <div class="filtro-grupo">
+          <label for="f-banca">Banca</label>
+          <select id="f-banca" class="campo" data-filtro="banca"><option value="">Todas</option></select>
+        </div>
+        <div class="filtro-grupo">
+          <label for="f-nivel">Esfera</label>
+          <select id="f-nivel" class="campo" data-filtro="nivel">
+            <option value="">Todas</option>
+            <option value="federal">Federal</option>
+            <option value="estadual">Estadual</option>
+            <option value="municipal">Municipal</option>
+          </select>
+        </div>
+        <div class="filtro-grupo">
+          <label for="f-escolaridade">Escolaridade</label>
+          <select id="f-escolaridade" class="campo" data-filtro="escolaridade">
+            <option value="">Todas</option>
+            <option value="superior">Superior</option>
+            <option value="medio">Médio / Técnico</option>
+          </select>
+        </div>
+        <div class="filtro-grupo">
+          <label for="f-salario">Salário mínimo</label>
+          <select id="f-salario" class="campo" data-filtro="salarioMin">
+            <option value="">Qualquer</option>
+            <option value="5000">Acima de R$ 5.000</option>
+            <option value="8000">Acima de R$ 8.000</option>
+            <option value="12000">Acima de R$ 12.000</option>
+            <option value="18000">Acima de R$ 18.000</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="chips-ativos" id="chips" aria-live="polite"></div>
+
+      <div class="abas" role="tablist" aria-label="Filtrar por situação" style="margin-top:var(--s-4)">
+        <button class="aba" role="tab" aria-selected="true" data-status="todos">Todos <span class="cont">0</span></button>
+        <button class="aba" role="tab" aria-selected="false" data-status="aberto">Abertos <span class="cont">0</span></button>
+        <button class="aba" role="tab" aria-selected="false" data-status="encerrando">Encerrando <span class="cont">0</span></button>
+        <button class="aba" role="tab" aria-selected="false" data-status="previsto">Previstos <span class="cont">0</span></button>
+        <button class="aba" role="tab" aria-selected="false" data-status="encerrado">Encerrados <span class="cont">0</span></button>
+      </div>
+    </div>
+  </div>
+
+  <section class="blk blk-resultados">
+    <div class="container">
+      <p id="resumo" style="font-size:var(--t-sm);color:var(--cinza);margin-bottom:var(--s-5)" aria-live="polite"></p>
+      <div class="lista" id="lista"></div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       COMO FUNCIONA
+       ============================================================ -->
+  <section class="blk" id="como" style="background:var(--preto-2);border-block:1px solid var(--linha)">
+    <div class="container">
+      <div class="blk-head">
+        <span class="eyebrow">O motor por trás</span>
+        <h2>Você não procura. A plataforma encontra.</h2>
+        <p>Três etapas rodando sem parar, para que nenhum edital de contabilidade passe despercebido.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:var(--s-4)">
+        <article class="card up" style="padding:var(--s-5)">
+          <div class="mono" style="color:var(--lima);font-size:var(--t-xs);margin-bottom:var(--s-3)">01</div>
+          <h3 style="margin-bottom:var(--s-3)">Varre as fontes</h3>
+          <p style="color:var(--cinza);font-size:var(--t-sm)">Diários oficiais da União, dos estados e dos municípios, mais os portais das principais bancas — verificados várias vezes ao dia.</p>
+        </article>
+        <article class="card up" style="padding:var(--s-5)">
+          <div class="mono" style="color:var(--lima);font-size:var(--t-xs);margin-bottom:var(--s-3)">02</div>
+          <h3 style="margin-bottom:var(--s-3)">Filtra o que é seu</h3>
+          <p style="color:var(--cinza);font-size:var(--t-sm)">Só entra no radar o que exige formação ou atuação contábil: contador, auditor, analista de controle, fiscal de tributos.</p>
+        </article>
+        <article class="card up" style="padding:var(--s-5)">
+          <div class="mono" style="color:var(--lima);font-size:var(--t-xs);margin-bottom:var(--s-3)">03</div>
+          <h3 style="margin-bottom:var(--s-3)">Organiza e avisa</h3>
+          <p style="color:var(--cinza);font-size:var(--t-sm)">Salário, vagas, banca e prazo padronizados no mesmo formato. Você acompanha o que interessa e recebe aviso quando abrir.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       AGENDA
+       ============================================================ -->
+  <section class="blk" id="agenda">
+    <div class="container">
+      <div class="blk-head">
+        <span class="eyebrow">Calendário</span>
+        <h2>As próximas provas</h2>
+        <p>Quando cada concurso do radar vai aplicar prova — para você planejar o estudo com antecedência.</p>
+      </div>
+      <div class="lista" id="agenda-lista"></div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       CTA — ponte para o curso
+       ============================================================ -->
+  <section class="blk" id="curso" style="padding-top:0">
+    <div class="container">
+      <div class="cta up">
+        <span class="eyebrow">CFC Academy</span>
+        <h2>Achar o edital é a parte fácil.</h2>
+        <p>
+          O radar mostra a oportunidade. Passar depende de método.
+          Conheça a preparação da CFC Academy para concursos da área contábil.
+        </p>
+        <a href="#" class="btn btn-lima">Quero conhecer o método</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ============================================================
+     RODAPÉ
+     ============================================================ -->
+<footer class="rodape">
+  <div class="container">
+    <div class="rodape-grid">
+      <div>
+        <a href="app.html" class="marca">
+          <span class="mk" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/>
+            </svg>
+          </span>
+          <span class="txt">Radar de Editais<small>CFC Academy</small></span>
+        </a>
+        <p class="sobre">O painel de concursos públicos da área contábil no Brasil. Atualizado automaticamente.</p>
+      </div>
+      <div>
+        <h4>Plataforma</h4>
+        <ul>
+          <li><a href="#painel">Editais</a></li>
+          <li><a href="#agenda">Agenda de provas</a></li>
+          <li><a href="#como">Como funciona</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>CFC Academy</h4>
+        <ul>
+          <li><a href="#curso">Curso de concursos</a></li>
+          <li><a href="#">Comunidade</a></li>
+          <li><a href="#">Contato</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="rodape-base">
+      <span>© 2026 CFC Academy. Todos os direitos reservados.</span>
+      <span>Os dados exibidos são informativos. Confirme sempre no edital oficial.</span>
+    </div>
+  </div>
+</footer>
+
+<script type="module" src="js/app.js"></script>
+</body>
+</html>
