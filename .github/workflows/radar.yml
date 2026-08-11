@@ -93,17 +93,28 @@ jobs:
       - name: Guardar resultado (PR falhou)
         if: steps.diff.outputs.mudou == 'true' && steps.pr.outcome == 'failure'
         run: |
-          echo "::warning::Não foi possível abrir o Pull Request."
+          echo "::warning::Não foi possível abrir o Pull Request automaticamente."
           echo "::warning::Ative em Settings > Actions > General > Workflow permissions:"
           echo "::warning::'Allow GitHub Actions to create and approve pull requests'."
+
+          # A action de PR já move as mudanças para a branch dela antes de
+          # falhar, então pode não sobrar nada para commitar aqui — não é
+          # erro. Só empurramos a branch se houver mudança de fato.
           BRANCH="radar/varredura-$(date +%Y-%m-%d)"
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git checkout -b "$BRANCH"
-          git add data/editais.json
-          git commit -m "chore(radar): editais capturados em ${{ github.run_id }}"
-          git push -f origin "$BRANCH"
-          echo "::notice::Resultado salvo na branch $BRANCH — abra o PR manualmente."
+          git checkout -B "$BRANCH"
+
+          if git diff --quiet -- data/editais.json && git diff --cached --quiet -- data/editais.json; then
+            echo "::notice::Nada a commitar aqui — veja a branch radar/varredura-automatica."
+          else
+            git add data/editais.json
+            git commit -m "chore(radar): editais capturados em ${{ github.run_id }}"
+            git push -f origin "$BRANCH"
+            echo "::notice::Resultado salvo na branch $BRANCH."
+          fi
+
+          echo "::notice::Abra o PR manualmente a partir da branch do radar."
 
       - name: Publicar JSON como artefato
         if: steps.diff.outputs.mudou == 'true' && steps.pr.outcome == 'failure'
