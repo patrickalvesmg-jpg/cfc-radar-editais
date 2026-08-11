@@ -61,8 +61,51 @@ def _iso(br: str) -> str:
     return f"{a}-{m}-{d}"
 
 
-def _confirmar_cargo(url: str) -> tuple[str, str] | None:
-    """Abre o detalhe e devolve (cargo, vagas) da vaga contábil.
+# Site onde a inscrição realmente acontece. Em concurso municipal é
+# sempre a BANCA organizadora (Inepam, AvançaSP, GL Consultoria…), nunca
+# um .gov.br — verificado em 10 de 10 concursos. Guardamos esse endereço
+# para a página interna do radar poder mandar o candidato ao lugar certo
+# sem passar por nenhum agregador concorrente.
+SITE_OFICIAL = re.compile(
+    r"(?:pelo|no|atrav[ée]s do|por meio do|junto ao)\s+"
+    r"(?:site|endere[çc]o(?:\s+eletr[ôo]nico)?|portal|link)\s+"
+    r"((?:https?://)?(?:www\.)?[\w-]+\.(?:org|com|net|gov|edu)(?:\.br)?)",
+    re.I,
+)
+DOMINIO_QUALQUER = re.compile(
+    r"\b((?:www\.)?[\w-]+\.(?:org|com|net|gov|edu)\.br)\b", re.I
+)
+# Nunca apontar para agregador ou rede social — o radar é a plataforma.
+DOMINIO_PROIBIDO = re.compile(
+    r"pciconcursos|schema\.org|pci\.api\.br|googletag|google|facebook"
+    r"|whatsapp|instagram|twitter|youtube|linkedin|jcconcursos"
+    r"|concursosnobrasil|folhadirigida|qconcursos|grancursos|estrategia",
+    re.I,
+)
+
+
+def _site_inscricao(texto: str) -> str:
+    """Endereço onde a inscrição é feita, ou '' se não der para afirmar."""
+    m = SITE_OFICIAL.search(texto)
+    if m:
+        alvo = m.group(1)
+    else:
+        candidatos = [
+            d for d in dict.fromkeys(DOMINIO_QUALQUER.findall(texto))
+            if not DOMINIO_PROIBIDO.search(d)
+        ]
+        if not candidatos:
+            return ""
+        # .gov.br primeiro; senão o primeiro domínio citado.
+        alvo = next((c for c in candidatos if ".gov.br" in c.lower()), candidatos[0])
+
+    if DOMINIO_PROIBIDO.search(alvo):
+        return ""
+    return alvo if alvo.startswith("http") else f"https://{alvo}"
+
+
+def _confirmar_cargo(url: str) -> tuple[str, str, str] | None:
+    """Abre o detalhe e devolve (cargo, vagas, site_inscricao).
 
     Devolve None se a página não confirmar cargo contábil — melhor perder
     o registro que afirmar uma vaga que talvez não exista.
@@ -75,16 +118,18 @@ def _confirmar_cargo(url: str) -> tuple[str, str] | None:
     if not PADRAO_CONTABIL.search(texto):
         return None
 
+    site = _site_inscricao(texto)
+
     m = CARGO_DETALHE.search(texto)
     if m:
         cargo = re.sub(r"\s+", " ", m.group(1)).strip().title()
         vagas = m.group(2).strip()
         # "1 vaga + CR" → "1 + CR" ; "CR" → "CR"
         vagas = re.sub(r"\s*vagas?\s*", " ", vagas, flags=re.I).strip()
-        return cargo, vagas
+        return cargo, vagas, site
 
     # Termo contábil presente, mas sem o padrão "Cargo (n vagas)".
-    return "Área contábil — verificar edital", ""
+    return "Área contábil — verificar edital", "", site
 
 
 def coletar(limite: int = 25) -> list[dict]:
@@ -136,7 +181,7 @@ def coletar(limite: int = 25) -> list[dict]:
             confirmado = _confirmar_cargo(url)
             if not confirmado:
                 continue
-            nome_cargo, vagas_cargo = confirmado
+            nome_cargo, vagas_cargo, site_inscricao = confirmado
 
             achados.append({
                 "fonte": "PCI Concursos",
@@ -144,7 +189,12 @@ def coletar(limite: int = 25) -> list[dict]:
                 "titulo": orgao,
                 "orgao_bruto": orgao,
                 "texto": texto_bloco[:2000],
-                "url": url,
+                # O `url` do agregador NÃO vai para o site: ele serve só
+                # como procedência interna, para o revisor conferir a
+                # origem. O radar nunca manda visitante a concorrente.
+                "url": "",
+                "_procedencia": url,
+                "_site_inscricao": site_inscricao,
                 "publicado_em": "",
                 "_cargo": nome_cargo,
                 # Vagas do CARGO CONTÁBIL, não o total do concurso: dizer

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<meta name="theme-color" content="#0a0f0a" />
+<title>Edital · Radar de Editais — CFC Academy</title>
+<meta name="description" content="Detalhes do concurso público da área contábil: cargo, salário, vagas, prazo de inscrição e banca." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Archivo:wght@600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+
+<a href="#conteudo" class="skip-link">Pular para o conteúdo</a>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a href="index.html" class="marca" aria-label="CFC Academy — Radar de Editais">
+      <span class="mk" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/>
+        </svg>
+      </span>
+      <span class="txt">Radar de Editais<small>CFC Academy</small></span>
+    </a>
+
+    <nav class="nav" id="nav" aria-label="Navegação principal">
+      <a href="index.html">Editais</a>
+      <a href="index.html#como">Como funciona</a>
+      <a href="app.html">Minha conta</a>
+    </nav>
+
+    <div style="display:flex;align-items:center;gap:12px">
+      <a href="cadastro.html" class="btn btn-lima btn-sm" id="cta-topo">Criar conta grátis</a>
+      <button class="menu-btn" id="menu-btn" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="conteudo" class="blk" style="padding-top:calc(var(--topbar-h) + var(--s-7))">
+  <div class="container">
+    <a href="index.html" class="voltar" style="margin-bottom:var(--s-5)">
+      <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      Voltar para os editais
+    </a>
+
+    <div id="detalhe" aria-live="polite">
+      <p style="color:var(--cinza)">Carregando…</p>
+    </div>
+  </div>
+</main>
+
+<footer class="rodape">
+  <div class="container">
+    <div class="rodape-base" style="border:0;padding-top:0">
+      <span>© 2026 CFC Academy. Todos os direitos reservados.</span>
+      <span>Os dados exibidos são informativos. Confirme sempre no edital oficial do órgão.</span>
+    </div>
+  </div>
+</footer>
+
+<script type="module" src="js/edital.js"></script>
+</body>
+</html>

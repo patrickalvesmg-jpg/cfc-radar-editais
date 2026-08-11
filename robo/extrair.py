@@ -210,13 +210,20 @@ def montar(achado: dict) -> dict:
     uf = achado.get("_uf") or extrair_uf(texto, orgao)
     cidade = achado.get("_cidade", "")
 
+    # O id precisa ser estável mesmo agora que `url` é o link interno:
+    # usamos a procedência (URL de origem), que não muda entre execuções.
+    id_est = id_estavel(
+        achado["titulo"], orgao,
+        achado.get("_procedencia") or achado.get("url", ""),
+    )
+
     confianca = achado.get("_confianca")
     if not confianca:
         completos = sum(bool(x) for x in (cargo, fim, salario))
         confianca = "alta" if completos == 3 else "media" if completos == 2 else "baixa"
 
     return {
-        "id": id_estavel(achado["titulo"], orgao, achado["url"]),
+        "id": id_est,
         "orgao": orgao,
         "cargo": cargo or "Área contábil — verificar edital",
         "banca": banca,
@@ -233,7 +240,16 @@ def montar(achado: dict) -> dict:
         "inscricaoFim": fim or "",
         "dataProva": "",
         "taxaInscricao": 0,
-        "editalUrl": achado["url"],
+        # Link do card aponta para a PÁGINA INTERNA do radar. O site não
+        # manda visitante para agregador concorrente — quem constrói
+        # audiência é a plataforma, não quem indexa.
+        "editalUrl": f"edital.html?id={id_est}",
+        # Onde a inscrição realmente acontece (banca organizadora ou
+        # órgão). Fica vazio quando não dá para afirmar — a página
+        # interna então orienta a procurar o edital oficial.
+        "siteInscricao": achado.get("_site_inscricao", "") or achado.get("url", ""),
+        # Origem do dado, para auditoria do revisor. Não é exibida.
+        "procedencia": achado.get("_procedencia", "") or achado.get("url", ""),
         "fonte": achado["fonte"],
         "capturadoEm": datetime.now().isoformat(timespec="seconds"),
         "confianca": confianca,
