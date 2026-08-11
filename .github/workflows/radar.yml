@@ -50,8 +50,16 @@ jobs:
       # Pull Request em vez de commit direto: nada vai ao ar sem
       # revisão humana. Data de inscrição errada prejudica candidato
       # de verdade, e a extração automática erra.
+      #
+      # PRÉ-REQUISITO: em Settings → Actions → General → Workflow
+      # permissions, marcar "Allow GitHub Actions to create and approve
+      # pull requests". É desligado por padrão e só o dono da conta
+      # consegue ativar — sem isso, este passo falha com
+      # "GitHub Actions is not permitted to create or approve pull requests".
       - name: Abrir Pull Request
+        id: pr
         if: steps.diff.outputs.mudou == 'true'
+        continue-on-error: true
         uses: peter-evans/create-pull-request@v6
         with:
           commit-message: "chore(radar): editais capturados em ${{ github.run_id }}"
@@ -78,3 +86,29 @@ jobs:
           labels: |
             radar
             revisar
+
+      # Se o PR não pôde ser criado, o trabalho da varredura não pode se
+      # perder: guardamos o JSON como artefato e numa branch, para você
+      # abrir o PR à mão ou baixar o resultado.
+      - name: Guardar resultado (PR falhou)
+        if: steps.diff.outputs.mudou == 'true' && steps.pr.outcome == 'failure'
+        run: |
+          echo "::warning::Não foi possível abrir o Pull Request."
+          echo "::warning::Ative em Settings > Actions > General > Workflow permissions:"
+          echo "::warning::'Allow GitHub Actions to create and approve pull requests'."
+          BRANCH="radar/varredura-$(date +%Y-%m-%d)"
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git checkout -b "$BRANCH"
+          git add data/editais.json
+          git commit -m "chore(radar): editais capturados em ${{ github.run_id }}"
+          git push -f origin "$BRANCH"
+          echo "::notice::Resultado salvo na branch $BRANCH — abra o PR manualmente."
+
+      - name: Publicar JSON como artefato
+        if: steps.diff.outputs.mudou == 'true' && steps.pr.outcome == 'failure'
+        uses: actions/upload-artifact@v4
+        with:
+          name: editais-capturados
+          path: data/editais.json
+          retention-days: 30
