@@ -32,7 +32,9 @@ Sem dependências: só a biblioteca padrão do Python 3.12+.
 
 | Fonte | O que cobre | Situação |
 |---|---|---|
-| **CEBRASPE** (`apis.cebraspe.org.br`) | Concursos da banca, com cargo/vagas/salário/prazo estruturados | Ativa — é o que rende |
+| **CEBRASPE** (`apis.cebraspe.org.br`) | Concursos da banca, com cargo/vagas/salário/prazo estruturados | Ativa |
+| **PCI Concursos** | Prefeituras — maior volume | Ativa — é o que mais rende |
+| **Portais WordPress** | Concursos no Brasil + Edital Concursos Brasil, via `/wp-json/` | Ativa — volume baixo |
 | **Consulplan** | Banca dos **Conselhos de Contabilidade** (CRC-CE, CRC-RJ, CFC/EQT) e de prefeituras | Ativa |
 | **Querido Diário** (`api.queridodiario.ok.org.br`) | Diários oficiais **municipais** de todo o Brasil | Ativa — rendimento baixo, ver abaixo |
 
@@ -116,6 +118,29 @@ quantos documentos cada consulta trouxe. Se as consultas trazem
 documentos mas o filtro zera **sempre por semanas**, aí vale investigar.
 
 ---
+
+## Links: o radar nunca aponta para concorrente
+
+Regra do produto: **nenhum link do site vai para outra plataforma de
+concurso**. Mandar visitante ao PCI é entregar a audiência ao concorrente.
+
+- O card abre `edital.html?id=...` — página interna com todos os dados.
+- O único link externo é **onde a inscrição acontece** (banca ou órgão),
+  extraído do texto da fonte. Em concurso municipal isso é sempre a banca
+  organizadora: verificado, 10 de 10 não apontam para `.gov.br`.
+- Sem endereço confirmável, a página orienta a procurar o edital oficial.
+- A URL do agregador vira `procedencia` — auditoria do revisor, nunca exibida.
+
+A blocklist vive em três lugares e precisa ser respeitada por qualquer
+fonte nova: `js/edital.js` (BLOQUEADOS), `robo/fontes/pci.py` e
+`robo/fontes/portais_wp.py` (DOMINIO_PROIBIDO).
+
+## Links de inscrição são reconciliados
+
+Edital já revisado normalmente não é tocado pelo robô. A **única
+exceção** é o `siteInscricao`: se estiver vazio e uma fonte nova trouxer
+o endereço, ele é preenchido. É acréscimo, não substituição — um edital
+sem link é inútil para quem quer se inscrever.
 
 ## Revisão (o passo humano)
 

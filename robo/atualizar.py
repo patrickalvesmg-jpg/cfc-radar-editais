@@ -27,7 +27,7 @@ for _fluxo in (sys.stdout, sys.stderr):
 
 sys.path.insert(0, str(Path(__file__).parent))
 
-from fontes import cebraspe, consulplan, pci, querido_diario  # noqa: E402
+from fontes import cebraspe, consulplan, pci, portais_wp, querido_diario  # noqa: E402
 import extrair                                # noqa: E402
 
 # Fontes ativas. Cada uma expõe coletar() e devolve achados brutos.
@@ -37,6 +37,7 @@ FONTES = (
     ("CEBRASPE (banca)", cebraspe.coletar),
     ("Consulplan (conselhos de contabilidade)", consulplan.coletar),
     ("PCI Concursos (prefeituras)", pci.coletar),
+    ("Portais WordPress (agregadores)", portais_wp.coletar),
     ("Querido Diário (diários municipais)", querido_diario.coletar),
 )
 
@@ -104,16 +105,28 @@ def mesclar(existentes: list[dict], novos: list[dict]) -> tuple[list[dict], int,
             # Já passou por olho humano: só deixamos o robô mexer no que
             # é puramente temporal. Sobrescrever aqui apagaria o trabalho
             # de revisão a cada execução.
+            #
+            # ÚNICA exceção: preencher o link de inscrição quando ele
+            # ainda não existe. É acréscimo, não substituição — um edital
+            # revisado sem link fica inútil para quem quer se inscrever,
+            # e o dado pode ter aparecido numa fonte descoberta depois.
+            if not atual.get("siteInscricao") and novo.get("siteInscricao"):
+                atual["siteInscricao"] = novo["siteInscricao"]
+                atualizados_ct += 1
             continue
 
+        mudou = False
         for campo, valor in novo.items():
             if campo in ("id", "revisado"):
                 continue
             # Não troca informação existente por vazio.
             if valor in ("", 0, None) and atual.get(campo) not in ("", 0, None):
                 continue
-            atual[campo] = valor
-        atualizados_ct += 1
+            if atual.get(campo) != valor:
+                atual[campo] = valor
+                mudou = True
+        if mudou:
+            atualizados_ct += 1
 
     final = list(por_id.values())
     for e in final:

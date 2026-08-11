@@ -96,7 +96,10 @@ def buscar(url: str, *, checar_robots: bool = True) -> str | None:
     _respeitar_pausa(host)
 
     try:
-        req = urllib.request.Request(url, headers=CABECALHOS)
+        # Acento na query quebra o urllib (UnicodeEncodeError). Escapamos
+        # só o que não for ASCII, preservando a estrutura da URL.
+        url_segura = urllib.parse.quote(url, safe=":/?&=#%+,;@[]!$'()*~")
+        req = urllib.request.Request(url_segura, headers=CABECALHOS)
         with urllib.request.urlopen(req, timeout=TIMEOUT) as r:
             bruto = r.read()
             if r.headers.get("Content-Encoding") == "gzip":
