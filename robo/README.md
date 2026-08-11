@@ -32,7 +32,19 @@ Sem dependências: só a biblioteca padrão do Python 3.12+.
 
 | Fonte | O que cobre | Situação |
 |---|---|---|
+| **CEBRASPE** (`apis.cebraspe.org.br`) | Concursos da banca, com cargo/vagas/salário/prazo estruturados | Ativa |
 | **Querido Diário** (`api.queridodiario.ok.org.br`) | Diários oficiais **municipais** de todo o Brasil | Ativa |
+
+### Bancas que ficaram de fora
+
+| Banca | Motivo |
+|---|---|
+| **FCC** | `robots.txt` proíbe `/concursos/` — justamente a área necessária |
+| **VUNESP** | Responde **403** a qualquer automação, inclusive no `robots.txt` |
+| **IBFC** | Idem |
+
+Incluí-las exigiria contornar bloqueio explícito. Se forem importantes,
+o caminho é pedir acesso/parceria à banca — não burlar.
 
 ### Por que o Diário Oficial da União não está aqui
 
@@ -104,6 +116,15 @@ Ele continua só atualizando o `status` conforme o prazo corre.
 Essa regra existe para que a correção manual não seja desfeita na
 execução seguinte.
 
+### Fonte estruturada vence extração por regex
+
+Quando a fonte entrega o campo pronto (o CEBRASPE dá cargo, vagas,
+salário e período de inscrição), esse valor é usado direto. A regex do
+`extrair.py` só entra quando a fonte não informa — é o caso dos diários
+municipais, que são texto corrido.
+
+Por isso os editais do CEBRASPE nascem com `confianca: alta`.
+
 ### Campo `confianca`
 
 | Valor | O que significa |
@@ -123,6 +144,7 @@ robo/
   extrair.py       texto bruto → campos estruturados
   atualizar.py     orquestra e mescla preservando a curadoria
   fontes/
+    cebraspe.py
     querido_diario.py
 ```
 
