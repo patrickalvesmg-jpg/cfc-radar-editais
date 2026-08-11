@@ -27,7 +27,7 @@ for _fluxo in (sys.stdout, sys.stderr):
 
 sys.path.insert(0, str(Path(__file__).parent))
 
-from fontes import cebraspe, querido_diario  # noqa: E402
+from fontes import cebraspe, consulplan, querido_diario  # noqa: E402
 import extrair                                # noqa: E402
 
 # Fontes ativas. Cada uma expõe coletar() e devolve achados brutos.
@@ -35,6 +35,7 @@ import extrair                                # noqa: E402
 # varredura — o resto do pipeline não muda.
 FONTES = (
     ("CEBRASPE (banca)", cebraspe.coletar),
+    ("Consulplan (conselhos de contabilidade)", consulplan.coletar),
     ("Querido Diário (diários municipais)", querido_diario.coletar),
 )
 

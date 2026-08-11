@@ -95,6 +95,66 @@ PADRAO_RUIDO = re.compile(
 )
 
 
+# Marca de que o documento ABRE inscrição, e não apenas fala de concurso.
+# Sem isto, entram acórdãos de tribunal de contas que *determinam* a
+# realização de concurso, atas de sessão e contratação de serviços
+# contábeis — todos citam "concurso público" e "cargo de contador".
+# Medido: de 34 achados em diários municipais, ZERO tinham período de
+# inscrição e 18 eram de mais de 180 dias atrás.
+PADRAO_ABERTURA = re.compile(
+    r"edital\s+(?:de\s+)?(?:abertura|de\s+concurso)"
+    r"|torna\s+p[úu]blic\w+\s+a\s+abertura"
+    r"|abertura\s+(?:das\s+)?inscri[çc][õo]es"
+    r"|estar[ãa]o\s+abertas\s+as\s+inscri[çc][õo]es"
+    r"|as\s+inscri[çc][õo]es\s+(?:estar[ãa]o|ser[ãa]o|poder[ãa]o)"
+    r"|per[íi]odo\s+de\s+inscri[çc][õo]es"
+    r"|inscri[çc][õo]es\s+(?:de|no\s+per[íi]odo|a\s+partir)",
+    re.I,
+)
+
+# Documentos que só CITAM concurso, sem abrir vaga.
+#
+# Inclui os atos de ENCERRAMENTO, que são o falso positivo mais comum
+# nos diários municipais: uma homologação ou nomeação sempre menciona o
+# "Edital de Abertura" que a originou, então passa pela marca positiva.
+# Casos reais capturados: Sarutaiá/SP (homologação) e Marília/SP
+# (nomeação de candidata classificada em 6º lugar).
+PADRAO_NAO_ABERTURA = re.compile(
+    # pareceres e contas
+    r"ac[óo]rd[ãa]o"
+    r"|julgou\s+regulares"
+    r"|contas\s+anuais"
+    r"|determinando\s+ao\s+(?:atual\s+)?gestor"
+    r"|realize.{0,40}concurso\s+p[úu]blico"
+    r"|no\s+prazo\s+de\s+\d+\s*\(?\w*\)?\s*dias\s*,?\s*concurso"
+    r"|presta[çc][ãa]o\s+de\s+contas"
+    r"|contrata[çc][ãa]o\s+de\s+servi[çc]os"
+    r"|sess[ãa]o\s+(?:ordin[áa]ria|plen[áa]ria)"
+    # atos de encerramento do certame
+    r"|homologa[çc][ãa]o\s+do\s+concurso"
+    r"|torna\s+p[úu]blica\s+a\s+homologa"
+    r"|\bNOMEIA\b"
+    r"|nomeia,?\s+em\s+car[áa]ter\s+efetivo"
+    r"|classificad[oa]\s+em\s+\d+"
+    r"|prorroga[çc][ãa]o\s+(?:de\s+posse|do\s+prazo\s+de\s+validade)"
+    r"|conclus[ãa]o\s+dos\s+trabalhos"
+    r"|prazos?\s+recursa\w+",
+    re.I,
+)
+
+
+def eh_abertura(texto: str) -> bool:
+    """Distingue 'concurso está abrindo' de 'documento fala de concurso'.
+
+    Exigimos marca positiva de abertura E ausência de marca de outro tipo
+    de ato. Sem esta camada o site se enche de oportunidades que não
+    existem — inclusive de anos atrás.
+    """
+    if PADRAO_NAO_ABERTURA.search(texto):
+        return False
+    return bool(PADRAO_ABERTURA.search(texto))
+
+
 def eh_relevante(texto: str, titulo: str = "") -> bool:
     """Aplica as três camadas. Conservador de propósito: é melhor perder
     um edital (o revisor humano completa) do que publicar lixo como se

@@ -32,8 +32,28 @@ Sem dependências: só a biblioteca padrão do Python 3.12+.
 
 | Fonte | O que cobre | Situação |
 |---|---|---|
-| **CEBRASPE** (`apis.cebraspe.org.br`) | Concursos da banca, com cargo/vagas/salário/prazo estruturados | Ativa |
-| **Querido Diário** (`api.queridodiario.ok.org.br`) | Diários oficiais **municipais** de todo o Brasil | Ativa |
+| **CEBRASPE** (`apis.cebraspe.org.br`) | Concursos da banca, com cargo/vagas/salário/prazo estruturados | Ativa — é o que rende |
+| **Consulplan** | Banca dos **Conselhos de Contabilidade** (CRC-CE, CRC-RJ, CFC/EQT) e de prefeituras | Ativa |
+| **Querido Diário** (`api.queridodiario.ok.org.br`) | Diários oficiais **municipais** de todo o Brasil | Ativa — rendimento baixo, ver abaixo |
+
+### Por que os diários municipais rendem pouco (investigado, não suposto)
+
+Era a aposta natural para "vagas em prefeituras". Não funciona bem, e o
+motivo **não é o filtro**:
+
+1. A API **não suporta booleano**. `"a" AND b` vira busca livre: de 40
+   resultados, 27 falavam de concurso e só 1 citava contador.
+2. Os `excerpts` trazem um trecho **arbitrário** do diário — cláusula de
+   fotocópia, referência a lei — quase nunca a tabela de cargos.
+3. Baixando o **texto completo** de 20 editais de abertura recentes
+   (média de 112 mil caracteres), **nenhum** tinha vaga contábil. Os 4
+   que citavam "contabilidade" eram listas de classificação de certame
+   já encerrado.
+
+Conclusão: concurso municipal para contador é raro, e quando sai vem num
+PDF cuja tabela de cargos a API não indexa de forma pesquisável.
+**O volume do site vem das bancas**, que publicam cargo, vaga e salário
+já estruturados.
 
 ### Bancas que ficaram de fora
 

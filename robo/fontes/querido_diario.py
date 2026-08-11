@@ -18,21 +18,61 @@ Dados sob licença aberta, mantidos pela Open Knowledge Brasil.
 
 import json
 import urllib.parse
+from datetime import date, timedelta
 
-from config import eh_relevante
+from config import eh_abertura, eh_relevante
 from http_util import buscar
 
 API = "https://api.queridodiario.ok.org.br/api/gazettes"
 
-# Cada busca combina o termo de concurso com um termo contábil.
-# Fazer buscas separadas (e não uma só, ampla) reduz muito o ruído que
-# chegaria ao filtro local.
+# Janela de validade. Inscrição de concurso municipal costuma durar
+# semanas; publicação com mais que isto quase certamente já encerrou.
+DIAS_VALIDADE = 120
+
+
+def _antigo(iso: str) -> bool:
+    if not iso:
+        return False
+    try:
+        return (date.today() - date.fromisoformat(iso[:10])).days > DIAS_VALIDADE
+    except ValueError:
+        return False
+
+# ------------------------------------------------------------------
+# O QUE ESTA FONTE RENDE, NA PRÁTICA (medido em 2026-08-10)
+# ------------------------------------------------------------------
+# Esta fonte tem rendimento BAIXO para concurso contábil, e o motivo não
+# é o filtro. Foi investigado a fundo:
+#
+# 1. A API **não suporta booleano**. `"a" AND b` vira busca livre pelos
+#    termos soltos: de 40 resultados, 27 falavam de concurso e só 1
+#    citava contador.
+#
+# 2. Os `excerpts` trazem um trecho ARBITRÁRIO do diário — cláusula de
+#    fotocópia, referência a lei — quase nunca a tabela de cargos. Como
+#    o filtro lê o trecho, ele descarta editais válidos.
+#
+# 3. Baixando o TEXTO COMPLETO de 20 editais de abertura recentes
+#    (média de 112 mil caracteres), **nenhum** tinha vaga contábil. Os 4
+#    que citavam "contabilidade" eram listas de classificação de certame
+#    já encerrado — corretamente barrados.
+#
+# Conclusão: concurso municipal para contador é raro, e quando sai vem
+# num PDF de edital cuja tabela de cargos a API não indexa de forma
+# pesquisável. Mantemos a fonte porque o custo é baixo e um dia ela
+# acerta; mas o volume do site NÃO virá daqui — virá das bancas, que
+# publicam cargo, vaga e salário estruturados (ver fontes/cebraspe.py).
+#
+# Consultas por FRASE EXATA (a única forma que funciona nesta API):
 CONSULTAS = (
-    '"concurso público" AND contador',
-    '"concurso público" AND "ciências contábeis"',
-    '"concurso público" AND "técnico em contabilidade"',
-    '"processo seletivo" AND contador',
-    '"edital de abertura" AND contabilidade',
+    '"provimento do cargo de contador"',
+    '"para o cargo de contador"',
+    '"cargo de contador"',
+    '"analista contábil"',
+    '"técnico em contabilidade"',
+    '"cargo de técnico em contabilidade"',
+    '"ciências contábeis"',
+    '"contador" "concurso público"',
 )
 
 
@@ -70,6 +110,16 @@ def coletar(por_consulta: int = 25) -> list[dict]:
             texto = " ".join(trechos)
 
             if not texto or not eh_relevante(texto):
+                continue
+
+            # Precisa ser abertura de inscrição, não menção a concurso.
+            if not eh_abertura(texto):
+                continue
+
+            # Diário antigo não é oportunidade. Um edital publicado há
+            # mais de 4 meses já encerrou a inscrição — exibi-lo como
+            # aberto faria o candidato perder tempo.
+            if _antigo(it.get("date", "")):
                 continue
 
             municipio = it.get("territory_name") or ""

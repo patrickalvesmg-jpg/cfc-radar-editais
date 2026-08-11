@@ -27,14 +27,42 @@ def _respeitar_pausa(host: str) -> None:
 
 
 @lru_cache(maxsize=64)
-def _robots(host_scheme: str) -> urllib.robotparser.RobotFileParser:
-    rp = urllib.robotparser.RobotFileParser()
-    rp.set_url(f"{host_scheme}/robots.txt")
+def _regras(host_scheme: str):
+    """Busca e interpreta o robots.txt do host.
+
+    Não dá para usar `RobotFileParser.read()` direto: ele engole o erro
+    de rede e devolve um parser SEM REGRAS, que nega tudo. Um 404 (site
+    sem robots.txt, o padrão da web é liberado) ficaria indistinguível
+    de um `Disallow: /`. Buscamos o arquivo à mão para separar os casos.
+
+    Retorna:
+      None — sem restrição conhecida (404/410, ou arquivo vazio)
+      RobotFileParser — regras a aplicar
+    """
+    url = f"{host_scheme}/robots.txt"
     try:
-        rp.read()
+        req = urllib.request.Request(url, headers=CABECALHOS)
+        with urllib.request.urlopen(req, timeout=15) as r:
+            bruto = r.read()
+            if r.headers.get("Content-Encoding") == "gzip":
+                bruto = gzip.decompress(bruto)
+            texto = bruto.decode("utf-8", "replace")
+    except urllib.error.HTTPError as e:
+        # 404/410: não existe robots.txt → liberado.
+        # 401/403: o host restringe o próprio robots → tratamos como
+        # proibido, que é o lado seguro.
+        return None if e.code in (404, 410) else "PROIBIDO"
     except Exception:
-        # robots.txt inacessível: seguimos, mas sem assumir permissão ampla.
-        pass
+        # Rede instável ou host que derruba a conexão (caso do in.gov.br).
+        # Não sabemos a regra: assumimos proibido em vez de arriscar
+        # varrer quem não quer ser varrido.
+        return "PROIBIDO"
+
+    if not texto.strip():
+        return None
+
+    rp = urllib.robotparser.RobotFileParser()
+    rp.parse(texto.splitlines())
     return rp
 
 
@@ -42,10 +70,16 @@ def pode_acessar(url: str) -> bool:
     """Consulta o robots.txt do host. Um raspador que ignora robots.txt
     é um raspador que vai ser bloqueado — e com razão."""
     p = urllib.parse.urlparse(url)
-    try:
-        return _robots(f"{p.scheme}://{p.netloc}").can_fetch(USER_AGENT, url)
-    except Exception:
+    regras = _regras(f"{p.scheme}://{p.netloc}")
+
+    if regras is None:
         return True
+    if regras == "PROIBIDO":
+        return False
+    try:
+        return regras.can_fetch(USER_AGENT, url)
+    except Exception:
+        return False
 
 
 def buscar(url: str, *, checar_robots: bool = True) -> str | None:
