@@ -226,7 +226,7 @@ def montar(achado: dict) -> dict:
         "salario": salario or 0,
         "salarioObs": "",
         "cargaHoraria": "",
-        "escolaridade": extrair_escolaridade(texto),
+        "escolaridade": achado.get("_escolaridade") or extrair_escolaridade(texto),
         "nivel": achado.get("_esfera") or extrair_esfera(orgao, texto),
         "status": "aberto" if fim else "previsto",
         "inscricaoInicio": inicio or "",
