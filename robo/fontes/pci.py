@@ -99,8 +99,64 @@ DOMINIO_PROIBIDO = re.compile(
 )
 
 
-def _site_inscricao(texto: str) -> str:
-    """Endereço onde a inscrição é feita, ou '' se não der para afirmar."""
+# Link com CAMINHO, não só domínio. É a diferença entre mandar o
+# candidato para "inepam.org.br" — onde ele ainda precisa caçar o
+# concurso — e para a página do certame dele.
+_HREF = re.compile(r'href="(https?://[^"]+)"', re.I)
+
+
+def _e_util(url: str) -> bool:
+    """O link serve como destino? Precisa apontar para fora dos
+    agregadores e ter caminho próprio (não ser só a home)."""
+    if DOMINIO_PROIBIDO.search(url):
+        return False
+    try:
+        from urllib.parse import urlparse
+        caminho = urlparse(url).path.strip("/")
+    except ValueError:
+        return False
+    if not caminho or len(caminho) < 3:
+        return False
+    # Descarta assets e páginas institucionais.
+    return not re.search(
+        r"\.(?:png|jpe?g|gif|svg|css|js|ico)$"
+        r"|/(?:contato|sobre|privacidade|termos|politica|login|cookies)",
+        caminho, re.I,
+    )
+
+
+def _link_concurso(html: str) -> str:
+    """Página do concurso na banca, extraída dos links do CORPO.
+
+    A matéria cita o site da banca em texto ("pelo site www.x.com.br"),
+    mas ancora o link no endereço COMPLETO da página do certame. Ler o
+    href é o que separa "home da banca" de "página deste concurso".
+    """
+    candidatos = [u for u in dict.fromkeys(_HREF.findall(html)) if _e_util(u)]
+    if not candidatos:
+        return ""
+
+    # Ordem de preferência: quem se parece com página de concurso.
+    for padrao in (
+        r"/concurso[s]?/(?:detail|detalhe|ver)?/?\d+",
+        r"/(?:informacoes|edital|concurso)[s]?/\d+",
+        r"concurso\.jsp\?cod=\d+",
+        r"/concurso|/edital|/processo|/selecao",
+    ):
+        for u in candidatos:
+            if re.search(padrao, u, re.I):
+                return u
+
+    return ""
+
+
+def _site_inscricao(texto: str, html: str = "") -> str:
+    """Endereço da inscrição. Preferimos a página do concurso; o domínio
+    da banca é o plano B."""
+    especifico = _link_concurso(html) if html else ""
+    if especifico:
+        return especifico
+
     m = SITE_OFICIAL.search(texto)
     if m:
         alvo = m.group(1)
@@ -133,7 +189,7 @@ def _confirmar_cargo(url: str) -> tuple | None:
     if not PADRAO_CONTABIL.search(texto):
         return None
 
-    site = _site_inscricao(texto)
+    site = _site_inscricao(texto, html)
 
     # A matéria traz um resumo em `description` do JSON-LD: uma frase
     # pronta, escrita por humano, melhor que qualquer recorte nosso.

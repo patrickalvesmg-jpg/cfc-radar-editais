@@ -23,6 +23,7 @@ endereço da banca/órgão dentro do texto (ver `_site_inscricao`).
 
 import json
 import re
+import urllib.parse
 from datetime import date
 
 from config import PADRAO_CONTABIL, PADRAO_RUIDO, eh_abertura
@@ -92,6 +93,56 @@ NAO_CONCURSO = re.compile(
     r"|vestibular|p[óo]s-gradua|mestrado|doutorado|bolsa",
     re.I,
 )
+
+
+# ------------------------------------------------------------------
+# Link da PÁGINA DO CONCURSO (não da home da banca)
+# ------------------------------------------------------------------
+# Diferença medida entre as fontes: o PCI ancora só a home
+# ("ibgpconcursos.com.br/"), enquanto estes portais ancoram o endereço
+# completo do certame ("integribrasil.com.br/Concurso/Detail/375",
+# "institutolegalle.org.br/edital/ver/82"). Em amostra de 8 matérias,
+# 8 tinham link específico. É a diferença entre o candidato cair na
+# página do concurso dele ou ter de caçá-la no site da banca.
+_HREF = re.compile(r'href="(https?://[^"]+)"', re.I)
+
+_LIXO_CAMINHO = re.compile(
+    r"\.(?:png|jpe?g|gif|svg|css|js|ico|woff2?)$"
+    r"|/(?:contato|sobre|privacidade|termos|politica|login|cookies|feed)",
+    re.I,
+)
+
+# Ordem de preferência: quanto mais parecer página de certame, melhor.
+_PADROES_CONCURSO = (
+    r"/concurso[s]?/(?:detail|detalhe|ver)?/?\d+",
+    r"/(?:informacoes|edital|concurso|processo)[s]?/(?:ver/)?\d+",
+    r"concurso\.jsp\?cod=\d+",
+    r"/concurso|/edital|/processo|/selecao|/inscri",
+)
+
+
+def _com_caminho(url: str) -> bool:
+    if DOMINIO_PROIBIDO.search(url):
+        return False
+    try:
+        caminho = urllib.parse.urlparse(url).path.strip("/")
+    except ValueError:
+        return False
+    if len(caminho) < 3:
+        return False
+    return not _LIXO_CAMINHO.search(caminho)
+
+
+def _link_concurso(html: str) -> str:
+    """Página do concurso citada no corpo da matéria, ou ''."""
+    candidatos = [u for u in dict.fromkeys(_HREF.findall(html)) if _com_caminho(u)]
+    if not candidatos:
+        return ""
+    for padrao in _PADROES_CONCURSO:
+        for u in candidatos:
+            if re.search(padrao, u, re.I):
+                return u
+    return ""
 
 
 def _vencido(iso: str) -> bool:
@@ -267,6 +318,7 @@ def coletar(limite: int = 20) -> list[dict]:
                     continue
                 vistos.add(link)
 
+                bruto_html = post.get("content", {}).get("rendered", "")
                 titulo = _texto(post.get("title", {}).get("rendered", ""))
                 corpo = _texto(post.get("content", {}).get("rendered", ""))
                 texto = f"{titulo} {corpo}"
@@ -321,7 +373,10 @@ def coletar(limite: int = 20) -> list[dict]:
                     # Agregador nunca recebe o visitante.
                     "url": "",
                     "_procedencia": link,
-                    "_site_inscricao": _site_inscricao(texto),
+                    # Preferimos a página do concurso; o domínio solto
+                    # do texto é o plano B.
+                    "_site_inscricao": (_link_concurso(bruto_html)
+                                        or _site_inscricao(texto)),
                     "publicado_em": (post.get("date") or "")[:10],
                     "_cargo": (cargo_m.group(1).title() if cargo_m else ""),
                     "_uf": uf_m.group(1) if uf_m else "",
