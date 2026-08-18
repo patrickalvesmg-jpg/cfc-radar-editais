@@ -206,7 +206,7 @@
       ],
       "isencao": "A isenção poderá ser solicitada entre os dias 9 e 11 de setembro de 2026, até às 16h, conforme os critérios do edital."
     },
-    "pdfEdital": ""
+    "pdfEdital": "https://novo.ibgpconcursos.com.br/rest/concurso/download/edital/23229/?file=site/anexos/710/00%20-%20EDITAL%20N%BA%2001-2026%20CONCURSO_IPABA-MG.pdf"
   },
   {
     "id": "e-91ac198ce39d",
@@ -259,7 +259,7 @@
     "uf": "SP",
     "cidade": "Rifaina",
     "vagas": "1",
-    "salario": 7018.0,
+    "salario": 7018,
     "salarioObs": "",
     "cargaHoraria": "",
     "escolaridade": "superior",
@@ -374,7 +374,7 @@
       "isencao": "A taxa de inscrição é de R$ 60,00 (fundamental), R$ 80,00 (médio/técnico) e R$ 100,00 (superior), com possibilidade de isenção nos dias 24 a 26 de agosto de 2026, conforme os critérios do edital atualizado.",
       "provaTexto": "provas objetivas estão previstas para 29 de novembro de 2026"
     },
-    "pdfEdital": ""
+    "pdfEdital": "https://novo.ibgpconcursos.com.br/rest/concurso/download/edital/23808/?file=site/anexos/741/00%20-%20EDITAL%20N%BA%2004-2026%20-%20PSS%20LAGOA%20DA%20PRATA-MG.pdf"
   },
   {
     "id": "e-cfc7fb6d58bd",
@@ -465,7 +465,7 @@
     "uf": "RJ",
     "cidade": "",
     "vagas": "5 CR",
-    "salario": 5637.0,
+    "salario": 5637,
     "salarioObs": "",
     "cargaHoraria": "",
     "escolaridade": "superior",
@@ -540,7 +540,7 @@
       "taxaTexto": "A taxa de inscrição é de R$ 70,00 para nível médio/técnico e de R$ 100,00 para nível superior.",
       "isencao": "Os pedidos de isenção poderão ser feitos de 19 a 21 de outubro de 2026, conforme os critérios do edital."
     },
-    "pdfEdital": ""
+    "pdfEdital": "https://novo.ibgpconcursos.com.br/rest/concurso/download/edital/23767/?file=site/anexos/739/00%20-%20EDITAL%2001-2026%20-%20CONCURSO%20CONTAGEM.pdf"
   },
   {
     "id": "e-b0b96f1ab903",
@@ -703,7 +703,7 @@
       "taxaTexto": "As taxas de inscrição são de R$ 60,00 para nível alfabetizado, R$ 80,00 para nível médio e R$ 100,00 para nível superior.",
       "isencao": "Será possível solicitar isenção da taxa entre os dias 8 e 10 de setembro de 2026."
     },
-    "pdfEdital": ""
+    "pdfEdital": "https://novo.ibgpconcursos.com.br/rest/concurso/download/edital/22346/?file=site/anexos/684/00%20-%20EDITAL%20N%BA%2001-2026%20CONCURSO%20COROMANDEL-MG.pdf"
   },
   {
     "id": "e-ba852036dc3d",
@@ -785,7 +785,7 @@
       "taxaTexto": "As taxas de inscrição são de R$ 60,00 para nível fundamental, R$ 80,00 para nível médio/técnico e R$ 100,00 para nível superior.",
       "isencao": "É previsto o período de isenção de taxa entre 5 e 7 de agosto de 2026 para quem preencher os requisitos do edital."
     },
-    "pdfEdital": ""
+    "pdfEdital": "https://novo.ibgpconcursos.com.br/rest/concurso/download/edital/22871/?file=site/anexos/701/00%20-%20EDITAL%20N%BA%2002-2026%20PSP%20FARIA%20LEMOS-MG.pdf"
   },
   {
     "id": "e-b9bf2bc2fad9",
@@ -1125,7 +1125,7 @@
     "uf": "BA",
     "cidade": "Seabra",
     "vagas": "1",
-    "salario": 5000.0,
+    "salario": 5000,
     "salarioObs": "",
     "cargaHoraria": "",
     "escolaridade": "superior",
@@ -1204,7 +1204,7 @@
     "uf": "PE",
     "cidade": "Belo Jardim",
     "vagas": "1 + 2 CR",
-    "salario": 2800.0,
+    "salario": 2800,
     "salarioObs": "",
     "cargaHoraria": "",
     "escolaridade": "superior",
@@ -1523,7 +1523,7 @@
     "uf": "RS",
     "cidade": "Toropi",
     "vagas": "1",
-    "salario": 8900.0,
+    "salario": 8900,
     "salarioObs": "",
     "cargaHoraria": "",
     "escolaridade": "superior",
@@ -1801,7 +1801,7 @@
     "uf": "MG",
     "cidade": "Belo Vale",
     "vagas": "1",
-    "salario": 8000.0,
+    "salario": 8000,
     "salarioObs": "",
     "cargaHoraria": "",
     "escolaridade": "superior",
@@ -1954,7 +1954,7 @@
     "uf": "RR",
     "cidade": "",
     "vagas": "2",
-    "salario": 4554.0,
+    "salario": 4554,
     "salarioObs": "",
     "cargaHoraria": "",
     "escolaridade": "superior",
@@ -1984,7 +1984,7 @@
     "uf": "SP",
     "cidade": "Embu das Artes",
     "vagas": "1 + CR",
-    "salario": 9745.0,
+    "salario": 9745,
     "salarioObs": "",
     "cargaHoraria": "",
     "escolaridade": "superior",
