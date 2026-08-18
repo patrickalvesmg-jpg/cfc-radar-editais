@@ -672,3 +672,130 @@ body.tem-demo .boas-vindas{padding-top:calc(var(--topbar-h) + var(--faixa-demo-h
   .edital{border:1px solid #ccc;background:none;break-inside:avoid}
   .salario{color:#000}
 }
+
+/* ============================================================
+   MAPA INTERATIVO DO BRASIL
+   SVG estático: sem biblioteca externa, sem token, funciona offline.
+   Clicar num estado filtra a tabela abaixo.
+   ============================================================ */
+.mapa-bloco{
+  display:grid;grid-template-columns:minmax(280px,420px) minmax(0,1fr);
+  gap:var(--s-6);align-items:start;
+}
+.mapa-bloco.sem-mapa{grid-template-columns:1fr}
+.mapa-bloco.sem-mapa .mapa-coluna{display:none}
+
+/* overflow visible deixava o glow do hover aparecer, mas fazia o SVG
+   transbordar a coluna no mobile. O drop-shadow funciona sem ele. */
+#mapa-svg{max-width:100%;overflow:hidden}
+#mapa-svg svg{width:100%;height:auto;display:block}
+
+/* Estados: a cor comunica densidade de editais. Faixas fixas em vez de
+   gradiente contínuo — com poucos editais por estado, uma escala
+   contínua faria 1 e 2 parecerem a mesma cor. */
+#mapa-svg path,#mapa-svg polygon{
+  fill:var(--carvao-2);
+  stroke:var(--preto);
+  stroke-width:.8;
+  transition:fill var(--dur-1),filter var(--dur-1);
+}
+#mapa-svg [data-faixa="1"]{fill:rgba(159,227,26,.22)}
+#mapa-svg [data-faixa="2"]{fill:rgba(159,227,26,.42)}
+#mapa-svg [data-faixa="3"]{fill:rgba(159,227,26,.66)}
+#mapa-svg [data-faixa="4"]{fill:var(--lima)}
+
+#mapa-svg [data-uf]:not(.vazio){cursor:pointer}
+#mapa-svg [data-uf]:not(.vazio):hover{
+  fill:var(--lima-claro);
+  filter:drop-shadow(0 0 10px var(--lima-glow));
+}
+#mapa-svg [data-uf].ativo{
+  fill:var(--lima);
+  stroke:var(--branco);stroke-width:1.6;
+  filter:drop-shadow(0 0 16px var(--lima-glow));
+}
+#mapa-svg [data-uf]:focus-visible{outline:2px solid var(--lima);outline-offset:2px}
+
+.mapa-legenda{
+  display:flex;align-items:center;gap:var(--s-3);flex-wrap:wrap;
+  margin-top:var(--s-4);font-size:var(--t-micro);color:var(--cinza-esc);
+}
+.mapa-legenda .escala{display:flex;align-items:center;gap:4px}
+.mapa-legenda i{
+  width:16px;height:10px;border-radius:2px;display:block;
+  border:1px solid var(--linha);
+}
+.mapa-legenda i.f0{background:var(--carvao-2)}
+.mapa-legenda i.f1{background:rgba(159,227,26,.22)}
+.mapa-legenda i.f2{background:rgba(159,227,26,.42)}
+.mapa-legenda i.f3{background:rgba(159,227,26,.66)}
+.mapa-legenda i.f4{background:var(--lima)}
+
+.mapa-cabeca{
+  display:flex;align-items:center;justify-content:space-between;
+  gap:var(--s-3);flex-wrap:wrap;margin-bottom:var(--s-4);
+}
+.mapa-cabeca h3{font-size:1.15rem}
+.mapa-vazio{
+  padding:var(--s-6);text-align:center;color:var(--cinza);
+  border:1px dashed var(--linha);border-radius:var(--r);
+  font-size:var(--t-sm);
+}
+
+/* ============================================================
+   TABELA DE EDITAIS
+   ============================================================ */
+.tabela-wrap{
+  overflow-x:auto;
+  /* Sem min-width:0 o wrapper herda a largura mínima da tabela
+     (min-width:640px) e estoura o grid em vez de rolar dentro de si. */
+  min-width:0;max-width:100%;
+  border:1px solid var(--linha);border-radius:var(--r);
+  background:var(--carvao);
+}
+.tabela-editais{
+  width:100%;border-collapse:collapse;
+  font-size:var(--t-sm);min-width:640px;
+}
+.tabela-editais th{
+  text-align:left;padding:12px 14px;
+  font-family:var(--display);font-size:var(--t-micro);
+  text-transform:uppercase;letter-spacing:.1em;
+  color:var(--cinza-esc);background:var(--preto-2);
+  border-bottom:1px solid var(--linha);white-space:nowrap;
+}
+.tabela-editais td{
+  padding:13px 14px;border-bottom:1px solid var(--linha-fraca);
+  vertical-align:top;
+}
+.tabela-editais tr:last-child td{border-bottom:0}
+.tabela-editais tbody tr{transition:background var(--dur-1)}
+.tabela-editais tbody tr:hover{background:var(--carvao-2)}
+
+.tabela-editais .num{text-align:right;font-variant-numeric:tabular-nums}
+.tabela-editais .cargo{
+  display:block;font-weight:600;color:var(--branco);
+  transition:color var(--dur-1);
+}
+.tabela-editais tr:hover .cargo{color:var(--lima)}
+.tabela-editais .orgao{
+  display:block;font-size:var(--t-xs);color:var(--cinza-esc);margin-top:2px;
+}
+.tabela-editais .esfera{
+  display:block;font-size:var(--t-micro);color:var(--cinza-esc);
+  text-transform:capitalize;margin-top:2px;
+}
+.tabela-editais .salario{color:var(--lima);font-weight:600}
+.tabela-editais .urgente{color:var(--warn)}
+.tabela-editais .restam{
+  display:block;font-size:var(--t-micro);color:var(--cinza-esc);margin-top:2px;
+}
+
+@media (max-width:920px){
+  .mapa-bloco{grid-template-columns:1fr}
+  /* min-width:0 é obrigatório: item de grid tem min-width auto por
+     padrão e não encolhe abaixo do conteúdo, o que empurrava a coluna
+     para fora da tela em viewport menor que o max-width. */
+  .mapa-coluna{max-width:min(420px,100%);margin-inline:auto;min-width:0}
+  .mapa-bloco > *{min-width:0}
+}

@@ -9,6 +9,7 @@ import {
 } from './comum.js';
 
 import { logado, LIMITE_GRATIS } from './sessao.js';
+import { montarMapa } from './mapa.js';
 
 /**
  * Quem já tem sessão não deveria estar vendo o paywall.
@@ -104,6 +105,10 @@ async function iniciar(){
     trancado.style.display = 'none';
     ajustarSemBloqueio(ordenados.length);
   }
+
+  // O mapa usa TODOS os editais, inclusive os do paywall: esconder
+  // onde existem vagas não cria desejo, só esconde o produto.
+  montarMapa(ordenados);
 
   ajustarParaLogado();
   observar();

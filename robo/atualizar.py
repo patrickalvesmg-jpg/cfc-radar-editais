@@ -27,7 +27,8 @@ for _fluxo in (sys.stdout, sys.stderr):
 
 sys.path.insert(0, str(Path(__file__).parent))
 
-from fontes import cebraspe, consulplan, pci, portais_wp, querido_diario  # noqa: E402
+from fontes import (cebraspe, consulplan, estrategia, pci,  # noqa: E402
+                    portais_wp, querido_diario)
 import extrair                                # noqa: E402
 
 # Fontes ativas. Cada uma expõe coletar() e devolve achados brutos.
@@ -137,6 +138,64 @@ def mesclar(existentes: list[dict], novos: list[dict]) -> tuple[list[dict], int,
     return final, novos_ct, atualizados_ct
 
 
+def geolocalizar(editais: list[dict], geo: dict, municipios: dict) -> None:
+    """Coloca lat/long em cada edital, para o mapa poder posicioná-lo.
+
+    Quatro tentativas, da mais precisa para a menos:
+      1. órgão + UF batendo com o cadastro do mapa do Estratégia;
+      2. cidade (extraída do nome do órgão) na base do IBGE;
+      3. cidade no cadastro do Estratégia;
+      4. capital do estado — melhor um ponto no estado certo que nenhum.
+
+    O campo `geoAprox` marca o caso 4, para a interface poder dizer que a
+    posição é aproximada em vez de fingir precisão.
+    """
+    orgaos, cidades = geo.get("orgaos", {}), geo.get("cidades", {})
+
+    for e in editais:
+        if e.get("lat") and e.get("lon"):
+            continue
+
+        uf = (e.get("uf") or "").upper()
+        if not uf:
+            continue
+
+        # A cidade costuma estar embutida no nome do órgão
+        # ("Prefeitura de Limeira" -> Limeira). Preenchemos o campo, que
+        # também melhora o que o site exibe no card.
+        if not e.get("cidade"):
+            cidade = estrategia.nome_cidade(e.get("orgao"))
+            if cidade:
+                e["cidade"] = cidade
+
+        alvo = orgaos.get(f"{estrategia._chave(e.get('orgao'))}|{uf}")
+        if alvo:
+            e["lat"], e["lon"] = alvo["lat"], alvo["lon"]
+            e["geoAprox"] = False
+            if not e.get("cidade") and alvo.get("cidade"):
+                e["cidade"] = alvo["cidade"]
+            continue
+
+        chave_cidade = estrategia._chave(e.get("cidade") or e.get("orgao"))
+
+        ponto = municipios.get(f"{chave_cidade}|{uf}")
+        if ponto:
+            e["lat"], e["lon"] = ponto
+            e["geoAprox"] = False
+            continue
+
+        ponto = cidades.get(f"{chave_cidade}|{uf}")
+        if ponto:
+            e["lat"], e["lon"] = ponto
+            e["geoAprox"] = False
+            continue
+
+        capital = estrategia.CAPITAIS.get(uf)
+        if capital:
+            e["lat"], e["lon"] = capital
+            e["geoAprox"] = True
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description="Varredura de editais contábeis")
     ap.add_argument("--limite", type=int, default=25,
@@ -160,7 +219,20 @@ def main() -> int:
     print(f"\n  Candidatos após filtro: {len(achados)}")
 
     novos = [extrair.montar(a) for a in achados]
+
+    # Coordenadas para o mapa. Fonte separada porque o Estratégia informa
+    # a ÁREA do concurso, nunca o cargo — não serve para criar edital,
+    # mas é o único lugar com lat/long pronta.
+    print("\n  Geolocalização (Radar do Estratégia)")
+    try:
+        geo = estrategia.coletar_geo()
+    except Exception as e:
+        print(f"    falhou: {type(e).__name__}: {e}")
+        geo = {"orgaos": {}, "cidades": {}}
+
     existentes = carregar_existentes()
+    municipios = estrategia.coletar_municipios()
+    geolocalizar(novos + existentes, geo, municipios)
     final, ct_novos, ct_atualizados = mesclar(existentes, novos)
 
     revisados = sum(1 for e in final if e.get("revisado"))

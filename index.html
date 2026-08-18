@@ -42,6 +42,7 @@
 
     <nav class="nav" id="nav" aria-label="Navegação principal">
       <a href="#amostra">Editais</a>
+      <a href="#mapa">Mapa</a>
       <a href="#como">Como funciona</a>
       <a href="#planos">O que você recebe</a>
       <a href="login.html">Entrar</a>
@@ -138,7 +139,7 @@
           <p>Crie sua conta gratuita para ver todos e acompanhar o que abrir daqui em diante.</p>
 
           <ul class="vantagens">
-            <li>Alertas quando abrir concurso do seu perfil</li>
+            <li>Todos os editais do Brasil, sem limite</li>
             <li>Filtros por estado, banca e salário</li>
             <li>Favoritos salvos na sua conta</li>
             <li>Alertas quando abrir concurso do seu perfil</li>
@@ -146,6 +147,41 @@
 
           <a href="cadastro.html" class="btn btn-lima">Criar conta grátis</a>
           <p class="micro">Já tem conta? <a href="login.html" style="color:var(--lima)">Entrar</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       MAPA INTERATIVO
+       ============================================================ -->
+  <section class="blk" id="mapa" style="background:var(--preto-2);border-block:1px solid var(--linha)">
+    <div class="container">
+      <div class="blk-head">
+        <span class="eyebrow">Onde estão as vagas</span>
+        <h2>Clique no seu estado</h2>
+        <p>O mapa mostra onde há concurso da área contábil com inscrição aberta. Clique num estado para ver a lista.</p>
+      </div>
+
+      <div class="mapa-bloco">
+        <div class="mapa-coluna">
+          <div id="mapa-svg" aria-label="Mapa do Brasil por estado"></div>
+          <div class="mapa-legenda">
+            <span>Editais por estado:</span>
+            <span class="escala"><i class="f0"></i> 0</span>
+            <span class="escala"><i class="f1"></i> 1-2</span>
+            <span class="escala"><i class="f2"></i> 3-5</span>
+            <span class="escala"><i class="f3"></i> 6-10</span>
+            <span class="escala"><i class="f4"></i> 10+</span>
+          </div>
+        </div>
+
+        <div>
+          <div class="mapa-cabeca">
+            <h3 id="mapa-titulo">Brasil</h3>
+            <button class="btn btn-ghost btn-sm" id="mapa-limpar" hidden>Ver todo o Brasil</button>
+          </div>
+          <div id="mapa-lista" aria-live="polite"></div>
         </div>
       </div>
     </div>

@@ -10,6 +10,7 @@ import {
 } from './comum.js';
 
 import { exigirLogin, usuario, sair, primeiroNome } from './sessao.js';
+import { montarMapa } from './mapa.js';
 
 /* Barreira de acesso. exigirLogin() já dispara o redirecionamento; aqui só
    evitamos montar a página enquanto o navegador troca de URL. O boot fica
@@ -361,6 +362,10 @@ async function iniciar(){
   renderFeed(estado.editais);
   renderAgenda();
   render();
+
+  // Mapa monta uma vez, com o acervo completo: ele é uma forma
+  // alternativa de navegar, não deve refletir os filtros da lista.
+  montarMapa(estado.editais);
 }
 
 if(TEM_SESSAO) iniciar();

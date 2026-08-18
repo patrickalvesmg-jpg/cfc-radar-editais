@@ -29,7 +29,21 @@ LISTAGEM = "https://www.pciconcursos.com.br/vagas/{cargo}"
 
 # Páginas por cargo. O PCI mantém uma por termo, então varremos as que
 # interessam ao público contábil em vez de filtrar texto solto.
-CARGOS = ("contador", "contabilidade", "ciencias-contabeis")
+# Cobertura medida (2026-08-18): 195 vagas somadas nestas páginas.
+#   contador 52 · fiscal 85 · contabilidade 26 · auditor 20
+#   tecnico-em-contabilidade 10 · ciencias-contabeis 2
+# "auditor" e "fiscal" entram porque grande parte exige formação contábil,
+# mas trazem também vaga de outras áreas — quem separa é o
+# `_confirmar_cargo`, que só aceita o registro se a página de detalhe
+# citar cargo contábil de fato.
+CARGOS = (
+    "contador",
+    "tecnico-em-contabilidade",
+    "contabilidade",
+    "ciencias-contabeis",
+    "auditor",
+    "fiscal",
+)
 
 BLOCO = re.compile(
     r'<div class="na".*?(?=<div class="na"|<div id="paginacao|</div>\s*</div>\s*<footer)',
