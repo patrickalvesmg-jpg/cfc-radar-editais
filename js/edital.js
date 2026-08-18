@@ -35,6 +35,7 @@ function render(e){
   const st = STATUS[e.status] || STATUS.encerrado;
   const dias = diasAte(e.inscricaoFim);
   const inscricao = linkSeguro(e.siteInscricao);
+  const pdf = linkSeguro(e.pdfEdital);
 
   let prazoTexto;
   if(e.status === 'previsto'){
@@ -102,10 +103,25 @@ function render(e){
 
         <div class="card" style="padding:var(--s-5);margin-top:var(--s-4)">
           <h2 style="font-size:var(--t-h3);margin-bottom:var(--s-3)">Como se inscrever</h2>
+          ${pdf ? `
+            <a href="${esc(pdf)}" class="btn btn-lima btn-block"
+               target="_blank" rel="noopener noreferrer nofollow">
+              <svg viewBox="0 0 24 24" width="17" height="17" fill="none"
+                   stroke="currentColor" stroke-width="2.2"
+                   stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                <path d="M7 10l5 5 5-5M12 15V3"/>
+              </svg>
+              Abrir edital em PDF
+            </a>
+            <p class="nota-pdf">Arquivo oficial da banca, sempre na versão vigente.</p>
+          ` : ''}
+
           ${inscricao ? `
-            <p style="color:var(--cinza);font-size:var(--t-sm);margin-bottom:var(--s-4)">
-              O edital completo em PDF e a inscrição ficam no site oficial
-              responsável pelo concurso.
+            <p style="color:var(--cinza);font-size:var(--t-sm);margin:${pdf ? 'var(--s-5) 0 var(--s-4)' : '0 0 var(--s-4)'}">
+              ${pdf
+                ? 'A inscrição é feita no site oficial do concurso.'
+                : 'O edital completo em PDF e a inscrição ficam no site oficial responsável pelo concurso.'}
             </p>
             <a href="${esc(inscricao)}" class="btn btn-lima btn-block"
                target="_blank" rel="noopener noreferrer nofollow">
@@ -115,13 +131,14 @@ function render(e){
                 <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
                 <path d="M7 10l5 5 5-5M12 15V3"/>
               </svg>
-              Baixar edital e se inscrever
+              ${pdf ? 'Ir para a inscrição' : 'Baixar edital e se inscrever'}
             </a>
             <p class="micro-fonte">${esc(new URL(inscricao).hostname)}</p>
-            <p class="nota-pdf">
-              O arquivo fica no site da banca, não aqui: assim você sempre
-              pega a versão vigente, inclusive depois de retificação.
-            </p>
+            ${pdf ? '' : `
+              <p class="nota-pdf">
+                O arquivo fica no site da banca, não aqui: assim você sempre
+                pega a versão vigente, inclusive depois de retificação.
+              </p>`}
           ` : `
             <p style="color:var(--cinza);font-size:var(--t-sm)">
               O endereço de inscrição ainda não foi confirmado para este concurso.

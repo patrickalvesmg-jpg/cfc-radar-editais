@@ -111,9 +111,15 @@ def mesclar(existentes: list[dict], novos: list[dict]) -> tuple[list[dict], int,
             # ainda não existe. É acréscimo, não substituição — um edital
             # revisado sem link fica inútil para quem quer se inscrever,
             # e o dado pode ter aparecido numa fonte descoberta depois.
-            if not atual.get("siteInscricao") and novo.get("siteInscricao"):
-                atual["siteInscricao"] = novo["siteInscricao"]
-                atualizados_ct += 1
+            # Campos que são ACRÉSCIMO, nunca substituição: preenchemos
+            # quando ainda não existem. Um edital revisado sem link de
+            # inscrição ou sem o PDF fica inútil para quem quer se
+            # inscrever, e esse dado pode ter surgido numa fonte
+            # descoberta depois da revisão.
+            for campo in ("siteInscricao", "pdfEdital"):
+                if not atual.get(campo) and novo.get(campo):
+                    atual[campo] = novo[campo]
+                    atualizados_ct += 1
             continue
 
         mudou = False

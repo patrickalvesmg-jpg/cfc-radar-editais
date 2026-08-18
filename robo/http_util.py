@@ -66,9 +66,31 @@ def _regras(host_scheme: str):
     return rp
 
 
+def _disallows(regras) -> list[str]:
+    """Caminhos proibidos para o agente `*`, lidos do parser."""
+    caminhos = []
+    entradas = list(getattr(regras, "entries", []))
+    padrao = getattr(regras, "default_entry", None)
+    if padrao:
+        entradas.append(padrao)
+
+    for entrada in entradas:
+        for linha in getattr(entrada, "rulelines", []):
+            if not linha.allowance and linha.path:
+                caminhos.append(urllib.parse.unquote(linha.path))
+    return caminhos
+
+
 def pode_acessar(url: str) -> bool:
     """Consulta o robots.txt do host. Um raspador que ignora robots.txt
-    é um raspador que vai ser bloqueado — e com razão."""
+    é um raspador que vai ser bloqueado — e com razão.
+
+    Não basta `can_fetch`: quando o arquivo traz `Allow: /` seguido de
+    `Disallow: /pdf/`, o RobotFileParser considera o Allow mais
+    específico e libera o caminho proibido. O PCI é exatamente esse caso
+    — `can_fetch('/pdf/...')` devolvia True apesar do Disallow explícito.
+    Conferimos os Disallow na mão para não depender dessa precedência.
+    """
     p = urllib.parse.urlparse(url)
     regras = _regras(f"{p.scheme}://{p.netloc}")
 
@@ -76,6 +98,20 @@ def pode_acessar(url: str) -> bool:
         return True
     if regras == "PROIBIDO":
         return False
+
+    caminho = p.path or "/"
+    for proibido in _disallows(regras):
+        if proibido == "/":
+            return False
+        # Regra com curinga do tipo "/*.pdf".
+        if "*" in proibido:
+            sufixo = proibido.split("*")[-1]
+            if sufixo and caminho.endswith(sufixo):
+                return False
+            continue
+        if caminho.startswith(proibido):
+            return False
+
     try:
         return regras.can_fetch(USER_AGENT, url)
     except Exception:

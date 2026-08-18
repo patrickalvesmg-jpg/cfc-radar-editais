@@ -31,6 +31,54 @@ from http_util import buscar
 LISTA = "https://apis.cebraspe.org.br/cebraspe/eventos/tipo/concursos/"
 DETALHE = "https://apis.cebraspe.org.br/cebraspe/eventos/{url}/"
 PAGINA = "https://www.cebraspe.org.br/concursos/{url}"
+# Os anexos do concurso ficam num CDN, com o nome de arquivo vindo de
+# `arquivosEdital[].nomeArquivo` na própria API.
+CDN = "https://cdn.cebraspe.org.br/concursos/{url}/arquivos/{arquivo}"
+
+# Entre os anexos há edital de abertura, retificações, comunicados e
+# gabaritos. Queremos o de ABERTURA: é o documento que traz cargos,
+# requisitos, cronograma e conteúdo programático — o que o candidato
+# precisa para decidir. Retificação sozinha não serve, porque só lista
+# o que mudou.
+_EDITAL_ABERTURA = re.compile(
+    r"edital\s*n?[ºo°]?\s*1|abertura|edital\s+de\s+abertura", re.I
+)
+_NAO_EDITAL = re.compile(
+    r"gabarito|resultado|comunicado|convoca|isen[çc][ãa]o"
+    r"|local\s+de\s+prova|Vlibras", re.I
+)
+
+
+def _pdf_edital(det: dict, url_ev: str) -> str:
+    """URL do PDF do edital de abertura, ou '' se não houver.
+
+    Preferimos o edital nº 1 / de abertura. Se só houver retificações,
+    devolvemos a mais antiga — ainda é melhor que nada, e a página do
+    radar avisa que o candidato deve conferir a versão vigente.
+    """
+    arquivos = [
+        a for a in (det.get("arquivosEdital") or [])
+        if isinstance(a, dict)
+        and str(a.get("tipoExtensaoArquivo", "")).lower().endswith("pdf")
+        and a.get("nomeArquivo")
+    ]
+    if not arquivos:
+        return ""
+
+    def monta(a):
+        return CDN.format(url=url_ev, arquivo=a["nomeArquivo"])
+
+    uteis = [a for a in arquivos
+             if not _NAO_EDITAL.search(a.get("descricaoArquivo", ""))]
+
+    for a in uteis:
+        if _EDITAL_ABERTURA.search(a.get("descricaoArquivo", "")):
+            return monta(a)
+
+    # Sem "abertura" explícito: o mais antigo costuma ser o original.
+    if uteis:
+        return monta(uteis[-1])
+    return ""
 
 # Só interessa o que ainda dá para se inscrever ou está por abrir.
 FASES_ATIVAS = ("Novos", "Inscrições Abertas")
@@ -169,6 +217,7 @@ def coletar(_limite: int = 0) -> list[dict]:
                 "_inscricao_fim": fim,
                 "_uf": uf,
                 "_esfera": _esfera(nome, uf),
+                "_pdf_edital": _pdf_edital(det, url_ev),
                 "_confianca": "alta" if (fim and ev.get("eventoSalarioMaximo")) else "media",
             })
 

@@ -336,6 +336,10 @@ def montar(achado: dict) -> dict:
         # órgão). Fica vazio quando não dá para afirmar — a página
         # interna então orienta a procurar o edital oficial.
         "siteInscricao": achado.get("_site_inscricao", "") or achado.get("url", ""),
+        # Link DIRETO para o PDF do edital, quando a fonte o expõe.
+        # Só o CEBRASPE publica o arquivo de forma acessível; as demais
+        # bancas mantêm o edital atrás do sistema de inscrição.
+        "pdfEdital": achado.get("_pdf_edital", ""),
         # Origem do dado, para auditoria do revisor. Não é exibida.
         "procedencia": achado.get("_procedencia", "") or achado.get("url", ""),
         "fonte": achado["fonte"],
