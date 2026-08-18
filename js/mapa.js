@@ -25,6 +25,7 @@ const UFS_NOME = {
 let editais = [];
 let ufAtiva = '';
 let aoFiltrar = null;
+const filtros = { busca:'', escolaridade:'', ordem:'prazo' };
 
 /* ---------------- densidade por estado ---------------- */
 
@@ -82,9 +83,7 @@ function renderTabela(){
   const alvo = document.getElementById('mapa-lista');
   if(!alvo) return;
 
-  const lista = ufAtiva
-    ? editais.filter(e => (e.uf || '').toUpperCase() === ufAtiva)
-    : editais;
+  const lista = aplicarFiltros();
 
   const titulo = document.getElementById('mapa-titulo');
   if(titulo){
@@ -105,8 +104,9 @@ function renderTabela(){
     return;
   }
 
-  // Prazo mais curto primeiro: é a informação que decide a ação.
   const ordenada = [...lista].sort((a, b) => {
+    if(filtros.ordem === 'salario') return (b.salario || 0) - (a.salario || 0);
+    // Padrão: prazo mais curto primeiro — é o que decide a ação.
     const da = diasAte(a.inscricaoFim), db = diasAte(b.inscricaoFim);
     if(da === null) return 1;
     if(db === null) return -1;
@@ -133,6 +133,22 @@ function renderTabela(){
     </div>`;
 }
 
+/** Aplica UF + busca + escolaridade. A ordenação é feita depois. */
+function aplicarFiltros(){
+  const termo = filtros.busca.trim().toLowerCase();
+
+  return editais.filter(e => {
+    if(ufAtiva && (e.uf || '').toUpperCase() !== ufAtiva) return false;
+    if(filtros.escolaridade && e.escolaridade !== filtros.escolaridade) return false;
+    if(termo){
+      const alvo = [e.orgao, e.cargo, e.cidade, e.banca, e.uf]
+        .filter(Boolean).join(' ').toLowerCase();
+      if(!alvo.includes(termo)) return false;
+    }
+    return true;
+  });
+}
+
 function linha(e){
   const dias = diasAte(e.inscricaoFim);
   const urgente = dias !== null && dias >= 0 && dias <= 7;
@@ -144,10 +160,10 @@ function linha(e){
         <a class="cargo" href="${esc(e.editalUrl)}">${esc(e.cargo)}</a>
         <span class="orgao">${esc(e.orgao)}</span>
       </td>
-      <td>${esc(local) || '—'}<span class="esfera">${ESFERA[e.nivel] || ''}</span></td>
-      <td class="num">${esc(e.vagas) || '—'}</td>
-      <td class="num salario">${e.salario ? brl.format(e.salario) : '—'}</td>
-      <td class="${urgente ? 'urgente' : ''}">
+      <td data-rot="Local">${esc(local) || '—'}<span class="esfera">${ESFERA[e.nivel] || ''}</span></td>
+      <td class="num" data-rot="Vagas">${esc(e.vagas) || '—'}</td>
+      <td class="num salario" data-rot="Salário até">${e.salario ? brl.format(e.salario) : '—'}</td>
+      <td data-rot="Inscrições até" class="${urgente ? 'urgente' : ''}">
         ${e.inscricaoFim ? dataBR(e.inscricaoFim) : 'a confirmar'}
         ${dias !== null && dias >= 0
           ? `<span class="restam">${dias === 0 ? 'último dia' : dias + (dias === 1 ? ' dia' : ' dias')}</span>`
@@ -162,6 +178,7 @@ function linha(e){
 function selecionar(uf){
   ufAtiva = (ufAtiva === uf) ? '' : uf;
   pintarMapa();
+  pintarChips();
   renderTabela();
   aoFiltrar?.(ufAtiva);
 
@@ -169,6 +186,62 @@ function selecionar(uf){
     document.getElementById('mapa-lista')
       ?.scrollIntoView({ behavior:'smooth', block:'nearest' });
   }
+}
+
+/** Chips de estado: atalho para quem sabe onde quer procurar, e
+ *  alternativa acessível ao mapa (o SVG exige mira precisa no celular). */
+function montarChips(){
+  const alvo = document.getElementById('chips-ufs');
+  if(!alvo) return;
+
+  const contagem = contarPorUf();
+  const ufs = Object.keys(contagem)
+    .filter(uf => contagem[uf] > 0)
+    .sort((a, b) => contagem[b] - contagem[a] || a.localeCompare(b));
+
+  alvo.innerHTML = ufs.map(uf => `
+    <button class="chip-uf" data-uf="${uf}" aria-pressed="false">
+      ${uf}<span class="cont">${contagem[uf]}</span>
+    </button>`).join('');
+
+  const todos = document.getElementById('cont-todos');
+  if(todos) todos.textContent = editais.length;
+}
+
+function pintarChips(){
+  document.querySelectorAll('.chip-uf').forEach(c => {
+    const ativo = (c.dataset.uf || '') === ufAtiva;
+    c.classList.toggle('ativo', ativo);
+    c.setAttribute('aria-pressed', String(ativo));
+  });
+}
+
+function ligarFiltros(){
+  const busca = document.getElementById('f-busca');
+  if(busca){
+    let t;
+    busca.addEventListener('input', ev => {
+      clearTimeout(t);
+      t = setTimeout(() => { filtros.busca = ev.target.value; renderTabela(); }, 180);
+    });
+  }
+
+  document.getElementById('f-escolaridade')?.addEventListener('change', ev => {
+    filtros.escolaridade = ev.target.value; renderTabela();
+  });
+  document.getElementById('f-ordem')?.addEventListener('change', ev => {
+    filtros.ordem = ev.target.value; renderTabela();
+  });
+
+  document.querySelector('.filtros-rapidos')?.addEventListener('click', ev => {
+    const chip = ev.target.closest('.chip-uf');
+    if(!chip) return;
+    const uf = chip.dataset.uf || '';
+    // Chip "Todos" limpa; chip do estado ativo alterna para limpar.
+    ufAtiva = (!uf || uf === ufAtiva) ? '' : uf;
+    pintarMapa(); pintarChips(); renderTabela();
+    aoFiltrar?.(ufAtiva);
+  });
 }
 
 function ligarEventos(){
@@ -199,8 +272,11 @@ export async function montarMapa(lista, { onFiltrar } = {}){
   editais = lista || [];
   aoFiltrar = onFiltrar;
 
+  montarChips();
+  ligarFiltros();
+
   const caixa = document.getElementById('mapa-svg');
-  if(!caixa) return;
+  if(!caixa){ renderTabela(); return; }
 
   try{
     const res = await fetch('assets/brasil.svg');

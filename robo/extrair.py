@@ -167,6 +167,94 @@ def extrair_cargo(titulo: str, texto: str) -> str:
 
 
 # ------------------------------------------------------------------
+# Detalhes para a página do edital
+# ------------------------------------------------------------------
+# A matéria de origem traz informação que o card não comporta: etapas do
+# certame, taxa por escolaridade, validade, requisitos. Extraímos o que
+# dá para afirmar com âncora textual — o resto fica de fora, porque a
+# página do edital é onde o candidato decide investir meses de estudo.
+
+_ETAPAS = re.compile(
+    r"(provas?\s+(?:objetivas?|pr[áa]ticas?|discursivas?|de\s+t[íi]tulos)"
+    r"|avalia[çc][ãa]o\s+(?:de\s+t[íi]tulos|psicol[óo]gica|f[íi]sica)"
+    r"|exame\s+(?:m[ée]dico|psicot[ée]cnico)"
+    r"|teste\s+de\s+aptid[ãa]o(?:\s+f[íi]sica)?"
+    r"|prova\s+de\s+t[íi]tulos"
+    r"|investiga[çc][ãa]o\s+social"
+    r"|curso\s+de\s+forma[çc][ãa]o)",
+    re.I,
+)
+
+_TAXA = re.compile(
+    r"taxa[s]?\s+de\s+inscri[çc][ãa]o[^.]{0,180}?"
+    r"(R\$\s*[\d.]+(?:,\d{2})?(?:[^.]{0,120}?R\$\s*[\d.]+(?:,\d{2})?)*)",
+    re.I | re.S,
+)
+
+_VALIDADE = re.compile(
+    r"validade[^.]{0,60}?(\d{1,2})\s*\(?\w*\)?\s*(ano|anos|meses)"
+    r"|v[áa]lido\s+por\s+(\d{1,2})\s*\(?\w*\)?\s*(ano|anos|meses)",
+    re.I,
+)
+
+_DATA_PROVA = re.compile(
+    r"(?:provas?|aplica[çc][ãa]o)[^.]{0,120}?"
+    r"(?:no\s+dia\s+|em\s+|para\s+)"
+    r"(\d{1,2}\s+de\s+[a-zç]+(?:\s+de\s+\d{4})?|\d{1,2}/\d{1,2}/\d{4})",
+    re.I,
+)
+
+_ISENCAO = re.compile(
+    r"isen[çc][ãa]o[^.]{0,200}", re.I,
+)
+
+
+def _frase(texto: str, padrao, limite: int = 300) -> str:
+    """Devolve a frase inteira onde o padrão aparece — mais útil ao leitor
+    que um fragmento cortado no meio."""
+    m = padrao.search(texto)
+    if not m:
+        return ""
+    ini = texto.rfind(".", 0, m.start()) + 1
+    fim = texto.find(".", m.end())
+    if fim == -1:
+        fim = min(len(texto), m.end() + 160)
+    return re.sub(r"\s+", " ", texto[ini:fim + 1]).strip()[:limite]
+
+
+def extrair_detalhes(texto: str) -> dict:
+    """Campos extras para a página do edital. Só o que tem âncora clara."""
+    det = {}
+
+    etapas = []
+    for m in _ETAPAS.finditer(texto):
+        e = re.sub(r"\s+", " ", m.group(1)).strip().lower()
+        e = e[0].upper() + e[1:]
+        if e not in etapas:
+            etapas.append(e)
+    if etapas:
+        det["etapas"] = etapas[:6]
+
+    taxa = _frase(texto, _TAXA)
+    if taxa:
+        det["taxaTexto"] = taxa
+
+    val = _frase(texto, _VALIDADE, 200)
+    if val:
+        det["validade"] = val
+
+    isen = _frase(texto, _ISENCAO, 260)
+    if isen:
+        det["isencao"] = isen
+
+    m = _DATA_PROVA.search(texto)
+    if m:
+        det["provaTexto"] = re.sub(r"\s+", " ", m.group(0)).strip()[:160]
+
+    return det
+
+
+# ------------------------------------------------------------------
 # Montagem do registro
 # ------------------------------------------------------------------
 
@@ -255,4 +343,9 @@ def montar(achado: dict) -> dict:
         "confianca": confianca,
         # Trecho que originou o registro — o revisor confere sem abrir o DOU.
         "_trecho": re.sub(r"\s+", " ", texto)[:300],
+        # Resumo e detalhes para a página do edital: é onde o candidato
+        # decide investir meses de estudo, então cabe mais contexto que
+        # no card.
+        "resumo": achado.get("_resumo", ""),
+        "detalhes": extrair_detalhes(achado.get("_texto_longo") or texto),
     }

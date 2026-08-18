@@ -62,7 +62,8 @@ function render(e){
     </div>
 
     <h1 style="margin-bottom:var(--s-2)">${esc(e.cargo)}</h1>
-    <p style="color:var(--cinza);font-size:1.1rem;margin-bottom:var(--s-6)">${esc(e.orgao)}</p>
+    <p style="color:var(--cinza);font-size:1.1rem;margin-bottom:var(--s-4)">${esc(e.orgao)}</p>
+    ${e.resumo ? `<p class="edital-resumo">${esc(e.resumo)}</p>` : ''}
 
     <div class="detalhe-grid">
       <div>
@@ -87,6 +88,8 @@ function render(e){
           ${linha('Data da prova', e.dataProva ? dataBR(e.dataProva) : '')}
           ${linha('Taxa de inscrição', e.taxaInscricao ? brl.format(e.taxaInscricao) : '')}
         </div>
+
+        ${blocoDetalhes(e)}
       </div>
 
       <aside>
@@ -101,13 +104,24 @@ function render(e){
           <h2 style="font-size:var(--t-h3);margin-bottom:var(--s-3)">Como se inscrever</h2>
           ${inscricao ? `
             <p style="color:var(--cinza);font-size:var(--t-sm);margin-bottom:var(--s-4)">
-              As inscrições são feitas no site oficial responsável pelo concurso.
+              O edital completo em PDF e a inscrição ficam no site oficial
+              responsável pelo concurso.
             </p>
             <a href="${esc(inscricao)}" class="btn btn-lima btn-block"
                target="_blank" rel="noopener noreferrer nofollow">
-              Ir para a inscrição oficial
+              <svg viewBox="0 0 24 24" width="17" height="17" fill="none"
+                   stroke="currentColor" stroke-width="2.2"
+                   stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                <path d="M7 10l5 5 5-5M12 15V3"/>
+              </svg>
+              Baixar edital e se inscrever
             </a>
             <p class="micro-fonte">${esc(new URL(inscricao).hostname)}</p>
+            <p class="nota-pdf">
+              O arquivo fica no site da banca, não aqui: assim você sempre
+              pega a versão vigente, inclusive depois de retificação.
+            </p>
           ` : `
             <p style="color:var(--cinza);font-size:var(--t-sm)">
               O endereço de inscrição ainda não foi confirmado para este concurso.
@@ -136,6 +150,54 @@ function render(e){
   `;
 
   observar();
+}
+
+/**
+ * Bloco com o que a matéria de origem contou além dos campos fixos:
+ * etapas do certame, taxa, isenção, validade. Some inteiro quando não
+ * há nada a dizer — cartão vazio é pior que cartão ausente.
+ */
+function blocoDetalhes(e){
+  const d = e.detalhes || {};
+  const temAlgo = d.etapas?.length || d.taxaTexto || d.isencao || d.validade || d.provaTexto;
+  if(!temAlgo) return '';
+
+  return `
+    <div class="card" style="padding:var(--s-5);margin-top:var(--s-4)">
+      <h2 style="font-size:var(--t-h3);margin-bottom:var(--s-4)">Sobre o concurso</h2>
+
+      ${d.etapas?.length ? `
+        <div class="det-item">
+          <span class="det-rot">Etapas do certame</span>
+          <ul class="det-etapas">
+            ${d.etapas.map(x => `<li>${esc(x)}</li>`).join('')}
+          </ul>
+        </div>` : ''}
+
+      ${d.taxaTexto ? `
+        <div class="det-item">
+          <span class="det-rot">Taxa de inscrição</span>
+          <p>${esc(d.taxaTexto)}</p>
+        </div>` : ''}
+
+      ${d.isencao ? `
+        <div class="det-item">
+          <span class="det-rot">Isenção</span>
+          <p>${esc(d.isencao)}</p>
+        </div>` : ''}
+
+      ${d.provaTexto ? `
+        <div class="det-item">
+          <span class="det-rot">Prova</span>
+          <p>${esc(d.provaTexto)}</p>
+        </div>` : ''}
+
+      ${d.validade ? `
+        <div class="det-item">
+          <span class="det-rot">Validade</span>
+          <p>${esc(d.validade)}</p>
+        </div>` : ''}
+    </div>`;
 }
 
 function erro(msg){

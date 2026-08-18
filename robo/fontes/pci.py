@@ -20,6 +20,7 @@ vaga contábil e extrair quantas. Sem essa confirmação publicaríamos
 "Prefeitura X — Vários Cargos", que não ajuda ninguém a decidir.
 """
 
+import json
 import re
 
 from config import PADRAO_CONTABIL
@@ -118,8 +119,8 @@ def _site_inscricao(texto: str) -> str:
     return alvo if alvo.startswith("http") else f"https://{alvo}"
 
 
-def _confirmar_cargo(url: str) -> tuple[str, str, str] | None:
-    """Abre o detalhe e devolve (cargo, vagas, site_inscricao).
+def _confirmar_cargo(url: str) -> tuple | None:
+    """Abre o detalhe e devolve (cargo, vagas, site, resumo, texto_longo).
 
     Devolve None se a página não confirmar cargo contábil — melhor perder
     o registro que afirmar uma vaga que talvez não exista.
@@ -134,16 +135,36 @@ def _confirmar_cargo(url: str) -> tuple[str, str, str] | None:
 
     site = _site_inscricao(texto)
 
+    # A matéria traz um resumo em `description` do JSON-LD: uma frase
+    # pronta, escrita por humano, melhor que qualquer recorte nosso.
+    resumo = ""
+    m_desc = re.search(r'"description"\s*:\s*"([^"]{40,400})"', html)
+    if m_desc:
+        # O JSON-LD escapa acento em notacao \uXXXX. Decodificar com
+        # unicode_escape sobre bytes utf-8 estraga o acento ("niveis"
+        # virava "nAveis"); json.loads resolve o escape preservando a
+        # codificacao.
+        try:
+            resumo = json.loads('"' + m_desc.group(1) + '"')
+        except (json.JSONDecodeError, ValueError):
+            resumo = m_desc.group(1)
+        resumo = re.sub(r"\s+", " ", resumo).strip()
+
+    # Corpo da matéria, sem o JSON-LD e sem menu — é dele que saem as
+    # etapas, a taxa e a validade exibidas na página do edital.
+    corpo = re.sub(r'\{"@context".*?\}\]\}', " ", texto, flags=re.S)
+    corpo = re.sub(r"\s+", " ", corpo).strip()
+
     m = CARGO_DETALHE.search(texto)
     if m:
         cargo = re.sub(r"\s+", " ", m.group(1)).strip().title()
         vagas = m.group(2).strip()
-        # "1 vaga + CR" → "1 + CR" ; "CR" → "CR"
+        # "1 vaga + CR" -> "1 + CR" ; "CR" -> "CR"
         vagas = re.sub(r"\s*vagas?\s*", " ", vagas, flags=re.I).strip()
-        return cargo, vagas, site
+        return cargo, vagas, site, resumo, corpo
 
     # Termo contábil presente, mas sem o padrão "Cargo (n vagas)".
-    return "Área contábil — verificar edital", "", site
+    return "Área contábil — verificar edital", "", site, resumo, corpo
 
 
 def coletar(limite: int = 25) -> list[dict]:
@@ -195,7 +216,7 @@ def coletar(limite: int = 25) -> list[dict]:
             confirmado = _confirmar_cargo(url)
             if not confirmado:
                 continue
-            nome_cargo, vagas_cargo, site_inscricao = confirmado
+            nome_cargo, vagas_cargo, site_inscricao, resumo, texto_longo = confirmado
 
             achados.append({
                 "fonte": "PCI Concursos",
@@ -209,6 +230,8 @@ def coletar(limite: int = 25) -> list[dict]:
                 "url": "",
                 "_procedencia": url,
                 "_site_inscricao": site_inscricao,
+                "_resumo": resumo,
+                "_texto_longo": texto_longo,
                 "publicado_em": "",
                 "_cargo": nome_cargo,
                 # Vagas do CARGO CONTÁBIL, não o total do concurso: dizer

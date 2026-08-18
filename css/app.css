@@ -84,6 +84,15 @@
 
 /* Empurra o conteúdo para a faixa não cobrir nada. */
 body.tem-demo .hero{padding-top:calc(var(--topbar-h) + var(--faixa-demo-h,42px) + var(--s-8))}
+/* O hero compacto tem padding próprio e mais específico; sem repetir a
+   regra aqui, a faixa de demonstração cobria o título no celular. */
+body.tem-demo .hero-compacto{
+  padding-top:calc(var(--topbar-h) + var(--faixa-demo-h,42px) + var(--s-6));
+}
+/* Âncoras (#explorar, #amostra…) precisam descontar topbar + faixa. */
+body.tem-demo :where([id]){
+  scroll-margin-top:calc(var(--topbar-h) + var(--faixa-demo-h,42px) + 12px);
+}
 body.tem-demo .busca-wrap{top:calc(var(--topbar-h) + var(--faixa-demo-h,42px))}
 body.tem-demo #painel{scroll-margin-top:calc(var(--topbar-h) + var(--faixa-demo-h,42px) + var(--busca-h,146px))}
 body.tem-demo .boas-vindas{padding-top:calc(var(--topbar-h) + var(--faixa-demo-h,42px) + var(--s-6))}
@@ -798,4 +807,168 @@ body.tem-demo .boas-vindas{padding-top:calc(var(--topbar-h) + var(--faixa-demo-h
      para fora da tela em viewport menor que o max-width. */
   .mapa-coluna{max-width:min(420px,100%);margin-inline:auto;min-width:0}
   .mapa-bloco > *{min-width:0}
+}
+
+/* ============================================================
+   HERO COMPACTO + BLOCO DE EXPLORAÇÃO
+   O hero antigo (título gigante + painel de capturas) empurrava o
+   conteúdo útil para baixo da dobra no celular. Agora ele apresenta
+   a marca em duas linhas e cede o topo ao mapa e aos filtros.
+   ============================================================ */
+.hero-compacto{
+  padding:calc(var(--topbar-h) + var(--s-7)) 0 var(--s-6);
+}
+.hero-compacto h1{
+  font-size:clamp(1.9rem,4.6vw,3.2rem);
+  margin:var(--s-3) 0 var(--s-4);max-width:20ch;
+}
+.hero-compacto .lead{font-size:1.02rem;max-width:60ch;margin:0}
+
+.blk-topo{padding-top:var(--s-7)}
+
+/* ---------- chips de estado ---------- */
+.filtros-rapidos{margin-bottom:var(--s-4)}
+.chips-ufs{
+  display:flex;gap:var(--s-2);flex-wrap:wrap;margin-top:var(--s-2);
+}
+.filtros-rapidos{display:flex;gap:var(--s-2);flex-wrap:wrap;align-items:flex-start}
+
+.chip-uf{
+  display:inline-flex;align-items:center;gap:6px;
+  font-family:var(--display);font-weight:700;font-size:var(--t-xs);
+  letter-spacing:.04em;
+  padding:9px 14px;border-radius:var(--r-pill);
+  color:var(--cinza);background:var(--carvao);
+  border:1px solid var(--linha);white-space:nowrap;
+  transition:color var(--dur-1),background var(--dur-1),border-color var(--dur-1);
+  /* Alvo de toque confortável no celular. */
+  min-height:38px;
+}
+.chip-uf:hover{color:var(--branco);border-color:var(--linha-neutra)}
+.chip-uf.ativo{
+  color:var(--preto);background:var(--lima);border-color:var(--lima);
+  box-shadow:0 0 18px var(--lima-glow);
+}
+.chip-uf .cont{
+  font-size:var(--t-micro);font-variant-numeric:tabular-nums;
+  padding:1px 6px;border-radius:var(--r-pill);
+  background:rgba(243,247,240,.1);
+}
+.chip-uf.ativo .cont{background:rgba(10,15,10,.22)}
+
+/* ---------- linha de filtros ---------- */
+.filtros-linha{
+  display:grid;grid-template-columns:1fr auto auto;
+  gap:var(--s-3);margin-bottom:var(--s-6);
+}
+
+/* ============================================================
+   MOBILE — otimizações pedidas
+   ============================================================ */
+@media (max-width:760px){
+  .hero-compacto{padding:calc(var(--topbar-h) + var(--s-5)) 0 var(--s-4)}
+  body.tem-demo .hero-compacto{
+    padding-top:calc(var(--topbar-h) + var(--faixa-demo-h,42px) + var(--s-5));
+  }
+  .hero-compacto h1{font-size:1.75rem;margin:var(--s-2) 0 var(--s-3)}
+  .hero-compacto .lead{font-size:.95rem}
+
+  .blk-topo{padding-top:var(--s-5)}
+  .blk-topo .blk-head{margin-bottom:var(--s-4)}
+  .blk-topo .blk-head h2{font-size:1.45rem}
+  .blk-topo .blk-head p{font-size:var(--t-sm)}
+
+  /* Chips em faixa rolável: 27 estados quebrariam em 6 linhas e
+     empurrariam o mapa para fora da tela. */
+  .filtros-rapidos{
+    flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;
+    margin-inline:-20px;padding-inline:20px;
+    scroll-snap-type:x proximity;
+  }
+  .filtros-rapidos::-webkit-scrollbar{display:none}
+  .chips-ufs{flex-wrap:nowrap;margin-top:0}
+  .chip-uf{scroll-snap-align:start}
+
+  .filtros-linha{grid-template-columns:1fr;gap:var(--s-2)}
+
+  /* Tabela vira lista de cartões: tabela de 6 colunas em 390px
+     obriga rolagem horizontal, que some com as colunas da direita
+     (salário e prazo) — justamente as que decidem o clique. */
+  .tabela-editais{min-width:0}
+  .tabela-editais thead{
+    position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);
+  }
+  .tabela-editais,
+  .tabela-editais tbody,
+  .tabela-editais tr,
+  .tabela-editais td{display:block;width:100%}
+  .tabela-editais tr{
+    padding:var(--s-4);border-bottom:1px solid var(--linha);
+    position:relative;
+  }
+  .tabela-editais td{
+    padding:3px 0;border:0;
+    display:flex;justify-content:space-between;gap:var(--s-3);
+    align-items:baseline;
+  }
+  .tabela-editais td:first-child{
+    display:block;margin-bottom:var(--s-3);padding-right:70px;
+  }
+  /* Rótulo da coluna vira prefixo da linha. */
+  .tabela-editais td:not(:first-child)::before{
+    content:attr(data-rot);
+    font-size:var(--t-micro);text-transform:uppercase;letter-spacing:.08em;
+    color:var(--cinza-esc);font-weight:700;flex-shrink:0;
+  }
+  .tabela-editais td:last-child{
+    position:absolute;top:var(--s-4);right:var(--s-4);
+    width:auto;padding:0;
+  }
+  .tabela-editais td:last-child::before{content:none}
+  .tabela-editais .num{text-align:right}
+  .tabela-wrap{overflow-x:visible}
+
+  /* Mapa acima da lista, com altura contida para caber na dobra. */
+  .mapa-bloco{gap:var(--s-5)}
+  .mapa-coluna{max-width:min(340px,100%)}
+  .mapa-legenda{justify-content:center;font-size:9px;gap:var(--s-2)}
+}
+
+@media (max-width:400px){
+  .mapa-coluna{max-width:100%}
+  .tabela-editais td:first-child{padding-right:62px}
+}
+
+/* ============================================================
+   PÁGINA DO EDITAL — resumo e detalhes
+   ============================================================ */
+.edital-resumo{
+  font-size:1.02rem;color:var(--branco);line-height:1.65;
+  max-width:70ch;margin-bottom:var(--s-6);
+  padding-left:var(--s-4);border-left:3px solid var(--lima);
+}
+
+.det-item{padding:var(--s-4) 0;border-top:1px solid var(--linha-fraca)}
+.det-item:first-of-type{border-top:0;padding-top:0}
+.det-rot{
+  display:block;font-size:var(--t-micro);text-transform:uppercase;
+  letter-spacing:.1em;color:var(--cinza-esc);font-weight:700;
+  margin-bottom:var(--s-2);
+}
+.det-item p{color:var(--cinza);font-size:var(--t-sm);line-height:1.6}
+
+.det-etapas{display:flex;flex-wrap:wrap;gap:var(--s-2)}
+.det-etapas li{
+  font-size:var(--t-xs);padding:5px 11px;border-radius:var(--r-pill);
+  background:var(--lima-wash);color:var(--lima);
+  border:1px solid rgba(159,227,26,.26);
+}
+
+.nota-pdf{
+  margin-top:var(--s-3);font-size:var(--t-micro);
+  color:var(--cinza-esc);line-height:1.5;text-align:center;
+}
+
+@media (max-width:760px){
+  .edital-resumo{font-size:.95rem;padding-left:var(--s-3);margin-bottom:var(--s-5)}
 }
