@@ -1,0 +1,10 @@
+# Cache do Python — binário gerado, nunca versionado.
+# Sem isto o robô commita 9 .pyc a cada execução e polui todo Pull
+# Request, escondendo a única mudança que importa: data/editais.json.
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Sistema
+.DS_Store
+Thumbs.db
