@@ -129,7 +129,51 @@ estruturado. Não vale raspar diário estadual.
 
 ---
 
-## 7. Onde ainda vale ampliar
+## 7. Sobre contornar bloqueio de robots.txt
+
+**Não fazemos, e a razão é prática além de ética.**
+
+O `robots.txt` é a declaração formal do site sobre acesso automatizado.
+Contorná-lo exige forjar identidade de navegador e ignorar um "não"
+explícito — e o desfecho típico é **bloqueio de IP**, que nos custaria
+até o acesso que hoje funciona.
+
+VUNESP, FCC e IBFC já respondem **403 a qualquer sinal de automação**.
+Insistir apenas antecipa o bloqueio definitivo.
+
+**O caminho para essas três é comercial, não técnico:** são empresas com
+canal de contato, e um site que divulga os concursos delas é do
+interesse delas. Um pedido de acesso pode render mais que qualquer
+raspador.
+
+---
+
+## 8. Rodada extra de sondagem (19/08/2026)
+
+Testadas mais 30 fontes, em quatro frentes:
+
+| Frente | Testadas | Aproveitadas |
+|---|---|---|
+| Tribunais (TCE-SP, TCE-MG, TCU, CNJ) | 4 | 0 — TCEs barram; TCU/CNJ não publicam concurso contábil |
+| Bancas restantes (FGV, Cetro, FUNRIO, IADES, IBFC…) | 10 | 0 — as que permitem não expõem rota nem cargo |
+| Portais regionais (Ache, Nova, Vagas Públicas…) | 8 | 0 — a maioria barra por robots |
+| Plataformas de diário municipal (AMM-MG, AMUPE, FAMURS, AMP…) | 7 | 0 — ver abaixo |
+
+**Diários municipais agregados** eram a aposta mais promissora: quatro
+plataformas cobrem centenas de prefeituras e têm busca avançada com
+campo de texto. Testei via GET, via POST e via navegador — **a busca não
+devolve resultado por palavra-chave** em nenhum dos três. Sem isso,
+restaria baixar edição por edição, o que já se mostrou inviável (§5).
+
+**A Cetro tem API WordPress**, mas os posts são blog de contabilidade
+("Escritório de Contabilidade em SP"), não concursos.
+
+**Conclusão:** a cobertura por raspagem está saturada. O que existe de
+alcançável já está ligado.
+
+---
+
+## 9. Onde ainda vale ampliar
 
 1. **Bancas sem rota previsível (32)** — cada uma exige inspeção
    própria; comece pelas que mais aparecem nos nossos editais.
@@ -140,7 +184,7 @@ estruturado. Não vale raspar diário estadual.
 
 ---
 
-## 8. Agendamento
+## 10. Agendamento
 
 > **Por decisão do Patrick (19/08/2026), a varredura é MANUAL.**
 > Não há nada agendado: o site só muda quando a varredura é disparada.
