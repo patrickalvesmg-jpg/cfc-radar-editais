@@ -177,8 +177,10 @@ alcançável já está ligado.
 
 1. **Bancas sem rota previsível (32)** — cada uma exige inspeção
    própria; comece pelas que mais aparecem nos nossos editais.
-2. **API da Imprensa Nacional** — o DOU proíbe raspagem, mas há acesso
-   oficial mediante solicitação.
+2. **API da Imprensa Nacional** — o DOU proíbe raspagem, mas a abertura
+   desses dados é política pública declarada (Decreto 8.777/2016 e o
+   Plano de Dados Abertos da própria IN). Caminho e modelo de pedido
+   em **[ACESSO-DOU.md](ACESSO-DOU.md)**.
 3. **Parceria com banca** — VUNESP, FCC e IBFC bloqueiam automação;
    acesso combinado resolveria o que a raspagem não alcança.
 
