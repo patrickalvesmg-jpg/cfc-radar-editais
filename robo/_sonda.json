@@ -1,0 +1,485 @@
+[
+ {
+  "dominio": "ibgpconcursos.com.br",
+  "freq": 39,
+  "status": "ok",
+  "rota": "/concurso.jsp?cod={id}",
+  "padrao": "concurso\\.jsp\\?cod=(\\d+)",
+  "exemplos": [
+   "304",
+   "307",
+   "305"
+  ],
+  "n": 3
+ },
+ {
+  "dominio": "inepam.org.br",
+  "freq": 11,
+  "status": "robots-barra"
+ },
+ {
+  "dominio": "fundacaofafipa.org.br",
+  "freq": 7,
+  "status": "ok",
+  "rota": "/informacoes/{id}/",
+  "padrao": "/informacoes/(\\d+)",
+  "exemplos": [
+   "4181",
+   "4170",
+   "4206"
+  ],
+  "n": 22
+ },
+ {
+  "dominio": "objetivas.com.br",
+  "freq": 6,
+  "status": "ok",
+  "rota": "/informacoes/{id}/",
+  "padrao": "/informacoes/(\\d+)",
+  "exemplos": [
+   "2605",
+   "2603",
+   "2600"
+  ],
+  "n": 21
+ },
+ {
+  "dominio": "aplicativa.net.br",
+  "freq": 5,
+  "status": "robots-barra"
+ },
+ {
+  "dominio": "access.org.br",
+  "freq": 5,
+  "status": "robots-barra"
+ },
+ {
+  "dominio": "fundatec.org.br",
+  "freq": 5,
+  "status": "sem-padrao"
+ },
+ {
+  "dominio": "vunesp.com.br",
+  "freq": 4,
+  "status": "robots-barra"
+ },
+ {
+  "dominio": "jcmconcursos.com.br",
+  "freq": 4,
+  "status": "robots-barra"
+ },
+ {
+  "dominio": "gestaodeconcursos.com.br",
+  "freq": 4,
+  "status": "ok",
+  "rota": "/informacoes/{id}/",
+  "padrao": "/informacoes/(\\d+)",
+  "exemplos": [
+   "72",
+   "63",
+   "64"
+  ],
+  "n": 4
+ },
+ {
+  "dominio": "unioeste.br",
+  "freq": 4,
+  "status": "robots-barra"
+ },
+ {
+  "dominio": "exameconsultores.com.br",
+  "freq": 4,
+  "status": "robots-barra"
+ },
+ {
+  "dominio": "institutomais.org.br",
+  "freq": 3,
+  "status": "sem-padrao"
+ },
+ {
+  "dominio": "glconsultoria.com.br",
+  "freq": 3,
+  "status": "sem-padrao"
+ },
+ {
+  "dominio": "integribrasil.com.br",
+  "freq": 2,
+  "status": "sem-padrao"
+ },
+ {
+  "dominio": "fronteconcursos.com.br",
+  "freq": 2,
+  "status": "robots-barra"
+ },
+ {
+  "dominio": "institutoibepp.com.br",
+  "freq": 2,
+  "status": "sem-padrao"
+ },
+ {
+  "dominio": "institutoconsulplan.org.br",
+  "freq": 2,
+  "status": "sem-padrao"
+ },
+ {
+  "dominio": "imeso.com.br",
+  "freq": 2,
+  "status": "sem-padrao"
+ },
+ {
+  "dominio": "institutounicampo.com.br",
+  "freq": 2,
+  "status": "sem-padrao"
+ },
+ {
+  "dominio": "legalleconcursos.com.br",
+  "freq": 2,
+  "status": "robots-barra"
+ },
+ {
+  "dominio": "institutolegalle.org.br",
+  "freq": 2,
+  "status": "sem-padrao"
+ },
+ {
+  "dominio": "ufpe.br",
+  "freq": 2,
+  "status": "robots-barra"
+ },
+ {
+  "dominio": "consesp.com.br",
+  "freq": 2,
+  "status": "sem-padrao"
+ },
+ {
+  "dominio": "ibamsp-concursos.org.br",
+  "freq": 2,
+  "status": "robots-barra"
+ },
+ {
+  "dominio": "uem.br",
+  "freq": 2,
+  "status": "sem-padrao"
+ },
+ {
+  "dominio": "ibam-concursos.org.br",
+  "freq": 2,
+  "status": "sem-padrao"
+ },
+ {
+  "dominio": "cisicom.com.br",
+  "freq": 2,
+  "status": "robots-barra"
+ },
+ {
+  "dominio": "idepi.org.br",
+  "freq": 2,
+  "status": "ok",
+  "rota": "/concurso.jsp?cod={id}",
+  "padrao": "concurso\\.jsp\\?cod=(\\d+)",
+  "exemplos": [
+   "304",
+   "307",
+   "305"
+  ],
+  "n": 3
+ },
+ {
+  "dominio": "educapb.com.br",
+  "freq": 2,
+  "status": "ok",
+  "rota": "/informacoes/{id}/",
+  "padrao": "/informacoes/(\\d+)",
+  "exemplos": [
+   "7",
+   "6",
+   "5"
+  ],
+  "n": 5
+ },
+ {
+  "dominio": "inbrasp.org",
+  "freq": 2,
+  "status": "sem-padrao"
+ },
+ {
+  "dominio": "nossorumo.org.br",
+  "freq": 2,
+  "status": "sem-padrao"
+ },
+ {
+  "dominio": "fadeprp.org.br",
+  "freq": 2,
+  "status": "sem-padrao"
+ },
+ {
+  "dominio": "consorciotresrios.com.br",
+  "freq": 1,
+  "status": "robots-barra"
+ },
+ {
+  "dominio": "institutoaplicativa.org.br",
+  "freq": 1,
+  "status": "ok",
+  "rota": "/informacoes/{id}/",
+  "padrao": "/informacoes/(\\d+)",
+  "exemplos": [
+   "47",
+   "46",
+   "45"
+  ],
+  "n": 8
+ },
+ {
+  "dominio": "imam.org.br",
+  "freq": 1,
+  "status": "sem-padrao"
+ },
+ {
+  "dominio": "conhecimento.fgv.br",
+  "freq": 1,
+  "status": "sem-padrao"
+ },
+ {
+  "dominio": "tjpr.jus.br",
+  "freq": 1,
+  "status": "robots-barra"
+ },
+ {
+  "dominio": "matinhos.atende.net",
+  "freq": 1,
+  "status": "sem-padrao"
+ },
+ {
+  "dominio": "aguadeivoti.com.br",
+  "freq": 1,
+  "status": "sem-padrao"
+ },
+ {
+  "dominio": "fundacaolasalle.org.br",
+  "freq": 1,
+  "status": "sem-padrao"
+ },
+ {
+  "dominio": "emdaep.com.br",
+  "freq": 1,
+  "status": "sem-resposta"
+ },
+ {
+  "dominio": "ufu.br",
+  "freq": 1,
+  "status": "sem-padrao"
+ },
+ {
+  "dominio": "portalselecao.ufu.br",
+  "freq": 1,
+  "status": "robots-barra"
+ },
+ {
+  "dominio": "uel.br",
+  "freq": 1,
+  "status": "robots-barra"
+ },
+ {
+  "dominio": "cops.uel.br",
+  "freq": 1,
+  "status": "robots-barra"
+ },
+ {
+  "dominio": "nc.ufpr.br",
+  "freq": 1,
+  "status": "sem-padrao"
+ },
+ {
+  "dominio": "cebraspe.org.br",
+  "freq": 1,
+  "status": "sem-padrao"
+ },
+ {
+  "dominio": "arabuta.atende.net",
+  "freq": 1,
+  "status": "sem-padrao"
+ },
+ {
+  "dominio": "amauc.selecao.net.br",
+  "freq": 1,
+  "status": "ok",
+  "rota": "/informacoes/{id}/",
+  "padrao": "/informacoes/(\\d+)",
+  "exemplos": [
+   "140",
+   "141",
+   "142"
+  ],
+  "n": 10
+ },
+ {
+  "dominio": "cdp.com.br",
+  "freq": 1,
+  "status": "robots-barra"
+ },
+ {
+  "dominio": "consulpam.com.br",
+  "freq": 1,
+  "status": "ok",
+  "rota": "/informacoes/{id}/",
+  "padrao": "/informacoes/(\\d+)",
+  "exemplos": [
+   "71",
+   "72",
+   "73"
+  ],
+  "n": 7
+ },
+ {
+  "dominio": "camarasmunicipal.com.br",
+  "freq": 1,
+  "status": "sem-padrao"
+ },
+ {
+  "dominio": "institutovicentenelson.com.br",
+  "freq": 1,
+  "status": "ok",
+  "rota": "/informacoes/{id}/",
+  "padrao": "/informacoes/(\\d+)",
+  "exemplos": [
+   "102",
+   "103",
+   "99"
+  ],
+  "n": 4
+ },
+ {
+  "dominio": "iset.selecao.net.br",
+  "freq": 1,
+  "status": "ok",
+  "rota": "/informacoes/{id}/",
+  "padrao": "/informacoes/(\\d+)",
+  "exemplos": [
+   "44",
+   "47",
+   "46"
+  ],
+  "n": 12
+ },
+ {
+  "dominio": "belojardim.pe.leg.br",
+  "freq": 1,
+  "status": "sem-padrao"
+ },
+ {
+  "dominio": "institutoindec.org.br",
+  "freq": 1,
+  "status": "sem-padrao"
+ },
+ {
+  "dominio": "aplims.selecao.net.br",
+  "freq": 1,
+  "status": "sem-padrao"
+ },
+ {
+  "dominio": "concursosfcc.com.br",
+  "freq": 1,
+  "status": "sem-padrao"
+ },
+ {
+  "dominio": "universidadepatativa.com.br",
+  "freq": 1,
+  "status": "sem-padrao"
+ },
+ {
+  "dominio": "sistemas.cpcon.uepb.edu.br",
+  "freq": 1,
+  "status": "sem-padrao"
+ },
+ {
+  "dominio": "abconcursospublicos.org",
+  "freq": 1,
+  "status": "ok",
+  "rota": "/informacoes/{id}/",
+  "padrao": "/informacoes/(\\d+)",
+  "exemplos": [
+   "2866",
+   "2843",
+   "2865"
+  ],
+  "n": 195
+ },
+ {
+  "dominio": "cra-rj.adm.br",
+  "freq": 1,
+  "status": "robots-barra"
+ },
+ {
+  "dominio": "iades.com.br",
+  "freq": 1,
+  "status": "robots-barra"
+ },
+ {
+  "dominio": "concursosjcm.com.br",
+  "freq": 1,
+  "status": "ok",
+  "rota": "/informacoes/{id}/",
+  "padrao": "/informacoes/(\\d+)",
+  "exemplos": [
+   "266",
+   "267",
+   "265"
+  ],
+  "n": 8
+ },
+ {
+  "dominio": "eloassessoriaeservicos.com.br",
+  "freq": 1,
+  "status": "sem-padrao"
+ },
+ {
+  "dominio": "msmconsultoria.com.br",
+  "freq": 1,
+  "status": "robots-barra"
+ },
+ {
+  "dominio": "auctorconsultoria.com.br",
+  "freq": 1,
+  "status": "ok",
+  "rota": "/informacoes/{id}/",
+  "padrao": "/informacoes/(\\d+)",
+  "exemplos": [
+   "31",
+   "30",
+   "29"
+  ],
+  "n": 9
+ },
+ {
+  "dominio": "institutoideap.org.br",
+  "freq": 1,
+  "status": "robots-barra"
+ },
+ {
+  "dominio": "msconc.com.br",
+  "freq": 1,
+  "status": "ok",
+  "rota": "/informacoes/{id}/",
+  "padrao": "/informacoes/(\\d+)",
+  "exemplos": [
+   "111",
+   "110",
+   "120"
+  ],
+  "n": 20
+ },
+ {
+  "dominio": "cotec-fadenor.selecao.net.br",
+  "freq": 1,
+  "status": "ok",
+  "rota": "/informacoes/{id}/",
+  "padrao": "/informacoes/(\\d+)",
+  "exemplos": [
+   "31",
+   "32",
+   "33"
+  ],
+  "n": 18
+ }
+]

@@ -29,10 +29,28 @@ from datetime import date
 from http_util import buscar
 
 # nome exibido → base do site
+# Bancas na plataforma "selecao.net" e compatíveis: todas expõem
+# `/informacoes/{id}/`. Lista montada sondando os 71 domínios de banca
+# que aparecem nas matérias do PCI — 16 responderam com padrão
+# reconhecível, 22 barram por robots.txt e 32 não têm rota previsível.
 BANCAS = (
+    ("Fundação FAFIPA", "https://www.fundacaofafipa.org.br"),
+    ("Objetiva Concursos", "https://www.objetivas.com.br"),
     ("AvançaSP", "https://www.avancasp.org.br"),
     ("Instituto Access", "https://concursos.access.org.br"),
     ("Exame Consultores", "https://www.exameconsultores.com.br"),
+    ("Fundep / Gestão de Concursos", "https://www.gestaodeconcursos.com.br"),
+    ("Instituto Aplicativa", "https://www.institutoaplicativa.org.br"),
+    ("AMAUC", "https://amauc.selecao.net.br"),
+    ("Consulpam", "https://www.consulpam.com.br"),
+    ("Instituto Vicente Nelson", "https://www.institutovicentenelson.com.br"),
+    ("ISET", "https://iset.selecao.net.br"),
+    ("AB Concursos Públicos", "https://abconcursospublicos.org"),
+    ("JCM Concursos", "https://www.concursosjcm.com.br"),
+    ("Auctor Consultoria", "https://www.auctorconsultoria.com.br"),
+    ("MS Concursos", "https://www.msconc.com.br"),
+    ("COTEC / FADENOR", "https://cotec-fadenor.selecao.net.br"),
+    ("EducaPB", "https://www.educapb.com.br"),
 )
 
 TAG = re.compile(r"<[^>]+>")
@@ -115,11 +133,24 @@ def coletar(_limite: int = 0) -> list[dict]:
             print(f"    {nome}: indisponível")
             continue
 
-        ids = list(dict.fromkeys(ID_CONCURSO.findall(home)))
+        # Alguns sites listam /informacoes/{id} mas servem o conteúdo em
+        # outra rota (dão 404 no caminho direto). Usamos o href COMPLETO
+        # que a home publica, e só montamos a URL quando não há href.
+        hrefs = dict.fromkeys(
+            re.findall(r'href="([^"]*?/informacoes/\d+/?[^"]*)"', home)
+        )
+        por_id = {}
+        for href in hrefs:
+            m = ID_CONCURSO.search(href)
+            if m:
+                por_id.setdefault(m.group(1),
+                                  href if href.startswith("http") else base + href)
+
+        ids = list(por_id) or list(dict.fromkeys(ID_CONCURSO.findall(home)))
         encontrados = 0
 
         for cid in ids:
-            url = f"{base}/informacoes/{cid}/"
+            url = por_id.get(cid) or f"{base}/informacoes/{cid}/"
             bruto = buscar(url)
             if not bruto:
                 continue
@@ -133,7 +164,27 @@ def coletar(_limite: int = 0) -> list[dict]:
             if not m_org:
                 continue
             orgao = re.sub(r"\s+", " ", m_org.group(0)).strip()[:120]
+            # A captura gulosa arrastava a palavra seguinte da página
+            # ("Prefeitura Municipal Inscrições"). Cortamos no primeiro
+            # termo que claramente não faz parte do nome.
+            orgao = re.split(
+                r"\s+(?:Inscri[çc]|Edital|Concurso|Processo|Torna|Comunica"
+                r"|Resultado|Cronograma|Anexo|Retifica)",
+                orgao, maxsplit=1, flags=re.I,
+            )[0].strip(" -–—,")
             if NOME_BANCA.search(orgao):
+                continue
+            # "Prefeitura Municipal" sem cidade não identifica concurso
+            # nenhum. Tentamos completar com o nome que aparece no título
+            # da página antes de descartar.
+            if not re.search(r"\s+d[aeo]s?\s+\S|\s+[A-ZÀ-Ú]\S{3,}", orgao):
+                m_tit = re.search(
+                    r"<title>([^<]{6,120})</title>", bruto, re.I)
+                titulo_pg = _texto(m_tit.group(1)) if m_tit else ""
+                m2 = ORGAO.search(titulo_pg)
+                if m2:
+                    orgao = re.sub(r"\s+", " ", m2.group(0)).strip()[:120]
+            if len(orgao) < 12:
                 continue
 
             inicio = fim = ""

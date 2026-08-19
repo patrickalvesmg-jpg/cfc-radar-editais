@@ -2,14 +2,14 @@
   {
     "dominio": "fundacaofafipa.org.br",
     "nome": "Fundação FAFIPA",
-    "editais": 8,
+    "editais": 9,
     "fontePrimaria": true,
     "site": "https://fundacaofafipa.org.br/"
   },
   {
     "dominio": "ibgpconcursos.com.br",
     "nome": "IBGP Concursos",
-    "editais": 5,
+    "editais": 6,
     "fontePrimaria": false,
     "site": "https://ibgpconcursos.com.br/"
   },
@@ -35,13 +35,6 @@
     "site": "https://institutoconsulplan.org.br/"
   },
   {
-    "dominio": "avancasp.org.br",
-    "nome": "AvançaSP",
-    "editais": 2,
-    "fontePrimaria": true,
-    "site": "https://avancasp.org.br/"
-  },
-  {
     "dominio": "glconsultoria.com.br",
     "nome": "GL Consultoria",
     "editais": 2,
@@ -63,6 +56,13 @@
     "site": "https://inepam.org.br/"
   },
   {
+    "dominio": "avancasp.org.br",
+    "nome": "AvançaSP",
+    "editais": 2,
+    "fontePrimaria": true,
+    "site": "https://avancasp.org.br/"
+  },
+  {
     "dominio": "exameconsultores.com.br",
     "nome": "Exame Consultores",
     "editais": 1,
@@ -75,13 +75,6 @@
     "editais": 1,
     "fontePrimaria": false,
     "site": "https://institutoaplicativa.org.br/"
-  },
-  {
-    "dominio": "nossorumo.org.br",
-    "nome": "Instituto Nosso Rumo",
-    "editais": 1,
-    "fontePrimaria": false,
-    "site": "https://nossorumo.org.br/"
   },
   {
     "dominio": "access.org.br",
@@ -208,6 +201,27 @@
     "editais": 1,
     "fontePrimaria": false,
     "site": "https://integribrasil.com.br/"
+  },
+  {
+    "dominio": "iset.selecao.net.br",
+    "nome": "ISET",
+    "editais": 1,
+    "fontePrimaria": false,
+    "site": "https://iset.selecao.net.br/"
+  },
+  {
+    "dominio": "concursosjcm.com.br",
+    "nome": "Concursosjcm",
+    "editais": 1,
+    "fontePrimaria": false,
+    "site": "https://concursosjcm.com.br/"
+  },
+  {
+    "dominio": "nossorumo.org.br",
+    "nome": "Instituto Nosso Rumo",
+    "editais": 1,
+    "fontePrimaria": false,
+    "site": "https://nossorumo.org.br/"
   },
   {
     "dominio": "ajuri.org.br",
