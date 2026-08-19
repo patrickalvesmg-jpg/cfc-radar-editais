@@ -142,25 +142,41 @@ estruturado. Não vale raspar diário estadual.
 
 ## 8. Agendamento
 
-> **Estado atual: NÃO HÁ VARREDURA AGENDADA.**
-> O workflow do GitHub Actions está `disabled_manually`, e o
-> `varrer.bat` existe mas nunca foi registrado no agendador.
+> **Por decisão do Patrick (19/08/2026), a varredura é MANUAL.**
+> Não há nada agendado: o site só muda quando a varredura é disparada.
 
-Duas opções:
+Para rodar:
 
-**a) Na nuvem** — reativar o que já existia:
+```bash
+python robo/atualizar.py --dry-run   # mostra o que acharia, sem gravar
+python robo/atualizar.py             # grava data/editais.json
+```
+Depois, `git add data/ && git commit && git push` — o site republica só.
+
+Ou dar duplo clique em **`varrer.bat`**, que faz os dois passos.
+
+Uma varredura completa leva **cerca de 20 minutos** (20 bancas + 3
+agregadores, com pausa de 1,5s entre requisições ao mesmo host).
+
+### Se um dia quiser automatizar
+
+**Na nuvem** — o workflow existe e está corrigido, só desativado:
 ```
 gh workflow enable radar.yml --repo patrickalvesmg-jpg/cfc-radar-editais
 ```
-Roda todo dia às 06:00 sem depender de máquina ligada. Abre Pull
-Request para revisão.
+Roda às 06:00 sem depender de máquina ligada e abre Pull Request para
+revisão. As 8 últimas execuções antes de desativar foram bem-sucedidas.
 
-**b) Na máquina** — `varrer.bat`, agendado uma vez:
+**Na máquina** — agendar o `varrer.bat`:
 ```
-schtasks /create /tn "Radar Concursos Contabilidade" /tr "CAMINHO\varrer.bat" /sc daily /st 07:00
+schtasks /create /tn "Radar Concursos Contabilidade" /tr "CAMINHOarrer.bat" /sc daily /st 07:00
 ```
 Só roda com o computador ligado, e publica direto (sem revisão prévia).
 
-**Frequência sugerida: diária.** Concurso de contador não abre todo dia,
-mas o prazo de inscrição corre — varredura diária mantém o `status`
-correto e evita exibir edital vencido como aberto.
+### Por que a frequência importa
+
+O `status` de cada edital (aberto / encerrando / encerrado) é calculado
+na varredura. Sem rodar por semanas, o site passa a mostrar como
+"aberto" concurso cuja inscrição já fechou — o erro que mais prejudica
+quem usa o radar. Se ficar muito tempo sem varrer, rode antes de
+divulgar o link.

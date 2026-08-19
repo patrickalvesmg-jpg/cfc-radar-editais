@@ -84,10 +84,10 @@ Documentada em [`IDENTIDADE-VISUAL.md`](IDENTIDADE-VISUAL.md). Resumo:
 
 ## Atualização automática
 
-> **Atenção: hoje NÃO há varredura agendada.** O workflow do GitHub
-> Actions está desativado e o `varrer.bat` não foi registrado no
-> agendador. Enquanto isso, o site só muda quando a varredura é
-> disparada à mão.
+> **A varredura é manual, por decisão do projeto.** Não há nada
+> agendado: o site só muda quando alguém roda `varrer.bat` ou
+> `python robo/atualizar.py`. Rode antes de divulgar o link — o
+> status "aberto/encerrado" de cada edital é recalculado na varredura.
 
 O robô varre 7 fontes (bancas organizadoras, PCI, agregadores) e reúne
 os concursos da área contábil. Mapa completo das fontes, do que já foi

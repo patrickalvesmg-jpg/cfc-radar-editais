@@ -38,6 +38,12 @@ PORTAIS = (
         "nome": "Edital Concursos Brasil",
         "api": "https://www.editalconcursosbrasil.com.br/wp-json/wp/v2/posts",
     },
+    # Banca, não agregador: publica os próprios concursos em WordPress.
+    {
+        "nome": "CONSESP",
+        "api": "https://www.consesp.com.br/wp-json/wp/v2/posts",
+        "banca": True,
+    },
 )
 
 TERMOS = ("contador", "contabilidade", "contábeis")

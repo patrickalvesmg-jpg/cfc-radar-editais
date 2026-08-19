@@ -53,10 +53,20 @@ BANCAS = (
     ("EducaPB", "https://www.educapb.com.br"),
     ("Selecon", "https://www.selecon.org.br"),
     ("IDCAP", "https://www.idcap.org.br"),
+    # Rota própria: o terceiro item substitui /informacoes/{id}/.
+    ("Instituto Mais", "https://www.institutomais.org.br", "/Concursos/Detalhe/{id}"),
 )
 
 TAG = re.compile(r"<[^>]+>")
 ID_CONCURSO = re.compile(r"/informacoes/(\d+)")
+
+# Nem toda banca usa /informacoes/{id}: o Instituto Mais usa
+# /Concursos/Detalhe/{id}. A tupla de BANCAS aceita um terceiro item
+# com o molde da rota, e daí sai tanto o regex quanto a URL final.
+def _rota(banca):
+    molde = banca[2] if len(banca) > 2 else "/informacoes/{id}/"
+    padrao = re.compile(re.escape(molde).replace(r"\{id\}", r"(\d+)"))
+    return molde, padrao
 
 CARGO_VAGA = re.compile(
     r"\b((?:t[ée]cnico\s+(?:em|de)\s+contabilidade"
@@ -129,7 +139,9 @@ def _pdf_abertura(bruto: str) -> str:
 def coletar(_limite: int = 0) -> list[dict]:
     achados: list[dict] = []
 
-    for nome, base in BANCAS:
+    for banca in BANCAS:
+        nome, base = banca[0], banca[1]
+        molde, id_regex = _rota(banca)
         home = buscar(f"{base}/")
         if not home:
             print(f"    {nome}: indisponível")
@@ -138,21 +150,18 @@ def coletar(_limite: int = 0) -> list[dict]:
         # Alguns sites listam /informacoes/{id} mas servem o conteúdo em
         # outra rota (dão 404 no caminho direto). Usamos o href COMPLETO
         # que a home publica, e só montamos a URL quando não há href.
-        hrefs = dict.fromkeys(
-            re.findall(r'href="([^"]*?/informacoes/\d+/?[^"]*)"', home)
-        )
         por_id = {}
-        for href in hrefs:
-            m = ID_CONCURSO.search(href)
+        for href in dict.fromkeys(re.findall(r'href="([^"]+)"', home)):
+            m = id_regex.search(href)
             if m:
                 por_id.setdefault(m.group(1),
                                   href if href.startswith("http") else base + href)
 
-        ids = list(por_id) or list(dict.fromkeys(ID_CONCURSO.findall(home)))
+        ids = list(por_id) or list(dict.fromkeys(id_regex.findall(home)))
         encontrados = 0
 
         for cid in ids:
-            url = por_id.get(cid) or f"{base}/informacoes/{cid}/"
+            url = por_id.get(cid) or base + molde.replace("{id}", cid)
             bruto = buscar(url)
             if not bruto:
                 continue
