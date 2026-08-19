@@ -73,7 +73,10 @@ function render(e){
           ${linha('Cargo', esc(e.cargo))}
           ${linha('Órgão', esc(e.orgao))}
           ${linha('Local', esc(local))}
-          ${linha('Banca', esc(e.banca))}
+          ${linha('Organizadora', e.bancaDominio && !BLOQUEADOS.test(e.bancaDominio)
+              ? `<a class="link-banca" href="https://${esc(e.bancaDominio)}/"
+                    target="_blank" rel="noopener noreferrer nofollow">${esc(e.banca)}</a>`
+              : esc(e.banca))}
           ${linha('Vagas', esc(e.vagas))}
           ${linha('Escolaridade', e.escolaridade === 'medio' ? 'Médio / Técnico' : 'Superior')}
           ${linha('Carga horária', esc(e.cargaHoraria))}

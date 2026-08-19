@@ -326,7 +326,7 @@ def montar(achado: dict) -> dict:
         "status": "aberto" if fim else "previsto",
         "inscricaoInicio": inicio or "",
         "inscricaoFim": fim or "",
-        "dataProva": "",
+        "dataProva": achado.get("_data_prova", ""),
         "taxaInscricao": 0,
         # Link do card aponta para a PÁGINA INTERNA do radar. O site não
         # manda visitante para agregador concorrente — quem constrói

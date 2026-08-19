@@ -972,3 +972,10 @@ body.tem-demo .boas-vindas{padding-top:calc(var(--topbar-h) + var(--faixa-demo-h
 @media (max-width:760px){
   .edital-resumo{font-size:.95rem;padding-left:var(--s-3);margin-bottom:var(--s-5)}
 }
+
+/* ============================================================
+   ORGANIZADORA (banca)
+   ============================================================ */
+.link-banca{color:var(--lima);border-bottom:1px solid rgba(159,227,26,.3)}
+.link-banca:hover{border-bottom-color:var(--lima)}
+.banca-cel{font-size:var(--t-xs);color:var(--cinza)}

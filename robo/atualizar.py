@@ -27,8 +27,10 @@ for _fluxo in (sys.stdout, sys.stderr):
 
 sys.path.insert(0, str(Path(__file__).parent))
 
-from fontes import (cebraspe, consulplan, estrategia, pci,  # noqa: E402
+from fontes import (bancas, cebraspe, consulplan, estrategia,  # noqa: E402
+                    fafipa, pci,
                     portais_wp, querido_diario)
+import organizadoras  # noqa: E402
 import extrair                                # noqa: E402
 
 # Fontes ativas. Cada uma expõe coletar() e devolve achados brutos.
@@ -36,6 +38,8 @@ import extrair                                # noqa: E402
 # varredura — o resto do pipeline não muda.
 FONTES = (
     ("CEBRASPE (banca)", cebraspe.coletar),
+    ("Fundação FAFIPA (banca)", fafipa.coletar),
+    ("Bancas em plataforma comum", bancas.coletar),
     ("Consulplan (conselhos de contabilidade)", consulplan.coletar),
     ("PCI Concursos (prefeituras)", pci.coletar),
     ("Portais WordPress (agregadores)", portais_wp.coletar),
@@ -260,6 +264,9 @@ def main() -> int:
     if ct_novos == 0 and ct_atualizados == 0:
         print("\n  Nada mudou. Arquivo intacto.")
         return 0
+
+    organizadoras.vincular(final)
+    organizadoras.gravar_catalogo(final)
 
     ARQUIVO.write_text(
         json.dumps(final, ensure_ascii=False, indent=2) + "\n",

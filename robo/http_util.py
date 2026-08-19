@@ -140,6 +140,16 @@ def buscar(url: str, *, checar_robots: bool = True) -> str | None:
             bruto = r.read()
             if r.headers.get("Content-Encoding") == "gzip":
                 bruto = gzip.decompress(bruto)
+
+            # Nem todo site é UTF-8: a Fafipa serve iso-8859-1, e forçar
+            # utf-8 transformava "Fundação" em "Funda??o". Respeitamos o
+            # charset declarado e só caímos em utf-8 quando não há um.
+            charset = r.headers.get_content_charset()
+            if charset:
+                try:
+                    return bruto.decode(charset, "replace")
+                except LookupError:
+                    pass
             return bruto.decode("utf-8", "replace")
 
     except urllib.error.HTTPError as e:

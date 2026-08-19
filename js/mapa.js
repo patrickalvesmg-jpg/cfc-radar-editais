@@ -120,6 +120,7 @@ function renderTabela(){
           <tr>
             <th scope="col">Órgão / Cargo</th>
             <th scope="col">Local</th>
+            <th scope="col">Organizadora</th>
             <th scope="col" class="num">Vagas</th>
             <th scope="col" class="num">Salário até</th>
             <th scope="col">Inscrições até</th>
@@ -161,6 +162,7 @@ function linha(e){
         <span class="orgao">${esc(e.orgao)}</span>
       </td>
       <td data-rot="Local">${esc(local) || '—'}<span class="esfera">${ESFERA[e.nivel] || ''}</span></td>
+      <td data-rot="Organizadora"><span class="banca-cel">${esc(e.banca || '—')}</span></td>
       <td class="num" data-rot="Vagas">${esc(e.vagas) || '—'}</td>
       <td class="num salario" data-rot="Salário até">${e.salario ? brl.format(e.salario) : '—'}</td>
       <td data-rot="Inscrições até" class="${urgente ? 'urgente' : ''}">
