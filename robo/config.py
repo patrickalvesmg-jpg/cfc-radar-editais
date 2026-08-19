@@ -49,15 +49,28 @@ PADRAO_CONCURSO = re.compile(
     re.I,
 )
 
+# É da área contábil? Além do núcleo (contador, ciências contábeis),
+# inclui os cargos que exigem ou aceitam essa formação: controle
+# interno e externo, tributos, orçamento, tesouraria.
+#
+# Cargo adjacente (economista, escriturário) NÃO entra aqui de
+# propósito: sozinho ele não indica vaga contábil. Quem decide nesse
+# caso é o `_confirmar_cargo` da fonte, que lê a página de detalhe.
 PADRAO_CONTABIL = re.compile(
     r"\bcontador(?:es|a)?\b"
     r"|\bcontabilidade\b"
+    r"|\bcontabilista\b"
     r"|ci[êe]ncias\s+cont[áa]beis"
     r"|t[ée]cnico.{0,20}contabilidade"
-    r"|auditor.{0,30}(?:fiscal|controle|interno|governamental)"
-    r"|anal(?:ista|ítico).{0,30}cont[áa]b"
-    r"|fiscal.{0,20}(?:tributos|receita|renda)"
-    r"|controlador(?:ia)?\s+(?:interno|geral)",
+    r"|(?:auxiliar|assistente|analista).{0,12}cont[áa]b\w*"
+    r"|auditor.{0,30}(?:fiscal|controle|interno|governamental|p[úu]blico)"
+    r"|controlador.{0,16}interno"
+    r"|(?:analista|t[ée]cnico|oficial|assistente).{0,24}controle\s+(?:interno|externo)"
+    r"|fiscal.{0,20}(?:tributos?|receita|rendas?|arrecada[çc][ãa]o)"
+    r"|agente.{0,16}(?:tributos?|arrecada[çc][ãa]o|fiscal)"
+    r"|analista\s+tribut[áa]rio"
+    r"|(?:analista|t[ée]cnico).{0,20}(?:or[çc]ament\w+|financ\w+|custos?)"
+    r"|\btesoureiro(?:a)?\b",
     re.I,
 )
 

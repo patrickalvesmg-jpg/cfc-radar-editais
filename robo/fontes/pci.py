@@ -37,13 +37,58 @@ LISTAGEM = "https://www.pciconcursos.com.br/vagas/{cargo}"
 # mas trazem também vaga de outras áreas — quem separa é o
 # `_confirmar_cargo`, que só aceita o registro se a página de detalhe
 # citar cargo contábil de fato.
+# Páginas de cargo do PCI. Cada slug é uma listagem própria dele.
+#
+# Ampliado de 6 para 29 slugs em 19/08/2026, depois de sondar quais
+# existem: só "contador" e "contabilidade" deixavam de fora quase 200
+# vagas de cargos que TAMBÉM exigem formação contábil — fiscal de
+# tributos, controlador interno, tesoureiro, auditor fiscal.
+#
+# Amostragem feita antes de incluir (5 vagas por slug, verificando se a
+# matéria cita cargo contábil): fiscal-de-tributos 5/5, controlador
+# interno 5/5, escriturário 5/5, tesoureiro 5/5, economista 4/4.
+#
+# Slug amplo (economista, escriturário) traz também vaga de outra área —
+# quem separa é o `_confirmar_cargo`, que só aceita se a página de
+# detalhe citar cargo contábil de fato.
 CARGOS = (
+    # núcleo contábil
     "contador",
     "tecnico-em-contabilidade",
+    "tecnico-contabil",
     "contabilidade",
     "ciencias-contabeis",
+    "analista-contabil",
+    "auxiliar-contabil",
+    # auditoria
     "auditor",
+    "auditor-fiscal",
+    "auditor-interno",
+    "auditor-de-controle-interno",
+    # controle interno e externo
+    "controlador-interno",
+    "analista-de-controle-interno",
+    "analista-de-controle-externo",
+    "tecnico-de-controle-externo",
+    # tributos e arrecadação
     "fiscal",
+    "fiscal-de-tributos",
+    "fiscal-de-rendas",
+    "agente-fiscal",
+    "agente-de-tributos",
+    "agente-de-arrecadacao",
+    # finanças, orçamento e tesouraria
+    "analista-financeiro",
+    "analista-de-financas",
+    "analista-orcamentario",
+    "analista-de-orcamento",
+    "analista-administrativo-e-financeiro",
+    "tesoureiro",
+    # NÃO incluir "economista" nem "escriturario": testados em
+    # 19/08/2026 e REPROVADOS. Nenhuma das vagas capturadas confirmava
+    # exigência contábil — escriturário de prefeitura costuma ser nível
+    # médio sem relação com a área. Inflar o acervo com vaga irrelevante
+    # atrapalha quem procura concurso de contador.
 )
 
 BLOCO = re.compile(
@@ -54,9 +99,36 @@ URL_BLOCO = re.compile(r'data-url="([^"]+)"')
 TAG = re.compile(r"<[^>]+>")
 
 # "Contador (1 vaga + CR)" / "Contador (CR)" na página de detalhe.
+# Cargo + vagas na página de detalhe: "Contador (1 vaga + CR)".
+# Cobre o núcleo contábil e os cargos adjacentes que exigem ou aceitam
+# formação em Ciências Contábeis — sem eles, ampliar as páginas de
+# busca não adiantaria: o registro seria capturado e descartado por
+# falta de cargo reconhecido.
 CARGO_DETALHE = re.compile(
-    r"((?:t[ée]cnico\s+(?:em|de)\s+contabilidade|analista\s+cont[áa]bil"
-    r"|auditor[\w\s]{0,24}cont[áa]b\w*|contador(?:a)?))"
+    r"((?:"
+    # núcleo contábil
+    r"t[ée]cnico\s+(?:em|de)\s+contabilidade"
+    r"|auxiliar\s+(?:de\s+)?cont[áa]b\w*"
+    r"|assistente\s+(?:de\s+)?cont[áa]b\w*"
+    r"|analista\s+(?:de\s+)?cont[áa]b\w*"
+    r"|contador(?:a)?(?:\s+p[úu]blico)?"
+    r"|contabilista"
+    # auditoria
+    r"|auditor[\w\s]{0,28}?(?:cont[áa]b\w*|fiscal|interno|p[úu]blico"
+    r"|controle\s+(?:interno|externo))"
+    # controle
+    r"|controlador[\w\s]{0,16}?interno"
+    r"|(?:analista|t[ée]cnico|assistente|oficial)[\w\s]{0,20}?"
+    r"controle\s+(?:interno|externo)"
+    # tributos e arrecadação
+    r"|(?:fiscal|agente)[\w\s]{0,16}?(?:de\s+)?"
+    r"(?:tributos?|rendas?|arrecada[çc][ãa]o|receita)"
+    r"|analista\s+tribut[áa]rio"
+    # finanças, orçamento, tesouraria
+    r"|(?:analista|t[ée]cnico)[\w\s]{0,20}?"
+    r"(?:financ\w+|or[çc]ament\w+|custos?)"
+    r"|tesoureiro(?:a)?"
+    r"))"
     r"\s*\(([^)]{0,40})\)",
     re.I,
 )
@@ -120,7 +192,7 @@ def _e_util(url: str) -> bool:
     # Descarta assets e páginas institucionais.
     return not re.search(
         r"\.(?:png|jpe?g|gif|svg|css|js|ico)$"
-        r"|/(?:contato|sobre|privacidade|termos|politica|login|cookies)",
+        r"|/(?:contato|sobre|privacidade|termos|politica|login|cookies)\b",
         caminho, re.I,
     )
 
