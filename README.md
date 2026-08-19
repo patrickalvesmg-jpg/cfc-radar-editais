@@ -84,9 +84,16 @@ Documentada em [`IDENTIDADE-VISUAL.md`](IDENTIDADE-VISUAL.md). Resumo:
 
 ## Atualização automática
 
-O radar se atualiza sozinho: um robô em Python roda **todo dia às 06:00**
-no GitHub Actions — sem depender de nenhum computador ligado — varre os
-diários oficiais municipais e **abre um Pull Request** com o que achou.
+> **Atenção: hoje NÃO há varredura agendada.** O workflow do GitHub
+> Actions está desativado e o `varrer.bat` não foi registrado no
+> agendador. Enquanto isso, o site só muda quando a varredura é
+> disparada à mão.
+
+O robô varre 7 fontes (bancas organizadoras, PCI, agregadores) e reúne
+os concursos da área contábil. Mapa completo das fontes, do que já foi
+testado e do que não vale repetir: **[FONTES.md](FONTES.md)**.
+
+Para religar o agendamento, veja a seção 7 do FONTES.md.
 
 Nada vai ao ar sem sua aprovação: data de inscrição errada prejudica
 candidato de verdade, e extração automática erra.
