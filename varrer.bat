@@ -1,13 +1,13 @@
 @echo off
 REM ============================================================
-REM  CFC ACADEMY - RADAR DE EDITAIS
+REM  CFC ACADEMY - RADAR CONCURSOS CONTABILIDADE
 REM  Varredura das bancas + publicacao no site.
 REM ------------------------------------------------------------
 REM  Roda na MAQUINA do Patrick, agendado pelo Windows.
 REM  Substitui o GitHub Actions, que ficava falhando.
 REM
 REM  Para agendar (uma vez so, no PowerShell como admin):
-REM    schtasks /create /tn "Radar de Editais" /tr "CAMINHO\varrer.bat" ^
+REM    schtasks /create /tn "Radar Concursos Contabilidade" /tr "CAMINHO\varrer.bat" ^
 REM             /sc daily /st 07:00
 REM
 REM  Para rodar agora, so dar duplo clique.
@@ -16,7 +16,7 @@ REM ============================================================
 cd /d "%~dp0"
 
 echo.
-echo === Radar de Editais - varredura de %date% %time%
+echo === Radar Concursos Contabilidade - varredura de %date% %time%
 echo.
 
 python robo\atualizar.py --limite 60

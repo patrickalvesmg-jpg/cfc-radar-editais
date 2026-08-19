@@ -137,7 +137,7 @@ Request para revisão.
 
 **b) Na máquina** — `varrer.bat`, agendado uma vez:
 ```
-schtasks /create /tn "Radar de Editais" /tr "CAMINHO\varrer.bat" /sc daily /st 07:00
+schtasks /create /tn "Radar Concursos Contabilidade" /tr "CAMINHO\varrer.bat" /sc daily /st 07:00
 ```
 Só roda com o computador ligado, e publica direto (sem revisão prévia).
 

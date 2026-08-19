@@ -979,3 +979,20 @@ body.tem-demo .boas-vindas{padding-top:calc(var(--topbar-h) + var(--faixa-demo-h
 .link-banca{color:var(--lima);border-bottom:1px solid rgba(159,227,26,.3)}
 .link-banca:hover{border-bottom-color:var(--lima)}
 .banca-cel{font-size:var(--t-xs);color:var(--cinza)}
+
+/* ============================================================
+   EDITORIAL DO EDITAL
+   Texto de apoio: o candidato lê aqui em vez de garimpar o PDF.
+   ============================================================ */
+.editorial p{
+  color:var(--cinza);font-size:var(--t-sm);line-height:1.75;
+  margin-bottom:var(--s-4);
+}
+.editorial p:last-of-type{margin-bottom:0}
+.editorial b{color:var(--branco);font-weight:600}
+.editorial-nota{
+  margin-top:var(--s-5);padding-top:var(--s-4);
+  border-top:1px solid var(--linha-fraca);
+  font-size:var(--t-micro) !important;color:var(--cinza-esc) !important;
+  line-height:1.5 !important;
+}

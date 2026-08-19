@@ -1,4 +1,4 @@
-# Robô de captura — Radar de Editais
+# Robô de captura — Radar Concursos Contabilidade
 
 Varredura automática de editais de concurso da área contábil.
 Roda no GitHub Actions, **sem depender de nenhum computador ligado**.

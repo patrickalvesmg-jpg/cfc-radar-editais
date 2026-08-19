@@ -133,11 +133,39 @@ def extrair_vagas(texto: str) -> str:
     return vagas
 
 
+# Esfera pelo TIPO de órgão. Ordem importa: "Universidade Federal" tem
+# que bater em federal antes de qualquer outra regra, e "Câmara
+# Municipal" em municipal — sem isso saíam 18 classificações erradas
+# (câmara municipal como estadual, universidade federal como estadual).
+_ESFERA_FEDERAL = re.compile(
+    r"TRF|TRT|TRE|STJ|STF|TCU|AGU|MPU"
+    r"|universidade\s+federal|instituto\s+federal|UF[A-Z]{2,3}|IF[A-Z]{2,3}"
+    r"|c[âa]mara\s+dos\s+deputados|senado|receita\s+federal|INSS"
+    r"|conselho\s+federal|minist[ée]rio\s+p[úu]blico\s+federal",
+    re.I,
+)
+_ESFERA_MUNICIPAL = re.compile(
+    r"prefeitura|c[âa]mara(?!\s+dos\s+deputados)|munic[íi]pio|municipal"
+    r"|IPREM|prev|cons[óo]rcio\s+intermunicipal"
+    r"|servi[çc]o\s+aut[ôo]nomo|SAAE|DAAE",
+    re.I,
+)
+_ESFERA_ESTADUAL = re.compile(
+    r"TCE|TJ[- ]?[A-Z]{2}|governo\s+do\s+estado"
+    r"|secretaria\s+de\s+estado|SEFAZ|DETRAN"
+    r"|assembleia\s+legislativa|pol[íi]cia\s+(?:civil|militar)"
+    r"|AGEPAR|universidade\s+estadual",
+    re.I,
+)
+
+
 def extrair_esfera(orgao: str, texto: str) -> str:
-    plano = _sem_acento((orgao + " " + texto[:800]).lower())
-    if re.search(r"prefeitura|municip|camara municipal", plano):
+    alvo = f"{orgao} {texto[:600]}"
+    if _ESFERA_FEDERAL.search(alvo):
+        return "federal"
+    if _ESFERA_MUNICIPAL.search(alvo):
         return "municipal"
-    if re.search(r"governo do estado|secretaria de estado|estadual|tribunal de justica", plano):
+    if _ESFERA_ESTADUAL.search(alvo):
         return "estadual"
     return "federal"
 
@@ -258,6 +286,15 @@ def extrair_detalhes(texto: str) -> dict:
 # Montagem do registro
 # ------------------------------------------------------------------
 
+# Prefixo de manchete que não faz parte do nome do órgão. Vinha
+# "Concurso Prefeitura de Relvado (RS)" e o editorial gerava
+# "O Concurso Prefeitura de Relvado abriu concurso público".
+_PREFIXO_MANCHETE = re.compile(
+    r"^(?:concurso|processo\s+seletivo|edital)\s+", re.I
+)
+_UF_PARENTESES = re.compile(r"\s*\([A-Z]{2}\)\s*$")
+
+
 def _limpar_orgao(bruto: str, titulo: str) -> str:
     """Nome do órgão a partir do campo bruto da fonte.
 
@@ -268,8 +305,13 @@ def _limpar_orgao(bruto: str, titulo: str) -> str:
         partes = [p.strip() for p in bruto.split("/") if p.strip()]
         partes = [p for p in partes if p.upper() not in UFS]
         if partes:
-            return partes[-1][:120]
-    return titulo[:120]
+            return _sem_prefixo(partes[-1])[:120]
+    return _sem_prefixo(titulo)[:120]
+
+
+def _sem_prefixo(nome: str) -> str:
+    n = _PREFIXO_MANCHETE.sub("", nome.strip())
+    return _UF_PARENTESES.sub("", n).strip(" -–—,")
 
 
 def montar(achado: dict) -> dict:

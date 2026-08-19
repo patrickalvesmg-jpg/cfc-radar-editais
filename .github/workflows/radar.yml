@@ -67,7 +67,7 @@ jobs:
           delete-branch: true
           title: "Radar: novos editais para revisão"
           body: |
-            Varredura automática do Radar de Editais.
+            Varredura automática do Radar Concursos Contabilidade.
 
             **Antes de aprovar, confira nos itens marcados `"revisado": false`:**
 

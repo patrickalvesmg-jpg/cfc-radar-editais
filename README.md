@@ -1,4 +1,4 @@
-# Radar de Editais · CFC Academy
+# Radar Concursos Contabilidade · CFC Academy
 
 Plataforma que reúne editais de concursos públicos da área contábil no Brasil.
 Esta entrega é o **front-end** — a captura automática dos editais é a fase 2.

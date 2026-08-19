@@ -1,5 +1,5 @@
 /* ============================================================
-   CFC ACADEMY · RADAR DE EDITAIS
+   CFC ACADEMY · RADAR CONCURSOS CONTABILIDADE
    Página interna do edital.
    ------------------------------------------------------------
    Aqui o candidato encontra TUDO sobre o concurso sem sair da
@@ -53,7 +53,7 @@ function render(e){
   const local = e.cidade && e.uf ? `${esc(e.cidade)}/${esc(e.uf)}`
               : e.cidade || e.uf || '';
 
-  document.title = `${e.cargo} — ${e.orgao} · Radar de Editais`;
+  document.title = `${e.cargo} — ${e.orgao} · Radar Concursos Contabilidade`;
 
   document.getElementById('detalhe').innerHTML = `
     <div class="edital-topo" style="margin-bottom:var(--s-4)">
@@ -94,6 +94,7 @@ function render(e){
         </div>
 
         ${blocoDetalhes(e)}
+        ${blocoEditorial(e)}
       </div>
 
       <aside>
@@ -164,12 +165,34 @@ function render(e){
     </div>
 
     <p class="aviso-legal">
-      Informação reunida automaticamente pelo Radar de Editais a partir de fontes
+      Informação reunida automaticamente pelo Radar Concursos Contabilidade a partir de fontes
       públicas. Confirme sempre os dados no edital oficial antes de se inscrever.
     </p>
   `;
 
   observar();
+}
+
+/**
+ * Editorial: texto de apoio gerado a partir dos dados capturados.
+ * Vem pronto do robô (campo `editorial`), então é igual para todos os
+ * leitores e indexável por buscador.
+ *
+ * O HTML vem de fonte própria — o robô monta só <p> e <b> a partir de
+ * campos já validados, sem repassar texto de terceiro.
+ */
+function blocoEditorial(e){
+  if(!e.editorial) return '';
+  return `
+    <article class="card editorial" style="padding:var(--s-5);margin-top:var(--s-4)">
+      <span class="eyebrow" style="margin-bottom:var(--s-3)">Análise do radar</span>
+      <h2 style="font-size:var(--t-h3);margin-bottom:var(--s-4)">Sobre este concurso</h2>
+      ${e.editorial}
+      <p class="editorial-nota">
+        Texto produzido pelo Radar Concursos Contabilidade a partir dos dados
+        publicados pela organizadora. Confirme sempre no edital oficial.
+      </p>
+    </article>`;
 }
 
 /**

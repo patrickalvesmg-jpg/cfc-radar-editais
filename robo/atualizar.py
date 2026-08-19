@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-CFC ACADEMY · RADAR DE EDITAIS — varredura diária.
+CFC ACADEMY · RADAR CONCURSOS CONTABILIDADE — varredura diária.
 
     python robo/atualizar.py [--dias N] [--dry-run]
 
@@ -30,6 +30,7 @@ sys.path.insert(0, str(Path(__file__).parent))
 from fontes import (bancas, cebraspe, consulplan, estrategia,  # noqa: E402
                     fafipa, pci,
                     portais_wp, querido_diario)
+import editorial      # noqa: E402
 import organizadoras  # noqa: E402
 import extrair                                # noqa: E402
 
@@ -214,7 +215,7 @@ def main() -> int:
                     help="mostra o resultado sem gravar o arquivo")
     args = ap.parse_args()
 
-    print(f"Radar de Editais — varredura de {datetime.now():%d/%m/%Y %H:%M}\n")
+    print(f"Radar Concursos Contabilidade — varredura de {datetime.now():%d/%m/%Y %H:%M}\n")
 
     achados: list[dict] = []
     for nome, coletar in FONTES:
@@ -264,6 +265,9 @@ def main() -> int:
     if ct_novos == 0 and ct_atualizados == 0:
         print("\n  Nada mudou. Arquivo intacto.")
         return 0
+
+    n_ed = editorial.aplicar(final)
+    print(f"  Editoriais: {n_ed}")
 
     organizadoras.vincular(final)
     organizadoras.gravar_catalogo(final)
