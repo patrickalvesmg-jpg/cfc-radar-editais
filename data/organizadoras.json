@@ -14,18 +14,18 @@
     "site": "https://ibgpconcursos.com.br/"
   },
   {
+    "dominio": "legalleconcursos.com.br",
+    "nome": "Legalle Concursos",
+    "editais": 4,
+    "fontePrimaria": false,
+    "site": "https://legalleconcursos.com.br/"
+  },
+  {
     "dominio": "cebraspe.org.br",
     "nome": "CESPE/CEBRASPE",
     "editais": 4,
     "fontePrimaria": true,
     "site": "https://cebraspe.org.br/"
-  },
-  {
-    "dominio": "legalleconcursos.com.br",
-    "nome": "Legalle Concursos",
-    "editais": 3,
-    "fontePrimaria": false,
-    "site": "https://legalleconcursos.com.br/"
   },
   {
     "dominio": "institutoconsulplan.org.br",
@@ -35,18 +35,18 @@
     "site": "https://institutoconsulplan.org.br/"
   },
   {
-    "dominio": "glconsultoria.com.br",
-    "nome": "GL Consultoria",
-    "editais": 2,
-    "fontePrimaria": false,
-    "site": "https://glconsultoria.com.br/"
-  },
-  {
     "dominio": "objetivas.com.br",
     "nome": "Objetiva Concursos",
     "editais": 2,
     "fontePrimaria": false,
     "site": "https://objetivas.com.br/"
+  },
+  {
+    "dominio": "glconsultoria.com.br",
+    "nome": "GL Consultoria",
+    "editais": 2,
+    "fontePrimaria": false,
+    "site": "https://glconsultoria.com.br/"
   },
   {
     "dominio": "inepam.org.br",
@@ -68,55 +68,6 @@
     "editais": 1,
     "fontePrimaria": true,
     "site": "https://exameconsultores.com.br/"
-  },
-  {
-    "dominio": "institutoaplicativa.org.br",
-    "nome": "Instituto Aplicativa",
-    "editais": 1,
-    "fontePrimaria": false,
-    "site": "https://institutoaplicativa.org.br/"
-  },
-  {
-    "dominio": "access.org.br",
-    "nome": "Instituto Access",
-    "editais": 1,
-    "fontePrimaria": true,
-    "site": "https://access.org.br/"
-  },
-  {
-    "dominio": "imam.org.br",
-    "nome": "IMAM Concursos",
-    "editais": 1,
-    "fontePrimaria": false,
-    "site": "https://imam.org.br/"
-  },
-  {
-    "dominio": "imeso.com.br",
-    "nome": "IMESO",
-    "editais": 1,
-    "fontePrimaria": false,
-    "site": "https://imeso.com.br/"
-  },
-  {
-    "dominio": "pedradourada.mg.gov.br",
-    "nome": "Pedradourada",
-    "editais": 1,
-    "fontePrimaria": false,
-    "site": "https://pedradourada.mg.gov.br/"
-  },
-  {
-    "dominio": "jcmconcursos.com.br",
-    "nome": "JCM Concursos",
-    "editais": 1,
-    "fontePrimaria": false,
-    "site": "https://jcmconcursos.com.br/"
-  },
-  {
-    "dominio": "gestaodeconcursos.com.br",
-    "nome": "Fundep / Gestão de Concursos",
-    "editais": 1,
-    "fontePrimaria": false,
-    "site": "https://gestaodeconcursos.com.br/"
   },
   {
     "dominio": "fundatec.org.br",
@@ -187,6 +138,55 @@
     "editais": 1,
     "fontePrimaria": false,
     "site": "https://ifpi.edu.br/"
+  },
+  {
+    "dominio": "institutoaplicativa.org.br",
+    "nome": "Instituto Aplicativa",
+    "editais": 1,
+    "fontePrimaria": false,
+    "site": "https://institutoaplicativa.org.br/"
+  },
+  {
+    "dominio": "access.org.br",
+    "nome": "Instituto Access",
+    "editais": 1,
+    "fontePrimaria": true,
+    "site": "https://access.org.br/"
+  },
+  {
+    "dominio": "imam.org.br",
+    "nome": "IMAM Concursos",
+    "editais": 1,
+    "fontePrimaria": false,
+    "site": "https://imam.org.br/"
+  },
+  {
+    "dominio": "imeso.com.br",
+    "nome": "IMESO",
+    "editais": 1,
+    "fontePrimaria": false,
+    "site": "https://imeso.com.br/"
+  },
+  {
+    "dominio": "pedradourada.mg.gov.br",
+    "nome": "Pedradourada",
+    "editais": 1,
+    "fontePrimaria": false,
+    "site": "https://pedradourada.mg.gov.br/"
+  },
+  {
+    "dominio": "jcmconcursos.com.br",
+    "nome": "JCM Concursos",
+    "editais": 1,
+    "fontePrimaria": false,
+    "site": "https://jcmconcursos.com.br/"
+  },
+  {
+    "dominio": "gestaodeconcursos.com.br",
+    "nome": "Fundep / Gestão de Concursos",
+    "editais": 1,
+    "fontePrimaria": false,
+    "site": "https://gestaodeconcursos.com.br/"
   },
   {
     "dominio": "institutoibepp.com.br",

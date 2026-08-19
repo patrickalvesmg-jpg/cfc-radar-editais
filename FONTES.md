@@ -109,18 +109,38 @@ O volume vem das bancas e do PCI, não dos diários.
 
 ---
 
-## 6. Onde ampliar (por ordem de retorno)
+## 6. Diários estaduais: testados e descartados
 
-1. **Bancas sem rota previsível (32)** — cada uma exige inspeção
-   própria; comece pelas que mais aparecem nos nossos editais.
-2. **Diários oficiais ESTADUAIS** — não cobertos hoje; concursos de
-   TCE, SEFAZ e tribunais saem neles.
-3. **API da Imprensa Nacional** — o DOU proíbe raspagem, mas há acesso
-   oficial mediante solicitação.
+Testados 10 diários oficiais estaduais (SP, PR, MG, RS, SC, BA, PE, GO,
+CE, RJ):
+
+| Resultado | Qtde |
+|---|---|
+| Barram por `robots.txt` | 3 (RS, BA, CE) |
+| Permitem, mas **sem busca aproveitável** | 7 |
+
+Nenhum expõe API ou campo de busca que aceite termo — é o mesmo padrão
+que já inviabilizou o Querido Diário (§5). Varrer edição por edição
+seria baixar milhares de páginas para achar meia dúzia de vagas.
+
+**Conclusão:** concurso de TCE e SEFAZ chega até nós pelo PCI e pelas
+bancas grandes (CEBRASPE, FGV, FUNDATEC), que publicam com cargo
+estruturado. Não vale raspar diário estadual.
 
 ---
 
-## 7. Agendamento
+## 7. Onde ainda vale ampliar
+
+1. **Bancas sem rota previsível (32)** — cada uma exige inspeção
+   própria; comece pelas que mais aparecem nos nossos editais.
+2. **API da Imprensa Nacional** — o DOU proíbe raspagem, mas há acesso
+   oficial mediante solicitação.
+3. **Parceria com banca** — VUNESP, FCC e IBFC bloqueiam automação;
+   acesso combinado resolveria o que a raspagem não alcança.
+
+---
+
+## 8. Agendamento
 
 > **Estado atual: NÃO HÁ VARREDURA AGENDADA.**
 > O workflow do GitHub Actions está `disabled_manually`, e o

@@ -93,7 +93,7 @@ O robô varre 7 fontes (bancas organizadoras, PCI, agregadores) e reúne
 os concursos da área contábil. Mapa completo das fontes, do que já foi
 testado e do que não vale repetir: **[FONTES.md](FONTES.md)**.
 
-Para religar o agendamento, veja a seção 7 do FONTES.md.
+Para religar o agendamento, veja a seção 8 do FONTES.md.
 
 Nada vai ao ar sem sua aprovação: data de inscrição errada prejudica
 candidato de verdade, e extração automática erra.

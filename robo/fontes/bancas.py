@@ -51,6 +51,8 @@ BANCAS = (
     ("MS Concursos", "https://www.msconc.com.br"),
     ("COTEC / FADENOR", "https://cotec-fadenor.selecao.net.br"),
     ("EducaPB", "https://www.educapb.com.br"),
+    ("Selecon", "https://www.selecon.org.br"),
+    ("IDCAP", "https://www.idcap.org.br"),
 )
 
 TAG = re.compile(r"<[^>]+>")
