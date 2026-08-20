@@ -75,16 +75,24 @@ function ligar(){
     btn.disabled = true;
     btn.textContent = 'Liberando seu acesso…';
 
-    // Manda o e-mail para o ActiveCampaign. SEM `await` de
-    // propósito: a pessoa não pode ficar esperando servidor de
-    // terceiro, e o envio não é confirmável mesmo (ver js/crm.js).
-    // Se o AC estiver fora do ar ou bloqueado, o acesso é liberado
-    // do mesmo jeito — travar quem acabou de informar o e-mail
-    // seria pior do que perder um contato na lista.
-    enviarCRM({ email });
-
-    // Grava só a marca de acesso: nenhum dado da pessoa.
+    // O acesso é liberado ANTES de saber o resultado do envio, e
+    // isso é deliberado: se o ActiveCampaign estiver fora do ar
+    // ou barrado por um bloqueador de anúncios, quem acabou de
+    // informar o e-mail não pode ficar de fora do site. Perder um
+    // contato na lista é ruim; travar a pessoa é pior.
     liberar();
+
+    // Ainda assim esperamos a resposta, porque o AC responde de
+    // verdade (ver js/crm.js): se ele RECUSAR o e-mail — endereço
+    // inválido para ele, formulário desativado —, avisamos em vez
+    // de deixar a pessoa achando que entrou na lista.
+    enviarCRM({ email }).then(ok => {
+      if(ok || !navigator.onLine) return;
+      // Falha silenciosa do lado do AC: seguimos para o site do
+      // mesmo jeito. O acesso já está liberado; registrar no
+      // console ajuda a depurar sem incomodar quem está usando.
+      console.warn('[radar] o e-mail não foi confirmado pela lista de avisos');
+    });
 
     // Pequeno atraso para a transição não ficar brusca.
     setTimeout(() => { location.href = destino(); }, 400);

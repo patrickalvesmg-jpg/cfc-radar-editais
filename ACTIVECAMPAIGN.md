@@ -7,10 +7,15 @@ formulário ou depurar.
 Valores em uso (`js/crm.js`):
 
 ```js
-endpoint:   'https://cfcacademy.activehosted.com/proc.php'
-formulario: '6A875235C00B6'   // campo "u"
-numero:     '85'              // campo "f"
+endpoint: 'https://cfcacademy.activehosted.com/proc.php'
+u:  '85'
+f:  '85'
+or: '16041baa-b78b-4fdf-91f1-c38fb8f4a9da'
 ```
+
+Além destes, o envio precisa de **`act=sub`** e **`v=2`**. Sem eles o AC
+aceita a requisição e **ignora o cadastro em silêncio** — foi exatamente
+o que aconteceu na primeira tentativa.
 
 ---
 
@@ -35,21 +40,15 @@ de código. Procure nele:
 
 Você precisa de:
 
-| O que | Onde está | Exemplo |
-|---|---|---|
-| Endereço | o `action` do form | `https://cfcacademy.activehosted.com/proc.php` |
-| Código (`u`) | o `value` do input `name="u"` | `6A875235C00B6` |
-| Número (`f`) | o `value` do input `name="f"` | `85` |
+| O que | Onde está |
+|---|---|
+| Endereço | o `action` do `<form>` |
+| `u`, `f`, `or` | os `value` dos `<input type="hidden">` |
 
-> **`u` e `f` são DIFERENTES e é fácil errar.** O `u` é um código
-> alfanumérico; o `f` é o número (o mesmo do `embed.php?id=`). Mandar o
-> número nos dois faz o contato ser rejeitado **em silêncio**.
-
-### Se você só tem o embed em JavaScript
-
-O código `<script src=".../f/embed.php?id=85">` não mostra os valores.
-Para achá-los, abra esse endereço no navegador e procure por
-`name=\"u\"` — o `value` ao lado é o código.
+> **Pegue o embed do tipo "Simple Embed"**, que mostra o HTML do
+> formulário. O embed em JavaScript (`<script src=".../embed.php?id=85">`)
+> não expõe esses valores de forma confiável — tentar deduzi-los de
+> dentro dele leva a erro.
 
 ## Passo 3 — preencher em `js/crm.js`
 
@@ -82,11 +81,19 @@ Se não aparecer, na ordem:
 
 ## Duas coisas que valem saber
 
-**Não dá para confirmar o envio pelo site — e nem pela resposta.**
-Testado em 20/08/2026: o `proc.php` devolve **HTTP 302 para tudo**,
-inclusive com o `u` errado e sem e-mail nenhum. O código de resposta
-não distingue sucesso de falha, e o CORS ainda impede o navegador de
-lê-lo. **A única confirmação confiável é olhar Contacts no painel.**
+**O envio É confirmável — mas só por JSONP.** Chamado com
+`&jsonp=true` (como o próprio embed do AC faz), o `proc.php` responde
+com JavaScript executável:
+
+```js
+_show_thank_you("85", "Obrigado por se cadastrar!", ...)   // sucesso
+_show_error("85", "...")                                    // falha
+```
+
+O `js/crm.js` define essas duas funções antes de chamar, e assim sabe o
+resultado. Um `fetch` comum não serviria: o CORS impede ler a resposta,
+e o POST direto devolve **302 para tudo** — inclusive quando o cadastro
+falha.
 
 **O acesso é liberado de qualquer jeito.** O envio ao AC é
 deliberadamente sem `await`: se o AC estiver fora do ar ou bloqueado,

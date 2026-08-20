@@ -7,90 +7,116 @@
    exposição em LGPD — e o e-mail é o que sustenta a lista de
    avisos, que é o objetivo.
 
-   POR QUE NÃO USAMOS A API DO ACTIVECAMPAIGN
+   COMO ISTO FUNCIONA
 
-   A API exige uma chave secreta. Este site é estático: o
-   JavaScript roda no navegador do visitante, então qualquer
-   chave colocada aqui fica LEGÍVEL para quem abrir o código —
-   e robôs varrem sites atrás disso. Com a chave em mãos, um
-   estranho lê e apaga a lista inteira de contatos.
+   O ActiveCampaign expõe `/proc.php`, o mesmo endereço que o
+   embed oficial usa. Não há chave secreta envolvida: o endpoint
+   aceita criar contato, nunca ler — então nada fica exposto no
+   código do site, que é público por natureza.
 
-   Por isso usamos o endpoint PÚBLICO de formulário
-   (`/proc.php`), o mesmo que o embed oficial do AC usa. Ele foi
-   feito para receber envio de página pública: aceita só criação
-   de contato, nunca leitura. Não há segredo exposto.
+   Chamamos por JSONP (`<script src=...>`), exatamente como o
+   embed do AC faz. Isso não é gambiarra: é o mecanismo que o
+   próprio AC usa, e tem uma vantagem concreta sobre o `fetch`
+   em `no-cors` — a resposta é executável, então CONSEGUIMOS
+   saber se o contato entrou. O AC responde chamando
+   `_show_thank_you(...)` no sucesso ou `_show_error(...)` na
+   falha, e nós definimos essas funções abaixo.
 
-   O QUE ISSO CUSTA: o AC não devolve resposta legível para
-   requisição de outra origem (CORS). Mandamos em `no-cors`, o
-   que significa que NÃO conseguimos confirmar se o contato
-   entrou. Por isso a liberação do acesso nunca depende deste
-   envio — ver `enviar()` e js/auth.js.
+   CAMPOS OBRIGATÓRIOS (descobertos lendo o embed real)
+
+     u, f   número do formulário — no formulário 85, AMBOS são 85
+     act    'sub'  — sem isto o AC ignora o envio em silêncio
+     v      '2'    — versão do protocolo do formulário
+     or     id de origem do formulário
+
+   `act` e `v` são fáceis de esquecer e não dão erro visível: a
+   requisição responde 302 e o contato simplesmente não entra.
    ============================================================ */
 
 /* ------------------------------------------------------------
-   CONFIGURAÇÃO — preencher com os dados do seu ActiveCampaign.
-   Passo a passo completo em ACTIVECAMPAIGN.md.
-
-   Resumo: no AC, Site › Forms › crie um formulário só com o
-   campo de e-mail › Integrate › Simple Embed. No código que
-   aparecer, copie o `action` do form e o `value` do input "u".
-
-   Enquanto ATIVO for false, nada é enviado e o site funciona
-   normalmente — o acesso é liberado do mesmo jeito.
+   CONFIGURAÇÃO — dados do formulário do ActiveCampaign.
+   Passo a passo em ACTIVECAMPAIGN.md.
+   Para trocar de formulário: pegue o embed em Site › Forms ›
+   Integrate › Simple Embed e copie os `value` dos inputs
+   escondidos (u, f, or).
    ------------------------------------------------------------ */
 export const CRM = {
   ativo: true,
 
   endpoint: 'https://cfcacademy.activehosted.com/proc.php',
 
-  // ATENÇÃO: "u" e "f" são valores DIFERENTES, e é fácil errar.
-  //   u = código do formulário (alfanumérico)
-  //   f = número do formulário (o mesmo do embed.php?id=)
-  // Mandar o número nos dois faz o contato ser rejeitado em silêncio —
-  // e o site não tem como perceber, porque não lê a resposta do AC.
-  // Estes vieram do embed real (id=85), conferidos no arquivo do AC.
-  formulario: '6A875235C00B6',
-  numero: '85',
+  // No formulário 85 os dois valem '85'. Não presuma que sejam
+  // sempre iguais: leia os dois no embed ao trocar de formulário.
+  u: '85',
+  f: '85',
+  or: '16041baa-b78b-4fdf-91f1-c38fb8f4a9da',
 };
+
+/** Quanto esperamos pela resposta do AC antes de desistir. */
+const LIMITE_MS = 8000;
 
 /**
  * Manda o e-mail para o ActiveCampaign.
  *
- * NUNCA lança erro e NUNCA bloqueia: se o AC estiver fora do ar,
- * mal configurado ou o visitante tiver um bloqueador de anúncios
- * (que costuma barrar domínio de automação de marketing), o
- * acesso tem de ser liberado do mesmo jeito. Perder um contato na
- * lista é ruim; travar quem acabou de informar o e-mail é pior.
+ * NUNCA lança erro: se o AC estiver fora do ar, mal configurado
+ * ou barrado por um bloqueador de anúncios (comum com domínios
+ * de automação de marketing), quem chamou segue em frente. O
+ * acesso ao site não pode depender de servidor de terceiro —
+ * perder um contato na lista é ruim, travar quem acabou de
+ * informar o e-mail é pior.
  *
- * @returns {Promise<boolean>} true se a requisição saiu — não é
- *          confirmação de que o contato entrou, porque o modo
- *          `no-cors` não deixa ler a resposta.
+ * @returns {Promise<boolean>} true quando o AC confirmou o
+ *          cadastro. false em falha, recusa ou tempo esgotado.
  */
-export async function enviar({ email }){
-  if(!CRM.ativo || !CRM.endpoint || !CRM.formulario) return false;
+export function enviar({ email }){
+  return new Promise(resolve => {
+    if(!CRM.ativo || !CRM.endpoint || !CRM.u){ resolve(false); return; }
 
-  const limpo = (email || '').trim().toLowerCase();
-  if(!limpo) return false;
+    const limpo = (email || '').trim().toLowerCase();
+    if(!limpo){ resolve(false); return; }
 
-  try{
-    const dados = new FormData();
-    dados.append('u', CRM.formulario);
-    dados.append('f', CRM.numero || CRM.formulario);
-    dados.append('email', limpo);
+    let respondido = false;
+    const anterior = {
+      ok: window._show_thank_you,
+      erro: window._show_error,
+    };
 
-    // O AC espera estes três em todo envio de formulário.
-    dados.append('s', '');
-    dados.append('c', '0');
-    dados.append('m', '0');
+    const encerrar = (sucesso) => {
+      if(respondido) return;
+      respondido = true;
+      window._show_thank_you = anterior.ok;
+      window._show_error = anterior.erro;
+      script.remove();
+      clearTimeout(relogio);
+      resolve(sucesso);
+    };
 
-    await fetch(CRM.endpoint, {
-      method: 'POST',
-      mode: 'no-cors',
-      body: dados,
+    // O AC responde chamando uma destas duas. Guardamos o que
+    // existia antes para não atropelar nada da página.
+    window._show_thank_you = () => encerrar(true);
+    window._show_error = () => encerrar(false);
+
+    const params = new URLSearchParams({
+      u: CRM.u,
+      f: CRM.f || CRM.u,
+      s: '',
+      c: '0',
+      m: '0',
+      act: 'sub',
+      v: '2',
+      email: limpo,
+      jsonp: 'true',
     });
-    return true;
-  }catch{
-    // Silencioso de propósito: ver o comentário do cabeçalho.
-    return false;
-  }
+    if(CRM.or) params.set('or', CRM.or);
+
+    const script = document.createElement('script');
+    script.src = `${CRM.endpoint}?${params}`;
+    script.charset = 'utf-8';
+    // Bloqueador de anúncios costuma barrar este domínio: aí cai
+    // no onerror e seguimos em frente, sem travar ninguém.
+    script.onerror = () => encerrar(false);
+
+    const relogio = setTimeout(() => encerrar(false), LIMITE_MS);
+    document.head.appendChild(script);
+  });
 }
