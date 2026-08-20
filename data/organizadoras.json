@@ -2,23 +2,93 @@
   {
     "dominio": "ibgpconcursos.com.br",
     "nome": "IBGP Concursos",
-    "editais": 17,
+    "editais": 28,
     "fontePrimaria": false,
     "site": "https://ibgpconcursos.com.br/"
   },
   {
     "dominio": "fundacaofafipa.org.br",
     "nome": "Fundação FAFIPA",
-    "editais": 9,
+    "editais": 13,
     "fontePrimaria": true,
     "site": "https://fundacaofafipa.org.br/"
   },
   {
     "dominio": "cebraspe.org.br",
     "nome": "CESPE/CEBRASPE",
-    "editais": 5,
+    "editais": 8,
     "fontePrimaria": true,
     "site": "https://cebraspe.org.br/"
+  },
+  {
+    "dominio": "ibam-concursos.org.br",
+    "nome": "IBAM Concursos",
+    "editais": 8,
+    "fontePrimaria": false,
+    "site": "https://ibam-concursos.org.br/"
+  },
+  {
+    "dominio": "gestaodeconcursos.com.br",
+    "nome": "Fundep / Gestão de Concursos",
+    "editais": 5,
+    "fontePrimaria": false,
+    "site": "https://gestaodeconcursos.com.br/"
+  },
+  {
+    "dominio": "itame.com.br",
+    "nome": "Itame Concursos",
+    "editais": 5,
+    "fontePrimaria": false,
+    "site": "https://itame.com.br/"
+  },
+  {
+    "dominio": "glconsultoria.com.br",
+    "nome": "GL Consultoria",
+    "editais": 4,
+    "fontePrimaria": false,
+    "site": "https://glconsultoria.com.br/"
+  },
+  {
+    "dominio": "inepam.org.br",
+    "nome": "INEPAM",
+    "editais": 4,
+    "fontePrimaria": false,
+    "site": "https://inepam.org.br/"
+  },
+  {
+    "dominio": "access.org.br",
+    "nome": "Instituto Access",
+    "editais": 4,
+    "fontePrimaria": true,
+    "site": "https://access.org.br/"
+  },
+  {
+    "dominio": "institutoideap.org.br",
+    "nome": "Instituto IDEAP",
+    "editais": 4,
+    "fontePrimaria": false,
+    "site": "https://institutoideap.org.br/"
+  },
+  {
+    "dominio": "legalleconcursos.com.br",
+    "nome": "Legalle Concursos",
+    "editais": 4,
+    "fontePrimaria": false,
+    "site": "https://legalleconcursos.com.br/"
+  },
+  {
+    "dominio": "objetivas.com.br",
+    "nome": "Objetiva Concursos",
+    "editais": 4,
+    "fontePrimaria": false,
+    "site": "https://objetivas.com.br/"
+  },
+  {
+    "dominio": "igeduc.selecao.net.br",
+    "nome": "Igeduc",
+    "editais": 4,
+    "fontePrimaria": false,
+    "site": "https://igeduc.selecao.net.br/"
   },
   {
     "dominio": "net.br",
@@ -28,88 +98,214 @@
     "site": "https://net.br/"
   },
   {
-    "dominio": "ibam-concursos.org.br",
-    "nome": "IBAM Concursos",
-    "editais": 4,
-    "fontePrimaria": false,
-    "site": "https://ibam-concursos.org.br/"
-  },
-  {
-    "dominio": "gestaodeconcursos.com.br",
-    "nome": "Fundep / Gestão de Concursos",
-    "editais": 3,
-    "fontePrimaria": false,
-    "site": "https://gestaodeconcursos.com.br/"
-  },
-  {
-    "dominio": "glconsultoria.com.br",
-    "nome": "GL Consultoria",
-    "editais": 3,
-    "fontePrimaria": false,
-    "site": "https://glconsultoria.com.br/"
-  },
-  {
-    "dominio": "itame.com.br",
-    "nome": "Itame Concursos",
-    "editais": 3,
-    "fontePrimaria": false,
-    "site": "https://itame.com.br/"
-  },
-  {
-    "dominio": "objetivas.com.br",
-    "nome": "Objetiva Concursos",
-    "editais": 3,
-    "fontePrimaria": false,
-    "site": "https://objetivas.com.br/"
-  },
-  {
-    "dominio": "igeduc.selecao.net.br",
-    "nome": "Igeduc",
-    "editais": 2,
-    "fontePrimaria": false,
-    "site": "https://igeduc.selecao.net.br/"
-  },
-  {
-    "dominio": "legalleconcursos.com.br",
-    "nome": "Legalle Concursos",
-    "editais": 2,
-    "fontePrimaria": false,
-    "site": "https://legalleconcursos.com.br/"
-  },
-  {
-    "dominio": "institutoconsulplan.org.br",
-    "nome": "Instituto Consulplan",
-    "editais": 2,
-    "fontePrimaria": true,
-    "site": "https://institutoconsulplan.org.br/"
-  },
-  {
     "dominio": "consesp.com.br",
     "nome": "CONSESP",
-    "editais": 2,
+    "editais": 3,
     "fontePrimaria": false,
     "site": "https://consesp.com.br/"
   },
   {
+    "dominio": "institutoconsulplan.org.br",
+    "nome": "Instituto Consulplan",
+    "editais": 3,
+    "fontePrimaria": true,
+    "site": "https://institutoconsulplan.org.br/"
+  },
+  {
+    "dominio": "avancasp.org.br",
+    "nome": "AvançaSP",
+    "editais": 3,
+    "fontePrimaria": true,
+    "site": "https://avancasp.org.br/"
+  },
+  {
+    "dominio": "ibamsp-concursos.org.br",
+    "nome": "IBAM-SP",
+    "editais": 3,
+    "fontePrimaria": false,
+    "site": "https://ibamsp-concursos.org.br/"
+  },
+  {
+    "dominio": "aplicativa.net.br",
+    "nome": "Instituto Aplicativa",
+    "editais": 3,
+    "fontePrimaria": false,
+    "site": "https://aplicativa.net.br/"
+  },
+  {
     "dominio": "nossorumo.org.br",
     "nome": "Instituto Nosso Rumo",
-    "editais": 2,
+    "editais": 3,
     "fontePrimaria": false,
     "site": "https://nossorumo.org.br/"
   },
   {
-    "dominio": "access.org.br",
-    "nome": "Instituto Access",
-    "editais": 2,
-    "fontePrimaria": true,
-    "site": "https://access.org.br/"
+    "dominio": "concursosjcm.com.br",
+    "nome": "JCM Concursos",
+    "editais": 3,
+    "fontePrimaria": false,
+    "site": "https://concursosjcm.com.br/"
   },
   {
-    "dominio": "concursosjcm.com.br",
+    "dominio": "quadrix.org.br",
+    "nome": "Instituto Quadrix",
+    "editais": 2,
+    "fontePrimaria": false,
+    "site": "https://quadrix.org.br/"
+  },
+  {
+    "dominio": "concursosfcc.com.br",
+    "nome": "Concursosfcc",
+    "editais": 2,
+    "fontePrimaria": false,
+    "site": "https://concursosfcc.com.br/"
+  },
+  {
+    "dominio": "iset.selecao.net.br",
+    "nome": "ISET",
+    "editais": 2,
+    "fontePrimaria": false,
+    "site": "https://iset.selecao.net.br/"
+  },
+  {
+    "dominio": "institutolegalle.org.br",
+    "nome": "Instituto Legalle",
+    "editais": 2,
+    "fontePrimaria": false,
+    "site": "https://institutolegalle.org.br/"
+  },
+  {
+    "dominio": "integribrasil.com.br",
+    "nome": "Integri Brasil",
+    "editais": 2,
+    "fontePrimaria": false,
+    "site": "https://integribrasil.com.br/"
+  },
+  {
+    "dominio": "imam.org.br",
+    "nome": "IMAM Concursos",
+    "editais": 2,
+    "fontePrimaria": false,
+    "site": "https://imam.org.br/"
+  },
+  {
+    "dominio": "msconc.com.br",
+    "nome": "MS Concursos",
+    "editais": 2,
+    "fontePrimaria": false,
+    "site": "https://msconc.com.br/"
+  },
+  {
+    "dominio": "msmconsultoria.com.br",
+    "nome": "MSM Consultoria",
+    "editais": 2,
+    "fontePrimaria": false,
+    "site": "https://msmconsultoria.com.br/"
+  },
+  {
+    "dominio": "jcmconcursos.com.br",
     "nome": "JCM Concursos",
     "editais": 2,
     "fontePrimaria": false,
-    "site": "https://concursosjcm.com.br/"
+    "site": "https://jcmconcursos.com.br/"
+  },
+  {
+    "dominio": "exameconsultores.com.br",
+    "nome": "Exame Consultores",
+    "editais": 2,
+    "fontePrimaria": true,
+    "site": "https://exameconsultores.com.br/"
+  },
+  {
+    "dominio": "institutounicampo.com.br",
+    "nome": "Instituto UniCampo",
+    "editais": 2,
+    "fontePrimaria": false,
+    "site": "https://institutounicampo.com.br/"
+  },
+  {
+    "dominio": "fundatec.org.br",
+    "nome": "FUNDATEC",
+    "editais": 2,
+    "fontePrimaria": false,
+    "site": "https://fundatec.org.br/"
+  },
+  {
+    "dominio": "ameosc.org.br",
+    "nome": "AMEOSC",
+    "editais": 2,
+    "fontePrimaria": false,
+    "site": "https://ameosc.org.br/"
+  },
+  {
+    "dominio": "fateccacu.edu.br",
+    "nome": "FATEC Cáceres",
+    "editais": 2,
+    "fontePrimaria": false,
+    "site": "https://fateccacu.edu.br/"
+  },
+  {
+    "dominio": "institutoatame.org.br",
+    "nome": "Institutoatame",
+    "editais": 2,
+    "fontePrimaria": false,
+    "site": "https://institutoatame.org.br/"
+  },
+  {
+    "dominio": "selecon.org.br",
+    "nome": "Selecon",
+    "editais": 2,
+    "fontePrimaria": false,
+    "site": "https://selecon.org.br/"
+  },
+  {
+    "dominio": "gamaconsult.com.br",
+    "nome": "Gama Consult",
+    "editais": 2,
+    "fontePrimaria": false,
+    "site": "https://gamaconsult.com.br/"
+  },
+  {
+    "dominio": "institutovicentenelson.com.br",
+    "nome": "Instituto Vicente Nelson",
+    "editais": 2,
+    "fontePrimaria": false,
+    "site": "https://institutovicentenelson.com.br/"
+  },
+  {
+    "dominio": "icap-to.com.br",
+    "nome": "ICAP",
+    "editais": 2,
+    "fontePrimaria": false,
+    "site": "https://icap-to.com.br/"
+  },
+  {
+    "dominio": "abconcursospublicos.org",
+    "nome": "AB Concursos Públicos",
+    "editais": 2,
+    "fontePrimaria": false,
+    "site": "https://abconcursospublicos.org/"
+  },
+  {
+    "dominio": "educapb.com.br",
+    "nome": "Educa PB",
+    "editais": 2,
+    "fontePrimaria": false,
+    "site": "https://educapb.com.br/"
+  },
+  {
+    "dominio": "institutoindec.org.br",
+    "nome": "Instituto INDEC",
+    "editais": 2,
+    "fontePrimaria": false,
+    "site": "https://institutoindec.org.br/"
+  },
+  {
+    "dominio": "funcern.br",
+    "nome": "Funcern",
+    "editais": 2,
+    "fontePrimaria": false,
+    "site": "https://funcern.br/"
   },
   {
     "dominio": "imeso.com.br",
@@ -119,60 +315,11 @@
     "site": "https://imeso.com.br/"
   },
   {
-    "dominio": "institutoideap.org.br",
-    "nome": "Instituto IDEAP",
-    "editais": 2,
-    "fontePrimaria": false,
-    "site": "https://institutoideap.org.br/"
-  },
-  {
-    "dominio": "inepam.org.br",
-    "nome": "INEPAM",
-    "editais": 2,
-    "fontePrimaria": false,
-    "site": "https://inepam.org.br/"
-  },
-  {
-    "dominio": "avancasp.org.br",
-    "nome": "AvançaSP",
-    "editais": 2,
-    "fontePrimaria": true,
-    "site": "https://avancasp.org.br/"
-  },
-  {
     "dominio": "fadeconcursos.org.br",
     "nome": "FADE-UFPE",
     "editais": 1,
     "fontePrimaria": false,
     "site": "https://fadeconcursos.org.br/"
-  },
-  {
-    "dominio": "institutoindec.org.br",
-    "nome": "Instituto INDEC",
-    "editais": 1,
-    "fontePrimaria": false,
-    "site": "https://institutoindec.org.br/"
-  },
-  {
-    "dominio": "uepb.edu.br",
-    "nome": "UEPB",
-    "editais": 1,
-    "fontePrimaria": false,
-    "site": "https://uepb.edu.br/"
-  },
-  {
-    "dominio": "educapb.com.br",
-    "nome": "Educa PB",
-    "editais": 1,
-    "fontePrimaria": false,
-    "site": "https://educapb.com.br/"
-  },
-  {
-    "dominio": "abconcursospublicos.org",
-    "nome": "AB Concursos Públicos",
-    "editais": 1,
-    "fontePrimaria": false,
-    "site": "https://abconcursospublicos.org/"
   },
   {
     "dominio": "ifpi.edu.br",
@@ -182,109 +329,11 @@
     "site": "https://ifpi.edu.br/"
   },
   {
-    "dominio": "funcern.br",
-    "nome": "Funcern",
-    "editais": 1,
-    "fontePrimaria": false,
-    "site": "https://funcern.br/"
-  },
-  {
-    "dominio": "quadrix.org.br",
-    "nome": "Instituto Quadrix",
-    "editais": 1,
-    "fontePrimaria": false,
-    "site": "https://quadrix.org.br/"
-  },
-  {
-    "dominio": "exameconsultores.com.br",
-    "nome": "Exame Consultores",
-    "editais": 1,
-    "fontePrimaria": true,
-    "site": "https://exameconsultores.com.br/"
-  },
-  {
     "dominio": "fundacaolasalle.org.br",
     "nome": "Fundação La Salle",
     "editais": 1,
     "fontePrimaria": false,
     "site": "https://fundacaolasalle.org.br/"
-  },
-  {
-    "dominio": "institutovicentenelson.com.br",
-    "nome": "Instituto Vicente Nelson",
-    "editais": 1,
-    "fontePrimaria": false,
-    "site": "https://institutovicentenelson.com.br/"
-  },
-  {
-    "dominio": "fadenor.com.br",
-    "nome": "FADENOR",
-    "editais": 1,
-    "fontePrimaria": false,
-    "site": "https://fadenor.com.br/"
-  },
-  {
-    "dominio": "msconc.com.br",
-    "nome": "MS Concursos",
-    "editais": 1,
-    "fontePrimaria": false,
-    "site": "https://msconc.com.br/"
-  },
-  {
-    "dominio": "ameosc.org.br",
-    "nome": "AMEOSC",
-    "editais": 1,
-    "fontePrimaria": false,
-    "site": "https://ameosc.org.br/"
-  },
-  {
-    "dominio": "fateccacu.edu.br",
-    "nome": "FATEC Cáceres",
-    "editais": 1,
-    "fontePrimaria": false,
-    "site": "https://fateccacu.edu.br/"
-  },
-  {
-    "dominio": "msmconsultoria.com.br",
-    "nome": "MSM Consultoria",
-    "editais": 1,
-    "fontePrimaria": false,
-    "site": "https://msmconsultoria.com.br/"
-  },
-  {
-    "dominio": "icap-to.com.br",
-    "nome": "ICAP",
-    "editais": 1,
-    "fontePrimaria": false,
-    "site": "https://icap-to.com.br/"
-  },
-  {
-    "dominio": "fundatec.org.br",
-    "nome": "FUNDATEC",
-    "editais": 1,
-    "fontePrimaria": false,
-    "site": "https://fundatec.org.br/"
-  },
-  {
-    "dominio": "institutounicampo.com.br",
-    "nome": "Instituto UniCampo",
-    "editais": 1,
-    "fontePrimaria": false,
-    "site": "https://institutounicampo.com.br/"
-  },
-  {
-    "dominio": "pr.gov.br",
-    "nome": "",
-    "editais": 1,
-    "fontePrimaria": false,
-    "site": "https://pr.gov.br/"
-  },
-  {
-    "dominio": "institutolegalle.org.br",
-    "nome": "Instituto Legalle",
-    "editais": 1,
-    "fontePrimaria": false,
-    "site": "https://institutolegalle.org.br/"
   },
   {
     "dominio": "institutoaplicativa.org.br",
@@ -294,74 +343,11 @@
     "site": "https://institutoaplicativa.org.br/"
   },
   {
-    "dominio": "imam.org.br",
-    "nome": "IMAM Concursos",
-    "editais": 1,
-    "fontePrimaria": false,
-    "site": "https://imam.org.br/"
-  },
-  {
-    "dominio": "pedradourada.mg.gov.br",
-    "nome": "Pedradourada",
-    "editais": 1,
-    "fontePrimaria": false,
-    "site": "https://pedradourada.mg.gov.br/"
-  },
-  {
-    "dominio": "institutoibepp.com.br",
-    "nome": "Instituto IBEPP",
-    "editais": 1,
-    "fontePrimaria": false,
-    "site": "https://institutoibepp.com.br/"
-  },
-  {
-    "dominio": "integribrasil.com.br",
-    "nome": "Integri Brasil",
-    "editais": 1,
-    "fontePrimaria": false,
-    "site": "https://integribrasil.com.br/"
-  },
-  {
-    "dominio": "iset.selecao.net.br",
-    "nome": "ISET",
-    "editais": 1,
-    "fontePrimaria": false,
-    "site": "https://iset.selecao.net.br/"
-  },
-  {
-    "dominio": "aplicativa.net.br",
-    "nome": "Instituto Aplicativa",
-    "editais": 1,
-    "fontePrimaria": false,
-    "site": "https://aplicativa.net.br/"
-  },
-  {
-    "dominio": "aprendersc.srv.br",
-    "nome": "Aprendersc",
-    "editais": 1,
-    "fontePrimaria": false,
-    "site": "https://aprendersc.srv.br/"
-  },
-  {
-    "dominio": "gamaconsult.com.br",
-    "nome": "Gama Consult",
-    "editais": 1,
-    "fontePrimaria": false,
-    "site": "https://gamaconsult.com.br/"
-  },
-  {
     "dominio": "ajuri.org.br",
     "nome": "Instituto Ajuri",
     "editais": 1,
     "fontePrimaria": false,
     "site": "https://ajuri.org.br/"
-  },
-  {
-    "dominio": "ibamsp-concursos.org.br",
-    "nome": "IBAM-SP",
-    "editais": 1,
-    "fontePrimaria": false,
-    "site": "https://ibamsp-concursos.org.br/"
   },
   {
     "dominio": "vunesp.com.br",
@@ -378,32 +364,60 @@
     "site": "https://idepi.org.br/"
   },
   {
-    "dominio": "jcmconcursos.com.br",
-    "nome": "JCM Concursos",
+    "dominio": "institutoselecao.org.br",
+    "nome": "Institutoselecao",
     "editais": 1,
     "fontePrimaria": false,
-    "site": "https://jcmconcursos.com.br/"
+    "site": "https://institutoselecao.org.br/"
   },
   {
-    "dominio": "institutoatame.org.br",
-    "nome": "Institutoatame",
+    "dominio": "omniinstituto.org.br",
+    "nome": "Omniinstituto",
     "editais": 1,
     "fontePrimaria": false,
-    "site": "https://institutoatame.org.br/"
+    "site": "https://omniinstituto.org.br/"
   },
   {
-    "dominio": "selecon.org.br",
-    "nome": "Selecon",
+    "dominio": "uepb.edu.br",
+    "nome": "UEPB",
     "editais": 1,
     "fontePrimaria": false,
-    "site": "https://selecon.org.br/"
+    "site": "https://uepb.edu.br/"
   },
   {
-    "dominio": "concursosfcc.com.br",
-    "nome": "Concursosfcc",
+    "dominio": "fadenor.com.br",
+    "nome": "FADENOR",
     "editais": 1,
     "fontePrimaria": false,
-    "site": "https://concursosfcc.com.br/"
+    "site": "https://fadenor.com.br/"
+  },
+  {
+    "dominio": "pr.gov.br",
+    "nome": "",
+    "editais": 1,
+    "fontePrimaria": false,
+    "site": "https://pr.gov.br/"
+  },
+  {
+    "dominio": "pedradourada.mg.gov.br",
+    "nome": "Pedradourada",
+    "editais": 1,
+    "fontePrimaria": false,
+    "site": "https://pedradourada.mg.gov.br/"
+  },
+  {
+    "dominio": "institutoibepp.com.br",
+    "nome": "Instituto IBEPP",
+    "editais": 1,
+    "fontePrimaria": false,
+    "site": "https://institutoibepp.com.br/"
+  },
+  {
+    "dominio": "aprendersc.srv.br",
+    "nome": "Aprendersc",
+    "editais": 1,
+    "fontePrimaria": false,
+    "site": "https://aprendersc.srv.br/"
   },
   {
     "dominio": "unirv.edu.br",
