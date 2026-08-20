@@ -49,15 +49,12 @@ CONTABIL = re.compile(
     re.I,
 )
 
-# Cargo que declara formação e ela NÃO é contábil. Caso real: Contagem/MG
-# abriu cinco "Auditor de Controle Interno" — Ciências Contábeis, Direito,
-# Engenharia Civil, TI e Contador. Três não são vaga contábil.
-ESPECIALIDADE_ERRADA = re.compile(
-    r"-\s*(?:direito|engenharia|tecnologia|inform[áa]tica|arquitet"
-    r"|medicina|enferm|psicolog|pedagog|nutri|odontolog|veterin)"
-    r"|saneamento|sanit[áa]ri|tr[âa]nsito|vigil[âa]ncia",
-    re.I,
-)
+# Cargo que declara área e ela NÃO é contábil. A regra vive em
+# config.py para que fonte e conferência usem EXATAMENTE a mesma —
+# duas listas separadas divergem com o tempo, e aí o que a fonte deixa
+# passar a conferência não pega (ou o contrário).
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from config import area_alheia   # noqa: E402
 
 UFS = {
     "AC","AL","AM","AP","BA","CE","DF","ES","GO","MA","MG","MS","MT",
@@ -106,7 +103,7 @@ def conferir(editais: list[dict]) -> list[str]:
             problemas.append(f"[{ident}] sem cargo")
         elif not CONTABIL.search(cargo):
             problemas.append(f"[{ident}] cargo NÃO parece contábil: {cargo!r}")
-        elif ESPECIALIDADE_ERRADA.search(cargo):
+        elif area_alheia(cargo):
             problemas.append(f"[{ident}] especialidade não-contábil: {cargo!r}")
 
         # 3. Prazo. Publicar edital vencido como aberto é o erro que

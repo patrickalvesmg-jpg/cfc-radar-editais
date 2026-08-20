@@ -67,7 +67,12 @@ PADRAO_CONTABIL = re.compile(
     r"|controlador.{0,16}interno"
     r"|(?:analista|t[ée]cnico|oficial|assistente).{0,24}controle\s+(?:interno|externo)"
     r"|fiscal.{0,20}(?:tributos?|receita|rendas?|arrecada[çc][ãa]o)"
-    r"|agente.{0,16}(?:tributos?|arrecada[çc][ãa]o|fiscal)"
+    # "agente fiscal" sozinho é ambíguo: casa com "Agente de
+    # FISCALIZAÇÃO" de posturas, obras ou vigilância sanitária.
+    # Exigimos o vínculo tributário explícito — foi assim que um
+    # "Agente de Fiscalização" de concurso da SAÚDE entrou no site.
+    r"|agente\s+(?:de\s+)?(?:tributos?|arrecada[çc][ãa]o|fazend\w+|receita)"
+    r"|agente\s+fiscal\s+(?:de\s+)?(?:tributos?|rendas?|arrecada[çc][ãa]o)"
     r"|analista\s+tribut[áa]rio"
     r"|(?:analista|t[ée]cnico).{0,20}(?:or[çc]ament\w+|financ\w+|custos?)"
     r"|\btesoureiro(?:a)?\b",
@@ -154,6 +159,32 @@ PADRAO_NAO_ABERTURA = re.compile(
     r"|prazos?\s+recursa\w+",
     re.I,
 )
+
+
+# Cargo que declara uma formação/área e ela NÃO é contábil.
+#
+# Nasceu de dois casos reais que foram ao ar:
+#   · "Auditor-Fiscal Agropecuário/Médico Veterinário" — inspeção
+#     sanitária animal, não fiscalização tributária;
+#   · "Auditor de Controle Interno - Engenharia Civil" — o concurso de
+#     Contagem/MG abriu cinco especialidades sob o mesmo nome, e só
+#     duas eram contábeis.
+#
+# Quando o cargo diz a que área pertence, a área manda sobre a palavra
+# genérica que casou no filtro.
+PADRAO_AREA_ALHEIA = re.compile(
+    r"agropecu[áa]ri|veterin[áa]ri|sanit[áa]ri|vigil[âa]ncia\s+sanit"
+    r"|ambiental|saneamento|posturas|tr[âa]nsito|obras\s+e\s+posturas"
+    r"|[-–]\s*(?:direito|engenharia|tecnologia|inform[áa]tica|arquitet"
+    r"|medicina|enferm|psicolog|pedagog|nutri|odontolog|farm[áa]c"
+    r"|fisioterap|servi[çc]o\s+social|letras|hist[óo]ria|geografia)",
+    re.I,
+)
+
+
+def area_alheia(cargo: str) -> bool:
+    """True quando o cargo declara área que não é a contábil."""
+    return bool(PADRAO_AREA_ALHEIA.search(cargo or ""))
 
 
 def eh_abertura(texto: str) -> bool:
