@@ -33,7 +33,8 @@ Sem dependências: só a biblioteca padrão do Python 3.12+.
 | Fonte | O que cobre | Situação |
 |---|---|---|
 | **CEBRASPE** (`apis.cebraspe.org.br`) | Concursos da banca, com cargo/vagas/salário/prazo estruturados | Ativa |
-| **PCI Concursos** | Prefeituras — maior volume | Ativa — é o que mais rende |
+| **PCI Concursos** (`/api/v1/concursos`) | Prefeituras — maior volume | Ativa — é o que mais rende |
+| **IBGP Concursos** (`/rest/concurso/`) | Prefeituras de MG, com o cargo por extenso | Ativa — 13 cargos em 8 dos 20 concursos |
 | **Portais WordPress** | Concursos no Brasil + Edital Concursos Brasil, via `/wp-json/` | Ativa — volume baixo |
 | **Consulplan** | Banca dos **Conselhos de Contabilidade** (CRC-CE, CRC-RJ, CFC/EQT) e de prefeituras | Ativa |
 | **Querido Diário** (`api.queridodiario.ok.org.br`) | Diários oficiais **municipais** de todo o Brasil | Ativa — rendimento baixo, ver abaixo |
@@ -118,6 +119,50 @@ quantos documentos cada consulta trouxe. Se as consultas trazem
 documentos mas o filtro zera **sempre por semanas**, aí vale investigar.
 
 ---
+
+## Duas armadilhas que já custaram caro
+
+### 1. `\b` escrito por shell vira backspace
+
+Uma edição feita via heredoc de shell gravou o byte **0x08** no lugar de
+`\b`. O regex `\bTRF\b` virou `<BS>TRF<BS>`, que **nunca casa**. Foram
+**37 ocorrências** em `extrair.py`, e o efeito era silencioso: as siglas
+(SAAE, IPREM, TCE, TRF) pararam de classificar a esfera, e os editais
+caíam em "federal" por outra via. Uma prefeitura aparecia como órgão
+federal no filtro do site.
+
+Ao editar regex por script, use string cru e **confira com `repr()`**
+antes de gravar. Um `assert b"\x08" not in conteudo` no fim do script de
+edição pega o problema na hora.
+
+### 2. Banca por substring solta
+
+`extrair_banca` procurava a chave da banca como substring do texto. A
+chave `"objetiva"` casa em **"prova objetiva"**, que existe em
+praticamente todo edital — e como era a primeira a bater, vencia.
+Resultado: **89 de 125 editais** atribuídos à "Objetiva Concursos",
+inclusive os cujo link de inscrição era do IBGP, da Consulplan ou da
+FADE. Depois da correção sobraram 7, que são os verdadeiros.
+
+A regra que ficou: **domínio é evidência, texto é palpite**. A banca sai
+do domínio do link de inscrição (`organizadoras.CANONICO`); o texto só
+decide quando não há link. Termos que também são vocabulário de edital
+("objetiva", "access") exigem o nome completo da banca.
+
+## Cargo com especialidade: a formação declarada manda
+
+O concurso de Contagem/MG tem cinco cargos "Auditor de Controle Interno"
+— Ciências Contábeis, Direito, Engenharia Civil, Tecnologia da Informação
+e Contador. Todos casam em `PADRAO_CONTABIL` por causa de "controle
+interno", mas só dois são vaga contábil.
+
+Por isso `fontes/ibgp.py` tem o `_NAO_CONTABIL`: quando o nome do cargo
+declara a formação exigida, ela decide. Vale também para "Agente Fiscal
+de **Saneamento**", que é fiscalização sanitária, não tributária.
+
+Isto só é possível porque a API do IBGP dá o cargo por extenso. Quem lê
+o cargo de texto corrido não tem como fazer essa distinção — mais um
+motivo para preferir a API da banca ao agregador.
 
 ## Links: o radar nunca aponta para concorrente
 

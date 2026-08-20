@@ -64,6 +64,24 @@ CANONICO = {
     "ibfc.org.br": "IBFC",
     "vunesp.com.br": "VUNESP",
     "idecan.org.br": "IDECAN",
+    # Observados nos editais capturados em ago/2026, sem nome canônico
+    # até então — o site exibia o domínio cru no lugar do nome da banca.
+    "ibam-concursos.org.br": "IBAM Concursos",
+    "itame.com.br": "Itame Concursos",
+    "consesp.com.br": "CONSESP",
+    "concursosjcm.com.br": "JCM Concursos",
+    "institutoideap.org.br": "Instituto IDEAP",
+    "fundacaolasalle.org.br": "Fundação La Salle",
+    "institutovicentenelson.com.br": "Instituto Vicente Nelson",
+    "fadenor.com.br": "FADENOR",
+    "msconc.com.br": "MS Concursos",
+    "msmconsultoria.com.br": "MSM Consultoria",
+    "ameosc.org.br": "AMEOSC",
+    "icap-to.com.br": "ICAP",
+    "abconcursospublicos.org": "AB Concursos Públicos",
+    "educapb.com.br": "Educa PB",
+    "uepb.edu.br": "UEPB",
+    "fateccacu.edu.br": "FATEC Cáceres",
 }
 
 # Bancas que já usamos como FONTE PRIMÁRIA (varremos o catálogo delas).

@@ -23,10 +23,31 @@ def _sem_acento(s: str) -> str:
     )
 
 
-def id_estavel(titulo: str, orgao: str, url: str) -> str:
-    """ID determinístico: a mesma publicação gera sempre o mesmo id, então
-    reprocessar o mesmo dia não duplica registros."""
-    base = _sem_acento(f"{titulo}|{orgao}|{url}".lower())
+def _chave_id(texto: str) -> str:
+    """Reduz o texto ao que ele tem de estável: sem acento, sem
+    pontuação, sem espaço duplicado."""
+    limpo = _sem_acento((texto or "").lower())
+    return re.sub(r"[^a-z0-9]+", "", limpo)
+
+
+def id_estavel(cidade: str, uf: str, cargo: str, fim: str) -> str:
+    """ID determinístico pela IDENTIDADE do concurso, não pela redação
+    da fonte.
+
+    Antes o id saía de (título|órgão|URL) — campos que mudam conforme
+    quem publica. O mesmo concurso de Ipaba vinha como "Prefeitura de
+    Ipaba" pelo PCI e "MUNICÍPIO DE IPABA" pelo IBGP, e virava dois
+    cards. Medido: 30 editais em 14 grupos duplicados, inclusive entre
+    FAFIPA e PCI (Matinhos, Toropi, Marialva) — não era problema de uma
+    fonte só.
+
+    O que identifica um concurso é: onde, para qual cargo, com que
+    prazo. O ÓRGÃO fica de fora de propósito, por ser justamente o campo
+    que cada fonte escreve de um jeito.
+    """
+    base = "|".join((
+        _chave_id(cidade), _chave_id(uf), _chave_id(cargo), (fim or "")[:10],
+    ))
     return "e-" + hashlib.sha1(base.encode()).hexdigest()[:12]
 
 
@@ -113,10 +134,38 @@ def extrair_uf(texto: str, orgao: str = "") -> str:
     return ""
 
 
+# Termos que também são vocabulário comum de edital e, soltos, casariam
+# com qualquer texto. "Prova OBJETIVA" aparece em praticamente todo
+# edital e fazia 89 de 125 editais serem atribuídos à "Objetiva
+# Concursos" — inclusive os cujo link de inscrição era do IBGP, da
+# Consulplan ou da FADE. Para estes exigimos o nome COMPLETO da banca.
+_BANCA_AMBIGUA = {
+    "objetiva": re.compile(r"\bobjetiva\s+concursos\b", re.I),
+    "access": re.compile(r"\binstituto\s+access\b", re.I),
+}
+
+
 def extrair_banca(texto: str) -> str:
+    """Identifica a banca citada no texto.
+
+    Casar por substring solta não serve: a chave "objetiva" bate em
+    "prova objetiva", presente em quase todo edital. Exigimos limite de
+    palavra e, para os termos que também são vocabulário de edital, o
+    nome completo da banca.
+
+    Esta função é o ÚLTIMO recurso. Quem sabe a banca de verdade é o
+    domínio do link de inscrição (`organizadoras.CANONICO`): texto é
+    palpite, domínio é evidência.
+    """
     plano = _sem_acento(texto.lower())
     for chave, canonico in BANCAS.items():
-        if _sem_acento(chave) in plano:
+        ambigua = _BANCA_AMBIGUA.get(chave)
+        if ambigua is not None:
+            if ambigua.search(texto):
+                return canonico
+            continue
+        # O limite de palavra impede que "fgv" case dentro de outra.
+        if re.search(r"\b" + re.escape(_sem_acento(chave)) + r"\b", plano):
             return canonico
     return ""
 
@@ -138,21 +187,21 @@ def extrair_vagas(texto: str) -> str:
 # Municipal" em municipal — sem isso saíam 18 classificações erradas
 # (câmara municipal como estadual, universidade federal como estadual).
 _ESFERA_FEDERAL = re.compile(
-    r"TRF|TRT|TRE|STJ|STF|TCU|AGU|MPU"
-    r"|universidade\s+federal|instituto\s+federal|UF[A-Z]{2,3}|IF[A-Z]{2,3}"
-    r"|c[âa]mara\s+dos\s+deputados|senado|receita\s+federal|INSS"
+    r"\bTRF\b|\bTRT\b|\bTRE\b|\bSTJ\b|\bSTF\b|\bTCU\b|\bAGU\b|\bMPU\b"
+    r"|universidade\s+federal|instituto\s+federal|\bUF[A-Z]{2,3}\b|\bIF[A-Z]{2,3}\b"
+    r"|c[âa]mara\s+dos\s+deputados|senado|receita\s+federal|\bINSS\b"
     r"|conselho\s+federal|minist[ée]rio\s+p[úu]blico\s+federal",
     re.I,
 )
 _ESFERA_MUNICIPAL = re.compile(
     r"prefeitura|c[âa]mara(?!\s+dos\s+deputados)|munic[íi]pio|municipal"
-    r"|IPREM|prev|cons[óo]rcio\s+intermunicipal"
-    r"|servi[çc]o\s+aut[ôo]nomo|SAAE|DAAE",
+    r"|\bIPREM\b|prev\b|cons[óo]rcio\s+intermunicipal"
+    r"|servi[çc]o\s+aut[ôo]nomo|\bSAAE\b|\bDAAE\b",
     re.I,
 )
 _ESFERA_ESTADUAL = re.compile(
-    r"TCE|TJ[- ]?[A-Z]{2}|governo\s+do\s+estado"
-    r"|secretaria\s+de\s+estado|SEFAZ|DETRAN"
+    r"\bTCE\b|\bTJ[- ]?[A-Z]{2}\b|governo\s+do\s+estado"
+    r"|secretaria\s+de\s+estado|\bSEFAZ\b|\bDETRAN\b"
     r"|assembleia\s+legislativa|pol[íi]cia\s+(?:civil|militar)"
     r"|AGEPAR|universidade\s+estadual",
     re.I,
@@ -342,10 +391,7 @@ def montar(achado: dict) -> dict:
 
     # O id precisa ser estável mesmo agora que `url` é o link interno:
     # usamos a procedência (URL de origem), que não muda entre execuções.
-    id_est = id_estavel(
-        achado["titulo"], orgao,
-        achado.get("_procedencia") or achado.get("url", ""),
-    )
+    id_est = id_estavel(cidade, uf, cargo, fim)
 
     confianca = achado.get("_confianca")
     if not confianca:
@@ -369,7 +415,10 @@ def montar(achado: dict) -> dict:
         "inscricaoInicio": inicio or "",
         "inscricaoFim": fim or "",
         "dataProva": achado.get("_data_prova", ""),
-        "taxaInscricao": 0,
+        # A fonte informa quando sabe (a API do IBGP dá a taxa por cargo).
+        # Ficava fixo em 0 e o dado era jogado fora: a página do edital
+        # tem a linha "Taxa de inscrição" e ela nunca aparecia.
+        "taxaInscricao": achado.get("_taxa_inscricao") or 0,
         # Link do card aponta para a PÁGINA INTERNA do radar. O site não
         # manda visitante para agregador concorrente — quem constrói
         # audiência é a plataforma, não quem indexa.

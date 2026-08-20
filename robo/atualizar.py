@@ -28,7 +28,7 @@ for _fluxo in (sys.stdout, sys.stderr):
 sys.path.insert(0, str(Path(__file__).parent))
 
 from fontes import (bancas, cebraspe, consulplan, estrategia,  # noqa: E402
-                    pci_api,
+                    ibgp, pci_api,
                     fafipa, pci,
                     portais_wp, querido_diario)
 import editorial      # noqa: E402
@@ -43,6 +43,10 @@ FONTES = (
     ("Fundação FAFIPA (banca)", fafipa.coletar),
     ("Bancas em plataforma comum", bancas.coletar),
     ("Consulplan (conselhos de contabilidade)", consulplan.coletar),
+    # A API do IBGP dá o cargo por extenso, o que permite separar
+    # "Auditor de Controle Interno - Ciências Contábeis" de
+    # "... - Engenharia Civil" no mesmo concurso.
+    ("IBGP Concursos (API da banca)", ibgp.coletar),
     # A API do PCI substitui a raspagem de 27 páginas de cargo:
     # 1 requisição, 493 concursos, cargo em lista e data ISO.
     ("PCI Concursos (API)", pci_api.coletar),

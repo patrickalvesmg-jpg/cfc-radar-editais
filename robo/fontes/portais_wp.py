@@ -67,13 +67,41 @@ SITE_INSCRICAO = re.compile(
 )
 DOMINIO = re.compile(r"\b((?:www\.)?[\w-]+\.(?:org|com|net|gov|edu)\.br)\b", re.I)
 
+# Precisa cobrir as MESMAS famílias que `config.PADRAO_CONTABIL`, senão
+# o post passa no filtro contábil e morre aqui por "não nomear cargo".
+# Medido em 20/08/2026: 9 de 12 cargos contábeis eram descartados assim —
+# Fiscal de Tributos, Agente de Arrecadação, Auxiliar Contábil, Auditor
+# Fiscal, Controlador Interno, Tesoureiro, Analista Tributário...
+# Ao mexer no PADRAO_CONTABIL, mexer aqui junto.
 CARGO = re.compile(
     r"\b(t[ée]cnico\s+(?:em|de)\s+contabilidade"
-    r"|analista\s+(?:de\s+)?cont[áa]b\w*"
+    r"|(?:auxiliar|assistente|analista)\s+(?:de\s+)?cont[áa]b\w*"
     r"|auditor[\w\s]{0,24}cont[áa]b\w*"
+    r"|auditor\s+(?:fiscal|de\s+controle\s+interno|governamental|p[úu]blico)"
+    r"|controlador(?:\s+geral)?\s+interno"
+    r"|(?:analista|t[ée]cnico|oficial|assistente)\s+de\s+controle\s+(?:interno|externo)"
+    r"|fiscal\s+de\s+(?:tributos?|rendas?|arrecada[çc][ãa]o|receita)"
+    r"|agente\s+(?:de\s+)?(?:tributos?|arrecada[çc][ãa]o|fiscal)"
+    r"|analista\s+tribut[áa]rio"
+    r"|\btesoureiro(?:a)?\b"
+    r"|contabilista"
     r"|contador(?:a)?)\b",
     re.I,
 )
+# O WordPress entrega a taxonomia do post em `class_list`, com a UF e o
+# município já normalizados: ['category-am', 'cidade-manaus']. É mais
+# confiável que ler "(AM)" do título, porque muitos títulos escrevem
+# "Prefeitura de Manaus AM", sem parênteses, e o regex UF falha.
+def _uf_cidade(post: dict) -> tuple[str, str]:
+    uf = cidade = ""
+    for classe in post.get("class_list") or []:
+        if classe.startswith("category-") and len(classe) == 11:
+            uf = classe[9:].upper()
+        elif classe.startswith("cidade-"):
+            cidade = classe[7:].replace("-", " ").title()
+    return uf, cidade
+
+
 SALARIO = re.compile(r"R\$\s*([\d]{1,3}(?:\.\d{3})*(?:,\d{2})?)")
 DATA = re.compile(r"(\d{1,2})/(\d{1,2})/(\d{4})")
 UF = re.compile(r"\(([A-Z]{2})\)")
@@ -114,7 +142,7 @@ _HREF = re.compile(r'href="(https?://[^"]+)"', re.I)
 
 _LIXO_CAMINHO = re.compile(
     r"\.(?:png|jpe?g|gif|svg|css|js|ico|woff2?)$"
-    r"|/(?:contato|sobre|privacidade|termos|politica|login|cookies|feed)",
+    r"|/(?:contato|sobre|privacidade|termos|politica|login|cookies|feed)\b",
     re.I,
 )
 

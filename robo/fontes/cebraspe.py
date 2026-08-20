@@ -41,7 +41,7 @@ CDN = "https://cdn.cebraspe.org.br/concursos/{url}/arquivos/{arquivo}"
 # precisa para decidir. Retificação sozinha não serve, porque só lista
 # o que mudou.
 _EDITAL_ABERTURA = re.compile(
-    r"edital\s*n?[ºo°]?\s*1|abertura|edital\s+de\s+abertura", re.I
+    r"edital\s*n?[ºo°]?\s*1\b|abertura|edital\s+de\s+abertura", re.I
 )
 _NAO_EDITAL = re.compile(
     r"gabarito|resultado|comunicado|convoca|isen[çc][ãa]o"

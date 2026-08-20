@@ -204,6 +204,83 @@ Ou dar duplo clique em **`varrer.bat`**, que faz os dois passos.
 Uma varredura completa leva **cerca de 20 minutos** (20 bancas + 3
 agregadores, com pausa de 1,5s entre requisições ao mesmo host).
 
+## IBGP Concursos — fonte própria desde 20/08/2026
+
+`robo/fontes/ibgp.py`. **Rende 13 cargos contábeis em 8 dos 20 concursos.**
+
+Isto **corrige a avaliação anterior** registrada aqui, de que o IBGP
+rendia "1 de 17 e esse 1 já vinha do PCI". Aquela medição usava a rota
+errada: olhava só os concursos com inscrição aberta, e o volume está em
+`proximasInscricoes` — os que ainda vão abrir.
+
+| Rota | O que dá |
+|---|---|
+| `/rest/concurso/proximasInscricoes` | lista os concursos (sem os cargos) |
+| `/rest/concurso/cargos/{id}` | os cargos, na chave `cargos` |
+| `/rest/concurso/inscricoesAbertas` | **HTTP 500** no servidor deles |
+
+Duas armadilhas medidas:
+
+- A listagem traz só `totalCargos: 3`, nunca os nomes. Uma requisição por
+  concurso é inevitável para saber se há vaga contábil.
+- **A UF está em `concurso.nome`, não em `empresa.nome`.** "MUNICÍPIO DE
+  SÃO JOÃO DEL-REI" não tem estado; "…DEL-REI/MG" tem. Sem olhar os dois
+  campos, 5 concursos ficam sem UF e somem do mapa.
+
+### Cargo com especialidade: a formação declarada manda
+
+Contagem/MG abriu CINCO cargos "Auditor de Controle Interno" — Ciências
+Contábeis, Direito, Engenharia Civil, Tecnologia da Informação e
+Contador. Todos casam em `PADRAO_CONTABIL` por causa de "controle
+interno", mas só dois são vaga contábil.
+
+Por isso o `_NAO_CONTABIL` em `ibgp.py`. Vale também para "Agente Fiscal
+de **Saneamento**", que é fiscalização sanitária, não tributária. Isso só
+é possível porque a API dá o cargo por extenso — de texto corrido não há
+como distinguir.
+
+## Portais WordPress: o gargalo era o funil, não a coleta
+
+Investigado a fundo em 20/08/2026. **Aumentar volume sozinho rende
+zero:** medido, um firehose de 500 posts levou de 8 para 15 candidatos
+com conteúdo contábil, e ambos terminaram nos **mesmos 2 editais**. Tudo
+morria depois da coleta.
+
+**A causa:** o `CARGO` de `portais_wp.py` reconhecia 4 famílias de cargo,
+enquanto o `PADRAO_CONTABIL` aceita 14. O post passava no filtro contábil
+e era descartado por "não nomear cargo" — sendo que o cargo estava lá.
+Verificado: **9 de 12 cargos contábeis eram perdidos assim** (Fiscal de
+Tributos, Agente de Arrecadação, Auxiliar Contábil, Auditor Fiscal,
+Controlador Interno, Tesoureiro, Analista Tributário…). Corrigido.
+
+**Regra que fica: ao mexer no `PADRAO_CONTABIL`, mexer no `CARGO` junto.**
+São dois filtros em série; ampliar um sem o outro não muda nada.
+
+### Testado e descartado nos portais (não repetir)
+
+| O que | Por quê |
+|---|---|
+| Busca com termo de duas palavras | A busca do WordPress é **OR**, não AND. `search=auditor fiscal` devolve 661 resultados que não têm nem "auditor" nem "fiscal". Só termo de UMA palavra filtra. |
+| Taxonomia `cargo` | Existe no `concursosnobrasil.com`, mas tem 4 termos (Fonoaudiólogo, Médico, Professor, Psicólogo) e nenhum contábil. |
+| Categoria temática | As categorias são geográficas (sp, mg) e editoriais (notícia, loterias). `tags` está vazio. |
+| Campo `meta` | Só `{"footnotes": ""}`. Nada de salário, vagas ou PDF. |
+| `concursosnobrasil.com.br` | Espelho do `.com` — os links redirecionam. Zero valor novo. |
+| `blog.grancursosonline.com.br` | Responde, mas mistura matéria-resumo ("11 editais publicados") com edital único, e o órgão sai corrompido. Exigiria parser próprio. |
+| `concurseiro24horas` | 7 posts, último de 2024. Morto. |
+| concursosaz, opcaoconcursos, concursosemfoco | `robots.txt` proíbe. |
+| pciconcursos, jcconcursos, novaconcursos, acheconcursos | Sem `/wp-json`. |
+
+### O que ainda dá para ganhar ali
+
+`class_list` traz UF e município já normalizados
+(`['category-am', 'cidade-manaus']`) e era ignorado — mais confiável que
+ler "(AM)" do título, porque muitos títulos escrevem "Prefeitura de
+Manaus AM", sem parênteses. Já ligado em `_uf_cidade()`.
+
+Paginação (`per_page=100`, teto real; 150 dá HTTP 400) e leitura de data
+com hora ("as 16h do dia 13 de agosto") continuam pendentes — valem
+quando o acervo precisar de mais volume.
+
 ### Se um dia quiser automatizar
 
 **Na nuvem** — o workflow existe e está corrigido, só desativado:
