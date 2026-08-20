@@ -158,6 +158,76 @@ contábil. Fica ligada porque o custo é baixo.
 
 ---
 
+## Investigação das 382 organizadoras do PCI (20/08/2026)
+
+Varremos o catálogo inteiro de organizadoras do PCI para achar bancas
+que ainda não usamos. **Resultado: nenhuma vale a pena hoje.** Fica
+registrado para não se repetir o esforço.
+
+Das 382: 73 são órgão público ou universidade (não banca comercial), 49
+já eram conhecidas. Restaram 260 inéditas, das quais as **42 mais
+promissoras foram testadas** com a lógica real do `bancas.py`.
+
+**Rendimento: 15 editais contábeis, 1 vivo, 0 novos.** O único vivo —
+Analista Contábil do IPMS de Suzano/SP — já estava no acervo pelo PCI.
+
+### A lição que vale guardar
+
+**O número de concursos que o PCI mostra para uma banca conta o
+histórico inteiro, não o que está aberto.** A SEAP aparecia com 188
+concursos cobrindo PA, AM e CE — parecia a melhor aposta para o Norte.
+Conferido no portal dela: **zero concursos abertos**, só arquivo.
+
+Pegada regional histórica não prevê catálogo vivo. Ao priorizar banca
+para sondar, o que importa é o que está aberto agora.
+
+### Três plataformas compartilhadas, todas já ligadas
+
+| Plataforma | Como reconhecer | Rota |
+|---|---|---|
+| selecao.net | `{banca}.selecao.net.br` | `/informacoes/{id}/` |
+| ACT SISTEMAS | string "ACT SISTEMAS" no HTML | `/edital/index/abertos` |
+| selecao.site | `portal.{banca}.selecao.site` | igual à ACT |
+
+Descoberta estrutural: **`selecao.site` e ACT SISTEMAS são a mesma
+plataforma**. O IBADE tem módulo próprio, mas usa exatamente as rotas
+que o `bancas.py` já percorre.
+
+O padrão `portal.{domínio}` — lição do IBADE — rendeu de novo: o IDIB
+dava erro 502 no site institucional e vivia em `idib.selecao.net.br`.
+**Sondar os dois domínios continua certo**, só que nesta rodada o
+catálogo atrás deles estava vazio.
+
+### Duas para re-sondar em 60-90 dias
+
+**MSConcursos** (`/concurso/{id}/{slug}`, cobre AC, AL e PA) e
+**Instituto Legatus** (`/concursos/{id}/{slug}`, cobre AP, PI, MA e CE).
+A rota funciona e o catálogo é recente — elas só estão entre ciclos. Ao
+contrário da SEAP, não são arquivo morto.
+
+### Descartadas com motivo
+
+- **8 barram por robots.txt:** Omni, IPPEC, CONSCAM, IBDO, SHDias,
+  Máxima, Dédalus, CAIP/IMES
+- **13 usam plataforma conhecida mas com catálogo vazio:** SEAP, IDIB,
+  Inaz do Pará, INDEPAC, Instituto DOM, IGDRH, Planejar, CMM, AMEOSC,
+  RBO, UNESC, Sigma, HC Assessoria
+- **21 respondem sem rota previsível**
+
+### O que isto significa para os estados vazios
+
+ES, AC, AL, AP e PA seguem com zero editais — mas **o gargalo não é
+falta de fonte**. As bancas dessas regiões existem, foram testadas e
+simplesmente não têm concurso contábil aberto agora.
+
+Concurso municipal para contador é evento raro em cada cidade. Quando
+abre, a banca publica e o PCI indexa — que é justamente por que ele
+responde por 88% do acervo.
+
+**A cobertura por raspagem está saturada.** Ampliar de verdade exige
+outra coisa: a API oficial da Imprensa Nacional (ver `ACESSO-DOU.md`) ou
+parceria comercial com as bancas que bloqueiam.
+
 ## Como acrescentar fonte nova
 
 1. **Consulte o `FONTES.md` primeiro** — dezenas de portais já foram
