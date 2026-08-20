@@ -5,6 +5,7 @@
    ============================================================ */
 
 import { cadastrar, entrar, logado } from './sessao.js';
+import { enviar as enviarCRM } from './crm.js';
 
 const UFS = ['AC','AL','AM','AP','BA','CE','DF','ES','GO','MA','MG','MS','MT',
              'PA','PB','PE','PI','PR','RJ','RN','RO','RR','RS','SC','SE','SP','TO'];
@@ -96,10 +97,17 @@ function ligar(){
     btn.textContent = ehCadastro ? 'Criando sua conta…' : 'Entrando…';
 
     // Pequeno atraso proposital: sem ele a transição fica brusca demais
-    // e não dá para perceber o estado de carregamento na demonstração.
+    // e não dá para perceber o estado de carregamento.
     setTimeout(() => {
       try{
         ehCadastro ? cadastrar(dados) : entrar(dados);
+
+        // Espelha o contato no ActiveCampaign. Deliberadamente SEM
+        // `await`: a pessoa não pode ficar esperando servidor de
+        // terceiro para entrar no site, e o envio não é confirmável
+        // mesmo (ver js/crm.js). Se falhar, a conta local já existe.
+        if(ehCadastro) enviarCRM(dados);
+
         location.href = destino();
       }catch(err){
         btn.disabled = false;
