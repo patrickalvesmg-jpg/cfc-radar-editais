@@ -1,6 +1,11 @@
 name: Varredura de editais
 
-# Roda na infraestrutura do GitHub — não depende de nenhum computador ligado.
+# DESATIVADO por decisão do Patrick (ago/2026): a varredura passou a ser
+# MANUAL, rodada pelo `varrer.bat` na máquina local. O agendamento continua
+# escrito aqui, mas o workflow está `disabled_manually` no GitHub — este
+# arquivo sozinho NÃO o reativa. Para voltar ao automático é preciso
+# reabilitar na aba Actions (ou `gh workflow enable`), o que é uma decisão
+# de quem toca o projeto, não um efeito colateral de um commit.
 on:
   schedule:
     # 09:00 UTC = 06:00 em Brasília. Os diários municipais do dia

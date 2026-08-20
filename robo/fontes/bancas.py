@@ -55,7 +55,27 @@ BANCAS = (
     ("IDCAP", "https://www.idcap.org.br"),
     # Rota própria: o terceiro item substitui /informacoes/{id}/.
     ("Instituto Mais", "https://www.institutomais.org.br", "/Concursos/Detalhe/{id}"),
+
+    # Plataforma "ACT SISTEMAS": o site institucional é vitrine; o
+    # catálogo real fica em portal.{dominio}, com a listagem em
+    # /edital/index/abertos e o detalhe em /edital/ver/{id}.
+    # Rendimento medido na amostra: Legalle 6/10, GL 4/10, IBEPP 4/10,
+    # IMESO 3/10 — bem acima das já ligadas.
+    ("GL Consultoria", "https://portal.glconsultoria.com.br", "/edital/ver/{id}"),
+    ("Instituto Legalle", "https://portal.institutolegalle.org.br", "/edital/ver/{id}"),
+    ("Instituto IBEPP", "https://portal.institutoibepp.com.br", "/edital/ver/{id}"),
+    ("IMESO", "https://portal.imeso.com.br", "/edital/ver/{id}"),
 )
+
+# Algumas bancas publicam a listagem completa numa rota própria, não na
+# home. Sem isto varreríamos só o que a home exibe.
+LISTAGEM = {
+    "https://www.institutomais.org.br": "/Concursos/ConcursosAbertos",
+    "https://portal.glconsultoria.com.br": "/edital/index/abertos",
+    "https://portal.institutolegalle.org.br": "/edital/index/abertos",
+    "https://portal.institutoibepp.com.br": "/edital/index/abertos",
+    "https://portal.imeso.com.br": "/edital/index/abertos",
+}
 
 TAG = re.compile(r"<[^>]+>")
 ID_CONCURSO = re.compile(r"/informacoes/(\d+)")
@@ -142,7 +162,7 @@ def coletar(_limite: int = 0) -> list[dict]:
     for banca in BANCAS:
         nome, base = banca[0], banca[1]
         molde, id_regex = _rota(banca)
-        home = buscar(f"{base}/")
+        home = buscar(base + LISTAGEM.get(base, "/"))
         if not home:
             print(f"    {nome}: indisponível")
             continue

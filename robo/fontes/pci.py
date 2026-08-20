@@ -257,7 +257,13 @@ def _confirmar_cargo(url: str) -> tuple | None:
     if not html:
         return None
 
-    texto = re.sub(r"\s+", " ", TAG.sub(" ", html))
+    # A matéria traz uma barra lateral com ~114 links de notícias
+    # relacionadas (class="nXXXXX"), e quase sempre alguma cita
+    # "Contador". Rodar o filtro sobre o HTML inteiro fazia QUALQUER
+    # concurso passar pelo gate contábil — testado: 4 de 4 vagas de
+    # psicólogo eram aprovadas. Cortamos a barra antes de filtrar.
+    corpo_html = re.split(r'class="n\d{5,}"', html)[0]
+    texto = re.sub(r"\s+", " ", TAG.sub(" ", corpo_html))
     if not PADRAO_CONTABIL.search(texto):
         return None
 

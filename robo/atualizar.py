@@ -28,6 +28,7 @@ for _fluxo in (sys.stdout, sys.stderr):
 sys.path.insert(0, str(Path(__file__).parent))
 
 from fontes import (bancas, cebraspe, consulplan, estrategia,  # noqa: E402
+                    pci_api,
                     fafipa, pci,
                     portais_wp, querido_diario)
 import editorial      # noqa: E402
@@ -42,7 +43,9 @@ FONTES = (
     ("Fundação FAFIPA (banca)", fafipa.coletar),
     ("Bancas em plataforma comum", bancas.coletar),
     ("Consulplan (conselhos de contabilidade)", consulplan.coletar),
-    ("PCI Concursos (prefeituras)", pci.coletar),
+    # A API do PCI substitui a raspagem de 27 páginas de cargo:
+    # 1 requisição, 493 concursos, cargo em lista e data ISO.
+    ("PCI Concursos (API)", pci_api.coletar),
     ("Portais WordPress (agregadores)", portais_wp.coletar),
     ("Querido Diário (diários municipais)", querido_diario.coletar),
 )

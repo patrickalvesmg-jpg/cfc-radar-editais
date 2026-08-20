@@ -46,16 +46,32 @@ def _regras(host_scheme: str):
             bruto = r.read()
             if r.headers.get("Content-Encoding") == "gzip":
                 bruto = gzip.decompress(bruto)
+            # Alguns hosts servem o robots.txt comprimido sem declarar o
+            # Content-Encoding. Sem esta checagem o parser receberia
+            # binário e ignoraria silenciosamente um `Disallow:` — o
+            # lado errado do erro.
+            elif bruto[:2] == bytes((0x1F, 0x8B)):
+                try:
+                    bruto = gzip.decompress(bruto)
+                except OSError:
+                    pass
             texto = bruto.decode("utf-8", "replace")
     except urllib.error.HTTPError as e:
         # 404/410: não existe robots.txt → liberado.
         # 401/403: o host restringe o próprio robots → tratamos como
         # proibido, que é o lado seguro.
         return None if e.code in (404, 410) else "PROIBIDO"
+    except urllib.error.URLError as e:
+        # DNS inexistente é host que não existe, não bloqueio. Tratar
+        # como "PROIBIDO" mascarava erro de rede como veto do site e
+        # produzia falsos "robots.txt proíbe" em sondagens inteiras.
+        # A requisição seguinte vai falhar sozinha, com mensagem certa.
+        if "getaddrinfo" in str(e.reason) or "Name or service" in str(e.reason):
+            return None
+        # Conexão derrubada (caso do in.gov.br): não sabemos a regra,
+        # assumimos proibido em vez de varrer quem não quer ser varrido.
+        return "PROIBIDO"
     except Exception:
-        # Rede instável ou host que derruba a conexão (caso do in.gov.br).
-        # Não sabemos a regra: assumimos proibido em vez de arriscar
-        # varrer quem não quer ser varrido.
         return "PROIBIDO"
 
     if not texto.strip():
