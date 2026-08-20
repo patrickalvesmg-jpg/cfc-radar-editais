@@ -1,23 +1,25 @@
 name: Varredura de editais
 
-# DESATIVADO por decisão do Patrick (ago/2026): a varredura passou a ser
-# MANUAL, rodada pelo `varrer.bat` na máquina local. O agendamento continua
-# escrito aqui, mas o workflow está `disabled_manually` no GitHub — este
-# arquivo sozinho NÃO o reativa. Para voltar ao automático é preciso
-# reabilitar na aba Actions (ou `gh workflow enable`), o que é uma decisão
-# de quem toca o projeto, não um efeito colateral de um commit.
+# Roda na infraestrutura do GitHub — não depende de nenhum computador
+# ligado. Publica DIRETO no site (decisão do Patrick, ago/2026): o
+# objetivo é o radar se manter atualizado sozinho.
+#
+# Segurança disso: o filtro é conservador de propósito (três camadas,
+# ver robo/config.py) e a varredura de 20/08/2026 fechou com ZERO cargo
+# não-contábil e ZERO link para agregador em 124 editais. Se um dia
+# começar a entrar lixo, o caminho é apertar o filtro — não voltar a
+# depender de alguém aprovando PR todo dia.
 on:
   schedule:
     # 09:00 UTC = 06:00 em Brasília. Os diários municipais do dia
     # anterior já estão indexados a essa hora.
     - cron: "0 9 * * *"
-  workflow_dispatch:        # permite rodar manualmente pela aba Actions
+  workflow_dispatch:        # permite rodar na hora, pela aba Actions
 
 permissions:
   contents: write
-  pull-requests: write
 
-# Duas execuções mexendo no mesmo JSON dariam conflito de merge.
+# Duas execuções mexendo no mesmo JSON dariam conflito.
 concurrency:
   group: radar-editais
   cancel-in-progress: false
@@ -25,7 +27,13 @@ concurrency:
 jobs:
   varrer:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+
+    # A varredura completa levou 53 MINUTOS na medição de 20/08/2026
+    # (24 bancas + agregadores, com a pausa obrigatória entre
+    # requisições ao mesmo host). O limite antigo era 15 min e mataria
+    # o processo no meio, gravando nada. 90 dá folga para o dia em que
+    # algum portal estiver lento.
+    timeout-minutes: 90
 
     steps:
       - uses: actions/checkout@v4
@@ -39,92 +47,24 @@ jobs:
       # suprimentos para auditar.
 
       - name: Varrer fontes
-        run: python robo/atualizar.py --limite 30
+        run: python -u robo/atualizar.py --limite 30
 
-      - name: Verificar se houve mudança
-        id: diff
+      # Rede de segurança ANTES de publicar. Se a varredura produzir
+      # algo que viole as regras do produto, o job falha e o site fica
+      # como está — melhor um dia desatualizado que um dia errado.
+      - name: Conferir o que vai ao ar
+        run: python -u robo/conferir.py
+
+      - name: Publicar
         run: |
-          if git diff --quiet -- data/editais.json; then
-            echo "mudou=false" >> "$GITHUB_OUTPUT"
-            echo "Nenhum edital novo hoje."
-          else
-            echo "mudou=true" >> "$GITHUB_OUTPUT"
-            git diff --stat -- data/editais.json
+          if git diff --quiet -- data/; then
+            echo "Nenhuma mudança — nada a publicar."
+            exit 0
           fi
 
-      # Pull Request em vez de commit direto: nada vai ao ar sem
-      # revisão humana. Data de inscrição errada prejudica candidato
-      # de verdade, e a extração automática erra.
-      #
-      # PRÉ-REQUISITO: em Settings → Actions → General → Workflow
-      # permissions, marcar "Allow GitHub Actions to create and approve
-      # pull requests". É desligado por padrão e só o dono da conta
-      # consegue ativar — sem isso, este passo falha com
-      # "GitHub Actions is not permitted to create or approve pull requests".
-      - name: Abrir Pull Request
-        id: pr
-        if: steps.diff.outputs.mudou == 'true'
-        continue-on-error: true
-        uses: peter-evans/create-pull-request@v6
-        with:
-          commit-message: "chore(radar): editais capturados em ${{ github.run_id }}"
-          branch: radar/varredura-automatica
-          delete-branch: true
-          title: "Radar: novos editais para revisão"
-          body: |
-            Varredura automática do Radar Concursos Contabilidade.
-
-            **Antes de aprovar, confira nos itens marcados `"revisado": false`:**
-
-            - [ ] É mesmo concurso da área contábil (não licitação ou nomeação)
-            - [ ] Datas de inscrição conferem com o edital oficial
-            - [ ] Salário é a remuneração do cargo (não taxa nem valor de contrato)
-            - [ ] Órgão e cargo estão legíveis para quem vai ler o site
-
-            Ao revisar um item, marque `"revisado": true` — o robô passa a
-            respeitar os campos curados e não sobrescreve mais a correção.
-
-            O campo `_trecho` traz o texto de origem, para conferir sem
-            abrir o diário oficial.
-
-            Itens com `"confianca": "baixa"` são os que mais erram.
-          labels: |
-            radar
-            revisar
-
-      # Se o PR não pôde ser criado, o trabalho da varredura não pode se
-      # perder: guardamos o JSON como artefato e numa branch, para você
-      # abrir o PR à mão ou baixar o resultado.
-      - name: Guardar resultado (PR falhou)
-        if: steps.diff.outputs.mudou == 'true' && steps.pr.outcome == 'failure'
-        run: |
-          echo "::warning::Não foi possível abrir o Pull Request automaticamente."
-          echo "::warning::Ative em Settings > Actions > General > Workflow permissions:"
-          echo "::warning::'Allow GitHub Actions to create and approve pull requests'."
-
-          # A action de PR já move as mudanças para a branch dela antes de
-          # falhar, então pode não sobrar nada para commitar aqui — não é
-          # erro. Só empurramos a branch se houver mudança de fato.
-          BRANCH="radar/varredura-$(date +%Y-%m-%d)"
-          git config user.name  "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git checkout -B "$BRANCH"
-
-          if git diff --quiet -- data/editais.json && git diff --cached --quiet -- data/editais.json; then
-            echo "::notice::Nada a commitar aqui — veja a branch radar/varredura-automatica."
-          else
-            git add data/editais.json
-            git commit -m "chore(radar): editais capturados em ${{ github.run_id }}"
-            git push -f origin "$BRANCH"
-            echo "::notice::Resultado salvo na branch $BRANCH."
-          fi
-
-          echo "::notice::Abra o PR manualmente a partir da branch do radar."
-
-      - name: Publicar JSON como artefato
-        if: steps.diff.outputs.mudou == 'true' && steps.pr.outcome == 'failure'
-        uses: actions/upload-artifact@v4
-        with:
-          name: editais-capturados
-          path: data/editais.json
-          retention-days: 30
+          git config user.name  "Radar Concursos Contabilidade"
+          git config user.email "actions@github.com"
+          git add data/
+          git commit -m "chore(radar): varredura de $(date -u +%d/%m/%Y)"
+          git push
+          echo "Publicado."
