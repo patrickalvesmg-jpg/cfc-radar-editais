@@ -4,8 +4,8 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 <meta name="theme-color" content="#0a0f0a" />
-<title>Criar conta · Radar Concursos Contabilidade — CFC Academy</title>
-<meta name="description" content="Crie sua conta gratuita e acompanhe todos os editais de concurso da área contábil no Brasil." />
+<title>Ver todos os editais · Radar Concursos Contabilidade — CFC Academy</title>
+<meta name="description" content="Informe seu e-mail e acompanhe todos os editais de concurso da área contábil no Brasil." />
 <meta name="robots" content="noindex" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -42,7 +42,7 @@
       <li>Todos os editais do Brasil, sem limite</li>
       <li>Busca por órgão, cargo, banca e cidade</li>
       <li>Filtros por estado, esfera e salário</li>
-      <li>Favoritos salvos na sua conta</li>
+      <li>Favoritos salvos neste navegador</li>
       <li>Alertas quando abrir concurso do seu perfil</li>
     </ul>
   </aside>
@@ -55,14 +55,14 @@
         Voltar para o site
       </a>
 
-      <h1>Criar conta grátis</h1>
-      <p class="apoio">Leva 30 segundos. Não pedimos cartão.</p>
+      <h1>Ver todos os editais</h1>
+      <p class="apoio">Informe seu e-mail e o radar completo abre na hora.</p>
 
       <div class="aviso">
-        <span aria-hidden="true">⚠</span>
+        <span aria-hidden="true">🔒</span>
         <span>
-          <b>Antes de você continuar</b>
-          Seu acesso fica salvo neste navegador. Se você limpar o navegador ou entrar por outro aparelho, será preciso se cadastrar de novo — estamos trabalhando na conta definitiva.
+          <b>Guardamos o mínimo</b>
+          Seu e-mail vai para a nossa lista de avisos e nada mais fica salvo neste site. O acesso vale neste navegador.
         </span>
       </div>
 
@@ -72,53 +72,26 @@
       </div>
 
       <form id="form" novalidate>
-        <div class="campo-grupo" id="g-nome">
-          <label for="nome">Nome completo</label>
-          <input type="text" id="nome" name="nome" class="campo" autocomplete="name" placeholder="Como podemos te chamar">
-          <span class="erro">Informe seu nome.</span>
-        </div>
-
         <div class="campo-grupo" id="g-email">
-          <label for="email">E-mail</label>
-          <input type="email" id="email" name="email" class="campo" autocomplete="email" placeholder="voce@email.com">
+          <label for="email">Seu e-mail</label>
+          <input type="email" id="email" name="email" class="campo"
+                 autocomplete="email" placeholder="voce@email.com" required>
           <span class="erro">Informe um e-mail válido.</span>
-        </div>
-
-        <div class="dupla">
-          <div class="campo-grupo" id="g-uf">
-            <label for="uf">Seu estado</label>
-            <select id="uf" name="uf" class="campo">
-              <option value="">Selecione</option>
-            </select>
-            <span class="erro">Selecione seu estado.</span>
-          </div>
-
-          <div class="campo-grupo" id="g-interesse">
-            <label for="interesse">Cargo de interesse</label>
-            <select id="interesse" name="interesse" class="campo">
-              <option value="">Selecione</option>
-              <option value="contador">Contador</option>
-              <option value="auditor">Auditor / Fiscal</option>
-              <option value="analista">Analista / Controle</option>
-              <option value="qualquer">Qualquer um da área</option>
-            </select>
-            <span class="erro">Selecione uma opção.</span>
-          </div>
-        </div>
-
-        <div class="campo-grupo" id="g-senha">
-          <label for="senha">Senha</label>
-          <input type="password" id="senha" name="senha" class="campo" autocomplete="new-password" placeholder="Mínimo de 6 caracteres">
-          <span class="erro">A senha precisa de pelo menos 6 caracteres.</span>
-          <span class="dica">Use uma senha que você não use em outro site: por enquanto ela fica só neste navegador.</span>
+          <span class="dica">É só o e-mail. Não pedimos nome, telefone nem senha.</span>
         </div>
 
         <button type="submit" class="btn btn-lima btn-block" id="enviar" style="margin-top:var(--s-5)">
-          Criar conta e ver os editais
+          Liberar os editais
         </button>
+
+        <p class="lgpd">
+          Ao continuar, você concorda em receber por e-mail avisos de novos
+          editais da área contábil. Pode cancelar a qualquer momento, em um
+          clique, no rodapé de qualquer mensagem.
+        </p>
       </form>
 
-      <p class="troca">Já tem conta? <a href="login.html">Entrar</a></p>
+      
     </div>
   </section>
 

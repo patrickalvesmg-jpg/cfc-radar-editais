@@ -1,7 +1,7 @@
 # Ligar o cadastro ao ActiveCampaign
 
-O código já está pronto. Falta preencher **quatro valores** em
-`js/crm.js` — tudo copiado de uma tela só do painel do AC.
+O código já está pronto. Falta preencher **dois valores** em
+`js/crm.js` — os dois na mesma tela do painel do AC.
 
 Enquanto `ativo: false`, nada é enviado e o site funciona normalmente.
 
@@ -13,24 +13,10 @@ Enquanto `ativo: false`, nada é enviado e o site funciona normalmente.
 2. **Create a form** → escolha o tipo **Inline form**.
 3. Dê um nome (ex.: "Radar Concursos Contabilidade").
 4. Escolha a **lista** onde os contatos vão cair.
+5. Deixe **só o campo de e-mail** no formulário. O site não envia mais
+   nada — nem nome, nem telefone.
 
-## Passo 2 — criar os dois campos personalizados
-
-O AC já tem nome e e-mail. Estado e interesse precisam ser criados,
-e são eles que deixam você segmentar depois ("todo mundo da PB",
-"quem quer ser auditor").
-
-Ainda no editor do formulário, arraste um campo novo para cada:
-
-| Campo | Tipo sugerido | Opções |
-|---|---|---|
-| **Estado** | Dropdown | as 27 UFs (ou texto livre) |
-| **Cargo de interesse** | Dropdown | `contador`, `auditor`, `analista`, `qualquer` |
-
-> Use exatamente esses quatro valores no cargo de interesse — são os
-> que o formulário do site envia.
-
-## Passo 3 — copiar os valores
+## Passo 2 — copiar os dois valores
 
 Clique em **Integrate** → aba **Simple Embed**. Vai aparecer um bloco
 de código. Procure nele:
@@ -38,9 +24,6 @@ de código. Procure nele:
 ```html
 <form ... action="https://SUACONTA.activehosted.com/proc.php" ...>
   <input type="hidden" name="u" value="27" />
-  ...
-  <input type="text" name="field[3,0]" />   ← Estado
-  <input type="text" name="field[4,0]" />   ← Cargo de interesse
 ```
 
 Você precisa de:
@@ -49,26 +32,19 @@ Você precisa de:
 |---|---|---|
 | Endereço | o `action` do form | `https://cfcacademy.activehosted.com/proc.php` |
 | ID do formulário | o `value` do input `u` | `27` |
-| Campo Estado | o `name` do campo | `field[3,0]` |
-| Campo Interesse | o `name` do campo | `field[4,0]` |
 
-## Passo 4 — preencher em `js/crm.js`
+## Passo 3 — preencher em `js/crm.js`
 
 ```js
 export const CRM = {
   ativo: true,                                              // ← ligar
 
-  endpoint: 'https://cfcacademy.activehosted.com/proc.php', // ← passo 3
-  formulario: '27',                                         // ← passo 3
-
-  campos: {
-    estado: 'field[3,0]',                                   // ← passo 3
-    interesse: 'field[4,0]',                                // ← passo 3
-  },
+  endpoint: 'https://cfcacademy.activehosted.com/proc.php', // ← passo 2
+  formulario: '27',                                         // ← passo 2
 };
 ```
 
-Publique e pronto. O próximo cadastro no site cai na sua lista.
+Publique e pronto. O próximo e-mail informado no site cai na sua lista.
 
 ---
 
@@ -83,8 +59,6 @@ Se não aparecer, na ordem:
 2. **O `u` está certo?** É o número do formulário, não o da lista.
 3. **Bloqueador de anúncios.** Extensões como uBlock barram domínios
    de automação de marketing. Teste numa janela anônima sem extensões.
-4. **Os `field[x,y]` batem?** Se o nome do campo estiver errado, o
-   contato entra mesmo assim, só que sem estado e interesse.
 
 ---
 
@@ -95,24 +69,25 @@ requisição vinda de outro domínio de forma legível (é o CORS). Por
 isso o site manda e segue em frente. A consequência prática: se o
 envio falhar, você não fica sabendo pelo site — daí o teste acima.
 
-**O cadastro local acontece de qualquer jeito.** O envio ao AC é
+**O acesso é liberado de qualquer jeito.** O envio ao AC é
 deliberadamente sem `await`: se o AC estiver fora do ar ou bloqueado,
-a pessoa entra na plataforma do mesmo jeito. Perder um contato na
-lista é ruim; travar o acesso de quem se cadastrou é pior.
+a pessoa vê os editais do mesmo jeito. Perder um contato na lista é
+ruim; travar quem acabou de informar o e-mail é pior.
 
 ---
 
 ## O que isto **não** faz
 
-Este caminho capta contato e alimenta suas automações de e-mail. Ele
-**não faz login de verdade** — o ActiveCampaign é ferramenta de
-marketing, não sistema de contas: não guarda senha nem sessão.
+Não há conta nem login — **por decisão de produto**, não por
+limitação. O site guarda apenas uma marca de "já liberou" no navegador
+(um carimbo de data, sem o e-mail), e o e-mail vive só no
+ActiveCampaign.
 
-Hoje a "conta" continua vivendo no navegador da pessoa
-(`js/sessao.js`, localStorage). Se ela trocar de aparelho ou limpar o
-navegador, a conta some — mas **o contato permanece no AC**, que é o
-ativo que interessa.
+A consequência aceita: quem trocar de aparelho ou limpar o navegador
+informa o e-mail de novo. O AC reconhece contato repetido e não
+duplica, então isso não suja a lista.
 
-Para login real (a pessoa volta dias depois e entra com senha), o
-caminho é um backend de autenticação — Supabase é o mais direto. Os
-contatos já captados aqui não se perdem nessa migração.
+O ganho, que é o motivo da escolha: **o site não é depositário de dado
+pessoal**. Não há base nossa para vazar, exportar ou ter de excluir a
+pedido do titular — a obrigação fica com o AC, que já tem contrato e
+política para isso.

@@ -9,7 +9,7 @@ import {
   renderStats, renderFeed, ligarMenuMobile, carregarEditais,
 } from './comum.js';
 
-import { exigirLogin, usuario, sair, primeiroNome } from './sessao.js';
+import { exigirLogin, usuario, sair } from './sessao.js';
 import { montarMapa } from './mapa.js';
 
 /* Barreira de acesso. exigirLogin() já dispara o redirecionamento; aqui só
@@ -19,10 +19,15 @@ const TEM_SESSAO = exigirLogin();
 
 /* ---------------- favoritos (localStorage) ---------------- */
 
-/** Favoritos são por conta: a chave inclui o e-mail do usuário. */
+/** Favoritos ficam neste navegador, numa chave única.
+ *
+ *  Antes a chave incluía o e-mail da pessoa — o que obrigava a
+ *  guardá-lo aqui. Como agora o site não retém dado pessoal
+ *  nenhum (ver js/sessao.js), a chave é fixa: os favoritos são do
+ *  NAVEGADOR, não de uma conta. Some se a pessoa limpar o
+ *  navegador, e é esse o trade-off aceito. */
 function chaveFavoritos(){
-  const u = usuario();
-  return 'cfc:favoritos:' + (u ? u.email : 'anon');
+  return 'cfc:favoritos';
 }
 
 function carregarFavoritos(){
@@ -205,12 +210,19 @@ function montarConta(){
   const u = usuario();
   if(!u) return;
 
-  const nome = primeiroNome();
-  document.getElementById('saudacao').textContent = nome;
-  document.getElementById('conta-nome').textContent = nome;
-  document.getElementById('avatar').textContent = nome.charAt(0).toUpperCase();
-  document.getElementById('menu-nome').textContent = u.nome || nome;
-  document.getElementById('menu-email').textContent = u.email;
+  // Não há nome nem e-mail para exibir: o site não guarda dado da
+  // pessoa (ver js/sessao.js). O menu passa a informar o ESTADO do
+  // acesso, que é o que existe de fato. Inventar um "Olá, Fulano"
+  // exigiria reter o nome — justamente o que decidimos não fazer.
+  const desde = u.desde ? new Date(u.desde) : null;
+
+  document.getElementById('saudacao').textContent = 'contador';
+  document.getElementById('conta-nome').textContent = 'Acesso';
+  document.getElementById('avatar').textContent = '✓';
+  document.getElementById('menu-nome').textContent = 'Acesso liberado';
+  document.getElementById('menu-email').textContent = desde
+    ? `desde ${desde.toLocaleDateString('pt-BR')}`
+    : 'neste navegador';
 
   const btn = document.getElementById('conta-btn');
   const menu = document.getElementById('conta-menu');

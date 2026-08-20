@@ -453,6 +453,17 @@ body.tem-demo .boas-vindas{padding-top:calc(var(--topbar-h) + var(--faixa-demo-h
 .aviso.erro-geral{background:var(--crit-wash);border-color:rgba(239,106,106,.35)}
 .aviso b{display:block;margin-bottom:2px}
 
+/* Nota de consentimento no formulário de e-mail. Discreta de
+   propósito: precisa ser legível e honesta, sem competir com o
+   botão nem parecer letra miúda escondendo alguma coisa. */
+.lgpd{
+  margin-top:var(--s-4);
+  font-size:.78rem;
+  line-height:1.5;
+  color:var(--cinza-esc);
+  text-align:center;
+}
+
 .troca{
   text-align:center;margin-top:var(--s-5);
   font-size:var(--t-sm);color:var(--cinza);
