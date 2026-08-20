@@ -28,7 +28,7 @@ for _fluxo in (sys.stdout, sys.stderr):
 sys.path.insert(0, str(Path(__file__).parent))
 
 from fontes import (bancas, cebraspe, consulplan, estrategia,  # noqa: E402
-                    ibgp, pci_api,
+                    ibade, ibgp, pci_api,
                     fafipa, pci,
                     portais_wp, querido_diario)
 import editorial      # noqa: E402
@@ -47,6 +47,9 @@ FONTES = (
     # "Auditor de Controle Interno - Ciências Contábeis" de
     # "... - Engenharia Civil" no mesmo concurso.
     ("IBGP Concursos (API da banca)", ibgp.coletar),
+    # O IBADE cobre RO/ES/AC/MT — os estados onde o radar é mais fraco.
+    # Não sobrepõe o PCI: nenhum edital dele estava no acervo.
+    ("IBADE (banca)", ibade.coletar),
     # A API do PCI substitui a raspagem de 27 páginas de cargo:
     # 1 requisição, 493 concursos, cargo em lista e data ISO.
     ("PCI Concursos (API)", pci_api.coletar),
