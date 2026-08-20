@@ -99,27 +99,27 @@ function ligar(){
     btn.disabled = true;
     btn.textContent = 'Liberando seu acesso…';
 
-    // O acesso é liberado ANTES de saber o resultado do envio, e
-    // isso é deliberado: se o ActiveCampaign estiver fora do ar
-    // ou barrado por um bloqueador de anúncios, quem acabou de
-    // informar o e-mail não pode ficar de fora do site. Perder um
-    // contato na lista é ruim; travar a pessoa é pior.
+    // O acesso é liberado antes de saber o resultado do envio: se o
+    // ActiveCampaign estiver fora do ar ou barrado por bloqueador de
+    // anúncios, quem acabou de preencher não pode ficar de fora.
     liberar();
 
-    // Ainda assim esperamos a resposta, porque o AC responde de
-    // verdade (ver js/crm.js): se ele RECUSAR o e-mail — endereço
-    // inválido para ele, formulário desativado —, avisamos em vez
-    // de deixar a pessoa achando que entrou na lista.
+    // ESPERAMOS a resposta antes de trocar de página — e isto não é
+    // detalhe. O envio ao AC é um <script> que o navegador ainda está
+    // baixando; se a página navegar antes de ele responder, a
+    // requisição é CANCELADA e o contato nunca entra na lista. Foi
+    // exatamente o que aconteceu: por linha de comando funcionava,
+    // no navegador não, porque só ali existe o redirecionamento.
+    //
+    // O limite de 8s do crm.js protege contra espera infinita, e o
+    // `.then` roda tanto no sucesso quanto na falha — ou seja, a
+    // pessoa entra no site de qualquer forma.
     enviarCRM({ nome, email, telefone }).then(ok => {
-      if(ok || !navigator.onLine) return;
-      // Falha silenciosa do lado do AC: seguimos para o site do
-      // mesmo jeito. O acesso já está liberado; registrar no
-      // console ajuda a depurar sem incomodar quem está usando.
-      console.warn('[radar] o e-mail não foi confirmado pela lista de avisos');
+      if(!ok && navigator.onLine){
+        console.warn('[radar] o contato não foi confirmado pela lista de avisos');
+      }
+      location.href = destino();
     });
-
-    // Pequeno atraso para a transição não ficar brusca.
-    setTimeout(() => { location.href = destino(); }, 400);
   });
 }
 

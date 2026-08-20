@@ -57,8 +57,13 @@ export const CRM = {
   or: 'a0961656-11b8-4672-a291-19a683f688e7',
 };
 
-/** Quanto esperamos pela resposta do AC antes de desistir. */
-const LIMITE_MS = 8000;
+/** Quanto esperamos pela resposta do AC antes de desistir.
+ *
+ *  4s é um meio-termo deliberado: a resposta real leva menos de 1s, e
+ *  quem tem bloqueador de anúncios (que barra este domínio) não pode
+ *  ficar olhando um botão travado. Passou disso, seguimos sem o
+ *  contato — o acesso da pessoa vale mais que a linha na lista. */
+const LIMITE_MS = 4000;
 
 /**
  * Telefone no formato internacional que o AC exige.
