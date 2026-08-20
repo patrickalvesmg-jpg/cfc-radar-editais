@@ -10,12 +10,27 @@ Valores em uso (`js/crm.js`):
 endpoint: 'https://cfcacademy.activehosted.com/proc.php'
 u:  '85'
 f:  '85'
-or: '16041baa-b78b-4fdf-91f1-c38fb8f4a9da'
+or: 'a0961656-11b8-4672-a291-19a683f688e7'
 ```
 
 Além destes, o envio precisa de **`act=sub`** e **`v=2`**. Sem eles o AC
 aceita a requisição e **ignora o cadastro em silêncio** — foi exatamente
 o que aconteceu na primeira tentativa.
+
+> **O `or` MUDA quando você edita o formulário no painel.** Ao mexer nos
+> campos, pegue o embed de novo e reconfira este valor.
+
+### Campos enviados
+
+`firstname`, `email` e `phone`. Só o e-mail é obrigatório; os outros
+vão apenas quando preenchidos — mandar vazio apagaria dado que a pessoa
+já tivesse informado antes.
+
+**O telefone precisa vir em formato internacional.** Testado: `83999991234`
+é RECUSADO (`Forneça um número de telefone válido (formato +XXXXXXXXXXXXX)`);
+`+5583999991234` é aceito. O `js/crm.js` converte sozinho — a pessoa digita
+`(83) 99999-1234` e o site monta o `+55`. Número sem DDD é omitido, para não
+derrubar o cadastro inteiro por causa do telefone.
 
 ---
 

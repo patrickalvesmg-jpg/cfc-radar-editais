@@ -35,6 +35,16 @@ function validarEmail(v){
   return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v.trim());
 }
 
+/** Telefone é OPCIONAL: vazio passa. Preenchido precisa ter cara de
+ *  número brasileiro — 10 dígitos (fixo) ou 11 (celular), com DDD.
+ *  Validar evita mandar lixo para o AC, mas sem exigir formato: a
+ *  pessoa digita como quiser e nós limpamos. */
+function validarTelefone(v){
+  const so = (v || '').replace(/\D/g, '');
+  if(!so) return true;
+  return so.length === 10 || so.length === 11;
+}
+
 function mostrarErro(msg){
   const cx = document.getElementById('erro-geral');
   if(!cx) return;
@@ -64,10 +74,24 @@ function ligar(){
     ev.preventDefault();
     limparErro();
 
-    const email = document.getElementById('email').value;
+    // O login.html tem só o e-mail; o cadastro.html tem os três.
+    // Por isso lemos com `?.` — campo ausente vira string vazia e a
+    // validação dele é pulada, em vez de quebrar a página inteira.
+    const nome     = document.getElementById('nome')?.value ?? '';
+    const email    = document.getElementById('email').value;
+    const telefone = document.getElementById('telefone')?.value ?? '';
 
-    if(!marcar('g-email', validarEmail(email))){
-      document.getElementById('email').focus();
+    let ok = validarEmail(email);
+    marcar('g-email', ok);
+    if(document.getElementById('nome')){
+      ok = marcar('g-nome', nome.trim().length >= 2) && ok;
+    }
+    if(document.getElementById('telefone')){
+      ok = marcar('g-telefone', validarTelefone(telefone)) && ok;
+    }
+
+    if(!ok){
+      form.querySelector('.campo-grupo.invalido .campo')?.focus();
       return;
     }
 
@@ -86,7 +110,7 @@ function ligar(){
     // verdade (ver js/crm.js): se ele RECUSAR o e-mail — endereço
     // inválido para ele, formulário desativado —, avisamos em vez
     // de deixar a pessoa achando que entrou na lista.
-    enviarCRM({ email }).then(ok => {
+    enviarCRM({ nome, email, telefone }).then(ok => {
       if(ok || !navigator.onLine) return;
       // Falha silenciosa do lado do AC: seguimos para o site do
       // mesmo jeito. O acesso já está liberado; registrar no

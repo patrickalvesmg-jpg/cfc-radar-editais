@@ -56,7 +56,7 @@
       </a>
 
       <h1>Ver todos os editais</h1>
-      <p class="apoio">Informe seu e-mail e o radar completo abre na hora.</p>
+      <p class="apoio">Preencha e o radar completo abre na hora. Sem senha.</p>
 
       <div class="aviso">
         <span aria-hidden="true">🔒</span>
@@ -72,12 +72,26 @@
       </div>
 
       <form id="form" novalidate>
+        <div class="campo-grupo" id="g-nome">
+          <label for="nome">Nome</label>
+          <input type="text" id="nome" name="nome" class="campo"
+                 autocomplete="given-name" placeholder="Como podemos te chamar">
+          <span class="erro">Informe seu nome.</span>
+        </div>
+
         <div class="campo-grupo" id="g-email">
-          <label for="email">Seu e-mail</label>
+          <label for="email">E-mail</label>
           <input type="email" id="email" name="email" class="campo"
                  autocomplete="email" placeholder="voce@email.com" required>
           <span class="erro">Informe um e-mail válido.</span>
-          <span class="dica">É só o e-mail. Não pedimos nome, telefone nem senha.</span>
+        </div>
+
+        <div class="campo-grupo" id="g-telefone">
+          <label for="telefone">WhatsApp <span class="opcional">(opcional)</span></label>
+          <input type="tel" id="telefone" name="telefone" class="campo"
+                 autocomplete="tel" inputmode="tel" placeholder="(83) 99999-0000">
+          <span class="erro">Telefone incompleto — confira o DDD e o número.</span>
+          <span class="dica">Só usamos para avisar de edital novo. Nunca ligamos sem você pedir.</span>
         </div>
 
         <button type="submit" class="btn btn-lima btn-block" id="enviar" style="margin-top:var(--s-5)">
@@ -85,9 +99,9 @@
         </button>
 
         <p class="lgpd">
-          Ao continuar, você concorda em receber por e-mail avisos de novos
-          editais da área contábil. Pode cancelar a qualquer momento, em um
-          clique, no rodapé de qualquer mensagem.
+          Ao continuar, você concorda em receber avisos de novos editais da área
+          contábil. Pode cancelar a qualquer momento, em um clique, no rodapé de
+          qualquer mensagem.
         </p>
       </form>
 

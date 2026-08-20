@@ -1,11 +1,15 @@
 /* ============================================================
    CFC ACADEMY · RADAR CONCURSOS CONTABILIDADE
-   Envio do e-mail para o ActiveCampaign.
+   Envio do contato para o ActiveCampaign.
    ------------------------------------------------------------
-   É SÓ O E-MAIL. Decisão de produto (Patrick, ago/2026): não
-   pedimos nome, telefone nem senha. Menos dado coletado é menos
-   exposição em LGPD — e o e-mail é o que sustenta a lista de
-   avisos, que é o objetivo.
+   Captura nome, e-mail e telefone (Patrick, ago/2026). Só o
+   e-mail é obrigatório: nome e telefone vão apenas quando a
+   pessoa preenche, e campo vazio NÃO é enviado — mandar branco
+   apagaria um dado que ela já tivesse informado antes.
+
+   O site continua sem guardar nada disso: os três campos vão
+   direto para o AC e o navegador retém só a marca de acesso
+   (ver js/sessao.js). Quem responde por esses dados é o AC.
 
    COMO ISTO FUNCIONA
 
@@ -27,7 +31,8 @@
      u, f   número do formulário — no formulário 85, AMBOS são 85
      act    'sub'  — sem isto o AC ignora o envio em silêncio
      v      '2'    — versão do protocolo do formulário
-     or     id de origem do formulário
+     or     id de origem — MUDA quando você edita o formulário
+            no painel do AC; reconferir no embed a cada mudança
 
    `act` e `v` são fáceis de esquecer e não dão erro visível: a
    requisição responde 302 e o contato simplesmente não entra.
@@ -49,11 +54,38 @@ export const CRM = {
   // sempre iguais: leia os dois no embed ao trocar de formulário.
   u: '85',
   f: '85',
-  or: '16041baa-b78b-4fdf-91f1-c38fb8f4a9da',
+  or: 'a0961656-11b8-4672-a291-19a683f688e7',
 };
 
 /** Quanto esperamos pela resposta do AC antes de desistir. */
 const LIMITE_MS = 8000;
+
+/**
+ * Telefone no formato internacional que o AC exige.
+ *
+ * Testado contra o servidor: "83999991234" é RECUSADO com
+ * `_show_error("Forneça um número de telefone válido (formato
+ * +XXXXXXXXXXXXX)")`; "+5583999991234" é aceito. Como a pessoa
+ * digita "(83) 99999-1234", a conversão tem de acontecer aqui —
+ * exigir o formato dela seria empurrar o problema para quem usa.
+ *
+ * Devolve '' quando não dá para afirmar que é um número válido:
+ * melhor cadastrar sem telefone do que ter o contato inteiro
+ * recusado por causa dele.
+ */
+function paraE164(bruto){
+  const so = (bruto || '').replace(/\D/g, '');
+  if(!so) return '';
+
+  // Já veio com o código do país.
+  if(so.length === 12 || so.length === 13){
+    return so.startsWith('55') ? `+${so}` : '';
+  }
+  // DDD + número: 10 (fixo) ou 11 (celular).
+  if(so.length === 10 || so.length === 11) return `+55${so}`;
+
+  return '';
+}
 
 /**
  * Manda o e-mail para o ActiveCampaign.
@@ -68,7 +100,7 @@ const LIMITE_MS = 8000;
  * @returns {Promise<boolean>} true quando o AC confirmou o
  *          cadastro. false em falha, recusa ou tempo esgotado.
  */
-export function enviar({ email }){
+export function enviar({ nome, email, telefone }){
   return new Promise(resolve => {
     if(!CRM.ativo || !CRM.endpoint || !CRM.u){ resolve(false); return; }
 
@@ -108,6 +140,15 @@ export function enviar({ email }){
       jsonp: 'true',
     });
     if(CRM.or) params.set('or', CRM.or);
+
+    // Nome e telefone são opcionais no site: só vão quando existem.
+    // Campo vazio enviado ao AC sobrescreveria com branco um dado que
+    // a pessoa já tivesse informado num cadastro anterior.
+    const primeiro = (nome || '').trim().split(/\s+/)[0];
+    if(primeiro) params.set('firstname', primeiro);
+
+    const tel = paraE164(telefone);
+    if(tel) params.set('phone', tel);
 
     const script = document.createElement('script');
     script.src = `${CRM.endpoint}?${params}`;
