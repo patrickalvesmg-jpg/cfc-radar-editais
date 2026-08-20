@@ -1,9 +1,16 @@
 # Ligar o cadastro ao ActiveCampaign
 
-O código já está pronto. Falta preencher **dois valores** em
-`js/crm.js` — os dois na mesma tela do painel do AC.
+**JÁ ESTÁ CONFIGURADO E LIGADO** (20/08/2026), com o formulário 85 da
+conta `cfcacademy`. Este documento fica como referência para trocar de
+formulário ou depurar.
 
-Enquanto `ativo: false`, nada é enviado e o site funciona normalmente.
+Valores em uso (`js/crm.js`):
+
+```js
+endpoint:   'https://cfcacademy.activehosted.com/proc.php'
+formulario: '6A875235C00B6'   // campo "u"
+numero:     '85'              // campo "f"
+```
 
 ---
 
@@ -31,7 +38,18 @@ Você precisa de:
 | O que | Onde está | Exemplo |
 |---|---|---|
 | Endereço | o `action` do form | `https://cfcacademy.activehosted.com/proc.php` |
-| ID do formulário | o `value` do input `u` | `27` |
+| Código (`u`) | o `value` do input `name="u"` | `6A875235C00B6` |
+| Número (`f`) | o `value` do input `name="f"` | `85` |
+
+> **`u` e `f` são DIFERENTES e é fácil errar.** O `u` é um código
+> alfanumérico; o `f` é o número (o mesmo do `embed.php?id=`). Mandar o
+> número nos dois faz o contato ser rejeitado **em silêncio**.
+
+### Se você só tem o embed em JavaScript
+
+O código `<script src=".../f/embed.php?id=85">` não mostra os valores.
+Para achá-los, abra esse endereço no navegador e procure por
+`name=\"u\"` — o `value` ao lado é o código.
 
 ## Passo 3 — preencher em `js/crm.js`
 
@@ -64,10 +82,11 @@ Se não aparecer, na ordem:
 
 ## Duas coisas que valem saber
 
-**Não dá para confirmar o envio pelo site.** O AC não responde a
-requisição vinda de outro domínio de forma legível (é o CORS). Por
-isso o site manda e segue em frente. A consequência prática: se o
-envio falhar, você não fica sabendo pelo site — daí o teste acima.
+**Não dá para confirmar o envio pelo site — e nem pela resposta.**
+Testado em 20/08/2026: o `proc.php` devolve **HTTP 302 para tudo**,
+inclusive com o `u` errado e sem e-mail nenhum. O código de resposta
+não distingue sucesso de falha, e o CORS ainda impede o navegador de
+lê-lo. **A única confirmação confiável é olhar Contacts no painel.**
 
 **O acesso é liberado de qualquer jeito.** O envio ao AC é
 deliberadamente sem `await`: se o AC estiver fora do ar ou bloqueado,

@@ -39,13 +39,18 @@
    normalmente — o acesso é liberado do mesmo jeito.
    ------------------------------------------------------------ */
 export const CRM = {
-  ativo: false,
+  ativo: true,
 
-  // Ex.: 'https://cfcacademy.activehosted.com/proc.php'
-  endpoint: '',
+  endpoint: 'https://cfcacademy.activehosted.com/proc.php',
 
-  // Valor do input "u" no embed. Ex.: '27'
-  formulario: '',
+  // ATENÇÃO: "u" e "f" são valores DIFERENTES, e é fácil errar.
+  //   u = código do formulário (alfanumérico)
+  //   f = número do formulário (o mesmo do embed.php?id=)
+  // Mandar o número nos dois faz o contato ser rejeitado em silêncio —
+  // e o site não tem como perceber, porque não lê a resposta do AC.
+  // Estes vieram do embed real (id=85), conferidos no arquivo do AC.
+  formulario: '6A875235C00B6',
+  numero: '85',
 };
 
 /**
@@ -70,7 +75,7 @@ export async function enviar({ email }){
   try{
     const dados = new FormData();
     dados.append('u', CRM.formulario);
-    dados.append('f', CRM.formulario);
+    dados.append('f', CRM.numero || CRM.formulario);
     dados.append('email', limpo);
 
     // O AC espera estes três em todo envio de formulário.
