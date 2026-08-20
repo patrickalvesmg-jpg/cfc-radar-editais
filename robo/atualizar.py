@@ -156,6 +156,33 @@ def mesclar(existentes: list[dict], novos: list[dict]) -> tuple[list[dict], int,
     return final, novos_ct, atualizados_ct
 
 
+def _uf_por_cidade(edital: dict, municipios: dict) -> str:
+    """Deduz a UF pelo nome da cidade, contra a base do IBGE.
+
+    Devolve "" quando o nome existe em MAIS DE UM estado. Errar a UF é
+    pior que deixá-la vazia: o concurso apareceria no mapa no lugar
+    errado, e quem procura por perto seria enganado.
+
+    A cidade vem do campo `cidade` ou do nome do órgão ("Câmara
+    Municipal de Seabra" -> "Seabra").
+    """
+    nome = edital.get("cidade") or estrategia.nome_cidade(edital.get("orgao"))
+    if not nome:
+        return ""
+
+    chave = estrategia._chave(nome)
+    if not chave:
+        return ""
+
+    achados = {k.split("|")[1] for k in municipios if k.startswith(f"{chave}|")}
+    if len(achados) != 1:
+        return ""
+
+    if not edital.get("cidade"):
+        edital["cidade"] = nome
+    return achados.pop()
+
+
 def geolocalizar(editais: list[dict], geo: dict, municipios: dict) -> None:
     """Coloca lat/long em cada edital, para o mapa poder posicioná-lo.
 
@@ -175,6 +202,24 @@ def geolocalizar(editais: list[dict], geo: dict, municipios: dict) -> None:
             continue
 
         uf = (e.get("uf") or "").upper()
+
+        # Sem UF no texto, tentamos deduzir pelo NOME DA CIDADE contra a
+        # base do IBGE — que já está carregada aqui.
+        #
+        # Isto não é refinamento: sem UF o edital some do mapa e o
+        # `conferir.py` barra a publicação inteira. Aconteceu com a
+        # "Câmara Municipal de Seabra", que não traz a sigla em lugar
+        # nenhum. Eu havia corrigido à mão, e o robô desfez na
+        # recaptura seguinte — correção manual não resolve causa.
+        #
+        # Só aceitamos quando o nome é ÚNICO no Brasil: "Seabra" existe
+        # só na BA, mas "Bom Jesus" existe em nove estados, e chutar
+        # colocaria o concurso no estado errado.
+        if not uf:
+            uf = _uf_por_cidade(e, municipios)
+            if uf:
+                e["uf"] = uf
+
         if not uf:
             continue
 
