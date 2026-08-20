@@ -125,6 +125,14 @@ def conferir(editais: list[dict]) -> list[str]:
             except ValueError:
                 problemas.append(f"[{ident}] data de fim inválida: {fim!r}")
 
+        # 3b. Encerrado NÃO deve ser publicado, mesmo com o status
+        #     correto. O acervo é vitrine de oportunidade: quem abre o
+        #     site quer saber onde ainda dá para se inscrever. Cinco
+        #     escaparam na primeira publicação automática, porque o
+        #     descarte era feito à mão e não havia mais mão nenhuma.
+        if e.get("status") == "encerrado":
+            problemas.append(f"[{ident}] status 'encerrado' — não deve ir ao ar")
+
         # 4. UF — sem ela o edital some do mapa.
         uf = (e.get("uf") or "").upper()
         if not uf:

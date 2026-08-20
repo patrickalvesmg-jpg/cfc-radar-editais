@@ -301,6 +301,18 @@ def main() -> int:
     geolocalizar(novos + existentes, geo, municipios)
     final, ct_novos, ct_atualizados = mesclar(existentes, novos)
 
+    # Fora os que já fecharam. O `status` é recalculado pelo prazo em
+    # `mesclar`, então basta filtrar aqui — e é preciso fazê-lo TODA
+    # execução, senão o acervo vira um cemitério de editais vencidos.
+    #
+    # Isto era feito à mão a cada publicação. Com a varredura
+    # publicando sozinha não há mais mão nenhuma, e 5 editais
+    # encerrados foram ao ar na primeira execução bem-sucedida.
+    encerrados = [e for e in final if e.get("status") == "encerrado"]
+    if encerrados:
+        final = [e for e in final if e.get("status") != "encerrado"]
+        print(f"\n  Removidos {len(encerrados)} com inscrição encerrada")
+
     revisados = sum(1 for e in final if e.get("revisado"))
     pendentes = [e for e in final if not e.get("revisado")]
 
