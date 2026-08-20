@@ -23,10 +23,21 @@ testar os dois ao sondar qualquer banca.
 
 ## Duas armadilhas medidas
 
-**1. Não existe período de inscrição na página de detalhe.** As outras
-fontes em plataforma comum casam duas datas com o regex `INSCRICAO`;
-aqui isso não acha nada, e todo edital seria descartado em silêncio
-pela trava de `if not fim`. O status vem da ABA em que o card está.
+**1. Não existe período de inscrição em lugar nenhum.** As outras fontes
+em plataforma comum casam duas datas com o regex `INSCRICAO`; aqui não
+há o que casar — a página de detalhe só traz datas de publicação de
+arquivo. Como `conferir.py` exige prazo antes de publicar, o edital sem
+data é BARRADO. É o comportamento certo: sem prazo, o card não diz ao
+candidato o que ele precisa saber.
+
+Consequência prática: o IBADE só rende quando tem concurso na aba
+'abertos'. Na medição de 20/08/2026 essa aba estava VAZIA, então a
+fonte contribuiu com zero — e ficou ligada esperando a próxima abertura.
+
+**1b. "Em andamento" não quer dizer "inscrição aberta".** Descoberto
+numa execução real: Itarana aparecia ali com "resultado final" e
+"homologação das inscrições" no texto. Certame em curso, inscrição
+fechada. Por isso só 'abertos' e 'futuros' entram.
 
 **2. A UF não está na página.** Os PDFs têm nome em hash
 (`71a29ee7….pdf`) e o título não cita o estado. A UF sai do nome do
@@ -44,9 +55,16 @@ BASE = "https://portal.ibade.selecao.site"
 LISTAGEM = f"{BASE}/edital"
 DETALHE = BASE + "/edital/ver/{id}"
 
-# As abas do portal. Só interessam os certames VIVOS: 'encerrados' tinha
-# 96 dos 103 editais na medição, e publicá-los enganaria o candidato.
-ABAS_VIVAS = ("abertos", "andamento", "futuros")
+# Só as abas em que AINDA DÁ PARA SE INSCREVER.
+#
+# 'andamento' NÃO entra, e isto custou uma execução para descobrir: ali
+# o CERTAME está em curso, não a inscrição. O concurso de Itarana estava
+# nessa aba com "respostas aos recursos e resultado final" no texto —
+# inscrição fechada há semanas. Publicar como oportunidade enganaria
+# quem confia no radar.
+#
+# 'encerrados' tinha 96 dos 103 editais do catálogo, pelo mesmo motivo.
+ABAS_VIVAS = ("abertos", "futuros")
 
 TAG = re.compile(r"<[^>]+>")
 _ABA = re.compile(r'<div class="tab-pane[^"]*" id="([a-z]+)"')
