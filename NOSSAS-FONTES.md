@@ -8,6 +8,11 @@ Números medidos em **20/08/2026**, sobre os 209 editais no ar.
 > Para o histórico de tudo que já foi testado e **descartado** — com o
 > motivo de cada um —, veja `FONTES.md`. Consulte-o antes de sondar
 > portal novo, para não repetir teste já feito.
+>
+> Para o **mapa completo de quem organiza concurso no Brasil** — as 382
+> bancas com site, histórico e estados —, veja
+> `CATALOGO-ORGANIZADORAS.md`. Lá estão inclusive as que não têm vaga
+> contábil hoje: são reserva, não descarte.
 
 ---
 
