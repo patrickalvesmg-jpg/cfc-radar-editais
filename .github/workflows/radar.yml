@@ -66,5 +66,23 @@ jobs:
           git config user.email "actions@github.com"
           git add data/
           git commit -m "chore(radar): varredura de $(date -u +%d/%m/%Y)"
-          git push
-          echo "Publicado."
+
+          # A varredura leva ~50 min. Nesse tempo alguém pode ter
+          # publicado no repositório, e aí o push é REJEITADO
+          # ("fetch first") — foi o que aconteceu na primeira execução
+          # real, quando uma fonte nova foi publicada no meio.
+          #
+          # `rebase` reaplica o commit da varredura por cima do que
+          # chegou. Só mexemos em data/, e o robô é a única coisa que
+          # escreve ali, então não há conflito real a resolver.
+          for tentativa in 1 2 3; do
+            if git push; then
+              echo "Publicado."
+              exit 0
+            fi
+            echo "Push rejeitado (tentativa $tentativa) — sincronizando..."
+            git pull --rebase origin main || exit 1
+          done
+
+          echo "Não foi possível publicar após 3 tentativas."
+          exit 1
