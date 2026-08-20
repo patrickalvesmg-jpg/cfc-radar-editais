@@ -1,13 +1,20 @@
 /* ============================================================
-   CFC ACADEMY · RADAR DE EDITAIS
-   Faixa de demonstração.
+   CFC ACADEMY · RADAR CONCURSOS CONTABILIDADE
+   Faixa de aviso sobre a procedência dos editais.
    ------------------------------------------------------------
-   Some sozinha quando o conteúdo deixar de ser exemplo — assim
-   ninguém precisa lembrar de removê-la à mão no dia da virada,
-   e ela também não fica exibida indevidamente depois disso.
+   Some sozinha quando o conteúdo é captura real — assim ninguém
+   precisa lembrar de removê-la à mão, e ela também não fica
+   exibida indevidamente depois da virada.
 
-   Critério: um edital é "real" quando tem link de verdade
-   (não "#") E já passou por revisão humana ("revisado": true).
+   O CRITÉRIO ANTIGO ESTAVA ERRADO e por isso a faixa nunca sumia:
+   exigia `editalUrl` começando com "http", mas o edital real
+   aponta para a PÁGINA INTERNA (`edital.html?id=...`) — que é a
+   regra do produto, já que o site nunca manda o visitante para
+   agregador concorrente. O critério contradizia o próprio produto.
+
+   Critério atual — o edital é real quando tem os campos que só a
+   captura produz: um prazo de inscrição e a origem (banca ou
+   órgão) de onde o dado veio. Dado inventado não tem procedência.
    ============================================================ */
 
 const faixa = document.getElementById('faixa-demo');
@@ -22,6 +29,13 @@ function esconder(){
   faixa?.remove();
   document.body.classList.remove('tem-demo');
   document.documentElement.style.removeProperty('--faixa-demo-h');
+}
+
+/** Real = veio de captura, não de exemplo escrito à mão. */
+function capturado(e){
+  return typeof e.inscricaoFim === 'string' && e.inscricaoFim.length >= 10
+      && (typeof e.siteInscricao === 'string' && e.siteInscricao.startsWith('http')
+          || typeof e.procedencia === 'string' && e.procedencia.startsWith('http'));
 }
 
 async function avaliar(){
@@ -39,13 +53,11 @@ async function avaliar(){
     const editais = await res.json();
     if(!Array.isArray(editais) || editais.length === 0) return;
 
-    const todosReais = editais.every(e =>
-      typeof e.editalUrl === 'string' &&
-      e.editalUrl.startsWith('http') &&
-      e.revisado === true
-    );
-
-    if(todosReais) esconder();
+    // A maioria esmagadora precisa ser captura real. Não exigimos
+    // 100% porque um único registro incompleto não torna o acervo
+    // inteiro uma demonstração — mas 5% já indica base de exemplo.
+    const reais = editais.filter(capturado).length;
+    if(reais / editais.length >= 0.95) esconder();
   }catch{
     /* mantém a faixa */
   }
