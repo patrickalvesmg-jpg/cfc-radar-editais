@@ -122,13 +122,22 @@ def conferir(editais: list[dict]) -> list[str]:
             except ValueError:
                 problemas.append(f"[{ident}] data de fim inválida: {fim!r}")
 
-        # 3b. Encerrado NÃO deve ser publicado, mesmo com o status
-        #     correto. O acervo é vitrine de oportunidade: quem abre o
-        #     site quer saber onde ainda dá para se inscrever. Cinco
-        #     escaparam na primeira publicação automática, porque o
-        #     descarte era feito à mão e não havia mais mão nenhuma.
-        if e.get("status") == "encerrado":
-            problemas.append(f"[{ident}] status 'encerrado' — não deve ir ao ar")
+        # 3b. Encerrado PODE ir ao ar desde 21/08/2026: o site tem aba
+        #     própria para eles, e um edital fechado mostra que aquela
+        #     prefeitura abre concurso contábil.
+        #
+        #     O que ainda barramos é o MUITO antigo — passados 2 anos, o
+        #     registro não serve nem como referência, e sua presença
+        #     indica que o corte por idade em `atualizar.py` falhou.
+        if fim:
+            try:
+                if date.fromisoformat(fim[:10]) < hoje.replace(year=hoje.year - 2):
+                    problemas.append(
+                        f"[{ident}] inscrição de {fim[:10]} — mais de 2 anos, "
+                        "deveria ter saído no corte por idade"
+                    )
+            except ValueError:
+                pass
 
         # 4. UF — sem ela o edital some do mapa.
         uf = (e.get("uf") or "").upper()

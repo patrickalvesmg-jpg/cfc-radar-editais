@@ -76,11 +76,20 @@ async function iniciar(){
     return;
   }
 
-  renderStats(editais);
-  renderFeed(editais);
+  // A landing é vitrine de OPORTUNIDADE: mostra só o que ainda dá para
+  // fazer. Editais encerrados ficam no acervo (têm aba própria dentro da
+  // plataforma, em app.html), mas na página pública eles diluiriam a
+  // promessa — quem chega quer saber onde se inscrever agora, não o que
+  // já passou.
+  const vivos = editais.filter(e => e.status !== 'encerrado');
+
+  renderStats(vivos);
+  renderFeed(vivos);
 
   // Os mais urgentes primeiro: é a melhor vitrine da plataforma.
-  const ordenados = ordenarPorPrazo(editais);
+  // Tudo abaixo deriva daqui — cards grátis, paywall e mapa —, então
+  // partir de `vivos` mantém a página inteira coerente.
+  const ordenados = ordenarPorPrazo(vivos);
   const gratis = ordenados.slice(0, LIMITE_GRATIS);
   const bloqueados = ordenados.slice(LIMITE_GRATIS);
 

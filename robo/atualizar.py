@@ -14,7 +14,7 @@ REGRA CENTRAL: correção humana nunca é desfeita pelo robô.
 import argparse
 import json
 import sys
-from datetime import date, datetime
+from datetime import date, datetime, timedelta
 from pathlib import Path
 
 # O console do Windows usa cp1252 por padrão e quebra ao imprimir acento
@@ -319,17 +319,38 @@ def main() -> int:
     geolocalizar(novos + existentes, geo, municipios)
     final, ct_novos, ct_atualizados = mesclar(existentes, novos)
 
-    # Fora os que já fecharam. O `status` é recalculado pelo prazo em
-    # `mesclar`, então basta filtrar aqui — e é preciso fazê-lo TODA
-    # execução, senão o acervo vira um cemitério de editais vencidos.
+    # Editais encerrados FICAM no acervo (decisão do Patrick, 21/08/2026).
     #
-    # Isto era feito à mão a cada publicação. Com a varredura
-    # publicando sozinha não há mais mão nenhuma, e 5 editais
-    # encerrados foram ao ar na primeira execução bem-sucedida.
-    encerrados = [e for e in final if e.get("status") == "encerrado"]
-    if encerrados:
-        final = [e for e in final if e.get("status") != "encerrado"]
-        print(f"\n  Removidos {len(encerrados)} com inscrição encerrada")
+    # Antes eram apagados. Mas o site já tinha a aba "Encerrados", o selo
+    # e a ordenação própria para eles — tudo vazio, porque o robô
+    # descartava os registros antes de publicar.
+    #
+    # Manter é melhor produto: mostra que aquela prefeitura abre concurso
+    # contábil, e quem perdeu a inscrição sabe onde ficar de olho. O
+    # `status` é recalculado pelo prazo em `mesclar()`, então o edital
+    # migra de "aberto" para "encerrado" sozinho e o site o move de aba.
+    #
+    # Guarda contra crescer sem fim: passados 2 anos — prazo de validade
+    # típico de concurso — o edital não serve nem como referência.
+    limite = date.today() - timedelta(days=730)
+    antigos = []
+    for e in final:
+        fim_insc = (e.get("inscricaoFim") or "")[:10]
+        if not fim_insc:
+            continue
+        try:
+            if date.fromisoformat(fim_insc) < limite:
+                antigos.append(e["id"])
+        except ValueError:
+            continue
+
+    if antigos:
+        final = [e for e in final if e["id"] not in antigos]
+        print(f"\n  Removidos {len(antigos)} de mais de 2 anos")
+
+    n_enc = sum(1 for e in final if e.get("status") == "encerrado")
+    if n_enc:
+        print(f"  Encerrados mantidos (aba própria no site): {n_enc}")
 
     revisados = sum(1 for e in final if e.get("revisado"))
     pendentes = [e for e in final if not e.get("revisado")]
