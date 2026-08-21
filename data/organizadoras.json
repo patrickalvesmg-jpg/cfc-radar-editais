@@ -119,6 +119,13 @@
     "site": "https://avancasp.org.br/"
   },
   {
+    "dominio": "ibamsp-concursos.org.br",
+    "nome": "IBAM-SP",
+    "editais": 3,
+    "fontePrimaria": false,
+    "site": "https://ibamsp-concursos.org.br/"
+  },
+  {
     "dominio": "aplicativa.net.br",
     "nome": "Instituto Aplicativa",
     "editais": 3,
@@ -140,6 +147,13 @@
     "site": "https://concursosjcm.com.br/"
   },
   {
+    "dominio": "concursosfcc.com.br",
+    "nome": "Concursosfcc",
+    "editais": 2,
+    "fontePrimaria": false,
+    "site": "https://concursosfcc.com.br/"
+  },
+  {
     "dominio": "iset.selecao.net.br",
     "nome": "ISET",
     "editais": 2,
@@ -152,13 +166,6 @@
     "editais": 2,
     "fontePrimaria": false,
     "site": "https://institutolegalle.org.br/"
-  },
-  {
-    "dominio": "ibamsp-concursos.org.br",
-    "nome": "IBAM-SP",
-    "editais": 2,
-    "fontePrimaria": false,
-    "site": "https://ibamsp-concursos.org.br/"
   },
   {
     "dominio": "integribrasil.com.br",
@@ -280,18 +287,18 @@
     "site": "https://educapb.com.br/"
   },
   {
-    "dominio": "institutoindec.org.br",
-    "nome": "Instituto INDEC",
-    "editais": 2,
-    "fontePrimaria": false,
-    "site": "https://institutoindec.org.br/"
-  },
-  {
     "dominio": "funcern.br",
     "nome": "Funcern",
     "editais": 2,
     "fontePrimaria": false,
     "site": "https://funcern.br/"
+  },
+  {
+    "dominio": "institutoindec.org.br",
+    "nome": "Instituto INDEC",
+    "editais": 2,
+    "fontePrimaria": false,
+    "site": "https://institutoindec.org.br/"
   },
   {
     "dominio": "imeso.com.br",
@@ -350,18 +357,18 @@
     "site": "https://vunesp.com.br/"
   },
   {
-    "dominio": "concursosfcc.com.br",
-    "nome": "Concursosfcc",
-    "editais": 1,
-    "fontePrimaria": false,
-    "site": "https://concursosfcc.com.br/"
-  },
-  {
     "dominio": "omniinstituto.org.br",
     "nome": "Omniinstituto",
     "editais": 1,
     "fontePrimaria": false,
     "site": "https://omniinstituto.org.br/"
+  },
+  {
+    "dominio": "institutoselecao.org.br",
+    "nome": "Institutoselecao",
+    "editais": 1,
+    "fontePrimaria": false,
+    "site": "https://institutoselecao.org.br/"
   },
   {
     "dominio": "uepb.edu.br",
