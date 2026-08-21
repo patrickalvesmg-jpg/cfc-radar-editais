@@ -11,9 +11,20 @@ name: Varredura de editais
 # depender de alguém aprovando PR todo dia.
 on:
   schedule:
-    # 09:00 UTC = 06:00 em Brasília. Os diários municipais do dia
-    # anterior já estão indexados a essa hora.
-    - cron: "0 9 * * *"
+    # SEMANAL, segunda-feira às 08:47 UTC (05:47 em Brasília).
+    #
+    # Era diário. Concurso para contador não abre todo dia — a varredura
+    # de 21/08 encontrou 110 contábeis, praticamente os mesmos da
+    # véspera. Rodar toda madrugada consumia ~50 min de servidor para
+    # reconfirmar o que já estava publicado.
+    #
+    # Segunda-feira porque edital costuma ser publicado em dia útil, e
+    # assim a semana começa com o acervo em dia.
+    #
+    # 08:47 e não 09:00 de propósito: todo mundo agenda na hora cheia, e
+    # o GitHub enfileira execuções quando há pico. Minuto quebrado pega
+    # a fila vazia.
+    - cron: "47 8 * * 1"
   workflow_dispatch:        # permite rodar na hora, pela aba Actions
 
 permissions:

@@ -34,6 +34,7 @@ from fontes import (bancas, cebraspe, consulplan, estrategia,  # noqa: E402
 import editorial      # noqa: E402
 import organizadoras  # noqa: E402
 import extrair                                # noqa: E402
+import config                                 # noqa: E402
 
 # Fontes ativas. Cada uma expõe coletar() e devolve achados brutos.
 # Acrescentar fonte aqui é a única mudança necessária para ampliar a
@@ -285,6 +286,23 @@ def main() -> int:
     print(f"\n  Candidatos após filtro: {len(achados)}")
 
     novos = [extrair.montar(a) for a in achados]
+
+    # Corte de área, aplicado onde TODAS as fontes convergem.
+    #
+    # Um cargo pode casar no filtro contábil e mesmo assim pertencer a
+    # outra área: "Auditor-Fiscal Agropecuário/Médico Veterinário" casa
+    # por "auditor...fiscal", mas é inspeção sanitária animal.
+    #
+    # Isto era checado só no `conferir.py`, e o efeito foi um LOOP
+    # DIÁRIO: o robô capturava, a conferência barrava, a publicação
+    # falhava e chegava e-mail de erro todo dia — sem nada mudar, porque
+    # a captura seguia trazendo o mesmo registro. Filtrar aqui resolve
+    # para todas as fontes de uma vez, em vez de repetir a regra em oito
+    # arquivos que vão divergir com o tempo.
+    antes_area = len(novos)
+    novos = [e for e in novos if not config.area_alheia(e.get("cargo", ""))]
+    if len(novos) < antes_area:
+        print(f"  Descartados por área não-contábil: {antes_area - len(novos)}")
 
     # Coordenadas para o mapa. Fonte separada porque o Estratégia informa
     # a ÁREA do concurso, nunca o cargo — não serve para criar edital,
