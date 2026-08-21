@@ -55,6 +55,7 @@ CONTABIL = re.compile(
 # passar a conferência não pega (ou o contrário).
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from config import area_alheia   # noqa: E402
+from extrair import id_estavel  # noqa: E402
 
 UFS = {
     "AC","AL","AM","AP","BA","CE","DF","ES","GO","MA","MG","MS","MT",
@@ -146,9 +147,8 @@ def conferir(editais: list[dict]) -> list[str]:
         elif uf not in UFS:
             problemas.append(f"[{ident}] UF inexistente: {uf!r}")
 
-        # 5. Duplicata. O id vem de cidade+uf+cargo+prazo; dois iguais
-        #    significam bug no id, e o candidato veria dois cards do
-        #    mesmo concurso sem saber qual abrir.
+        # 5. Duplicata. Conferimos de DUAS formas, porque a primeira
+        #    sozinha deixou passar quatro cards repetidos no ar.
         ident_id = e.get("id") or ""
         if not ident_id:
             problemas.append(f"[{ident}] sem id")
@@ -156,6 +156,27 @@ def conferir(editais: list[dict]) -> list[str]:
             problemas.append(f"[{ident}] id DUPLICADO ({ident_id}) — já usado por {vistos[ident_id]}")
         else:
             vistos[ident_id] = ident
+
+        # 5b. Id que NÃO corresponde ao próprio conteúdo.
+        #
+        #     O id sai de cidade+uf+cargo+prazo. Quando essa fórmula
+        #     mudou, os registros gravados antes ficaram órfãos: o robô
+        #     não os reconhece na recaptura e cria um segundo registro
+        #     do mesmo concurso, com id novo. O teste de id repetido
+        #     não pega isso — os dois ids são diferentes.
+        #
+        #     Foi assim que Câmara de Belo Jardim e Prefeitura de Santos
+        #     apareceram duplicadas no site.
+        esperado = id_estavel(
+            e.get("cidade", ""), e.get("uf", ""),
+            e.get("cargo", ""), e.get("inscricaoFim", ""),
+        )
+        if ident_id and ident_id != esperado:
+            problemas.append(
+                f"[{ident}] id {ident_id} não corresponde ao conteúdo "
+                f"(esperado {esperado}) — registro de esquema antigo, "
+                "vai duplicar na próxima captura"
+            )
 
     return problemas
 
