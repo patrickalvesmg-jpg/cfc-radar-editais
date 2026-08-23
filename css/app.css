@@ -1017,101 +1017,94 @@ body.tem-demo .boas-vindas{padding-top:calc(var(--topbar-h) + var(--faixa-demo-h
   line-height:1.5 !important;
 }
 
+
 /* ============================================================
-   MAPA 3D — pinos volumétricos
+   MAPA COM VOLUME — colunas por estado
    ------------------------------------------------------------
-   A profundidade vem de uma inclinação do plano do mapa, com os
-   pinos subindo na vertical. Não é WebGL: são elementos SVG
-   reais, então continuam clicáveis, alcançáveis por teclado e
-   anunciados por leitor de tela — o que um canvas não oferece.
+   A primeira versão inclinava o mapa inteiro com rotateX. Ficou
+   estranho: o contorno do Brasil deformava, e reconhecer o
+   próprio estado — que é o que o candidato faz primeiro — virava
+   esforço.
+
+   Agora o mapa fica plano e o volume vem das COLUNAS: três faces
+   desenhadas à mão (frente, lateral, topo) que o olho lê como
+   sólido. O país continua o país; o dado é que ganha relevo.
    ============================================================ */
 
-.mapa-palco{
-  perspective: 900px;
-  perspective-origin: 50% 42%;
-}
-
-/* O contêiner do SVG é o que inclina. Os pinos ficam DENTRO do
-   mesmo SVG, então acompanham a inclinação — e é justamente
-   isso que faz a haste parecer sair do estado. */
-#mapa-svg{
-  transform: rotateX(var(--inclinacao, 0deg));
-  transform-origin: 50% 55%;
-  transition: transform .55s cubic-bezier(.4,0,.2,1);
-}
-
-/* Sem a vista 3D, nada disso se aplica: o mapa volta a ser plano
-   e os pinos somem. */
+/* O `overflow:hidden` da regra base FICA: ele resolve o SVG
+   transbordar a coluna no celular. As colunas não precisam dele
+   desligado — o viewBox é ampliado no topo (ver js/pinos.js),
+   então elas cabem DENTRO do SVG em vez de escapar dele. */
 #mapa-svg:not(.mapa-3d) .camada-pinos{ display:none }
+
+/* Sem volume, o estado é a única leitura — então ele precisa de
+   mais presença. Com volume, o mapa recua para o papel de base e
+   as colunas assumem. */
+#mapa-svg.mapa-3d [data-uf]{ opacity:.62 }
+#mapa-svg.mapa-3d [data-uf].ativo{ opacity:1 }
 
 .camada-pinos{ pointer-events:auto }
 
-.pino{ cursor:pointer; transition:opacity .2s }
-.pino:focus-visible{ outline:2px solid var(--lima); outline-offset:2px }
-
-.pino-halo{
-  fill: var(--lima);
-  opacity: .18;
+.pino{ cursor:pointer; transition:opacity .25s ease }
+.pino:focus-visible{ outline:none }
+.pino:focus-visible .pino-frente{
+  stroke:var(--gelo); stroke-width:1.4;
 }
 
-.pino-haste{
-  stroke-width: 2.6;
-  stroke-linecap: round;
-  /* A haste não sofre a inclinação do plano: contra-rotacionar
-     mantém o pino "de pé" na tela, que é o que dá a leitura de
-     altura. Sem isto ele deita junto com o mapa e o volume some. */
-  transform-box: fill-box;
-  transform-origin: bottom center;
+.pino-sombra{
+  fill:#000;
+  opacity:.42;
+  filter:blur(1.4px);
 }
 
-.pino-topo{ stroke:none; transition:transform .18s ease }
+.pino-frente{
+  stroke:rgba(0,0,0,.35);
+  stroke-width:.4;
+}
+
+/* A lateral é a mesma cor da frente, escurecida — é a diferença
+   entre as duas que o cérebro lê como "isto tem espessura". */
+.pino-lado{ fill:rgba(0,0,0,.42) }
+
+/* O topo capta a luz: mais claro que qualquer face. */
+.pino-tampa{ fill:rgba(255,255,255,.28) }
+
+.pino-n{
+  font-family:var(--fonte-display, system-ui), sans-serif;
+  font-size:8.5px; font-weight:800;
+  text-anchor:middle; fill:var(--gelo);
+  paint-order:stroke; stroke:var(--preto);
+  stroke-width:2.6px; stroke-linejoin:round;
+}
 
 .pino-sigla{
-  font-family: var(--fonte-mono, ui-monospace, monospace);
-  font-size: 7.5px;
-  font-weight: 600;
-  text-anchor: middle;
-  fill: var(--cinza-claro, #cfe3c4);
-  letter-spacing: .06em;
-  paint-order: stroke;
-  stroke: var(--preto);
-  stroke-width: 2.4px;
-  stroke-linejoin: round;
+  font-family:var(--fonte-mono, ui-monospace, monospace);
+  font-size:5.6px; font-weight:600;
+  text-anchor:middle; fill:var(--cinza);
+  letter-spacing:.14em;
+  paint-order:stroke; stroke:var(--preto);
+  stroke-width:2px; stroke-linejoin:round;
 }
 
-/* Cor por intensidade — a MESMA escala do mapa plano, para as
-   duas leituras nunca discordarem. */
-.pino[data-faixa="1"] .pino-haste{ stroke:#3f7d2e }
-.pino[data-faixa="1"] .pino-topo { fill:#3f7d2e }
-.pino[data-faixa="2"] .pino-haste{ stroke:#76A41C }
-.pino[data-faixa="2"] .pino-topo { fill:#76A41C }
-.pino[data-faixa="3"] .pino-haste{ stroke:var(--lima) }
-.pino[data-faixa="3"] .pino-topo { fill:var(--lima) }
-.pino[data-faixa="4"] .pino-haste{ stroke:#E3C51A }
-.pino[data-faixa="4"] .pino-topo { fill:#E3C51A }
+/* Selecionado ganha luz; os demais recuam. Sem o recuo, a
+   seleção se perde entre 27 colunas acesas. */
+.pino[data-apagado="true"]{ opacity:.3 }
+.pino[data-ativo="true"] .pino-frente{ filter:url(#brilho-pino) }
+.pino[data-ativo="true"] .pino-n{ fill:var(--lima) }
+.pino[data-ativo="true"] .pino-sigla{ fill:var(--lima-claro) }
 
-/* O selecionado ganha brilho; os demais recuam. Sem o recuo, a
-   seleção se perde num mapa com 27 pinos acesos. */
-.pino[data-ativo="true"] .pino-topo{
-  /* `r` como propriedade CSS não pega no Safari; `scale` sobre o
-     próprio elemento funciona em todos e ainda anima. */
-  transform: scale(1.45);
-  transform-box: fill-box;
-  transform-origin: center;
-  filter: drop-shadow(0 0 6px currentColor);
-}
-.camada-pinos:has(.pino[data-ativo="true"]) .pino:not([data-ativo="true"]){
-  opacity: .45;
-}
-
-.pino:hover .pino-topo{
-  transform: scale(1.3);
-  transform-box: fill-box;
-  transform-origin: center;
-}
-.pino:hover .pino-sigla{ fill:var(--lima-claro) }
+.pino:hover{ opacity:1 }
+.pino:hover .pino-n{ fill:var(--lima-claro) }
 
 /* Alternador de vista */
+.mapa-topo-vista{
+  display:flex; align-items:center; justify-content:space-between;
+  gap:var(--s-3); margin-bottom:var(--s-3); flex-wrap:wrap;
+}
+.mapa-dica{
+  margin:0; color:var(--cinza-esc);
+  font-size:var(--t-xs); line-height:1.5; max-width:44ch;
+}
 .mapa-vista{
   display:flex; gap:2px;
   background:var(--carvao-3);
@@ -1124,7 +1117,7 @@ body.tem-demo .boas-vindas{padding-top:calc(var(--topbar-h) + var(--faixa-demo-h
   color:var(--cinza); font:inherit;
   font-size:var(--t-xs); font-weight:600;
   letter-spacing:.08em; text-transform:uppercase;
-  padding:5px 12px; border-radius:calc(var(--r-2) - 2px);
+  padding:5px 13px; border-radius:calc(var(--r-2) - 2px);
   transition:background .15s, color .15s;
 }
 .mapa-vista button[aria-pressed="true"]{
@@ -1132,25 +1125,9 @@ body.tem-demo .boas-vindas{padding-top:calc(var(--topbar-h) + var(--faixa-demo-h
 }
 .mapa-vista button:not([aria-pressed="true"]):hover{ color:var(--gelo) }
 
-/* No celular a inclinação come altura útil e os pinos se
-   sobrepõem. Reduzimos o ângulo em vez de desligar o 3D — o
-   efeito continua, sem virar bagunça. */
-@media (max-width: 640px){
-  .mapa-palco{ perspective:1400px }
-  #mapa-svg.mapa-3d{ --inclinacao:34deg }
-  .pino-sigla{ font-size:9px }
-}
-
-/* Quem pediu menos movimento não recebe a transição de vista. */
-@media (prefers-reduced-motion: reduce){
-  #mapa-svg{ transition:none }
-}
-
-.mapa-topo-vista{
-  display:flex; align-items:center; justify-content:space-between;
-  gap:var(--s-3); margin-bottom:var(--s-3); flex-wrap:wrap;
-}
-.mapa-dica{
-  margin:0; color:var(--cinza-esc);
-  font-size:var(--t-xs); line-height:1.5; max-width:42ch;
+/* No celular o SVG é menor, então o texto sobre a coluna precisa
+   crescer em proporção — senão vira borrão. */
+@media (max-width:640px){
+  .pino-n{ font-size:11px; stroke-width:3px }
+  .pino-sigla{ font-size:7px; stroke-width:2.4px }
 }

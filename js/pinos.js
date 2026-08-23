@@ -2,150 +2,80 @@
    CFC ACADEMY · RADAR CONCURSOS CONTABILIDADE
    Pinos volumétricos sobre o mapa.
    ------------------------------------------------------------
-   Cada estado ganha um pino cuja ALTURA é o número de editais e
-   cuja COR é a intensidade — o mesmo dado que antes só existia
-   no preenchimento do estado, agora legível de relance.
+   Cada estado com edital ganha uma coluna cuja ALTURA é o número
+   de editais. É a leitura principal do acervo: de relance se vê
+   onde há oportunidade.
 
    POR QUE SVG E NÃO WEBGL
 
-   O visual de referência usa WebGL. Aqui não compensa: seriam
-   ~600 KB de biblioteca e um canvas que o leitor de tela não
-   enxerga, para desenhar 27 hastes. Em SVG o pino é um elemento
-   real — clicável, alcançável por teclado, anunciado com o nome
-   do estado — e entra no mesmo documento que já desenha o mapa.
+   Seriam ~600 KB de biblioteca e um canvas que leitor de tela
+   não enxerga, para desenhar 27 colunas. Em SVG cada pino é
+   elemento real — clicável, alcançável por teclado, anunciado
+   com estado e contagem.
 
-   A profundidade vem de projeção isométrica leve: o mapa inclina
-   para trás e o pino sobe na vertical. Não é 3D de verdade, e
-   não precisa ser — o que comunica volume é a altura relativa
-   entre os pinos, não a perspectiva.
+   COMO O VOLUME É CONSTRUÍDO
+
+   Não é perspectiva de câmera: é um prisma desenhado à mão. Cada
+   coluna tem três faces — frente clara, lateral escura, topo em
+   losango — e o olho lê isso como sólido. É a mesma técnica de
+   ilustração isométrica, e tem uma vantagem sobre inclinar o
+   mapa inteiro: o contorno do Brasil continua reconhecível, e o
+   candidato precisa achar o estado dele.
+
+   O ERRO DA PRIMEIRA VERSÃO ficou registrado aqui para não se
+   repetir: as colunas sobem ACIMA do topo do viewBox, e o
+   `overflow:hidden` do contêiner as decepava — os estados do
+   Norte perdiam o pino inteiro. O viewBox é reescrito para
+   abrir espaço em cima.
    ============================================================ */
 
-/** Inclinação do mapa, em graus. Suficiente para dar profundidade
- *  sem deformar o contorno do país a ponto de dificultar o
- *  reconhecimento — o candidato precisa achar o estado dele. */
-const INCLINACAO = 52;
+const NS = 'http://www.w3.org/2000/svg';
 
-/** Altura máxima do pino, em unidades do viewBox do SVG. */
-const ALTURA_MAX = 78;
-const ALTURA_MIN = 14;
+/** Largura da coluna, em unidades do viewBox. */
+const LARGURA = 7;
+
+/** Deslocamento da face lateral — o que cria a sensação de
+ *  profundidade. Proporcional à largura, para a coluna parecer
+ *  o mesmo sólido em qualquer tamanho de tela. */
+const PROFUNDIDADE = LARGURA * 0.42;
+
+const ALTURA_MAX = 62;
+const ALTURA_MIN = 12;
+
+/** Espaço extra no topo do viewBox, para as colunas mais altas e
+ *  suas siglas caberem sem serem cortadas. */
+const FOLGA_TOPO = ALTURA_MAX + 26;
 
 /**
- * Altura do pino a partir da contagem.
+ * Altura da coluna a partir da contagem.
  *
- * Raiz quadrada, não proporção direta: São Paulo tem muitas vezes
- * o volume do Acre, e em escala linear o pino paulista sairia da
- * tela enquanto os demais virariam tocos indistinguíveis. A raiz
- * comprime o topo e preserva a diferença embaixo, que é onde
- * estão quase todos os estados.
+ * Raiz quadrada, não proporção direta: MG tem 33 editais e o AC
+ * tem 1. Em escala linear a coluna mineira sairia da tela e as
+ * outras virariam tocos idênticos. A raiz comprime o topo e
+ * preserva a diferença embaixo, onde está quase todo estado.
  */
 function altura(n, maximo){
   if(!n) return 0;
-  const proporcao = Math.sqrt(n) / Math.sqrt(maximo || 1);
-  return ALTURA_MIN + proporcao * (ALTURA_MAX - ALTURA_MIN);
+  return ALTURA_MIN + (Math.sqrt(n) / Math.sqrt(maximo || 1)) * (ALTURA_MAX - ALTURA_MIN);
 }
 
-/** Centro geométrico do estado, no sistema de coordenadas do SVG. */
-function centro(el){
+function el(tag, attrs){
+  const node = document.createElementNS(NS, tag);
+  for(const [k, v] of Object.entries(attrs)) node.setAttribute(k, v);
+  return node;
+}
+
+function centro(alvo){
   try{
-    const b = el.getBBox();
+    const b = alvo.getBBox();
     return { x: b.x + b.width / 2, y: b.y + b.height / 2 };
   }catch{
-    // getBBox lança se o elemento ainda não foi renderizado.
-    return null;
+    return null;   // getBBox lança se o elemento ainda não renderizou
   }
 }
 
-/**
- * Desenha os pinos dentro do SVG do mapa.
- *
- * @param {SVGElement} svg      o <svg> do mapa
- * @param {Object} contagem     { UF: nº de editais }
- * @param {string} ufAtiva      estado selecionado, ou ''
- * @param {Function} aoClicar   recebe a UF clicada
- */
-export function desenharPinos(svg, contagem, ufAtiva, aoClicar){
-  if(!svg) return;
-
-  svg.querySelector('#camada-pinos')?.remove();
-
-  const valores = Object.values(contagem).filter(Boolean);
-  if(!valores.length) return;
-  const maximo = Math.max(...valores);
-
-  const camada = document.createElementNS('http://www.w3.org/2000/svg', 'g');
-  camada.setAttribute('id', 'camada-pinos');
-  camada.setAttribute('class', 'camada-pinos');
-
-  // Estados ao fundo primeiro: sem isto o pino do Amazonas passa
-  // por cima do de São Paulo, que está à frente dele na projeção.
-  const ordenados = Object.entries(contagem)
-    .filter(([, n]) => n > 0)
-    .map(([uf, n]) => ({ uf, n, el: svg.getElementById(uf) }))
-    .filter(item => item.el)
-    .map(item => ({ ...item, pos: centro(item.el) }))
-    .filter(item => item.pos)
-    .sort((a, b) => a.pos.y - b.pos.y);
-
-  ordenados.forEach(({ uf, n, pos }) => {
-    const h = altura(n, maximo);
-    const grupo = document.createElementNS('http://www.w3.org/2000/svg', 'g');
-    grupo.setAttribute('class', 'pino');
-    grupo.setAttribute('data-uf', uf);
-    grupo.setAttribute('data-faixa', String(faixaDe(n)));
-    if(uf === ufAtiva) grupo.setAttribute('data-ativo', 'true');
-
-    // O halo no chão ancora o pino ao estado: sem ele a haste
-    // parece flutuar sobre o mapa em vez de nascer dele.
-    const halo = document.createElementNS('http://www.w3.org/2000/svg', 'ellipse');
-    halo.setAttribute('cx', pos.x);
-    halo.setAttribute('cy', pos.y);
-    halo.setAttribute('rx', 7);
-    halo.setAttribute('ry', 3);
-    halo.setAttribute('class', 'pino-halo');
-
-    const haste = document.createElementNS('http://www.w3.org/2000/svg', 'line');
-    haste.setAttribute('x1', pos.x);
-    haste.setAttribute('y1', pos.y);
-    haste.setAttribute('x2', pos.x);
-    haste.setAttribute('y2', pos.y - h);
-    haste.setAttribute('class', 'pino-haste');
-
-    const topo = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
-    topo.setAttribute('cx', pos.x);
-    topo.setAttribute('cy', pos.y - h);
-    topo.setAttribute('r', 3.4);
-    topo.setAttribute('class', 'pino-topo');
-
-    const sigla = document.createElementNS('http://www.w3.org/2000/svg', 'text');
-    sigla.setAttribute('x', pos.x);
-    sigla.setAttribute('y', pos.y - h - 7);
-    sigla.setAttribute('class', 'pino-sigla');
-    sigla.textContent = uf;
-
-    grupo.append(halo, haste, topo, sigla);
-
-    // O pino é um botão de verdade: teclado alcança, leitor de tela
-    // anuncia. O SVG do fundo continua clicável para quem prefere
-    // acertar o estado em si.
-    grupo.setAttribute('role', 'button');
-    grupo.setAttribute('tabindex', '0');
-    grupo.setAttribute('aria-label', `${uf}: ${n} ${n === 1 ? 'edital' : 'editais'}`);
-    grupo.addEventListener('click', ev => { ev.stopPropagation(); aoClicar(uf); });
-    grupo.addEventListener('keydown', ev => {
-      if(ev.key === 'Enter' || ev.key === ' '){
-        ev.preventDefault();
-        aoClicar(uf);
-      }
-    });
-
-    camada.appendChild(grupo);
-  });
-
-  svg.appendChild(camada);
-}
-
 /** Mesma escala de faixas do mapa plano, para as duas leituras
- *  (cor do estado e cor do pino) nunca discordarem. */
+ *  (cor do estado e cor da coluna) nunca discordarem. */
 function faixaDe(n){
   if(!n) return 0;
   if(n <= 2) return 1;
@@ -154,9 +84,180 @@ function faixaDe(n){
   return 4;
 }
 
-/** Liga ou desliga a vista 3D no contêiner do mapa. */
+/** Abre espaço no topo do viewBox. Sem isto as colunas altas são
+ *  cortadas — foi o defeito da primeira versão. */
+function ampliarViewBox(svg){
+  if(svg.dataset.vbAmpliado) return;
+
+  const vb = (svg.getAttribute('viewBox') || '').split(/[\s,]+/).map(Number);
+  if(vb.length !== 4 || vb.some(Number.isNaN)) return;
+
+  svg.dataset.vbOriginal = svg.getAttribute('viewBox');
+  svg.setAttribute('viewBox',
+    `${vb[0]} ${vb[1] - FOLGA_TOPO} ${vb[2]} ${vb[3] + FOLGA_TOPO}`);
+  svg.dataset.vbAmpliado = '1';
+}
+
+function restaurarViewBox(svg){
+  if(!svg.dataset.vbAmpliado) return;
+  svg.setAttribute('viewBox', svg.dataset.vbOriginal);
+  delete svg.dataset.vbAmpliado;
+}
+
+/** Definições reutilizáveis: gradientes das faces e o brilho. */
+function garantirDefs(svg){
+  if(svg.querySelector('#defs-pinos')) return;
+
+  const defs = el('defs', { id: 'defs-pinos' });
+
+  // Um gradiente por faixa, para a coluna ter volume próprio em
+  // vez de cor chapada. O topo é sempre mais claro que a base:
+  // é o que o olho espera de algo iluminado de cima.
+  const FAIXAS = {
+    1: ['#2f6b22', '#1c3f14'],
+    2: ['#76A41C', '#3f5c10'],
+    3: ['#9FE31A', '#5c8410'],
+    4: ['#E8D63C', '#8a7a12'],
+  };
+
+  for(const [faixa, [claro, escuro]] of Object.entries(FAIXAS)){
+    const g = el('linearGradient', {
+      id: `grad-pino-${faixa}`, x1: '0', y1: '0', x2: '0', y2: '1',
+    });
+    g.append(
+      el('stop', { offset: '0',   'stop-color': claro }),
+      el('stop', { offset: '1',   'stop-color': escuro }),
+    );
+    defs.appendChild(g);
+  }
+
+  // Sombra suave sob a coluna, para ela assentar no mapa.
+  const blur = el('filter', {
+    id: 'brilho-pino', x: '-70%', y: '-70%', width: '240%', height: '240%',
+  });
+  blur.append(el('feGaussianBlur', { stdDeviation: '2.4', result: 'b' }));
+  const merge = el('feMerge', {});
+  merge.append(el('feMergeNode', { in: 'b' }), el('feMergeNode', { in: 'SourceGraphic' }));
+  blur.appendChild(merge);
+  defs.appendChild(blur);
+
+  svg.insertBefore(defs, svg.firstChild);
+}
+
+/**
+ * Desenha as colunas dentro do SVG do mapa.
+ *
+ * @param {SVGElement} svg     o <svg> do mapa
+ * @param {Object} contagem    { UF: nº de editais }
+ * @param {string} ufAtiva     estado selecionado, ou ''
+ * @param {Function} aoClicar  recebe a UF clicada
+ */
+export function desenharPinos(svg, contagem, ufAtiva, aoClicar){
+  if(!svg) return;
+
+  svg.querySelector('#camada-pinos')?.remove();
+
+  const valores = Object.values(contagem).filter(Boolean);
+  if(!valores.length){ restaurarViewBox(svg); return; }
+
+  ampliarViewBox(svg);
+  garantirDefs(svg);
+
+  const maximo = Math.max(...valores);
+  const camada = el('g', { id: 'camada-pinos', class: 'camada-pinos' });
+
+  // De trás para a frente: sem isto a coluna do Amazonas passa
+  // por cima da de São Paulo, que está à frente na composição.
+  const colunas = Object.entries(contagem)
+    .filter(([, n]) => n > 0)
+    .map(([uf, n]) => ({ uf, n, alvo: svg.getElementById(uf) }))
+    .filter(c => c.alvo)
+    .map(c => ({ ...c, pos: centro(c.alvo) }))
+    .filter(c => c.pos)
+    .sort((a, b) => a.pos.y - b.pos.y);
+
+  const temSelecao = Boolean(ufAtiva);
+
+  colunas.forEach(({ uf, n, pos }) => {
+    const h = altura(n, maximo);
+    const faixa = faixaDe(n);
+    const meia = LARGURA / 2;
+    const topoY = pos.y - h;
+
+    const g = el('g', {
+      class: 'pino',
+      'data-uf': uf,
+      'data-faixa': String(faixa),
+      role: 'button',
+      tabindex: '0',
+      'aria-label': `${uf}: ${n} ${n === 1 ? 'edital' : 'editais'}`,
+    });
+    if(uf === ufAtiva) g.setAttribute('data-ativo', 'true');
+    else if(temSelecao) g.setAttribute('data-apagado', 'true');
+
+    // Sombra elíptica: ancora a coluna ao estado. Sem ela o
+    // sólido flutua sobre o mapa em vez de nascer dele.
+    g.appendChild(el('ellipse', {
+      cx: pos.x + PROFUNDIDADE / 2, cy: pos.y + 1.5,
+      rx: LARGURA * 0.95, ry: LARGURA * 0.34,
+      class: 'pino-sombra',
+    }));
+
+    // Face frontal.
+    g.appendChild(el('rect', {
+      x: pos.x - meia, y: topoY, width: LARGURA, height: h,
+      rx: 1.2, class: 'pino-frente',
+      fill: `url(#grad-pino-${faixa})`,
+    }));
+
+    // Face lateral, deslocada — é ela que cria a profundidade.
+    g.appendChild(el('path', {
+      d: `M${pos.x + meia},${topoY} l${PROFUNDIDADE},${-PROFUNDIDADE * 0.6}`
+       + ` l0,${h} l${-PROFUNDIDADE},${PROFUNDIDADE * 0.6} Z`,
+      class: 'pino-lado',
+    }));
+
+    // Topo em losango, fechando o sólido.
+    g.appendChild(el('path', {
+      d: `M${pos.x - meia},${topoY}`
+       + ` l${PROFUNDIDADE},${-PROFUNDIDADE * 0.6}`
+       + ` l${LARGURA},0`
+       + ` l${-PROFUNDIDADE},${PROFUNDIDADE * 0.6} Z`,
+      class: 'pino-tampa',
+    }));
+
+    // Contagem sobre a coluna — o dado que o pino representa,
+    // dito em número. A altura dá a comparação; o número dá a
+    // precisão.
+    g.appendChild(el('text', {
+      x: pos.x + PROFUNDIDADE / 2, y: topoY - 8.5,
+      class: 'pino-n',
+    })).textContent = String(n);
+
+    g.appendChild(el('text', {
+      x: pos.x + PROFUNDIDADE / 2, y: topoY - 2.5,
+      class: 'pino-sigla',
+    })).textContent = uf;
+
+    g.addEventListener('click', ev => { ev.stopPropagation(); aoClicar(uf); });
+    g.addEventListener('keydown', ev => {
+      if(ev.key === 'Enter' || ev.key === ' '){
+        ev.preventDefault();
+        aoClicar(uf);
+      }
+    });
+
+    camada.appendChild(g);
+  });
+
+  svg.appendChild(camada);
+}
+
+/** Liga ou desliga a vista com volume. */
 export function aplicarVista(container, tridimensional){
   if(!container) return;
   container.classList.toggle('mapa-3d', tridimensional);
-  container.style.setProperty('--inclinacao', `${tridimensional ? INCLINACAO : 0}deg`);
+
+  const svg = container.querySelector('svg');
+  if(svg && !tridimensional) restaurarViewBox(svg);
 }
