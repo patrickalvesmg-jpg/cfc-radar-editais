@@ -11,7 +11,6 @@
    ============================================================ */
 
 import { brl, dataBR, diasAte, esc, ESFERA } from './comum.js';
-import { desenharPinos, aplicarVista } from './pinos.js';
 
 const UFS_NOME = {
   AC:'Acre', AL:'Alagoas', AM:'Amazonas', AP:'Amapá', BA:'Bahia',
@@ -26,13 +25,6 @@ const UFS_NOME = {
 let editais = [];
 let ufAtiva = '';
 
-/** Vista 3D ligada por padrão — é a leitura principal do mapa.
- *  A escolha fica no navegador: quem prefere o plano não precisa
- *  reclicar a cada visita. */
-let tridimensional = (() => {
-  try{ return localStorage.getItem('cfc:mapa-vista') !== '2d'; }
-  catch{ return true; }
-})();
 let aoFiltrar = null;
 const filtros = { busca:'', escolaridade:'', ordem:'prazo' };
 
@@ -86,29 +78,8 @@ function pintarMapa(){
       `${UFS_NOME[uf]}: ${n} ${n === 1 ? 'edital' : 'editais'}`);
     el.setAttribute('aria-pressed', String(ufAtiva === uf));
   });
-
-  // Os pinos leem a MESMA contagem que acabou de pintar os
-  // estados — nunca há divergência entre as duas leituras.
-  desenharPinos(svg, contagem, ufAtiva, uf => selecionar(uf));
-  aplicarVista(document.getElementById('mapa-svg'), tridimensional);
 }
 
-/** Alterna 2D / 3D e guarda a preferência. */
-function trocarVista(novo){
-  tridimensional = novo;
-  try{ localStorage.setItem('cfc:mapa-vista', novo ? '3d' : '2d'); }catch{}
-  aplicarVista(document.getElementById('mapa-svg'), novo);
-  document.querySelectorAll('[data-vista]').forEach(b => {
-    b.setAttribute('aria-pressed', String((b.dataset.vista === '3d') === novo));
-  });
-}
-
-function ligarVista(){
-  document.querySelectorAll('[data-vista]').forEach(b => {
-    b.setAttribute('aria-pressed', String((b.dataset.vista === '3d') === tridimensional));
-    b.addEventListener('click', () => trocarVista(b.dataset.vista === '3d'));
-  });
-}
 
 function renderTabela(){
   const alvo = document.getElementById('mapa-lista');
@@ -325,5 +296,4 @@ export async function montarMapa(lista, { onFiltrar } = {}){
   pintarMapa();
   renderTabela();
   ligarEventos();
-  ligarVista();
 }
