@@ -223,7 +223,19 @@
 
       <div class="mapa-bloco">
         <div class="mapa-coluna">
-          <div id="mapa-svg" aria-label="Mapa do Brasil por estado"></div>
+          <div class="mapa-topo-vista">
+            <p class="mapa-dica">
+              A altura do pino é o número de editais no estado.
+              Clique para filtrar.
+            </p>
+            <div class="mapa-vista" role="group" aria-label="Vista do mapa">
+              <button type="button" data-vista="3d" aria-pressed="true">3D</button>
+              <button type="button" data-vista="2d" aria-pressed="false">Plano</button>
+            </div>
+          </div>
+          <div class="mapa-palco">
+            <div id="mapa-svg" aria-label="Mapa do Brasil por estado"></div>
+          </div>
           <div class="mapa-legenda">
             <span>Editais por estado:</span>
             <span class="escala"><i class="f0"></i> 0</span>
