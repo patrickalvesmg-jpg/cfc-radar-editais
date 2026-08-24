@@ -11,7 +11,6 @@
    ============================================================ */
 
 import { brl, dataBR, diasAte, esc, ESFERA } from './comum.js';
-import { criarMapa3D } from './mapa3d.js';
 
 const UFS_NOME = {
   AC:'Acre', AL:'Alagoas', AM:'Amazonas', AP:'Amapá', BA:'Bahia',
@@ -25,7 +24,6 @@ const UFS_NOME = {
 
 let editais = [];
 let ufAtiva = '';
-let mapa3d = null;
 
 let aoFiltrar = null;
 const filtros = { busca:'', escolaridade:'', ordem:'prazo' };
@@ -80,10 +78,6 @@ function pintarMapa(){
       `${UFS_NOME[uf]}: ${n} ${n === 1 ? 'edital' : 'editais'}`);
     el.setAttribute('aria-pressed', String(ufAtiva === uf));
   });
-
-  // O 3D lê a MESMA contagem que acabou de pintar os estados, então
-  // as duas camadas nunca divergem.
-  mapa3d?.atualizar(contagem, ufAtiva);
 }
 
 
@@ -299,16 +293,6 @@ export async function montarMapa(lista, { onFiltrar } = {}){
     return;
   }
 
-  // O canvas 3D entra ANTES de pintar, para receber a contagem já
-  // na primeira passada. Se falhar (canvas indisponível, SVG fora
-  // do padrão), o mapa plano continua funcionando sozinho — é por
-  // isso que ele permanece no DOM.
-  try{
-    mapa3d = criarMapa3D(caixa, { onSelecionar: selecionar });
-    if(mapa3d) caixa.classList.add('tem-3d');
-  }catch(err){
-    console.warn('[radar] 3D indisponível, usando o mapa plano:', err);
-  }
 
   pintarMapa();
   renderTabela();
