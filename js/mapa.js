@@ -25,6 +25,14 @@ const UFS_NOME = {
 let editais = [];
 let ufAtiva = '';
 
+/** Quantos editais a lista mostra por vez.
+ *
+ *  Sem limite a página tinha 30 mil pixels de altura com 119
+ *  editais — o mapa some lá em cima e ninguém rola até o fim.
+ *  20 enche a coluna sem afogar, e o botão amplia sob demanda. */
+const POR_PAGINA = 20;
+let mostrando = POR_PAGINA;
+
 let aoFiltrar = null;
 const filtros = { busca:'', escolaridade:'', ordem:'prazo' };
 
@@ -189,10 +197,20 @@ function renderTabela(){
           </tr>
         </thead>
         <tbody>
-          ${ordenada.map(linha).join('')}
+          ${ordenada.slice(0, mostrando).map(linha).join('')}
         </tbody>
       </table>
-    </div>`;
+    </div>
+    ${ordenada.length > mostrando ? `
+      <button type="button" class="btn btn-ghost btn-block ver-mais" id="ver-mais">
+        Ver mais ${Math.min(POR_PAGINA, ordenada.length - mostrando)}
+        de ${ordenada.length - mostrando} restantes
+      </button>` : ''}`;
+
+  document.getElementById('ver-mais')?.addEventListener('click', () => {
+    mostrando += POR_PAGINA;
+    renderTabela();
+  });
 }
 
 /** Aplica UF + busca + escolaridade. A ordenação é feita depois. */
@@ -239,6 +257,7 @@ function linha(e){
 /* ---------------- interação ---------------- */
 
 function selecionar(uf){
+  mostrando = POR_PAGINA;   // filtro novo, lista do começo
   ufAtiva = (ufAtiva === uf) ? '' : uf;
   pintarMapa();
   pintarChips();
@@ -285,15 +304,15 @@ function ligarFiltros(){
     let t;
     busca.addEventListener('input', ev => {
       clearTimeout(t);
-      t = setTimeout(() => { filtros.busca = ev.target.value; renderTabela(); }, 180);
+      t = setTimeout(() => { filtros.busca = ev.target.value; mostrando = POR_PAGINA; renderTabela(); }, 180);
     });
   }
 
   document.getElementById('f-escolaridade')?.addEventListener('change', ev => {
-    filtros.escolaridade = ev.target.value; renderTabela();
+    filtros.escolaridade = ev.target.value; mostrando = POR_PAGINA; renderTabela();
   });
   document.getElementById('f-ordem')?.addEventListener('change', ev => {
-    filtros.ordem = ev.target.value; renderTabela();
+    filtros.ordem = ev.target.value; mostrando = POR_PAGINA; renderTabela();
   });
 
   document.querySelector('.filtros-rapidos')?.addEventListener('click', ev => {

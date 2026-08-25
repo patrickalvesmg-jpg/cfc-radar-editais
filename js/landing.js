@@ -67,12 +67,17 @@ async function iniciar(){
     editais = await carregarEditais();
   }catch(err){
     console.error('Falha ao carregar editais:', err);
-    document.getElementById('lista-gratis').innerHTML = `
+    // O aviso vai para onde houver lugar: a seção de amostra pode não
+    // existir (landing enxuta), e aí a mensagem entra na lista do mapa.
+    const aviso = `
       <div class="vazio">
         <h3>Não foi possível carregar os editais</h3>
         <p>Recarregue a página. Se você abriu o arquivo direto do disco,
            rode um servidor local — o navegador bloqueia fetch em file://</p>
       </div>`;
+    const destino = document.getElementById('lista-gratis')
+                 || document.getElementById('mapa-lista');
+    if(destino) destino.innerHTML = aviso;
     return;
   }
 
@@ -90,29 +95,40 @@ async function iniciar(){
   // Tudo abaixo deriva daqui — cards grátis, paywall e mapa —, então
   // partir de `vivos` mantém a página inteira coerente.
   const ordenados = ordenarPorPrazo(vivos);
-  const gratis = ordenados.slice(0, LIMITE_GRATIS);
-  const bloqueados = ordenados.slice(LIMITE_GRATIS);
 
-  document.getElementById('lista-gratis').innerHTML =
-    gratis.map(e => cardEdital(e)).join('');
+  // A seção de amostra + paywall é OPCIONAL desde ago/2026, quando a
+  // landing foi enxugada para mapa + filtros.
+  //
+  // Cada bloco confere o próprio alvo antes de escrever. Sem isso, um
+  // `getElementById` devolvendo null lança TypeError e MATA o resto da
+  // função — foi exatamente o que aconteceu: o mapa parou de aparecer
+  // porque a linha do `lista-gratis` quebrava antes de `montarMapa`.
+  const alvoGratis = document.getElementById('lista-gratis');
+  if(alvoGratis){
+    const gratis = ordenados.slice(0, LIMITE_GRATIS);
+    const bloqueados = ordenados.slice(LIMITE_GRATIS);
 
-  // Os bloqueados entram sem ações e sem link — o blur é visual,
-  // então o conteúdo real não pode ficar clicável por baixo dele.
-  const alvoBloqueado = document.getElementById('lista-bloqueada');
-  const trancado = document.getElementById('trancado');
+    alvoGratis.innerHTML = gratis.map(e => cardEdital(e)).join('');
 
-  if(bloqueados.length){
-    // Mostra no máximo 4 cards borrados: o suficiente para dar volume
-    // sem esticar a página à toa.
-    alvoBloqueado.innerHTML = bloqueados.slice(0,4)
-      .map(e => cardEdital(e, { interativo:false })).join('');
-    document.getElementById('n-bloqueados').textContent = bloqueados.length;
-  }else{
-    // Acervo menor que o limite grátis: não há o que bloquear. Some o
-    // paywall e troca o discurso — prometer "veja o restante" quando não
-    // há restante quebra a confiança logo na primeira visita.
-    trancado.style.display = 'none';
-    ajustarSemBloqueio(ordenados.length);
+    // Os bloqueados entram sem ações e sem link — o blur é visual,
+    // então o conteúdo real não pode ficar clicável por baixo dele.
+    const alvoBloqueado = document.getElementById('lista-bloqueada');
+    const trancado = document.getElementById('trancado');
+
+    if(bloqueados.length && alvoBloqueado){
+      // Mostra no máximo 4 cards borrados: o suficiente para dar volume
+      // sem esticar a página à toa.
+      alvoBloqueado.innerHTML = bloqueados.slice(0,4)
+        .map(e => cardEdital(e, { interativo:false })).join('');
+      const n = document.getElementById('n-bloqueados');
+      if(n) n.textContent = bloqueados.length;
+    }else if(trancado){
+      // Acervo menor que o limite grátis: não há o que bloquear. Some o
+      // paywall e troca o discurso — prometer "veja o restante" quando
+      // não há restante quebra a confiança logo na primeira visita.
+      trancado.style.display = 'none';
+      ajustarSemBloqueio(ordenados.length);
+    }
   }
 
   // O mapa usa TODOS os editais, inclusive os do paywall: esconder

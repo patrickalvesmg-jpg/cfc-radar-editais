@@ -715,7 +715,12 @@ body.tem-demo .boas-vindas{padding-top:calc(var(--topbar-h) + var(--faixa-demo-h
    da página, e a 30% ele ficava pequeno demais para clicar num
    estado do Sudeste sem errar o vizinho. */
 .mapa-bloco{
-  display:grid;grid-template-columns:1fr 1fr;
+  display:grid;
+  /* `minmax(0,1fr)` e não `1fr`: coluna de grid tem largura mínima
+     automática, então a tabela de editais — que é larga — empurrava
+     a coluna do mapa para 286px mesmo com 1fr declarado. Medido no
+     navegador: 286px / 922px em vez do 50/50 pedido. */
+  grid-template-columns:minmax(0,1fr) minmax(0,1fr);
   gap:var(--s-6);align-items:start;
 }
 
@@ -1096,10 +1101,22 @@ body.tem-demo .boas-vindas{padding-top:calc(var(--topbar-h) + var(--faixa-demo-h
 }
 
 @media (max-width:860px){
-  .hero-grid{ grid-template-columns:1fr; gap:var(--s-6) }
-  /* No celular a foto vem primeiro: rosto humano prende mais
-     atenção que título, e o título aparece logo abaixo. */
-  .hero-foto{ order:-1; max-width:300px; margin-inline:auto }
+  .hero-grid{ grid-template-columns:1fr; gap:var(--s-5) }
+
+  /* A foto vem DEPOIS do texto e em formato largo.
+     Medido no navegador: em retrato de 330x438 ela tomava a tela
+     inteira do celular e o título ficava fora da primeira vista —
+     quem chegava via uma foto, não a promessa. Em 16:9 ela ilustra
+     sem sequestrar a dobra. */
+  .hero-foto{
+    order:1;
+    max-width:100%;
+    margin-inline:0;
+  }
+  .hero-foto img{
+    aspect-ratio:16/9;
+    object-position:center 22%;
+  }
 }
 
 /* ============================================================
@@ -1191,7 +1208,6 @@ body.tem-demo .boas-vindas{padding-top:calc(var(--topbar-h) + var(--faixa-demo-h
 @media (max-width:640px){
   /* A foto do hero não pode ocupar meia tela: o título e a
      promessa precisam aparecer sem rolagem. */
-  .hero-foto{ max-width:230px }
   .hero-foto figcaption{ padding:var(--s-4) var(--s-3) var(--s-2) }
 
   /* O rótulo sobre o estado cresce junto com o SVG reduzido —
@@ -1213,4 +1229,108 @@ body.tem-demo .boas-vindas{padding-top:calc(var(--topbar-h) + var(--faixa-demo-h
 @media (max-width:400px){
   .mapa-coluna{ max-width:100% }
   .rotulo-n{ font-size:15px }
+}
+
+/* ============================================================
+   LISTA EM CARTÕES QUANDO A COLUNA É ESTREITA
+   ------------------------------------------------------------
+   O mapa passou a ocupar metade da largura, e a lista herdou a
+   outra metade — 604px numa tela de 1440. A tabela pede 640px
+   mínimos, então ela transbordava: a coluna de salário ficava
+   cortada fora da tela, e o texto quebrava palavra por palavra
+   ("Auxiliar De / Contabilidade").
+
+   A solução não é encolher a fonte: é trocar de formato. Tabela
+   é boa quando há largura para as colunas; nesta faixa, cartão
+   lê melhor.
+
+   Usamos CONTAINER QUERY em vez de media query porque o que
+   importa é a largura da COLUNA, não da tela: a mesma lista
+   aparece em contextos de larguras diferentes.
+   ============================================================ */
+
+.mapa-lado{ container-type:inline-size; container-name:listamapa }
+
+@container listamapa (max-width: 700px){
+  .tabela-editais{ min-width:0 }
+
+  .tabela-editais thead{
+    position:absolute;width:1px;height:1px;
+    overflow:hidden;clip:rect(0,0,0,0);
+  }
+
+  .tabela-editais,
+  .tabela-editais tbody,
+  .tabela-editais tr,
+  .tabela-editais td{ display:block;width:100% }
+
+  .tabela-editais tr{
+    padding:var(--s-4);
+    border-bottom:1px solid var(--linha);
+    position:relative;
+  }
+  .tabela-editais tr:hover{ background:var(--carvao-2) }
+
+  .tabela-editais td{
+    padding:3px 0;border:0;
+    display:flex;justify-content:space-between;gap:var(--s-3);
+    align-items:baseline;
+  }
+
+  /* Cargo e órgão ocupam a linha inteira, com folga à direita
+     para o salário que fica absoluto no canto. */
+  .tabela-editais td:first-child{
+    display:block;margin-bottom:var(--s-3);padding-right:96px;
+  }
+
+  .tabela-editais td:not(:first-child)::before{
+    content:attr(data-rot);
+    font-size:var(--t-micro);text-transform:uppercase;
+    letter-spacing:.08em;color:var(--cinza-esc);
+    font-weight:700;flex-shrink:0;
+  }
+
+  .tabela-editais td:last-child{
+    position:absolute;top:var(--s-4);right:var(--s-4);
+    width:auto;padding:0;text-align:right;
+  }
+  .tabela-editais td:last-child::before{ content:none }
+
+  .tabela-wrap{ overflow-x:visible }
+}
+
+.ver-mais{
+  margin-top:var(--s-4);
+  font-size:var(--t-sm);
+}
+
+/* ============================================================
+   AJUSTES DE DENSIDADE — medidos no navegador
+   ============================================================ */
+
+/* A foto ocupava 447x594 e empurrava a promessa para fora da
+   primeira tela. O rosto continua reconhecível bem menor. */
+.hero-foto{ max-width:330px; margin-left:auto }
+
+/* O cartão da lista tinha 5 linhas de rótulo em caixa alta, o
+   que fazia cada edital ocupar ~240px de altura. Compactando
+   os rótulos, cabe mais edital na mesma rolagem. */
+@container listamapa (max-width: 700px){
+  .tabela-editais tr{ padding:var(--s-3) var(--s-4) }
+  .tabela-editais td{ padding:1px 0;font-size:var(--t-sm) }
+  .tabela-editais td:first-child{ margin-bottom:var(--s-2);padding-right:88px }
+  .tabela-editais td:not(:first-child)::before{ font-size:10px }
+
+  /* Local e organizadora numa linha só, separados por ponto:
+     duas linhas para dois dados curtos é desperdício de altura. */
+  .tabela-editais td[data-rot="Salário até"]{
+    font-size:var(--t-body);font-weight:700;
+  }
+}
+
+/* O título da lista e o botão de limpar ficam grudados no topo
+   da coluna, acompanhando a rolagem junto com o mapa. */
+.mapa-cabeca{
+  display:flex;align-items:center;justify-content:space-between;
+  gap:var(--s-3);margin-bottom:var(--s-3);flex-wrap:wrap;
 }
