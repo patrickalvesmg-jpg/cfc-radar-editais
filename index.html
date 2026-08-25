@@ -33,20 +33,13 @@
 <header class="topbar">
   <div class="topbar-inner">
     <a href="index.html" class="marca" aria-label="CFC Academy — Radar Concursos Contabilidade">
-      <span class="mk" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/>
-        </svg>
-      </span>
-      <span class="txt">Radar Concursos Contabilidade<small>CFC Academy</small></span>
+      <img src="assets/img/logo-cfc.svg" alt="CFC Academy" class="marca-logo"
+           width="180" height="55">
+      <span class="marca-sub">Radar Concursos<br>Contabilidade</span>
     </a>
 
     <nav class="nav" id="nav" aria-label="Navegação principal">
-      <a href="#amostra">Editais</a>
       <a href="#explorar">Mapa e filtros</a>
-      <a href="#como">Como funciona</a>
-      <a href="#planos">O que você recebe</a>
-      <a href="login.html">Entrar</a>
     </nav>
 
     <div style="display:flex;align-items:center;gap:12px">
@@ -64,14 +57,30 @@
      da dobra; aqui ele apresenta a marca em duas linhas e sai da frente.
      ============================================================ -->
 <section class="hero hero-compacto">
-  <div class="container">
-    <span class="eyebrow">Monitoramento contínuo</span>
-    <h1>Todo edital de <span class="g">contabilidade</span> do Brasil</h1>
-    <p class="lead">
-      Nosso robô varre portais de banca e diários oficiais todos os dias.
-      Concurso para contador em qualquer canto do país aparece aqui — com
-      salário, prazo e banca já organizados.
-    </p>
+  <div class="container hero-grid">
+    <div class="hero-texto">
+      <span class="eyebrow">Monitoramento contínuo</span>
+      <h1>Concursos para Contador abertos</h1>
+      <p class="lead">
+        Todos os editais abertos de concursos para contador em um radar
+        exclusivo e gratuito.
+      </p>
+      <p class="hero-apoio">
+        Nosso robô varre portais de banca e diários oficiais toda semana.
+        Concurso para contador em qualquer canto do país aparece aqui —
+        com salário, prazo e banca já organizados.
+      </p>
+    </div>
+
+    <figure class="hero-foto">
+      <img src="assets/img/felipe-nunes.jpg"
+           alt="Felipe Nunes, contador e fundador da CFC Academy"
+           width="420" height="560" loading="eager" decoding="async">
+      <figcaption>
+        <strong>Felipe Nunes</strong>
+        <span>Contador · CFC Academy</span>
+      </figcaption>
+    </figure>
   </div>
 </section>
 
@@ -154,117 +163,17 @@
     </div>
   </section>
 
-  <section class="blk" id="amostra">
-    <div class="container">
-      <div class="blk-head">
-        <span class="eyebrow">Amostra aberta</span>
-        <h2>Veja alguns editais agora. Sem cadastro.</h2>
-        <p>
-          Estes são os concursos com prazo mais apertado no radar neste momento.
-          O restante fica liberado assim que você informar seu e-mail.
-        </p>
-      </div>
-
-      <!-- editais liberados -->
-      <div class="lista" id="lista-gratis"></div>
-
-      <!-- editais bloqueados + paywall -->
-      <div class="trancado" id="trancado" style="margin-top:var(--s-4)">
-        <div class="lista" id="lista-bloqueada" aria-hidden="true"></div>
-
-        <div class="paywall">
-          <div class="cadeado" aria-hidden="true">
-            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="4" y="10" width="16" height="11" rx="2"/>
-              <path d="M8 10V7a4 4 0 0 1 8 0v3"/>
-            </svg>
-          </div>
-          <h3><span id="n-bloqueados">9</span> editais bloqueados</h3>
-          <p>Informe seu e-mail para ver todos e acompanhar o que abrir daqui em diante.</p>
-
-          <ul class="vantagens">
-            <li>Todos os editais do Brasil, sem limite</li>
-            <li>Filtros por estado, banca e salário</li>
-            <li>Favoritos salvos neste navegador</li>
-            <li>Alertas quando abrir concurso do seu perfil</li>
-          </ul>
-
-          <a href="cadastro.html" class="btn btn-lima">Ver todos os editais</a>
-          <p class="micro">Já tem conta? <a href="login.html" style="color:var(--lima)">Entrar</a></p>
-        </div>
-      </div>
-    </div>
-  </section>
+  
 
   <!-- ============================================================
        COMO FUNCIONA
        ============================================================ -->
-  <section class="blk" id="como" style="background:var(--preto-2);border-block:1px solid var(--linha)">
-    <div class="container">
-      <div class="blk-head">
-        <span class="eyebrow">O motor por trás</span>
-        <h2>Você não procura. A plataforma encontra.</h2>
-        <p>Três etapas rodando sem parar, para que nenhum edital de contabilidade passe despercebido.</p>
-      </div>
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:var(--s-4)">
-        <article class="card up" style="padding:var(--s-5)">
-          <div class="mono" style="color:var(--lima);font-size:var(--t-xs);margin-bottom:var(--s-3)">01</div>
-          <h3 style="margin-bottom:var(--s-3)">Varre as fontes</h3>
-          <p style="color:var(--cinza);font-size:var(--t-sm)">Diários oficiais da União, dos estados e dos municípios, mais os portais das principais bancas — verificados várias vezes ao dia.</p>
-        </article>
-        <article class="card up" style="padding:var(--s-5)">
-          <div class="mono" style="color:var(--lima);font-size:var(--t-xs);margin-bottom:var(--s-3)">02</div>
-          <h3 style="margin-bottom:var(--s-3)">Filtra o que é seu</h3>
-          <p style="color:var(--cinza);font-size:var(--t-sm)">Só entra no radar o que exige formação ou atuação contábil: contador, auditor, analista de controle, fiscal de tributos.</p>
-        </article>
-        <article class="card up" style="padding:var(--s-5)">
-          <div class="mono" style="color:var(--lima);font-size:var(--t-xs);margin-bottom:var(--s-3)">03</div>
-          <h3 style="margin-bottom:var(--s-3)">Organiza e avisa</h3>
-          <p style="color:var(--cinza);font-size:var(--t-sm)">Salário, vagas, banca e prazo padronizados no mesmo formato. Você acompanha o que interessa e recebe aviso quando abrir.</p>
-        </article>
-      </div>
-    </div>
-  </section>
+  
 
   <!-- ============================================================
        O QUE VOCÊ RECEBE
        ============================================================ -->
-  <section class="blk" id="planos">
-    <div class="container">
-      <div class="blk-head">
-        <span class="eyebrow">Conta gratuita</span>
-        <h2>O que muda depois que você informa o e-mail</h2>
-        <p>A conta é gratuita. Ela existe para personalizar o radar e avisar você na hora certa.</p>
-      </div>
-
-      <div class="planos-grid">
-        <article class="card" style="padding:var(--s-6)">
-          <span class="badge badge-neutro" style="margin-bottom:var(--s-4)">Sem cadastro</span>
-          <h3 style="margin-bottom:var(--s-4)">Visitante</h3>
-          <ul style="display:grid;gap:var(--s-3);color:var(--cinza);font-size:var(--t-sm)">
-            <li>Consulta aos editais abertos</li>
-            <li>Sem busca nem filtros</li>
-            <li>Sem favoritos</li>
-            <li>Sem alertas</li>
-          </ul>
-        </article>
-
-        <article class="card" style="padding:var(--s-6);border-color:rgba(159,227,26,.34);background:linear-gradient(150deg,rgba(159,227,26,.1),var(--carvao) 60%)">
-          <span class="badge badge-ok" style="margin-bottom:var(--s-4)">Grátis</span>
-          <h3 style="margin-bottom:var(--s-4)">Com o acesso liberado</h3>
-          <ul class="vantagens" style="max-width:none;margin-bottom:var(--s-5)">
-            <li>Todos os editais do Brasil</li>
-            <li>Busca por órgão, cargo, banca e cidade</li>
-            <li>Filtros por estado, esfera e salário</li>
-            <li>Favoritos salvos</li>
-            <li>Agenda de provas</li>
-            <li>Alertas do seu perfil <span style="color:var(--cinza-esc)">(em breve)</span></li>
-          </ul>
-          <a href="cadastro.html" class="btn btn-lima btn-block">Ver todos os editais</a>
-        </article>
-      </div>
-    </div>
-  </section>
+  
 
   <!-- ============================================================
        CTA FINAL
@@ -291,29 +200,24 @@
   <div class="container">
     <div class="rodape-grid">
       <div>
-        <a href="index.html" class="marca">
-          <span class="mk" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/>
-            </svg>
-          </span>
-          <span class="txt">Radar Concursos Contabilidade<small>CFC Academy</small></span>
-        </a>
+        <a href="index.html" class="marca" aria-label="CFC Academy — Radar Concursos Contabilidade">
+      <img src="assets/img/logo-cfc.svg" alt="CFC Academy" class="marca-logo"
+           width="180" height="55">
+      <span class="marca-sub">Radar Concursos<br>Contabilidade</span>
+    </a>
         <p class="sobre">O painel de concursos públicos da área contábil no Brasil. Atualizado automaticamente.</p>
       </div>
       <div>
         <h4>Plataforma</h4>
         <ul>
-          <li><a href="#amostra">Editais</a></li>
-          <li><a href="#como">Como funciona</a></li>
+          <li><a href="#explorar">Mapa e filtros</a></li>
           <li><a href="cadastro.html">Ver todos os editais</a></li>
-          <li><a href="login.html">Entrar</a></li>
         </ul>
       </div>
       <div>
         <h4>CFC Academy</h4>
         <ul>
-          <li><a href="#">Curso de concursos</a></li>
+          <li><a href="https://cfcacademy.com.br/ccc/" target="_blank" rel="noopener">Curso de concursos</a></li>
           <li><a href="#">Comunidade</a></li>
           <li><a href="#">Contato</a></li>
         </ul>

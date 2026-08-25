@@ -151,16 +151,23 @@ function render(e){
           `}
         </div>
 
-        <div class="card" style="padding:var(--s-5);margin-top:var(--s-4);
-             background:linear-gradient(150deg,rgba(159,227,26,.12),var(--carvao) 60%);
-             border-color:rgba(159,227,26,.3)">
-          <span class="eyebrow" style="margin-bottom:var(--s-3)">CFC Academy</span>
-          <h2 style="font-size:var(--t-h3);margin-bottom:var(--s-3)">Vai prestar este concurso?</h2>
-          <p style="color:var(--cinza);font-size:var(--t-sm);margin-bottom:var(--s-4)">
-            Conheça a preparação da CFC Academy para concursos da área contábil.
-          </p>
-          <a href="#" class="btn btn-ghost btn-block btn-sm">Conhecer o método</a>
-        </div>
+        <!-- Espaço do anúncio do curso.
+             A arte definitiva entra em assets/img/anuncio-ccc.jpg —
+             basta trocar o arquivo, o link e o layout já estão prontos.
+             Enquanto ela não existe, o bloco de texto abaixo ocupa o
+             lugar: melhor um convite honesto que um retângulo vazio. -->
+        <a class="card anuncio-curso" href="https://cfcacademy.com.br/ccc/"
+           target="_blank" rel="noopener"
+           aria-label="Conheça o curso da CFC Academy para concursos contábeis">
+          <img src="assets/img/anuncio-ccc.jpg" alt="" loading="lazy"
+               onerror="this.remove()">
+          <div class="anuncio-texto">
+            <span class="eyebrow">CFC Academy</span>
+            <h2>Vai prestar este concurso?</h2>
+            <p>Conheça a preparação da CFC Academy para concursos da área contábil.</p>
+            <span class="btn btn-lima btn-block btn-sm">Começar a estudar</span>
+          </div>
+        </a>
       </aside>
     </div>
 

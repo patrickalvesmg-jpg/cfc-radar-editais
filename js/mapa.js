@@ -78,6 +78,65 @@ function pintarMapa(){
       `${UFS_NOME[uf]}: ${n} ${n === 1 ? 'edital' : 'editais'}`);
     el.setAttribute('aria-pressed', String(ufAtiva === uf));
   });
+
+  rotularEstados(svg, contagem);
+}
+
+/**
+ * Escreve a contagem por cima de cada estado.
+ *
+ * A cor já dá a densidade, mas exige consultar a legenda; o número
+ * responde de imediato. Estado sem edital não recebe rótulo — zero
+ * escrito 27 vezes vira ruído e esconde o que importa.
+ *
+ * A posição sai do `getBBox()` do próprio estado, então acompanha
+ * qualquer mudança no SVG sem tabela de coordenadas para manter.
+ */
+function rotularEstados(svg, contagem){
+  svg.querySelector('#camada-rotulos')?.remove();
+
+  const camada = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+  camada.setAttribute('id', 'camada-rotulos');
+  camada.setAttribute('class', 'camada-rotulos');
+  camada.setAttribute('aria-hidden', 'true');   // o <path> já é anunciado
+
+  Object.keys(UFS_NOME).forEach(uf => {
+    const n = contagem[uf] || 0;
+    if(!n) return;
+
+    const alvo = svg.getElementById(uf);
+    if(!alvo) return;
+
+    let caixa;
+    try{ caixa = alvo.getBBox(); }catch{ return; }
+    if(!caixa.width) return;
+
+    const g = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+    g.setAttribute('class', 'rotulo-uf');
+    g.setAttribute('data-uf', uf);
+
+    const cx = caixa.x + caixa.width / 2;
+    const cy = caixa.y + caixa.height / 2;
+
+    // Disco atrás do número: sobre estado claro o texto sumia, e
+    // contorno sozinho engrossava demais em número de dois dígitos.
+    const disco = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+    disco.setAttribute('cx', cx);
+    disco.setAttribute('cy', cy);
+    disco.setAttribute('r', n > 9 ? 8.4 : 7);
+    disco.setAttribute('class', 'rotulo-disco');
+
+    const txt = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+    txt.setAttribute('x', cx);
+    txt.setAttribute('y', cy);
+    txt.setAttribute('class', 'rotulo-n');
+    txt.textContent = String(n);
+
+    g.append(disco, txt);
+    camada.appendChild(g);
+  });
+
+  svg.appendChild(camada);
 }
 
 

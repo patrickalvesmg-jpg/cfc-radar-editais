@@ -19,18 +19,28 @@
   display:flex;align-items:center;justify-content:space-between;gap:var(--s-5);
 }
 
-.marca{display:inline-flex;align-items:center;gap:11px}
-.marca .mk{
-  width:38px;height:38px;border-radius:10px;flex-shrink:0;
-  background:var(--lima);color:var(--preto);
-  display:grid;place-items:center;
-  box-shadow:0 0 22px rgba(159,227,26,.35);
+.marca{display:inline-flex;align-items:center;gap:var(--s-3)}
+
+.marca-logo{
+  height:34px; width:auto; display:block; flex-shrink:0;
 }
-.marca .mk svg{width:21px;height:21px}
-.marca .txt{font-family:var(--display);font-weight:900;font-size:1.02rem;letter-spacing:-.01em;line-height:1.1}
-.marca .txt small{
-  display:block;font-family:var(--body);font-weight:500;
-  font-size:var(--t-micro);color:var(--cinza);letter-spacing:.04em;
+
+/* O nome do produto acompanha o logo institucional, separado por
+   um filete: o logo é da CFC Academy, o Radar é um produto dela. */
+.marca-sub{
+  font-family:var(--body);
+  font-size:var(--t-micro);
+  font-weight:600;
+  line-height:1.25;
+  color:var(--cinza);
+  letter-spacing:.02em;
+  padding-left:var(--s-3);
+  border-left:1px solid var(--linha-neutra);
+}
+
+@media (max-width:560px){
+  .marca-logo{ height:28px }
+  .marca-sub{ display:none }   /* no celular só o logo cabe */
 }
 
 .nav{display:flex;align-items:center;gap:var(--s-5)}
@@ -707,9 +717,19 @@ body.tem-demo .boas-vindas{padding-top:calc(var(--topbar-h) + var(--faixa-demo-h
    SVG estático: sem biblioteca externa, sem token, funciona offline.
    Clicar num estado filtra a tabela abaixo.
    ============================================================ */
+/* 50/50 (pedido do Patrick, ago/2026): o mapa é o filtro principal
+   da página, e a 30% ele ficava pequeno demais para clicar num
+   estado do Sudeste sem errar o vizinho. */
 .mapa-bloco{
-  display:grid;grid-template-columns:minmax(280px,420px) minmax(0,1fr);
+  display:grid;grid-template-columns:1fr 1fr;
   gap:var(--s-6);align-items:start;
+}
+
+/* O mapa acompanha a rolagem da lista: sem isto, quem desce para
+   ver o 20º edital perde de vista o filtro que o trouxe até ali. */
+.mapa-coluna{
+  position:sticky;
+  top:calc(var(--topbar-h, 64px) + var(--s-4));
 }
 .mapa-bloco.sem-mapa{grid-template-columns:1fr}
 .mapa-bloco.sem-mapa .mapa-coluna{display:none}
@@ -1016,3 +1036,146 @@ body.tem-demo .boas-vindas{padding-top:calc(var(--topbar-h) + var(--faixa-demo-h
   font-size:var(--t-micro) !important;color:var(--cinza-esc) !important;
   line-height:1.5 !important;
 }
+
+/* ============================================================
+   PRIMEIRA DOBRA — texto + foto
+   ============================================================ */
+
+.hero-grid{
+  display:grid;
+  grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr);
+  gap:var(--s-7);
+  align-items:center;
+}
+
+.hero-apoio{
+  color:var(--cinza);
+  font-size:var(--t-sm);
+  line-height:1.65;
+  max-width:52ch;
+  margin-top:var(--s-4);
+}
+
+.hero-foto{
+  margin:0;
+  position:relative;
+  border-radius:var(--r-lg);
+  overflow:hidden;
+  box-shadow:var(--sombra-2);
+  /* O acento entra como moldura: amarra a foto à marca sem
+     precisar tratar o fundo azul do estúdio. */
+  border:3px solid var(--lima-vivo);
+}
+
+.hero-foto img{
+  display:block;
+  width:100%;
+  height:auto;
+  aspect-ratio:3/4;
+  object-fit:cover;
+  object-position:center 18%;   /* enquadra o rosto, não o microfone */
+}
+
+.hero-foto figcaption{
+  position:absolute; left:0; right:0; bottom:0;
+  padding:var(--s-5) var(--s-4) var(--s-3);
+  display:flex; flex-direction:column; gap:2px;
+  /* Gradiente em vez de barra sólida: a foto continua respirando
+     e o texto ganha contraste onde precisa. */
+  background:linear-gradient(to top, rgba(20,30,42,.92), rgba(20,30,42,0));
+  color:#fff;
+}
+.hero-foto figcaption strong{ font-size:var(--t-body); font-weight:700 }
+.hero-foto figcaption span{
+  font-size:var(--t-xs); opacity:.85;
+  letter-spacing:.06em; text-transform:uppercase;
+}
+
+@media (max-width:860px){
+  .hero-grid{ grid-template-columns:1fr; gap:var(--s-6) }
+  /* No celular a foto vem primeiro: rosto humano prende mais
+     atenção que título, e o título aparece logo abaixo. */
+  .hero-foto{ order:-1; max-width:300px; margin-inline:auto }
+}
+
+/* ============================================================
+   RÓTULO DE CONTAGEM SOBRE O ESTADO
+   ============================================================ */
+
+.camada-rotulos{ pointer-events:none }
+
+.rotulo-disco{
+  fill:var(--marinho);
+  opacity:.92;
+  stroke:rgba(255,255,255,.75);
+  stroke-width:1;
+}
+
+.rotulo-n{
+  fill:#fff;
+  font-family:var(--display);
+  font-size:9px;
+  font-weight:800;
+  text-anchor:middle;
+  dominant-baseline:central;
+}
+
+/* Estado selecionado: o disco vira acento para casar com o
+   destaque do próprio estado. */
+#mapa-svg [data-uf].ativo ~ .camada-rotulos .rotulo-uf[data-uf]{ opacity:1 }
+
+@media (max-width:640px){
+  .rotulo-n{ font-size:11px }
+}
+
+/* ============================================================
+   ANÚNCIO DO CURSO — lateral da página do edital
+   ------------------------------------------------------------
+   O cartão inteiro é o link, não só o botão: quem chega até aqui
+   já leu o edital e está decidindo estudar — a área de clique
+   grande respeita essa intenção.
+
+   A imagem some sozinha se o arquivo não existir (onerror), então
+   o bloco funciona antes e depois de a arte ficar pronta.
+   ============================================================ */
+
+.anuncio-curso{
+  display:block;
+  margin-top:var(--s-4);
+  padding:0;
+  overflow:hidden;
+  text-decoration:none;
+  border-color:var(--lima-wash);
+  background:linear-gradient(150deg, var(--lima-wash-2), var(--carvao) 62%);
+  transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+}
+
+.anuncio-curso:hover{
+  transform:translateY(-2px);
+  box-shadow:var(--sombra-2);
+  border-color:var(--lima);
+}
+
+.anuncio-curso img{
+  display:block;
+  width:100%;
+  height:auto;
+}
+
+.anuncio-texto{ padding:var(--s-5) }
+
+.anuncio-texto h2{
+  font-size:var(--t-h3);
+  margin:var(--s-3) 0;
+  color:var(--branco);
+}
+
+.anuncio-texto p{
+  color:var(--cinza);
+  font-size:var(--t-sm);
+  margin-bottom:var(--s-4);
+}
+
+/* É um <span> com cara de botão: o link já é o cartão, e botão
+   dentro de link seria alvo de clique aninhado. */
+.anuncio-curso .btn{ pointer-events:none }

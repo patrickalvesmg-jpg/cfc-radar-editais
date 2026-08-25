@@ -10,42 +10,63 @@
    ============================================================ */
 
 :root{
-  /* ---------- superfícies ---------- */
-  --preto:#0a0f0a;          /* fundo raiz (preto esverdeado CFC) */
-  --preto-2:#0f1710;        /* elevação 1 — faixas, barras */
-  --carvao:#141c14;         /* elevação 2 — cards, painéis */
-  --carvao-2:#18211a;       /* elevação 3 — hover / aninhado */
-  --carvao-3:#1e2a1f;       /* elevação 4 — inputs, chips */
+  /* ---------- superfícies ----------
+     Tema claro (pedido do Patrick, ago/2026): o escuro pesava
+     demais para uma página que a pessoa vai ler por minutos.
 
-  /* ---------- acento ---------- */
-  --lima:#9FE31A;
-  --lima-esc:#76A41C;
-  --lima-claro:#B6EF4A;     /* hover sobre escuro */
-  --lima-glow:rgba(159,227,26,.5);
-  --lima-wash:rgba(159,227,26,.12);
-  --lima-wash-2:rgba(159,227,26,.06);
+     Não é branco puro: #FBFCFA tem um toque de verde que casa
+     com o acento e cansa menos a vista que #FFF em tela grande. */
+  --preto:#FBFCFA;          /* fundo raiz */
+  --preto-2:#F2F5EF;        /* elevação 1 — faixas, barras */
+  --carvao:#FFFFFF;         /* elevação 2 — cards, painéis */
+  --carvao-2:#F7F9F4;       /* elevação 3 — hover / aninhado */
+  --carvao-3:#EDF1E8;       /* elevação 4 — inputs, chips */
 
-  /* ---------- tinta ---------- */
-  --branco:#F3F7F0;
-  --cinza:#9aa79a;
-  --cinza-esc:#5f6b5f;
+  /* ---------- acento ----------
+     O lima #9FE31A tem contraste de 1,6:1 sobre branco — ilegível.
+     Sobre fundo escuro ele funcionava. Aqui o acento é escurecido
+     para texto e mantido vivo só onde é PREENCHIMENTO com texto
+     escuro por cima (botões), que é onde ele brilha sem prejudicar
+     a leitura. */
+  /* #4E7A08 dá 4,96:1 sobre o fundo — passa no mínimo de 4,5:1 para
+     texto. O #6FA80F que eu tinha escolhido antes dava só 2,8:1:
+     bonito, mas ilegível em número e link, que é justamente onde
+     este token é usado. Medido, não estimado. */
+  --lima:#4E7A08;           /* acento legível sobre claro */
+  --lima-esc:#3D5E05;       /* hover / pressionado */
+  --lima-claro:#8FCE1C;     /* preenchimento de botão e realce */
+  --lima-vivo:#9FE31A;      /* o lima da marca, para blocos e ícones */
+  --lima-glow:rgba(111,168,15,.28);
+  --lima-wash:rgba(143,206,28,.16);
+  --lima-wash-2:rgba(143,206,28,.08);
+
+  /* ---------- tinta ----------
+     Azul-marinho do logo. Usar o azul da marca em vez de cinza
+     neutro é o que mantém a página reconhecível como CFC Academy
+     agora que o fundo preto saiu. */
+  --branco:#22344A;         /* texto principal */
+  --cinza:#5B6B7C;          /* texto secundário */
+  --cinza-esc:#8494A3;      /* texto terciário, legendas */
+  --marinho:#2C4159;        /* azul do logo, para títulos */
 
   /* ---------- linhas ---------- */
-  --linha:rgba(159,227,26,.16);
-  --linha-fraca:rgba(159,227,26,.08);
-  --linha-neutra:rgba(243,247,240,.10);
+  --linha:rgba(44,65,89,.14);
+  --linha-fraca:rgba(44,65,89,.07);
+  --linha-neutra:rgba(44,65,89,.10);
 
-  /* ---------- semânticos ---------- *
-     Regra: lima é reservado a "aberto/ativo". Os demais estados
-     usam âmbar/vermelho/cinza para não competir com o acento. */
-  --ok:#9FE31A;             /* inscrições abertas */
-  --ok-wash:rgba(159,227,26,.12);
-  --warn:#E3B341;           /* encerrando / previsto */
-  --warn-wash:rgba(227,179,65,.14);
-  --crit:#EF6A6A;           /* encerrado */
-  --crit-wash:rgba(239,106,106,.13);
-  --info:#5BC8E3;           /* banca definida / andamento */
-  --info-wash:rgba(91,200,227,.13);
+  /* ---------- semânticos ----------
+     Regra mantida do tema escuro: o acento é reservado a
+     "aberto/ativo"; os demais estados usam âmbar/vermelho/azul
+     para não competir com ele. Todos reescurecidos para o fundo
+     claro — o âmbar #E3B341 sobre branco era quase invisível. */
+  --ok:#4E7A08;             /* inscrições abertas */
+  --ok-wash:rgba(111,168,15,.14);
+  --warn:#B57A0B;           /* encerrando / previsto */
+  --warn-wash:rgba(181,122,11,.13);
+  --crit:#C0392B;           /* encerrado */
+  --crit-wash:rgba(192,57,43,.10);
+  --info:#1F7A99;           /* banca definida / andamento */
+  --info-wash:rgba(31,122,153,.11);
 
   /* ---------- tipografia ---------- */
   --display:'Archivo',ui-sans-serif,system-ui,sans-serif;
@@ -70,9 +91,11 @@
   --r-xs:6px; --r-sm:10px; --r:14px; --r-lg:20px; --r-pill:999px;
 
   /* ---------- sombra ---------- */
-  --sombra-1:0 2px 8px rgba(0,0,0,.4);
-  --sombra-2:0 12px 40px -12px rgba(0,0,0,.7);
-  --sombra-3:0 40px 90px rgba(0,0,0,.55);
+  /* Sombra azulada e suave: a preta densa do tema escuro vira
+     sujeira sobre fundo claro. */
+  --sombra-1:0 1px 3px rgba(44,65,89,.10);
+  --sombra-2:0 8px 28px -10px rgba(44,65,89,.20);
+  --sombra-3:0 24px 60px -16px rgba(44,65,89,.22);
   --sombra-lima:0 14px 34px rgba(159,227,26,.28);
 
   /* ---------- layout ---------- */
