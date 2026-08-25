@@ -1101,22 +1101,77 @@ body.tem-demo .boas-vindas{padding-top:calc(var(--topbar-h) + var(--faixa-demo-h
 }
 
 @media (max-width:860px){
-  .hero-grid{ grid-template-columns:1fr; gap:var(--s-5) }
+  .hero-grid{ grid-template-columns:1fr; gap:0 }
 
-  /* A foto vem DEPOIS do texto e em formato largo.
-     Medido no navegador: em retrato de 330x438 ela tomava a tela
-     inteira do celular e o título ficava fora da primeira vista —
-     quem chegava via uma foto, não a promessa. Em 16:9 ela ilustra
-     sem sequestrar a dobra. */
-  .hero-foto{
-    order:1;
+  /* CELULAR: foto em formato story, com o texto SOBRE ela.
+     ------------------------------------------------------------
+     Três tentativas até chegar aqui, e vale registrar por quê:
+
+     · retrato de 330x438 tomava a tela inteira e o título ficava
+       fora da primeira vista;
+     · 16:9 espremia uma foto vertical (1365x2048) numa faixa
+       larga, e a legenda cobria o queixo do Felipe.
+
+     A foto é vertical — brigar com isso corta o rosto. Em 9:16 ela
+     cabe inteira, e o texto ocupa o terço inferior, onde só há
+     mesa e microfone. O rosto fica livre no terço superior. */
+  .hero{ padding:0 }
+  /* O container tem padding lateral global e max-width; sem zerar
+     os dois aqui, a foto ficava com 330px numa tela de 390 e
+     sobrava uma borda branca de cada lado. */
+  .hero .container{
+    padding-inline:0;
     max-width:100%;
-    margin-inline:0;
+    width:100%;
+  }
+
+  .hero-grid{ position:relative }
+
+  .hero-foto{
+    order:-1;
+    max-width:100%;
+    margin:0;
+    border:0;
+    border-radius:0;
+    box-shadow:none;
   }
   .hero-foto img{
-    aspect-ratio:16/9;
-    object-position:center 22%;
+    aspect-ratio:9/16;
+    max-height:78vh;          /* deixa o próximo bloco espiar */
+    object-position:50% 18%;  /* rosto no terço superior */
   }
+
+  /* A assinatura sai: o nome dele aparece no texto sobreposto. */
+  .hero-foto figcaption{ display:none }
+
+  /* O texto ocupa a faixa de baixo, sobre o gradiente. */
+  .hero-texto{
+    position:absolute;
+    left:0;right:0;bottom:0;
+    padding:var(--s-7) var(--s-5) var(--s-6);
+    background:linear-gradient(to top,
+      rgba(18,28,40,.97) 0%,
+      rgba(18,28,40,.92) 46%,
+      rgba(18,28,40,.55) 76%,
+      rgba(18,28,40,0) 100%);
+  }
+
+  .hero-texto .eyebrow{ color:var(--lima-vivo) }
+  .hero-texto h1{
+    color:#fff;
+    font-size:clamp(1.9rem,7.4vw,2.5rem);
+    margin:var(--s-3) 0 var(--s-4);
+  }
+  .hero-texto .lead{
+    color:rgba(255,255,255,.9);
+    font-size:1rem;
+    margin-bottom:0;
+  }
+
+  /* O parágrafo de apoio some no celular: sobre a foto ele
+     empurraria o gradiente até o rosto. O essencial já está no
+     título e no subtítulo. */
+  .hero-apoio{ display:none }
 }
 
 /* ============================================================
@@ -1208,7 +1263,6 @@ body.tem-demo .boas-vindas{padding-top:calc(var(--topbar-h) + var(--faixa-demo-h
 @media (max-width:640px){
   /* A foto do hero não pode ocupar meia tela: o título e a
      promessa precisam aparecer sem rolagem. */
-  .hero-foto figcaption{ padding:var(--s-4) var(--s-3) var(--s-2) }
 
   /* O rótulo sobre o estado cresce junto com o SVG reduzido —
      senão o número vira um borrão de 4px. */
@@ -1309,8 +1363,14 @@ body.tem-demo .boas-vindas{padding-top:calc(var(--topbar-h) + var(--faixa-demo-h
    ============================================================ */
 
 /* A foto ocupava 447x594 e empurrava a promessa para fora da
-   primeira tela. O rosto continua reconhecível bem menor. */
-.hero-foto{ max-width:330px; margin-left:auto }
+   primeira tela. O rosto continua reconhecível bem menor.
+
+   DENTRO da media query: sem isso a regra vinha depois do bloco de
+   mobile e vencia por ordem, prendendo a foto do celular em 330px
+   quando ela deve sangrar até a borda. */
+@media (min-width:861px){
+  .hero-foto{ max-width:330px; margin-left:auto }
+}
 
 /* O cartão da lista tinha 5 linhas de rótulo em caixa alta, o
    que fazia cada edital ocupar ~240px de altura. Compactando
