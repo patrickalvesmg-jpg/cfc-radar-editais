@@ -57,13 +57,13 @@ function montarLateral(){
   a.setAttribute('aria-label',
     'Contador Concursado — curso da CFC Academy para concursos contábeis');
 
+  // A arte já diz o nome do curso e da marca. Repetir tudo embaixo
+  // dela dobrava a informação e ocupava o dobro da altura — o texto
+  // aqui é só o que a imagem NÃO diz: o convite.
   a.innerHTML = `
-    <img src="assets/img/anuncio-ccc.jpg" alt="" loading="lazy"
+    <img src="assets/img/anuncio-ccc.svg" alt="" loading="lazy"
          onerror="this.remove()">
     <div class="anuncio-lateral-txt">
-      <span class="eyebrow">CFC Academy</span>
-      <strong>Contador Concursado</strong>
-      <p>A preparação completa para concursos da área contábil.</p>
       <span class="btn btn-lima btn-sm btn-block">Começar a estudar</span>
     </div>`;
 

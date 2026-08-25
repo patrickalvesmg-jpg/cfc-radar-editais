@@ -1420,11 +1420,18 @@ body.tem-demo .boas-vindas{padding-top:calc(var(--topbar-h) + var(--faixa-demo-h
   }
 }
 
-/* Em telas largas mas não largas o bastante para caber o banner
-   sem encostar no conteúdo, ele some — melhor não anunciar que
-   anunciar por cima do texto. */
+/* A faixa 1101–1340px era um BURACO: o banner sumia e o cartão de
+   rodapé também não aparecia (ele só existe até 1100px). Notebook
+   de 1280px — tamanho comuníssimo — ficava sem anúncio nenhum.
+
+   Em vez de esconder, o banner ENCOLHE nessa faixa. Continua
+   visível, sem encostar no conteúdo. */
 @media (min-width:1101px) and (max-width:1340px){
-  .anuncio-lateral{ display:none }
+  .anuncio-lateral{
+    width:150px;
+    left:var(--s-2);
+  }
+  .anuncio-lateral-txt{ padding:var(--s-3) }
 }
 
 .anuncio-lateral img{ width:100%;height:auto;display:block }

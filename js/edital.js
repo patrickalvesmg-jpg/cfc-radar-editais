@@ -152,14 +152,14 @@ function render(e){
         </div>
 
         <!-- Espaço do anúncio do curso.
-             A arte definitiva entra em assets/img/anuncio-ccc.jpg —
+             A arte definitiva entra em assets/img/anuncio-ccc.svg —
              basta trocar o arquivo, o link e o layout já estão prontos.
              Enquanto ela não existe, o bloco de texto abaixo ocupa o
              lugar: melhor um convite honesto que um retângulo vazio. -->
         <a class="card anuncio-curso" href="https://cfcacademy.com.br/ccc/"
            target="_blank" rel="noopener"
            aria-label="Conheça o curso da CFC Academy para concursos contábeis">
-          <img src="assets/img/anuncio-ccc.jpg" alt="" loading="lazy"
+          <img src="assets/img/anuncio-ccc.svg" alt="" loading="lazy"
                onerror="this.remove()">
           <div class="anuncio-texto">
             <span class="eyebrow">CFC Academy</span>
