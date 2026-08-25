@@ -4,6 +4,8 @@
    Compartilhado entre a landing (index) e a plataforma (app).
    ============================================================ */
 
+import { ehNovo } from './novidades.js';
+
 export const STATUS = {
   aberto:     { rot:'Inscrições abertas', classe:'badge-ok' },
   encerrando: { rot:'Encerrando',         classe:'badge-warn' },
@@ -151,6 +153,7 @@ export function cardEdital(e, { favorito = false, interativo = true } = {}){
   <article class="edital up" data-status="${esc(e.status)}">
     <div class="edital-main">
       <div class="edital-topo">
+        ${ehNovo(e) ? '<span class="badge badge-novo">Novo</span>' : ''}
         <span class="badge ${st.classe}">${st.rot}</span>
         <span class="badge badge-neutro">${ESFERA[e.nivel] || esc(e.nivel)}</span>
         ${e.confianca === 'baixa' ? '<span class="badge badge-warn">A confirmar</span>' : ''}

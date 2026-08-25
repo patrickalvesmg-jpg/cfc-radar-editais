@@ -40,9 +40,7 @@
 
     <nav class="nav" id="nav" aria-label="Navegação principal">
       <a href="#painel" aria-current="page">Editais</a>
-      <a href="#mapa">Mapa</a>
-      <a href="#agenda">Agenda de provas</a>
-      <a href="#como">Como funciona</a>
+      <a href="#mapa">Mapa e filtros</a>
       
     </nav>
 
@@ -180,32 +178,7 @@
   <!-- ============================================================
        COMO FUNCIONA
        ============================================================ -->
-  <section class="blk" id="como" style="background:var(--preto-2);border-block:1px solid var(--linha)">
-    <div class="container">
-      <div class="blk-head">
-        <span class="eyebrow">O motor por trás</span>
-        <h2>Você não procura. A plataforma encontra.</h2>
-        <p>Três etapas rodando sem parar, para que nenhum edital de contabilidade passe despercebido.</p>
-      </div>
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:var(--s-4)">
-        <article class="card up" style="padding:var(--s-5)">
-          <div class="mono" style="color:var(--lima);font-size:var(--t-xs);margin-bottom:var(--s-3)">01</div>
-          <h3 style="margin-bottom:var(--s-3)">Varre as fontes</h3>
-          <p style="color:var(--cinza);font-size:var(--t-sm)">Diários oficiais da União, dos estados e dos municípios, mais os portais das principais bancas — verificados várias vezes ao dia.</p>
-        </article>
-        <article class="card up" style="padding:var(--s-5)">
-          <div class="mono" style="color:var(--lima);font-size:var(--t-xs);margin-bottom:var(--s-3)">02</div>
-          <h3 style="margin-bottom:var(--s-3)">Filtra o que é seu</h3>
-          <p style="color:var(--cinza);font-size:var(--t-sm)">Só entra no radar o que exige formação ou atuação contábil: contador, auditor, analista de controle, fiscal de tributos.</p>
-        </article>
-        <article class="card up" style="padding:var(--s-5)">
-          <div class="mono" style="color:var(--lima);font-size:var(--t-xs);margin-bottom:var(--s-3)">03</div>
-          <h3 style="margin-bottom:var(--s-3)">Organiza e avisa</h3>
-          <p style="color:var(--cinza);font-size:var(--t-sm)">Salário, vagas, banca e prazo padronizados no mesmo formato. Você acompanha o que interessa e recebe aviso quando abrir.</p>
-        </article>
-      </div>
-    </div>
-  </section>
+  
 
   <!-- ============================================================
        MAPA INTERATIVO
@@ -232,6 +205,10 @@
         </div>
 
         <div class="mapa-lado">
+          <!-- Aparece só quando há novidade desde a última visita.
+               O JS o esconde sozinho no resto do tempo. -->
+          <p class="novidades-aviso" id="novidades-aviso" hidden></p>
+
           <div class="mapa-cabeca">
             <h3 id="mapa-titulo">Brasil</h3>
             <button class="btn btn-ghost btn-sm" id="mapa-limpar" hidden>Ver todo o Brasil</button>
@@ -245,16 +222,7 @@
   <!-- ============================================================
        AGENDA
        ============================================================ -->
-  <section class="blk" id="agenda">
-    <div class="container">
-      <div class="blk-head">
-        <span class="eyebrow">Calendário</span>
-        <h2>As próximas provas</h2>
-        <p>Quando cada concurso do radar vai aplicar prova — para você planejar o estudo com antecedência.</p>
-      </div>
-      <div class="lista" id="agenda-lista"></div>
-    </div>
-  </section>
+  
 
   <!-- ============================================================
        CTA — ponte para o curso
@@ -292,8 +260,6 @@
         <h4>Plataforma</h4>
         <ul>
           <li><a href="#painel">Editais</a></li>
-          <li><a href="#agenda">Agenda de provas</a></li>
-          <li><a href="#como">Como funciona</a></li>
         </ul>
       </div>
       <div>

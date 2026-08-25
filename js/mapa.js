@@ -11,6 +11,7 @@
    ============================================================ */
 
 import { brl, dataBR, diasAte, esc, ESFERA } from './comum.js';
+import { ehNovo, mostrarAviso } from './novidades.js';
 
 const UFS_NOME = {
   AC:'Acre', AL:'Alagoas', AM:'Amazonas', AP:'Amapá', BA:'Bahia',
@@ -164,6 +165,11 @@ function renderTabela(){
   const limpar = document.getElementById('mapa-limpar');
   if(limpar) limpar.hidden = !ufAtiva;
 
+  // O contador acompanha o filtro: se a pessoa escolheu um estado,
+  // ele conta as novidades DAQUELE estado. Dizer "12 novos" e mostrar
+  // uma lista de 2 seria contradição na mesma tela.
+  mostrarAviso(lista, document.getElementById('novidades-aviso'));
+
   if(!lista.length){
     alvo.innerHTML = `
       <p class="mapa-vazio">
@@ -235,9 +241,10 @@ function linha(e){
   const local = [e.cidade, e.uf].filter(Boolean).join('/');
 
   return `
-    <tr>
+    <tr${ehNovo(e) ? ' data-novo="true"' : ''}>
       <td>
         <a class="cargo" href="${esc(e.editalUrl)}">${esc(e.cargo)}</a>
+        ${ehNovo(e) ? '<span class="selo-novo">Novo</span>' : ''}
         <span class="orgao">${esc(e.orgao)}</span>
       </td>
       <td data-rot="Local">${esc(local) || '—'}<span class="esfera">${ESFERA[e.nivel] || ''}</span></td>

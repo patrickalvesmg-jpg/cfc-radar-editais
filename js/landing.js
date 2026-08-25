@@ -10,6 +10,8 @@ import {
 
 import { logado, LIMITE_GRATIS } from './sessao.js';
 import { montarMapa } from './mapa.js';
+import { marcarVisita } from './novidades.js';
+import { ligarAnuncios } from './anuncio.js';
 
 /**
  * Quem já tem sessão não deveria estar vendo o paywall.
@@ -137,6 +139,11 @@ async function iniciar(){
 
   ajustarParaLogado();
   observar();
+
+  // Por último: registrar a visita antes daqui apagaria a referência
+  // que o selo "Novo" usa para comparar, e nada seria marcado.
+  marcarVisita();
+  ligarAnuncios();
 }
 
 iniciar();

@@ -11,6 +11,8 @@ import {
 
 import { exigirLogin, usuario, sair } from './sessao.js';
 import { montarMapa } from './mapa.js';
+import { marcarVisita } from './novidades.js';
+import { ligarAnuncios } from './anuncio.js';
 
 /* Barreira de acesso. exigirLogin() já dispara o redirecionamento; aqui só
    evitamos montar a página enquanto o navegador troca de URL. O boot fica
@@ -40,7 +42,13 @@ function salvarFavoritos(){
   catch{ /* modo privado — favoritos ficam só nesta sessão */ }
 }
 
+/** Quantos cards a lista mostra por vez. Sem limite, os 127
+ *  editais davam 34 mil pixels de altura — ninguém rola até o fim,
+ *  e os filtros lá em cima somem da vista. */
+const POR_PAGINA = 24;
+
 const estado = {
+  mostrando: POR_PAGINA,
   editais: [],
   status: 'todos',
   busca: '',
@@ -114,9 +122,20 @@ function render(){
   const lista = ordenar(filtrar());
   const el = document.getElementById('lista');
 
+  const visiveis = lista.slice(0, estado.mostrando);
   el.innerHTML = lista.length
-    ? lista.map(e => cardEdital(e, { favorito: estado.favoritos.has(e.id) })).join('')
+    ? visiveis.map(e => cardEdital(e, { favorito: estado.favoritos.has(e.id) })).join('')
+      + (lista.length > estado.mostrando ? `
+        <button type="button" class="btn btn-ghost btn-block ver-mais" id="ver-mais-app">
+          Ver mais ${Math.min(POR_PAGINA, lista.length - estado.mostrando)}
+          de ${lista.length - estado.mostrando} restantes
+        </button>` : '')
     : vazio();
+
+  document.getElementById('ver-mais-app')?.addEventListener('click', () => {
+    estado.mostrando += POR_PAGINA;
+    render();
+  });
 
   const resumo = document.getElementById('resumo');
   resumo.textContent = lista.length
@@ -154,42 +173,6 @@ function atualizarContagens(){
     aba.querySelector('.cont').textContent = filtrar().length;
   });
   estado.status = statusReal;
-}
-
-/* ---------------- agenda de provas ---------------- */
-
-function renderAgenda(){
-  const comProva = estado.editais
-    .filter(e => e.dataProva && diasAte(e.dataProva) >= 0)
-    .sort((a,b) => new Date(a.dataProva) - new Date(b.dataProva))
-    .slice(0,5);
-
-  const el = document.getElementById('agenda-lista');
-  if(!comProva.length){
-    el.innerHTML = `<p style="color:var(--cinza)">Nenhuma prova agendada no radar no momento.</p>`;
-    return;
-  }
-
-  el.innerHTML = comProva.map(e => {
-    const d = diasAte(e.dataProva);
-    return `
-    <article class="edital up" data-status="${esc(e.status)}">
-      <div class="edital-main">
-        <div class="edital-topo">
-          <span class="badge badge-info">${dataBR(e.dataProva)}</span>
-        </div>
-        <h3>${esc(e.cargo)}</h3>
-        <p class="orgao">${esc(e.orgao)}</p>
-        <div class="edital-meta">
-          <span class="item"><b>${esc(e.cidade)}</b>/${esc(e.uf)}</span>
-          <span class="item">Banca <b>${esc(e.banca)}</b></span>
-        </div>
-      </div>
-      <div class="edital-lado">
-        <div class="prazo"><b>${d} ${d === 1 ? 'dia' : 'dias'}</b>para a prova</div>
-      </div>
-    </article>`;
-  }).join('');
 }
 
 /* ---------------- popular selects de filtro ---------------- */
@@ -259,11 +242,11 @@ function ligarEventos(){
   let t;
   document.getElementById('busca').addEventListener('input', ev => {
     clearTimeout(t);
-    t = setTimeout(() => { estado.busca = ev.target.value; render(); }, 180);
+    t = setTimeout(() => { estado.mostrando = POR_PAGINA; estado.busca = ev.target.value; render(); }, 180);
   });
 
   document.getElementById('ordem').addEventListener('change', ev => {
-    estado.ordem = ev.target.value; render();
+    estado.mostrando = POR_PAGINA; estado.ordem = ev.target.value; render();
   });
 
   // abas de status
@@ -271,7 +254,7 @@ function ligarEventos(){
     aba.addEventListener('click', () => {
       document.querySelectorAll('.aba').forEach(a => a.setAttribute('aria-selected','false'));
       aba.setAttribute('aria-selected','true');
-      estado.status = aba.dataset.status;
+      estado.mostrando = POR_PAGINA; estado.status = aba.dataset.status;
       render();
     });
   });
@@ -305,7 +288,7 @@ function ligarEventos(){
 
     if(ev.target.closest('#limpar-tudo')){
       Object.keys(estado.filtros).forEach(k => estado.filtros[k] = '');
-      estado.busca = '';
+      estado.mostrando = POR_PAGINA; estado.busca = '';
       document.getElementById('busca').value = '';
       document.querySelectorAll('[data-filtro]').forEach(s => s.value = '');
       render();
@@ -372,12 +355,26 @@ async function iniciar(){
   observarBarra();
   renderStats(estado.editais);
   renderFeed(estado.editais);
-  renderAgenda();
   render();
 
-  // Mapa monta uma vez, com o acervo completo: ele é uma forma
-  // alternativa de navegar, não deve refletir os filtros da lista.
-  montarMapa(estado.editais);
+  // O mapa FILTRA a lista (pedido do Patrick, ago/2026): clicar num
+  // estado é a forma mais direta de achar concurso perto de casa, e
+  // ter mapa e lista independentes fazia a pessoa filtrar duas vezes.
+  montarMapa(estado.editais, {
+    onFiltrar: uf => {
+      estado.filtros.uf = uf || '';
+      estado.mostrando = POR_PAGINA;
+      render();
+      // Leva a pessoa até a lista: o mapa fica acima dela, e sem isto
+      // o clique parece não ter feito nada em tela pequena.
+      document.getElementById('painel')?.scrollIntoView({ behavior:'smooth' });
+    },
+  });
+
+  // Por último: registrar antes daqui apagaria a referência que o
+  // selo "Novo" usa para comparar, e nada seria marcado.
+  marcarVisita();
+  ligarAnuncios();
 }
 
 if(TEM_SESSAO) iniciar();

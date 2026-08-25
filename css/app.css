@@ -1334,3 +1334,147 @@ body.tem-demo .boas-vindas{padding-top:calc(var(--topbar-h) + var(--faixa-demo-h
   display:flex;align-items:center;justify-content:space-between;
   gap:var(--s-3);margin-bottom:var(--s-3);flex-wrap:wrap;
 }
+
+/* ============================================================
+   NOVIDADES DESDE A ÚLTIMA VISITA
+   ------------------------------------------------------------
+   O radar traz dezenas de editais por varredura. Sem sinalizar o
+   que mudou, quem acompanha precisa reler a lista inteira — e
+   desiste. O selo responde "isto é novo para VOCÊ", não "isto é
+   recente no site".
+   ============================================================ */
+
+.novidades-aviso{
+  display:flex;align-items:center;gap:var(--s-3);
+  margin:0 0 var(--s-4);
+  padding:var(--s-3) var(--s-4);
+  background:var(--lima-wash);
+  border:1px solid var(--lima);
+  border-radius:var(--r-sm);
+  color:var(--branco);
+  font-size:var(--t-sm);
+}
+.novidades-aviso[hidden]{ display:none }
+
+.novidades-n{
+  font-family:var(--display);
+  font-size:1.35rem;font-weight:800;
+  color:var(--lima);line-height:1;
+}
+.novidades-txt b{ color:var(--cinza);font-weight:500 }
+
+/* Selo no card e na lista */
+.badge-novo{
+  background:var(--lima);
+  color:var(--tinta-sobre-acento);
+  font-weight:800;letter-spacing:.06em;
+}
+
+.selo-novo{
+  display:inline-block;
+  margin-left:var(--s-2);
+  padding:1px 7px;
+  border-radius:var(--r-pill);
+  background:var(--lima);
+  color:var(--tinta-sobre-acento);
+  font-size:9px;font-weight:800;
+  letter-spacing:.08em;text-transform:uppercase;
+  vertical-align:middle;
+}
+
+/* Faixa lateral na linha nova: dá para varrer a lista com o olho
+   sem ler selo por selo. */
+.tabela-editais tr[data-novo="true"]{
+  box-shadow:inset 3px 0 0 var(--lima);
+}
+
+/* ============================================================
+   ANÚNCIO DO CURSO — lateral e rodapé
+   ============================================================ */
+
+/* Lateral: só aparece quando há espaço ocioso de verdade. Abaixo
+   de 1100px a coluna roubaria largura do conteúdo. */
+.anuncio-lateral{ display:none }
+
+@media (min-width:1101px){
+  .anuncio-lateral{
+    display:block;
+    position:fixed;
+    left:var(--s-4);
+    top:50%;
+    transform:translateY(-50%);
+    width:190px;
+    z-index:60;
+    background:var(--carvao);
+    border:1px solid var(--linha);
+    border-radius:var(--r);
+    overflow:hidden;
+    text-decoration:none;
+    box-shadow:var(--sombra-2);
+    transition:transform .2s ease, box-shadow .2s ease;
+  }
+  .anuncio-lateral:hover{
+    transform:translateY(-50%) translateX(2px);
+    box-shadow:var(--sombra-3);
+    border-color:var(--lima);
+  }
+}
+
+/* Em telas largas mas não largas o bastante para caber o banner
+   sem encostar no conteúdo, ele some — melhor não anunciar que
+   anunciar por cima do texto. */
+@media (min-width:1101px) and (max-width:1340px){
+  .anuncio-lateral{ display:none }
+}
+
+.anuncio-lateral img{ width:100%;height:auto;display:block }
+.anuncio-lateral-txt{ padding:var(--s-4) }
+.anuncio-lateral-txt strong{
+  display:block;font-family:var(--display);
+  font-size:1.02rem;color:var(--branco);margin:var(--s-2) 0;
+}
+.anuncio-lateral-txt p{
+  color:var(--cinza);font-size:var(--t-xs);
+  line-height:1.5;margin-bottom:var(--s-3);
+}
+
+/* Rodapé (celular): empurra o conteúdo, não cobre. */
+.anuncio-rodape{
+  position:fixed;
+  left:var(--s-3); right:var(--s-3); bottom:var(--s-3);
+  z-index:70;
+  display:flex;align-items:center;gap:var(--s-2);
+  background:var(--carvao);
+  border:1px solid var(--lima);
+  border-radius:var(--r);
+  box-shadow:var(--sombra-3);
+  padding:var(--s-3);
+  transform:translateY(140%);
+  transition:transform .3s cubic-bezier(.4,0,.2,1);
+}
+.anuncio-rodape.visivel{ transform:translateY(0) }
+
+.anuncio-rodape-link{
+  flex:1;display:flex;align-items:center;gap:var(--s-3);
+  justify-content:space-between;text-decoration:none;
+}
+.anuncio-rodape strong{
+  display:block;font-size:var(--t-sm);color:var(--branco);
+}
+.anuncio-rodape span:not(.btn){
+  display:block;font-size:var(--t-micro);color:var(--cinza);
+  line-height:1.4;
+}
+
+.anuncio-fechar{
+  flex-shrink:0;
+  width:28px;height:28px;
+  border:0;border-radius:50%;
+  background:var(--carvao-3);color:var(--cinza);
+  cursor:pointer;font-size:14px;line-height:1;
+}
+.anuncio-fechar:hover{ background:var(--carvao-2);color:var(--branco) }
+
+@media (min-width:1101px){
+  .anuncio-rodape{ display:none }
+}
