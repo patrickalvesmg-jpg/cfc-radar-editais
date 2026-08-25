@@ -66,8 +66,7 @@
   background:var(--lima-wash-2);
 }
 .pulso i{
-  width:7px;height:7px;border-radius:50%;background:var(--lima);
-  box-shadow:0 0 10px var(--lima-glow);animation:blink 1.5s infinite;
+  width:7px;height:7px;border-radius:50%;background:var(--lima);animation:blink 1.5s infinite;
 }
 .pulso b{color:var(--lima);font-variant-numeric:tabular-nums}
 
@@ -113,7 +112,7 @@ body.tem-demo .boas-vindas{padding-top:calc(var(--topbar-h) + var(--faixa-demo-h
 .hero{
   position:relative;overflow:hidden;
   padding:calc(var(--topbar-h) + var(--s-9)) 0 var(--s-9);
-  background:radial-gradient(900px 520px at 78% -8%,rgba(159,227,26,.15),transparent 62%),var(--preto);
+  background:radial-gradient(900px 520px at 78% -8%,var(--lima-wash-2),transparent 62%),var(--preto);
 }
 .hero::before{
   content:"";position:absolute;inset:0;
@@ -123,9 +122,8 @@ body.tem-demo .boas-vindas{padding-top:calc(var(--topbar-h) + var(--faixa-demo-h
   opacity:.55;pointer-events:none;
 }
 .hero .container{position:relative;z-index:1}
-.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:var(--s-8);align-items:center}
 .hero h1{font-size:var(--t-hero);margin:var(--s-5) 0}
-.hero h1 .g{color:var(--lima);text-shadow:0 0 44px var(--lima-glow)}
+.hero h1 .g{color:var(--lima)}
 .hero .lead{font-size:1.14rem;color:var(--cinza);max-width:540px;margin-bottom:var(--s-6)}
 .hero .lead b{color:var(--branco);font-weight:600}
 .hero .acoes{display:flex;gap:var(--s-3);flex-wrap:wrap}
@@ -138,21 +136,20 @@ body.tem-demo .boas-vindas{padding-top:calc(var(--topbar-h) + var(--faixa-demo-h
 /* ---------- painel de varredura (mock do robô) ---------- */
 .scanner{
   position:relative;overflow:hidden;
-  background:linear-gradient(160deg,var(--carvao),var(--preto-2));
+  background:linear-gradient(160deg,var(--carvao),var(--carvao-2));
   border:1px solid var(--linha);border-radius:22px;
-  padding:var(--s-5);box-shadow:var(--sombra-3),inset 0 1px 0 rgba(255,255,255,.03);
+  padding:var(--s-5);box-shadow:var(--sombra-3);
 }
 .scanner::before{
   content:"";position:absolute;top:-40%;right:-20%;
   width:320px;height:320px;border-radius:50%;
-  background:radial-gradient(circle,var(--lima-glow),transparent 66%);
-  opacity:.22;filter:blur(22px);pointer-events:none;
+  background:radial-gradient(circle,var(--lima-wash),transparent 68%);
+  opacity:.5;pointer-events:none;
 }
 /* linha de varredura que atravessa o painel */
 .scanner::after{
   content:"";position:absolute;left:0;right:0;height:2px;
   background:linear-gradient(90deg,transparent,var(--lima),transparent);
-  box-shadow:0 0 18px var(--lima-glow);
   animation:varrer 3.8s var(--ease) infinite;pointer-events:none;
 }
 @keyframes varrer{
@@ -179,7 +176,7 @@ body.tem-demo .boas-vindas{padding-top:calc(var(--topbar-h) + var(--faixa-demo-h
 }
 .feed-item:first-child{border-top:0}
 @keyframes entra{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
-.feed-item .dot{width:7px;height:7px;border-radius:50%;background:var(--lima);box-shadow:0 0 8px var(--lima-glow)}
+.feed-item .dot{width:7px;height:7px;border-radius:50%;background:var(--lima)}
 .feed-item .org{color:var(--branco);font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .feed-item .org span{display:block;font-size:var(--t-micro);color:var(--cinza-esc);font-weight:400}
 .feed-item .hora{font-family:var(--mono);font-size:var(--t-micro);color:var(--cinza-esc)}
@@ -287,7 +284,7 @@ body.tem-demo .boas-vindas{padding-top:calc(var(--topbar-h) + var(--faixa-demo-h
   position:relative;overflow:hidden;
   display:grid;grid-template-columns:1fr auto;gap:var(--s-5);
   padding:var(--s-5);
-  background:linear-gradient(165deg,var(--carvao),var(--preto-2));
+  background:linear-gradient(165deg,var(--carvao),var(--carvao-2));
   border:1px solid var(--linha);border-radius:var(--r-lg);
   transition:border-color var(--dur-2),transform var(--dur-2) var(--ease),box-shadow var(--dur-2);
 }
@@ -296,7 +293,7 @@ body.tem-demo .boas-vindas{padding-top:calc(var(--topbar-h) + var(--faixa-demo-h
   content:"";position:absolute;left:0;top:0;bottom:0;width:3px;
   background:var(--cinza-esc);transition:box-shadow var(--dur-2);
 }
-.edital[data-status="aberto"]::before{background:var(--ok);box-shadow:0 0 16px var(--lima-glow)}
+.edital[data-status="aberto"]::before{background:var(--ok)}
 .edital[data-status="encerrando"]::before{background:var(--warn);box-shadow:0 0 16px rgba(227,179,65,.5)}
 .edital[data-status="previsto"]::before{background:var(--info)}
 .edital[data-status="encerrado"]::before{background:var(--crit)}
@@ -363,7 +360,7 @@ body.tem-demo .boas-vindas{padding-top:calc(var(--topbar-h) + var(--faixa-demo-h
 /* degradê que funde os cards borrados no fundo da página */
 .trancado::after{
   content:"";position:absolute;inset:0;
-  background:linear-gradient(180deg,transparent,var(--preto) 82%);
+  background:linear-gradient(180deg,transparent,var(--preto) 88%);
   pointer-events:none;
 }
 
@@ -371,15 +368,14 @@ body.tem-demo .boas-vindas{padding-top:calc(var(--topbar-h) + var(--faixa-demo-h
   position:absolute;left:50%;bottom:var(--s-7);transform:translateX(-50%);
   z-index:2;width:min(100% - 32px,520px);text-align:center;
   padding:var(--s-6) var(--s-5);
-  background:linear-gradient(150deg,rgba(159,227,26,.16),var(--carvao) 60%);
+  background:linear-gradient(150deg,var(--lima-wash),var(--carvao) 60%);
   border:1px solid rgba(159,227,26,.34);border-radius:var(--r-lg);
   box-shadow:var(--sombra-3);
 }
 .paywall .cadeado{
   width:52px;height:52px;margin:0 auto var(--s-4);
   display:grid;place-items:center;border-radius:50%;
-  background:var(--lima);color:var(--preto);
-  box-shadow:0 0 28px var(--lima-glow);
+  background:var(--lima);color:var(--tinta-sobre-acento);
 }
 .paywall .cadeado svg{width:24px;height:24px;stroke:currentColor;fill:none;stroke-width:2.2}
 .paywall h3{font-size:1.35rem;margin-bottom:var(--s-3)}
@@ -418,7 +414,7 @@ body.tem-demo .boas-vindas{padding-top:calc(var(--topbar-h) + var(--faixa-demo-h
 .auth-lado{
   position:relative;overflow:hidden;padding:var(--s-9) var(--s-7);
   display:flex;flex-direction:column;justify-content:center;
-  background:radial-gradient(700px 500px at 30% 10%,rgba(159,227,26,.14),transparent 62%),var(--preto-2);
+  background:radial-gradient(700px 500px at 30% 10%,var(--lima-wash-2),transparent 62%),var(--preto-2);
   border-right:1px solid var(--linha);
 }
 .auth-lado::before{
@@ -511,7 +507,7 @@ body.tem-demo .boas-vindas{padding-top:calc(var(--topbar-h) + var(--faixa-demo-h
 .avatar{
   width:29px;height:29px;border-radius:50%;flex-shrink:0;
   display:grid;place-items:center;
-  background:var(--lima);color:var(--preto);
+  background:var(--lima);color:var(--tinta-sobre-acento);
   font-family:var(--display);font-weight:900;font-size:var(--t-xs);
 }
 .conta-btn .nome{font-size:var(--t-xs);font-weight:600;color:var(--branco)}
@@ -572,7 +568,7 @@ body.tem-demo .boas-vindas{padding-top:calc(var(--topbar-h) + var(--faixa-demo-h
 
 .destaque-salario{
   padding:var(--s-6) var(--s-5);text-align:center;
-  background:linear-gradient(160deg,var(--carvao),var(--preto-2));
+  background:linear-gradient(160deg,var(--carvao),var(--carvao-2));
   border-color:rgba(159,227,26,.28);
 }
 .destaque-salario .rot{
@@ -583,7 +579,6 @@ body.tem-demo .boas-vindas{padding-top:calc(var(--topbar-h) + var(--faixa-demo-h
   font-family:var(--display);font-weight:900;
   font-size:clamp(1.9rem,3.4vw,2.5rem);color:var(--lima);
   line-height:1;font-variant-numeric:tabular-nums;
-  text-shadow:0 0 34px var(--lima-glow);
 }
 .destaque-salario .obs{
   font-size:var(--t-micro);color:var(--cinza-esc);
@@ -663,7 +658,6 @@ body.tem-demo .boas-vindas{padding-top:calc(var(--topbar-h) + var(--faixa-demo-h
    RESPONSIVO
    ============================================================ */
 @media (max-width:960px){
-  .hero-grid{grid-template-columns:1fr;gap:var(--s-7)}
   .hero .lead{max-width:none}
   .rodape-grid{grid-template-columns:1fr 1fr;gap:var(--s-6)}
   .strip .container{grid-template-columns:repeat(2,1fr);gap:var(--s-6)}
@@ -743,25 +737,28 @@ body.tem-demo .boas-vindas{padding-top:calc(var(--topbar-h) + var(--faixa-demo-h
    gradiente contínuo — com poucos editais por estado, uma escala
    contínua faria 1 e 2 parecerem a mesma cor. */
 #mapa-svg path,#mapa-svg polygon{
-  fill:var(--carvao-2);
-  stroke:var(--preto);
+  fill:#EAEFE6;
+  stroke:var(--traco);
   stroke-width:.8;
   transition:fill var(--dur-1),filter var(--dur-1);
 }
-#mapa-svg [data-faixa="1"]{fill:rgba(159,227,26,.22)}
-#mapa-svg [data-faixa="2"]{fill:rgba(159,227,26,.42)}
-#mapa-svg [data-faixa="3"]{fill:rgba(159,227,26,.66)}
-#mapa-svg [data-faixa="4"]{fill:var(--lima)}
+/* Escala de verdes OPACOS, não o acento com transparência.
+   Sobre fundo escuro, 22% de opacidade já se via; sobre claro o
+   estado com 1 edital ficava idêntico ao estado sem nenhum.
+   Cada degrau abaixo é visivelmente distinto do anterior. */
+#mapa-svg [data-faixa="0"]{fill:#EAEFE6}
+#mapa-svg [data-faixa="1"]{fill:#C2DE8E}
+#mapa-svg [data-faixa="2"]{fill:#93C43F}
+#mapa-svg [data-faixa="3"]{fill:#5F9410}
+#mapa-svg [data-faixa="4"]{fill:#3D5E05}
 
 #mapa-svg [data-uf]:not(.vazio){cursor:pointer}
 #mapa-svg [data-uf]:not(.vazio):hover{
   fill:var(--lima-claro);
-  filter:drop-shadow(0 0 10px var(--lima-glow));
 }
 #mapa-svg [data-uf].ativo{
   fill:var(--lima);
   stroke:var(--branco);stroke-width:1.6;
-  filter:drop-shadow(0 0 16px var(--lima-glow));
 }
 #mapa-svg [data-uf]:focus-visible{outline:2px solid var(--lima);outline-offset:2px}
 
@@ -774,11 +771,13 @@ body.tem-demo .boas-vindas{padding-top:calc(var(--topbar-h) + var(--faixa-demo-h
   width:16px;height:10px;border-radius:2px;display:block;
   border:1px solid var(--linha);
 }
-.mapa-legenda i.f0{background:var(--carvao-2)}
-.mapa-legenda i.f1{background:rgba(159,227,26,.22)}
-.mapa-legenda i.f2{background:rgba(159,227,26,.42)}
-.mapa-legenda i.f3{background:rgba(159,227,26,.66)}
-.mapa-legenda i.f4{background:var(--lima)}
+/* Exatamente as mesmas cores das faixas do mapa. Se divergirem, a
+   legenda passa a mentir sobre o que o mapa mostra. */
+.mapa-legenda i.f0{background:#EAEFE6}
+.mapa-legenda i.f1{background:#C2DE8E}
+.mapa-legenda i.f2{background:#93C43F}
+.mapa-legenda i.f3{background:#5F9410}
+.mapa-legenda i.f4{background:#3D5E05}
 
 .mapa-cabeca{
   display:flex;align-items:center;justify-content:space-between;
@@ -842,6 +841,12 @@ body.tem-demo .boas-vindas{padding-top:calc(var(--topbar-h) + var(--faixa-demo-h
 
 @media (max-width:920px){
   .mapa-bloco{grid-template-columns:1fr}
+
+  /* DESLIGA o sticky. Em coluna única o mapa grudaria no topo e
+     comeria metade da tela enquanto a lista rola por baixo — o
+     contrário do que o sticky resolve no desktop, onde mapa e
+     lista estão lado a lado. */
+  .mapa-coluna{position:static}
   /* min-width:0 é obrigatório: item de grid tem min-width auto por
      padrão e não encolhe abaixo do conteúdo, o que empurrava a coluna
      para fora da tela em viewport menor que o max-width. */
@@ -886,8 +891,7 @@ body.tem-demo .boas-vindas{padding-top:calc(var(--topbar-h) + var(--faixa-demo-h
 }
 .chip-uf:hover{color:var(--branco);border-color:var(--linha-neutra)}
 .chip-uf.ativo{
-  color:var(--preto);background:var(--lima);border-color:var(--lima);
-  box-shadow:0 0 18px var(--lima-glow);
+  color:var(--tinta-sobre-acento);background:var(--lima);border-color:var(--lima);
 }
 .chip-uf .cont{
   font-size:var(--t-micro);font-variant-numeric:tabular-nums;
@@ -1179,3 +1183,34 @@ body.tem-demo .boas-vindas{padding-top:calc(var(--topbar-h) + var(--faixa-demo-h
 /* É um <span> com cara de botão: o link já é o cartão, e botão
    dentro de link seria alvo de clique aninhado. */
 .anuncio-curso .btn{ pointer-events:none }
+
+/* ============================================================
+   MOBILE — ajustes do tema claro
+   ============================================================ */
+
+@media (max-width:640px){
+  /* A foto do hero não pode ocupar meia tela: o título e a
+     promessa precisam aparecer sem rolagem. */
+  .hero-foto{ max-width:230px }
+  .hero-foto figcaption{ padding:var(--s-4) var(--s-3) var(--s-2) }
+
+  /* O rótulo sobre o estado cresce junto com o SVG reduzido —
+     senão o número vira um borrão de 4px. */
+  .rotulo-n{ font-size:13px }
+  .rotulo-disco{ r:9 }
+
+  /* Logo menor, sem o nome do produto ao lado. */
+  .marca-logo{ height:26px }
+
+  /* O anúncio do curso vem depois do botão de inscrição: no
+     celular a ordem da lateral vira ordem de leitura, e a
+     inscrição é o que a pessoa veio fazer. */
+  .anuncio-curso{ margin-top:var(--s-5) }
+}
+
+/* Telas muito estreitas: o mapa ainda precisa ser clicável. Um
+   estado do Sudeste com 30px é alvo pequeno demais para o dedo. */
+@media (max-width:400px){
+  .mapa-coluna{ max-width:100% }
+  .rotulo-n{ font-size:15px }
+}

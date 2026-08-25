@@ -49,6 +49,18 @@
   --cinza-esc:#8494A3;      /* texto terciário, legendas */
   --marinho:#2C4159;        /* azul do logo, para títulos */
 
+  /* ---------- papéis ----------
+     Estes existem para nada depender do nome literal da cor. O
+     `--preto` era usado como contorno de mapa e como texto sobre o
+     acento; ao virar o tema ele ficou quase branco e esses dois
+     usos sumiram da tela. Nome de papel não quebra na inversão. */
+  /* BRANCO, não escuro. No tema escuro o botão era lima claro e
+     pedia texto preto; aqui o acento escureceu para ser legível
+     como texto, e sobre ele o branco dá 5,1:1 contra 3,3:1 do
+     escuro. A regra inverteu junto com o tema. */
+  --tinta-sobre-acento:#FFFFFF;
+  --traco:#B9C6CF;               /* contorno de mapa e divisórias fortes */
+
   /* ---------- linhas ---------- */
   --linha:rgba(44,65,89,.14);
   --linha-fraca:rgba(44,65,89,.07);
