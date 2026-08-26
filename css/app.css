@@ -1506,46 +1506,32 @@ body.tem-demo .boas-vindas{padding-top:calc(var(--topbar-h) + var(--faixa-demo-h
    ANÚNCIO DO CURSO — lateral e rodapé
    ============================================================ */
 
-/* Lateral: só aparece quando há espaço ocioso de verdade. Abaixo
-   de 1100px a coluna roubaria largura do conteúdo. */
-.anuncio-lateral{ display:none }
-
-@media (min-width:1101px){
-  .anuncio-lateral{
-    display:block;
-    position:fixed;
-    left:var(--s-4);
-    top:50%;
-    transform:translateY(-50%);
-    width:190px;
-    z-index:60;
-    background:var(--carvao);
-    border:1px solid var(--linha);
-    border-radius:var(--r);
-    overflow:hidden;
-    text-decoration:none;
-    box-shadow:var(--sombra-2);
-    transition:transform .2s ease, box-shadow .2s ease;
-  }
-  .anuncio-lateral:hover{
-    transform:translateY(-50%) translateX(2px);
-    box-shadow:var(--sombra-3);
-    border-color:var(--lima);
-  }
+/* O cartão vive DENTRO da coluna do mapa, não flutuando na margem.
+   Medido: o container tem 1240px, então numa tela de 1440 sobram
+   100px de cada lado — e o banner de 190px cobria o título. Só a
+   partir de 1920px havia margem suficiente, e desenhar para a
+   exceção deixa a maioria com o site quebrado. */
+.anuncio-lateral{
+  display:block;
+  margin-top:var(--s-5);
+  background:var(--carvao);
+  border:1px solid var(--linha);
+  border-radius:var(--r);
+  overflow:hidden;
+  text-decoration:none;
+  box-shadow:var(--sombra-1);
+  transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+}
+.anuncio-lateral:hover{
+  transform:translateY(-2px);
+  box-shadow:var(--sombra-2);
+  border-color:var(--lima);
 }
 
-/* A faixa 1101–1340px era um BURACO: o banner sumia e o cartão de
-   rodapé também não aparecia (ele só existe até 1100px). Notebook
-   de 1280px — tamanho comuníssimo — ficava sem anúncio nenhum.
-
-   Em vez de esconder, o banner ENCOLHE nessa faixa. Continua
-   visível, sem encostar no conteúdo. */
-@media (min-width:1101px) and (max-width:1340px){
-  .anuncio-lateral{
-    width:150px;
-    left:var(--s-2);
-  }
-  .anuncio-lateral-txt{ padding:var(--s-3) }
+/* No celular o cartão de rodapé assume — dois anúncios na mesma
+   tela é insistência, não oferta. */
+@media (max-width:920px){
+  .anuncio-lateral{ display:none }
 }
 
 .anuncio-lateral img{ width:100%;height:auto;display:block }
@@ -1598,4 +1584,64 @@ body.tem-demo .boas-vindas{padding-top:calc(var(--topbar-h) + var(--faixa-demo-h
 
 @media (min-width:1101px){
   .anuncio-rodape{ display:none }
+}
+
+/* ============================================================
+   PLATAFORMA — mapa fixo, lista rolando ao lado
+   ------------------------------------------------------------
+   Antes eram duas áreas empilhadas: a lista inteira no topo e o
+   mapa lá embaixo, como navegação paralela. Quem abria a
+   plataforma caía numa lista de 127 editais sem filtro nenhum.
+
+   Agora é a mesma leitura da landing: o mapa é o filtro e fica à
+   vista enquanto a lista corre ao lado.
+   ============================================================ */
+
+.painel-duplo{
+  display:grid;
+  /* `minmax(0,...)` nos dois lados: coluna de grid tem largura
+     mínima automática, e sem isso a lista empurraria o mapa. */
+  grid-template-columns:minmax(0,440px) minmax(0,1fr);
+  gap:var(--s-6);
+  align-items:start;
+}
+
+.painel-mapa{
+  position:sticky;
+  /* A barra do topo não é mais fixa no desktop (ver abaixo), então
+     o mapa gruda no topo da janela com uma folga pequena. */
+  top:var(--s-4);
+}
+
+.painel-lista #resumo{
+  font-size:var(--t-sm);
+  color:var(--cinza);
+  margin-bottom:var(--s-4);
+}
+
+/* No celular vira coluna única e o mapa NÃO gruda: ali ele comeria
+   metade da tela enquanto a lista passa por baixo — o oposto do
+   que resolve no desktop. */
+@media (max-width:920px){
+  .painel-duplo{ grid-template-columns:1fr; gap:var(--s-5) }
+  .painel-mapa{ position:static }
+  .painel-mapa .mapa-coluna{ max-width:min(420px,100%); margin-inline:auto }
+}
+
+/* ============================================================
+   BARRA DO TOPO — fixa só no celular
+   ------------------------------------------------------------
+   Decisão do Patrick (ago/2026): no computador ela não precisa
+   acompanhar a rolagem. Ali o mapa já é a âncora fixa, e duas
+   coisas grudadas ao mesmo tempo comem altura útil.
+
+   No celular ela continua fixa: é o único caminho de volta ao
+   topo e para a chamada principal.
+   ============================================================ */
+
+@media (min-width:921px){
+  .topbar{ position:absolute }
+  /* Sem barra fixa, o conteúdo não precisa mais do espaço
+     reservado no topo. */
+  .hero{ padding-top:calc(var(--topbar-h) + var(--s-6)) }
 }

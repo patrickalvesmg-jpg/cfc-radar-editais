@@ -4,9 +4,11 @@
    ------------------------------------------------------------
    Duas formas, conforme o espaço disponível:
 
-     · COMPUTADOR — banner fixo na lateral esquerda, que acompanha
-       a rolagem. Há espaço ocioso ali, e o anúncio ocupa sem
-       disputar lugar com o conteúdo.
+     · COMPUTADOR — cartão dentro da coluna do mapa, abaixo dele.
+       A lateral flutuante NÃO funcionou: medido, o container ocupa
+       1240px, então numa tela de 1440 sobram 100px de margem — e o
+       banner de 190px cobria o título. Só a partir de 1920px havia
+       espaço, e ninguém desenha para a exceção.
 
      · CELULAR — não há lateral. Aparece como um cartão no rodapé
        da tela, DEPOIS de a pessoa ter rolado um pouco: quem
@@ -49,6 +51,13 @@ function marcarFechado(){
 function montarLateral(){
   if(document.querySelector('.anuncio-lateral')) return;
 
+  // Entra DENTRO da coluna do mapa, logo abaixo dele: ali o espaço
+  // é do anúncio, não emprestado da margem. Como o mapa é sticky, o
+  // cartão acompanha a rolagem de graça.
+  const destino = document.querySelector('.painel-mapa')
+               || document.querySelector('.mapa-coluna');
+  if(!destino) return;
+
   const a = document.createElement('a');
   a.className = 'anuncio-lateral';
   a.href = LINK;
@@ -67,7 +76,7 @@ function montarLateral(){
       <span class="btn btn-lima btn-sm btn-block">Começar a estudar</span>
     </div>`;
 
-  document.body.appendChild(a);
+  destino.appendChild(a);
 }
 
 /* ---------------- cartão de rodapé (celular) ---------------- */

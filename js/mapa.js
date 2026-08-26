@@ -12,6 +12,7 @@
 
 import { brl, dataBR, diasAte, esc, ESFERA } from './comum.js';
 import { ehNovo, mostrarAviso } from './novidades.js';
+import { logado, LIMITE_GRATIS } from './sessao.js';
 
 const UFS_NOME = {
   AC:'Acre', AL:'Alagoas', AM:'Amazonas', AP:'Amapá', BA:'Bahia',
@@ -179,6 +180,15 @@ function renderTabela(){
     return;
   }
 
+  // Sem acesso liberado, a lista mostra só os primeiros; o resto vai
+  // borrado atrás do convite. Quem já informou o e-mail vê tudo, e aí
+  // vale a paginação normal.
+  //
+  // O corte acontece ANTES de montar as linhas: gerar 127 e esconder
+  // com CSS deixaria o conteúdo no HTML, legível por quem abrisse o
+  // código-fonte — bloqueio que não bloqueia.
+  const liberado = logado();
+
   const ordenada = [...lista].sort((a, b) => {
     if(filtros.ordem === 'salario') return (b.salario || 0) - (a.salario || 0);
     // Padrão: prazo mais curto primeiro — é o que decide a ação.
@@ -187,6 +197,15 @@ function renderTabela(){
     if(db === null) return -1;
     return da - db;
   });
+
+  // Quem não liberou o acesso vê só os primeiros; o resto vai borrado
+  // atrás do convite. O corte acontece ANTES de montar as linhas —
+  // gerar 127 e esconder com CSS deixaria tudo legível no código-fonte,
+  // bloqueio que não bloqueia.
+  const visiveis   = liberado ? ordenada.slice(0, mostrando)
+                              : ordenada.slice(0, LIMITE_GRATIS);
+  const bloqueadas = liberado ? []
+                              : ordenada.slice(LIMITE_GRATIS);
 
   alvo.innerHTML = `
     <div class="tabela-wrap">
@@ -203,15 +222,39 @@ function renderTabela(){
           </tr>
         </thead>
         <tbody>
-          ${ordenada.slice(0, mostrando).map(linha).join('')}
+          ${visiveis.map(linha).join('')}
         </tbody>
       </table>
     </div>
-    ${ordenada.length > mostrando ? `
+
+    ${bloqueadas.length ? `
+      <div class="trancado">
+        <div class="tabela-wrap">
+          <table class="tabela-editais" aria-hidden="true">
+            <tbody>${bloqueadas.slice(0, 5).map(linha).join('')}</tbody>
+          </table>
+        </div>
+
+        <div class="paywall">
+          <div class="cadeado" aria-hidden="true">
+            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="4" y="10" width="16" height="11" rx="2"/>
+              <path d="M8 10V7a4 4 0 0 1 8 0v3"/>
+            </svg>
+          </div>
+          <h3>${bloqueadas.length} ${bloqueadas.length === 1 ? 'edital' : 'editais'} ${bloqueadas.length === 1 ? 'bloqueado' : 'bloqueados'}</h3>
+          <p>
+            Informe seu e-mail para ver a lista completa, com salário,
+            prazo e link de inscrição de cada concurso.
+          </p>
+          <a href="cadastro.html" class="btn btn-lima">Ver todos os editais</a>
+          <p class="micro">É grátis. Não pedimos senha nem cartão.</p>
+        </div>
+      </div>` : (ordenada.length > mostrando ? `
       <button type="button" class="btn btn-ghost btn-block ver-mais" id="ver-mais">
         Ver mais ${Math.min(POR_PAGINA, ordenada.length - mostrando)}
         de ${ordenada.length - mostrando} restantes
-      </button>` : ''}`;
+      </button>` : '')}`;
 
   document.getElementById('ver-mais')?.addEventListener('click', () => {
     mostrando += POR_PAGINA;
