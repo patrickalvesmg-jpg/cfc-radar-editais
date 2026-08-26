@@ -10,9 +10,22 @@
 .topbar{
   position:fixed;top:0;left:0;right:0;z-index:90;
   height:var(--topbar-h);
-  background:rgba(10,15,10,.82);
-  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  /* Cor FIXA em rgba(10,15,10,.82) era resquício do tema escuro:
+     ela não seguia os tokens, então a barra continuou preta
+     enquanto o resto clareou — e o texto escuro por cima dela
+     ficou com 1,09:1 de contraste, praticamente invisível.
+     Medido no navegador, não deduzido. */
+  background:rgba(255,255,255,.86);
+  backdrop-filter:blur(14px) saturate(1.4);
+  -webkit-backdrop-filter:blur(14px) saturate(1.4);
   border-bottom:1px solid var(--linha);
+}
+
+/* Ao rolar, a barra ganha sombra em vez de mudar de cor: sinaliza
+   que está sobreposta ao conteúdo sem piscar na tela. */
+.topbar.rolou{
+  background:rgba(255,255,255,.97);
+  box-shadow:var(--sombra-1);
 }
 .topbar-inner{
   height:100%;width:min(100% - 40px,var(--max));margin-inline:auto;
@@ -45,7 +58,7 @@
 
 .nav{display:flex;align-items:center;gap:var(--s-5)}
 .nav a{
-  font-size:var(--t-sm);font-weight:500;color:var(--cinza);
+  font-size:var(--t-sm);font-weight:600;color:var(--branco);
   padding:6px 0;position:relative;transition:color var(--dur-1);
 }
 .nav a::after{
@@ -72,6 +85,8 @@
 
 .menu-btn{display:none;width:40px;height:40px;place-items:center;border-radius:var(--r-sm);border:1px solid var(--linha)}
 .menu-btn svg{width:20px;height:20px;stroke:var(--branco)}
+/* --branco agora É o azul-marinho do texto; o nome do token
+   ficou herdado do tema escuro, mas o papel é o certo. */
 
 /* ============================================================
    FAIXA DE DEMONSTRAÇÃO
@@ -676,6 +691,45 @@ body.tem-demo .boas-vindas{padding-top:calc(var(--topbar-h) + var(--faixa-demo-h
   .nav a::after{display:none}
   .menu-btn{display:grid}
   .pulso{display:none}
+
+  /* O menu tem UM item desde que a landing foi enxugada. Sanfona
+     para esconder um link só é ritual sem função: dois toques para
+     chegar onde um bastava. O link fica visível na própria barra e
+     o botão de menu some. */
+  .nav{
+    position:static;
+    transform:none;
+    display:flex;
+    background:transparent;
+    border:0;
+    padding:0;
+    flex-direction:row;
+  }
+  .nav a{
+    padding:6px 0;
+    border:0;
+    font-size:var(--t-xs);
+    white-space:nowrap;
+  }
+  .menu-btn{display:none}
+
+  /* A barra fica mais baixa: 56px comem 7% de uma tela de 844px, e
+     ela acompanha a rolagem o tempo todo. */
+  .topbar{ height:52px }
+  .topbar-inner{ width:min(100% - 24px, var(--max)); gap:var(--s-3) }
+
+  /* "VER TODOS OS EDITAIS" quebrava em duas linhas e engolia meia
+     barra. No celular o texto encurta — o destino é o mesmo, e o
+     espaço economizado sobra para o logo respirar. */
+  .topbar .btn-lima{
+    font-size:var(--t-micro);
+    padding:8px 12px;
+    white-space:nowrap;
+  }
+  .topbar .btn-lima .longo{ display:none }
+  /* O token controla o espaço reservado no topo das seções; sem
+     atualizá-lo, sobraria uma faixa vazia de 4px sob a barra. */
+  :root{ --topbar-h:52px }
 
   .busca-linha{grid-template-columns:1fr}
   .edital{grid-template-columns:1fr;gap:var(--s-4)}

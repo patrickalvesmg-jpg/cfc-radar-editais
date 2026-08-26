@@ -6,7 +6,7 @@
 import {
   ESFERA, brl, dataBR, diasAte, numeroVagas, esc,
   cardEdital, prioridadePrazo, observar,
-  renderStats, renderFeed, ligarMenuMobile, carregarEditais,
+  renderStats, renderFeed, ligarMenuMobile, ligarBarraRolagem, carregarEditais,
 } from './comum.js';
 
 import { exigirLogin, usuario, sair } from './sessao.js';
@@ -307,6 +307,7 @@ function ligarEventos(){
   });
 
   ligarMenuMobile();
+  ligarBarraRolagem();
 }
 
 /* ---------------- altura da barra sticky ---------------- */

@@ -5,7 +5,7 @@
 
 import {
   cardEdital, ordenarPorPrazo, observar,
-  renderStats, renderFeed, ligarMenuMobile, carregarEditais,
+  renderStats, renderFeed, ligarMenuMobile, ligarBarraRolagem, carregarEditais,
 } from './comum.js';
 
 import { logado, LIMITE_GRATIS } from './sessao.js';
@@ -63,6 +63,7 @@ function ajustarSemBloqueio(total){
 
 async function iniciar(){
   ligarMenuMobile();
+  ligarBarraRolagem();
 
   let editais;
   try{

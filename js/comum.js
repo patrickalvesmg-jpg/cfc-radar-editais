@@ -270,3 +270,21 @@ export async function carregarEditais(){
   if(!res.ok) throw new Error(`HTTP ${res.status}`);
   return res.json();
 }
+
+
+/**
+ * Sombra na barra fixa quando a página rola.
+ *
+ * Sem isso, a barra clara sobre conteúdo claro perde o limite — o
+ * texto que passa por baixo parece pertencer a ela. A sombra só
+ * aparece depois que há conteúdo atrás, então no topo a barra
+ * continua limpa.
+ */
+export function ligarBarraRolagem(){
+  const barra = document.querySelector('.topbar');
+  if(!barra) return;
+
+  const avaliar = () => barra.classList.toggle('rolou', window.scrollY > 8);
+  avaliar();
+  addEventListener('scroll', avaliar, { passive:true });
+}

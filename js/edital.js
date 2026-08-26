@@ -9,7 +9,7 @@
 
 import {
   STATUS, ESFERA, brl, dataBR, diasAte, esc,
-  ligarMenuMobile, carregarEditais, observar,
+  ligarMenuMobile, ligarBarraRolagem, carregarEditais, observar,
 } from './comum.js';
 
 import { logado } from './sessao.js';
@@ -266,6 +266,7 @@ function erro(msg){
 
 async function iniciar(){
   ligarMenuMobile();
+  ligarBarraRolagem();
 
   if(logado()){
     const cta = document.getElementById('cta-topo');
