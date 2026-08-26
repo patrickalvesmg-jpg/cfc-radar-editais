@@ -1511,51 +1511,87 @@ body.tem-demo .boas-vindas{padding-top:calc(var(--topbar-h) + var(--faixa-demo-h
    ANÚNCIO DO CURSO — lateral e rodapé
    ============================================================ */
 
-/* O cartão vive DENTRO da coluna do mapa, não flutuando na margem.
-   Medido: o container tem 1240px, então numa tela de 1440 sobram
-   100px de cada lado — e o banner de 190px cobria o título. Só a
-   partir de 1920px havia margem suficiente, e desenhar para a
-   exceção deixa a maioria com o site quebrado. */
-.anuncio-lateral{
-  display:block;
-  margin-top:var(--s-5);
-  /* Medido: 440x657, mais alto que o próprio mapa. Reduzido para
-     caber junto com o mapa numa janela de 900px — que é o que faz
-     o sticky funcionar. */
-  max-width:260px;
-  margin-inline:auto;
-  background:var(--carvao);
-  border:1px solid var(--linha);
-  border-radius:var(--r);
-  overflow:hidden;
+/* ============================================================
+   FAIXA DE ANÚNCIO — rodapé, largura toda
+   ------------------------------------------------------------
+   Duas tentativas anteriores falharam pelo mesmo motivo: não há
+   espaço LATERAL neste layout. A margem tem 100px numa tela de
+   1440, e dentro da coluna do mapa sobravam -266px abaixo da
+   legenda — o cartão ficava fora da tela.
+
+   Horizontal resolve: 1240px de largura em vez de 260, a arte
+   respira, e a faixa acompanha a rolagem sem cobrir conteúdo.
+   ============================================================ */
+
+.anuncio-faixa{
+  position:fixed;
+  left:0; right:0; bottom:0;
+  z-index:70;
+  display:flex; align-items:center; gap:var(--s-3);
+  padding:var(--s-3) var(--s-5);
+  background:linear-gradient(100deg, #22344A, #2C4159 62%);
+  border-top:2px solid var(--lima-vivo);
+  box-shadow:0 -8px 28px -12px rgba(44,65,89,.45);
+  transform:translateY(110%);
+  transition:transform .34s cubic-bezier(.4,0,.2,1);
+}
+.anuncio-faixa.visivel{ transform:none }
+
+.anuncio-faixa-link{
+  flex:1;
+  display:flex; align-items:center; gap:var(--s-4);
+  max-width:var(--max); margin-inline:auto;
   text-decoration:none;
-  box-shadow:var(--sombra-1);
-  transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease;
-}
-.anuncio-lateral:hover{
-  transform:translateY(-2px);
-  box-shadow:var(--sombra-2);
-  border-color:var(--lima);
 }
 
-/* No celular o cartão de rodapé assume — dois anúncios na mesma
-   tela é insistência, não oferta. */
+.anuncio-selo{
+  flex-shrink:0;
+  width:38px; height:38px;
+  display:grid; place-items:center;
+  border-radius:50%;
+  background:rgba(159,227,26,.16);
+  color:var(--lima-vivo);
+}
+.anuncio-selo svg{ width:19px; height:19px }
+
+.anuncio-faixa-txt{ flex:1; min-width:0 }
+.anuncio-faixa-txt strong{
+  display:block;
+  font-family:var(--display);
+  font-size:1.02rem; color:#fff;
+  line-height:1.2;
+}
+.anuncio-faixa-txt span{
+  display:block;
+  font-size:var(--t-sm); color:rgba(255,255,255,.72);
+  line-height:1.4;
+  /* Numa tela estreita a frase inteira empurraria o botão para
+     fora; cortar é melhor que quebrar o layout. */
+  overflow:hidden; text-overflow:ellipsis; white-space:nowrap;
+}
+
+.anuncio-faixa .btn{ flex-shrink:0 }
+
+.anuncio-faixa .anuncio-fechar{
+  position:absolute; top:6px; right:8px;
+  width:24px; height:24px;
+  background:transparent; color:rgba(255,255,255,.55);
+  border:0; border-radius:50%;
+  cursor:pointer; font-size:13px; line-height:1;
+}
+.anuncio-faixa .anuncio-fechar:hover{
+  background:rgba(255,255,255,.12); color:#fff;
+}
+
+/* O conteúdo ganha respiro para a faixa não cobrir o rodapé. */
+body:has(.anuncio-faixa.visivel) .rodape{ padding-bottom:96px }
+
+/* No celular quem assume é o cartão de rodapé — a faixa horizontal
+   ficaria com o texto cortado e o botão espremido. */
 @media (max-width:920px){
-  .anuncio-lateral{ display:none }
+  .anuncio-faixa{ display:none }
 }
 
-.anuncio-lateral img{ width:100%;height:auto;display:block }
-.anuncio-lateral-txt{ padding:var(--s-4) }
-.anuncio-lateral-txt strong{
-  display:block;font-family:var(--display);
-  font-size:1.02rem;color:var(--branco);margin:var(--s-2) 0;
-}
-.anuncio-lateral-txt p{
-  color:var(--cinza);font-size:var(--t-xs);
-  line-height:1.5;margin-bottom:var(--s-3);
-}
-
-/* Rodapé (celular): empurra o conteúdo, não cobre. */
 .anuncio-rodape{
   position:fixed;
   left:var(--s-3); right:var(--s-3); bottom:var(--s-3);

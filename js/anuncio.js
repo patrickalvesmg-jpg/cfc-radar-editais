@@ -4,11 +4,23 @@
    ------------------------------------------------------------
    Duas formas, conforme o espaço disponível:
 
-     · COMPUTADOR — cartão dentro da coluna do mapa, abaixo dele.
-       A lateral flutuante NÃO funcionou: medido, o container ocupa
-       1240px, então numa tela de 1440 sobram 100px de margem — e o
-       banner de 190px cobria o título. Só a partir de 1920px havia
-       espaço, e ninguém desenha para a exceção.
+     · COMPUTADOR — faixa horizontal fixa no rodapé, atravessando a
+       largura da página.
+
+       Duas tentativas anteriores falharam, e o motivo é o mesmo:
+       não existe espaço LATERAL neste layout. A margem tem 100px
+       numa tela de 1440 (o container ocupa 1240), e dentro da
+       coluna do mapa sobravam -266px abaixo da legenda — o cartão
+       ficava fora da tela. Vertical espremido em 260px parecia
+       escanteado, que foi como o Patrick descreveu.
+
+       Horizontal resolve: 1240px de largura em vez de 260, a arte
+       respira, e a faixa fica visível em qualquer ponto da rolagem
+       sem cobrir conteúdo.
+
+       POR QUE NÃO POP-UP: cobre o que a pessoa veio ler. Ela chegou
+       para procurar concurso; janela na frente é obstáculo, não
+       oferta. A faixa está sempre presente e não interrompe.
 
      · CELULAR — não há lateral. Aparece como um cartão no rodapé
        da tela, DEPOIS de a pessoa ter rolado um pouco: quem
@@ -25,10 +37,10 @@
 const LINK = 'https://cfcacademy.com.br/ccc/';
 const CHAVE_FECHADO = 'cfc:anuncio-fechado';
 
-/** Rolagem mínima antes de mostrar o cartão do celular. Metade da
- *  primeira tela: o suficiente para a pessoa ter visto o que o
- *  site é. */
-const GATILHO = 0.6;
+/** Rolagem mínima antes de anunciar. 40% da primeira tela: o
+ *  suficiente para a pessoa ter visto o que o site é, sem esperar
+ *  demais e perder quem sai cedo. */
+const GATILHO = 0.4;
 
 function fechadoHoje(){
   try{
@@ -46,40 +58,39 @@ function marcarFechado(){
   try{ localStorage.setItem(CHAVE_FECHADO, new Date().toISOString()); }catch{}
 }
 
-/* ---------------- banner lateral (computador) ---------------- */
+/* ---------------- faixa horizontal (computador) ---------------- */
 
-function montarLateral(){
-  if(document.querySelector('.anuncio-lateral')) return;
+function montarFaixa(){
+  if(document.querySelector('.anuncio-faixa')) return;
 
-  // Entra DENTRO da coluna do mapa, logo abaixo dele: ali o espaço
-  // é do anúncio, não emprestado da margem. Como o mapa é sticky, o
-  // cartão acompanha a rolagem de graça.
-  // DENTRO de .mapa-coluna, não de .painel-mapa: fora dela o cartão
-  // não participa do fluxo da legenda e subia 48px por cima dela.
-  // Medido no navegador — anúncio em 656, legenda até 704.
-  const destino = document.querySelector('.mapa-coluna')
-               || document.querySelector('.painel-mapa');
-  if(!destino) return;
+  const cx = document.createElement('div');
+  cx.className = 'anuncio-faixa';
+  cx.innerHTML = `
+    <a href="${LINK}" target="_blank" rel="noopener" class="anuncio-faixa-link">
+      <span class="anuncio-selo" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+             stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4 12l5 5L20 6"/>
+        </svg>
+      </span>
 
-  const a = document.createElement('a');
-  a.className = 'anuncio-lateral';
-  a.href = LINK;
-  a.target = '_blank';
-  a.rel = 'noopener';
-  a.setAttribute('aria-label',
-    'Contador Concursado — curso da CFC Academy para concursos contábeis');
+      <span class="anuncio-faixa-txt">
+        <strong>Contador Concursado</strong>
+        <span>A preparação completa da CFC Academy para concursos da área contábil</span>
+      </span>
 
-  // A arte já diz o nome do curso e da marca. Repetir tudo embaixo
-  // dela dobrava a informação e ocupava o dobro da altura — o texto
-  // aqui é só o que a imagem NÃO diz: o convite.
-  a.innerHTML = `
-    <img src="assets/img/anuncio-ccc.svg" alt="" loading="lazy"
-         onerror="this.remove()">
-    <div class="anuncio-lateral-txt">
-      <span class="btn btn-lima btn-sm btn-block">Começar a estudar</span>
-    </div>`;
+      <span class="btn btn-lima btn-sm">Começar a estudar</span>
+    </a>
+    <button type="button" class="anuncio-fechar" aria-label="Fechar anúncio">✕</button>`;
 
-  destino.appendChild(a);
+  cx.querySelector('.anuncio-fechar').addEventListener('click', () => {
+    cx.classList.remove('visivel');
+    marcarFechado();
+    setTimeout(() => cx.remove(), 300);
+  });
+
+  document.body.appendChild(cx);
+  requestAnimationFrame(() => cx.classList.add('visivel'));
 }
 
 /* ---------------- cartão de rodapé (celular) ---------------- */
@@ -115,18 +126,15 @@ function montarRodape(){
 export function ligarAnuncios(){
   if(fechadoHoje()) return;
 
-  const estreito = window.matchMedia('(max-width: 1100px)');
+  const estreito = window.matchMedia('(max-width: 920px)');
+  const montar = estreito.matches ? montarRodape : montarFaixa;
 
-  if(!estreito.matches){
-    montarLateral();
-    return;
-  }
-
-  // No celular, espera a rolagem. `once:true` para o cartão não
-  // ser remontado a cada rolagem depois de fechado.
+  // Espera a rolagem nos DOIS formatos. Quem acabou de chegar ainda
+  // está entendendo o site, e anunciar nesse momento é o que faz
+  // fechar a aba — vale tanto para celular quanto para computador.
   const aoRolar = () => {
     if(window.scrollY > window.innerHeight * GATILHO){
-      montarRodape();
+      montar();
       window.removeEventListener('scroll', aoRolar);
     }
   };
