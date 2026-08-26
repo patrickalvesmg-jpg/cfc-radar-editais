@@ -1512,82 +1512,95 @@ body.tem-demo .boas-vindas{padding-top:calc(var(--topbar-h) + var(--faixa-demo-h
    ============================================================ */
 
 /* ============================================================
-   FAIXA DE ANÚNCIO — rodapé, largura toda
+   BANNER DO CURSO — dentro da coluna do mapa
    ------------------------------------------------------------
-   Duas tentativas anteriores falharam pelo mesmo motivo: não há
-   espaço LATERAL neste layout. A margem tem 100px numa tela de
-   1440, e dentro da coluna do mapa sobravam -266px abaixo da
-   legenda — o cartão ficava fora da tela.
+   Terceira posição tentada. As duas anteriores falharam porque
+   não há espaço LATERAL neste layout (margem de 100px numa tela
+   de 1440), e a faixa atravessando a página roubava o rodapé.
 
-   Horizontal resolve: 1240px de largura em vez de 260, a arte
-   respira, e a faixa acompanha a rolagem sem cobrir conteúdo.
+   Aqui o banner é horizontal e mora DENTRO da coluna, abaixo da
+   legenda. Como a coluna é sticky, ele acompanha a rolagem junto
+   com o mapa — fixo, sem flutuar por cima de nada.
+
+   O ENCAIXE É MEDIDO: mapa (582) + legenda (18) + banner (110) +
+   folgas (48) = 758px, que cabe até numa janela de 768. Em telas
+   mais baixas o MAPA encolhe (min() abaixo), não o banner some —
+   um mapa 8% menor continua clicável; um anúncio ausente não
+   anuncia.
    ============================================================ */
 
-.anuncio-faixa{
-  position:fixed;
-  left:0; right:0; bottom:0;
-  z-index:70;
-  display:flex; align-items:center; gap:var(--s-3);
-  padding:var(--s-3) var(--s-5);
-  background:linear-gradient(100deg, #22344A, #2C4159 62%);
-  border-top:2px solid var(--lima-vivo);
-  box-shadow:0 -8px 28px -12px rgba(44,65,89,.45);
-  transform:translateY(110%);
-  transition:transform .34s cubic-bezier(.4,0,.2,1);
+/* O mapa cede altura quando a janela é baixa, para o banner
+   sempre caber. 320px é o piso: abaixo disso os estados do
+   Sudeste ficam pequenos demais para acertar com o mouse. */
+#mapa-svg svg{
+  max-height:min(582px, calc(100vh - 210px));
+  width:100%;
+  height:auto;
 }
-.anuncio-faixa.visivel{ transform:none }
+
+.anuncio-faixa{
+  display:flex; align-items:center; gap:var(--s-3);
+  margin-top:var(--s-4);
+  padding:var(--s-3) var(--s-4);
+  border-radius:var(--r);
+  background:linear-gradient(100deg, #22344A, #2C4159 62%);
+  border:1px solid rgba(159,227,26,.34);
+  box-shadow:var(--sombra-1);
+  position:relative;
+  /* Entra suave quando o JS o adiciona, sem pular o layout. */
+  opacity:0; transform:translateY(6px);
+  transition:opacity .3s ease, transform .3s ease;
+}
+.anuncio-faixa.visivel{ opacity:1; transform:none }
 
 .anuncio-faixa-link{
-  flex:1;
-  display:flex; align-items:center; gap:var(--s-4);
-  max-width:var(--max); margin-inline:auto;
+  flex:1; min-width:0;
+  display:flex; align-items:center; gap:var(--s-3);
   text-decoration:none;
 }
 
 .anuncio-selo{
   flex-shrink:0;
-  width:38px; height:38px;
+  width:34px; height:34px;
   display:grid; place-items:center;
   border-radius:50%;
   background:rgba(159,227,26,.16);
   color:var(--lima-vivo);
 }
-.anuncio-selo svg{ width:19px; height:19px }
+.anuncio-selo svg{ width:17px; height:17px }
 
 .anuncio-faixa-txt{ flex:1; min-width:0 }
 .anuncio-faixa-txt strong{
   display:block;
   font-family:var(--display);
-  font-size:1.02rem; color:#fff;
-  line-height:1.2;
+  font-size:.96rem; color:#fff; line-height:1.25;
 }
 .anuncio-faixa-txt span{
   display:block;
-  font-size:var(--t-sm); color:rgba(255,255,255,.72);
-  line-height:1.4;
-  /* Numa tela estreita a frase inteira empurraria o botão para
-     fora; cortar é melhor que quebrar o layout. */
-  overflow:hidden; text-overflow:ellipsis; white-space:nowrap;
+  font-size:var(--t-xs); color:rgba(255,255,255,.7);
+  line-height:1.4; margin-top:2px;
 }
 
 .anuncio-faixa .btn{ flex-shrink:0 }
 
 .anuncio-faixa .anuncio-fechar{
-  position:absolute; top:6px; right:8px;
-  width:24px; height:24px;
-  background:transparent; color:rgba(255,255,255,.55);
+  position:absolute; top:4px; right:6px;
+  width:22px; height:22px;
+  background:transparent; color:rgba(255,255,255,.5);
   border:0; border-radius:50%;
-  cursor:pointer; font-size:13px; line-height:1;
+  cursor:pointer; font-size:12px; line-height:1;
 }
 .anuncio-faixa .anuncio-fechar:hover{
   background:rgba(255,255,255,.12); color:#fff;
 }
 
-/* O conteúdo ganha respiro para a faixa não cobrir o rodapé. */
-body:has(.anuncio-faixa.visivel) .rodape{ padding-bottom:96px }
+/* Coluna estreita: o texto de apoio sai e o botão encolhe, para o
+   banner não quebrar em duas linhas. */
+@container listamapa (max-width: 520px){
+  .anuncio-faixa-txt span{ display:none }
+}
 
-/* No celular quem assume é o cartão de rodapé — a faixa horizontal
-   ficaria com o texto cortado e o botão espremido. */
+/* No celular quem assume é o cartão de rodapé. */
 @media (max-width:920px){
   .anuncio-faixa{ display:none }
 }

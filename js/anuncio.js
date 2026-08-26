@@ -4,8 +4,8 @@
    ------------------------------------------------------------
    Duas formas, conforme o espaço disponível:
 
-     · COMPUTADOR — faixa horizontal fixa no rodapé, atravessando a
-       largura da página.
+     · COMPUTADOR — banner horizontal DENTRO da coluna do mapa,
+       logo abaixo dele, acompanhando a rolagem junto com o mapa.
 
        Duas tentativas anteriores falharam, e o motivo é o mesmo:
        não existe espaço LATERAL neste layout. A margem tem 100px
@@ -14,9 +14,16 @@
        ficava fora da tela. Vertical espremido em 260px parecia
        escanteado, que foi como o Patrick descreveu.
 
-       Horizontal resolve: 1240px de largura em vez de 260, a arte
-       respira, e a faixa fica visível em qualquer ponto da rolagem
-       sem cobrir conteúdo.
+       A faixa que atravessava a página inteira funcionava, mas
+       roubava o rodapé e competia com a lista. Agora o banner é
+       horizontal DENTRO da coluna (560px de largura), abaixo da
+       legenda: o espaço é dele, e como a coluna é sticky ele
+       acompanha a rolagem de graça.
+
+       O ENCAIXE É MEDIDO, não chutado: mapa (582) + legenda (18) +
+       banner (110) + folgas (48) = 758px, que cabe até numa janela
+       de 768. Em telas menores o mapa encolhe pelo `min()` do CSS
+       em vez de o banner sumir.
 
        POR QUE NÃO POP-UP: cobre o que a pessoa veio ler. Ela chegou
        para procurar concurso; janela na frente é obstáculo, não
@@ -63,6 +70,11 @@ function marcarFechado(){
 function montarFaixa(){
   if(document.querySelector('.anuncio-faixa')) return;
 
+  // Dentro da coluna do mapa: ali o espaço é do anúncio, e a coluna
+  // sticky o carrega junto na rolagem.
+  const destino = document.querySelector('.mapa-coluna');
+  if(!destino) return;
+
   const cx = document.createElement('div');
   cx.className = 'anuncio-faixa';
   cx.innerHTML = `
@@ -89,7 +101,7 @@ function montarFaixa(){
     setTimeout(() => cx.remove(), 300);
   });
 
-  document.body.appendChild(cx);
+  destino.appendChild(cx);
   requestAnimationFrame(() => cx.classList.add('visivel'));
 }
 
