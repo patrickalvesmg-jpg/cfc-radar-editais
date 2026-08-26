@@ -117,7 +117,6 @@ body.tem-demo .hero-compacto{
 body.tem-demo :where([id]){
   scroll-margin-top:calc(var(--topbar-h) + var(--faixa-demo-h,42px) + 12px);
 }
-body.tem-demo .busca-wrap{top:calc(var(--topbar-h) + var(--faixa-demo-h,42px))}
 body.tem-demo #painel{scroll-margin-top:calc(var(--topbar-h) + var(--faixa-demo-h,42px) + var(--busca-h,146px))}
 body.tem-demo .boas-vindas{padding-top:calc(var(--topbar-h) + var(--faixa-demo-h,42px) + var(--s-6))}
 
@@ -234,9 +233,15 @@ body.tem-demo .boas-vindas{padding-top:calc(var(--topbar-h) + var(--faixa-demo-h
 :where([id]){scroll-margin-top:calc(var(--topbar-h) + 12px)}
 
 .busca-wrap{
-  position:sticky;top:var(--topbar-h);z-index:60;
-  background:rgba(10,15,10,.9);
-  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  /* NÃO é mais fixa (decisão do Patrick, ago/2026): o mapa já
+     acompanha a rolagem e carrega os filtros por estado. Duas
+     barras grudadas comiam 146px de altura útil o tempo todo.
+
+     A cor também era resquício do tema escuro — rgba(10,15,10,.9)
+     fixo, que deixava uma faixa preta atravessando a página clara.
+     Mesmo defeito que a barra do topo tinha. */
+  position:relative;
+  background:var(--preto-2);
   border-bottom:1px solid var(--linha);
   padding:var(--s-4) 0;
 }
@@ -1514,6 +1519,11 @@ body.tem-demo .boas-vindas{padding-top:calc(var(--topbar-h) + var(--faixa-demo-h
 .anuncio-lateral{
   display:block;
   margin-top:var(--s-5);
+  /* Medido: 440x657, mais alto que o próprio mapa. Reduzido para
+     caber junto com o mapa numa janela de 900px — que é o que faz
+     o sticky funcionar. */
+  max-width:260px;
+  margin-inline:auto;
   background:var(--carvao);
   border:1px solid var(--linha);
   border-radius:var(--r);
@@ -1600,17 +1610,35 @@ body.tem-demo .boas-vindas{padding-top:calc(var(--topbar-h) + var(--faixa-demo-h
 .painel-duplo{
   display:grid;
   /* `minmax(0,...)` nos dois lados: coluna de grid tem largura
-     mínima automática, e sem isso a lista empurraria o mapa. */
-  grid-template-columns:minmax(0,440px) minmax(0,1fr);
+     mínima automática, e sem isso a lista empurraria o mapa.
+
+     O mapa cresceu de 440 para 560px: ele é o filtro principal, e a
+     440 os estados do Sudeste ficavam pequenos demais para clicar
+     sem errar o vizinho. A lista continua confortável — os cards
+     dela já viram formato compacto abaixo de 700px. */
+  grid-template-columns:minmax(0,560px) minmax(0,1fr);
   gap:var(--s-6);
   align-items:start;
 }
 
 .painel-mapa{
   position:sticky;
-  /* A barra do topo não é mais fixa no desktop (ver abaixo), então
-     o mapa gruda no topo da janela com uma folga pequena. */
   top:var(--s-4);
+
+  /* Elemento sticky MAIS ALTO que a janela não gruda: ele rola até
+     o fim antes de prender. Medido: a coluna tinha 1137px numa
+     janela de 900, então o mapa mal chegava a fixar — e o anúncio,
+     que rolava junto, parecia passar por cima da legenda.
+
+     Limitando a altura, o conjunto cabe e gruda de verdade. O
+     `overflow:auto` é a saída de emergência para janela muito
+     baixa: melhor rolar dentro da coluna que cortar o anúncio. */
+  max-height:calc(100vh - var(--s-6));
+  overflow-y:auto;
+  overflow-x:hidden;
+  /* Sem isto a barra de rolagem interna aparece o tempo todo no
+     Windows e serrilha a borda do mapa. */
+  scrollbar-width:thin;
 }
 
 .painel-lista #resumo{

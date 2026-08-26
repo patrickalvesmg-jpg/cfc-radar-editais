@@ -54,8 +54,11 @@ function montarLateral(){
   // Entra DENTRO da coluna do mapa, logo abaixo dele: ali o espaço
   // é do anúncio, não emprestado da margem. Como o mapa é sticky, o
   // cartão acompanha a rolagem de graça.
-  const destino = document.querySelector('.painel-mapa')
-               || document.querySelector('.mapa-coluna');
+  // DENTRO de .mapa-coluna, não de .painel-mapa: fora dela o cartão
+  // não participa do fluxo da legenda e subia 48px por cima dela.
+  // Medido no navegador — anúncio em 656, legenda até 704.
+  const destino = document.querySelector('.mapa-coluna')
+               || document.querySelector('.painel-mapa');
   if(!destino) return;
 
   const a = document.createElement('a');
