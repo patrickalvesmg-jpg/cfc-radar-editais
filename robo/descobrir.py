@@ -39,8 +39,11 @@ import re
 import unicodedata
 
 # Lista de concursos: onde procurar quando a home não mostra nada.
+# Vale para a URL e para o TEXTO do link. Só a URL não bastava: a
+# INEPAM chama a lista de "Concursos e Processos Seletivos" mas o
+# endereço é /home.do, que não casa com nada.
 PADRAO_LISTA = re.compile(
-    r"concurso|seletivo|edital|inscri|andamento|aberto", re.I)
+    r"concurso|seletivo|edital|inscri|andamento|aberto|certame", re.I)
 
 # Links que nunca são a página de um concurso.
 PADRAO_RUIM = re.compile(
@@ -65,6 +68,15 @@ _JS_LINKS = """els => els.map(e => {
           (e.innerText + ' ' + caixa.innerText)
             .replace(/\s+/g, ' ').trim().slice(0, 300)];
 })"""
+
+# Elementos que se comportam como link sem ser <a>. A INEPAM lista os
+# concursos em <span class="fm-contest-link"> que responde a clique por
+# JavaScript — para quem lê a[href], a página parece vazia.
+_SELETOR_CLICAVEL = (
+    "span[class*=link], span[class*=contest], span[class*=row-text], "
+    "td[onclick], tr[onclick], div[onclick], span[onclick], "
+    "[role=link], [role=button], button"
+)
 
 
 def corrigir_url(url: str) -> str:
@@ -105,6 +117,51 @@ def chaves_do_edital(edital: dict) -> list[str]:
     return [k for k in dict.fromkeys(saida) if len(k) > 3]
 
 
+def _marca(url: str) -> str:
+    """O nome da banca dentro do domínio, para reconhecê-la em outro
+    subdomínio: "https://www.inepam.org.br" -> "inepam".
+
+    Sem isto, seguir para outro host abriria a porta para sair do site
+    da banca e cair em portal de terceiro — que a regra do Patrick
+    proíbe apontar.
+    """
+    m = re.search(r"https?://([^/]+)", url or "")
+    if not m:
+        return ""
+    partes = [x for x in m.group(1).lower().split(".")
+              if x not in ("www", "com", "br", "org", "net", "gov", "edu")]
+    return max(partes, key=len) if partes else ""
+
+
+def _clicar_ate_o_concurso(pagina, chaves: list) -> str:
+    """Clica no item que cita a cidade e devolve a URL onde parou.
+
+    Para bancas cujo "link" é um <span> com JavaScript. Sem isto a
+    página parece vazia mesmo listando o concurso na tela.
+    """
+    try:
+        elementos = pagina.query_selector_all(_SELETOR_CLICAVEL)
+    except Exception:
+        return ""
+
+    for el in elementos[:80]:
+        try:
+            texto = _plano(el.inner_text())
+        except Exception:
+            continue
+        if not any(k in texto for k in chaves):
+            continue
+        antes = pagina.url
+        try:
+            el.click(timeout=8000)
+            pagina.wait_for_timeout(3000)
+        except Exception:
+            continue
+        if pagina.url != antes:
+            return pagina.url
+    return ""
+
+
 def _casar(dados: list, chaves: list[str]) -> str:
     """O primeiro link cujo card cita uma das chaves."""
     for href, texto in dados:
@@ -141,19 +198,35 @@ def descobrir(pagina, home: str, edital: dict) -> str:
     if achado:
         return achado
 
-    # 2º nível: a lista de concursos costuma ser uma página à parte.
-    candidatas, vistas = [], set()
-    for href, _ in dados:
-        if (href and href.startswith("http") and href not in vistas
-                and PADRAO_LISTA.search(href) and not PADRAO_RUIM.search(href)):
-            vistas.add(href)
-            candidatas.append(href)
+    # A página pode listar o concurso sem usar <a href>.
+    achado = _clicar_ate_o_concurso(pagina, chaves)
+    if achado:
+        return achado
 
-    for url in candidatas[:3]:
+    # 2º nível: a lista costuma ser uma página à parte — às vezes em
+    # OUTRO SUBDOMÍNIO (app.inepam.org.br). Casamos pela URL ou pelo
+    # texto do link, e só seguimos para host diferente se a marca da
+    # banca continuar no endereço.
+    marca = _marca(home)
+    candidatas, vistas = [], set()
+    for href, texto in dados:
+        if not href or not href.startswith("http") or href in vistas:
+            continue
+        if PADRAO_RUIM.search(href):
+            continue
+        if not (PADRAO_LISTA.search(href) or PADRAO_LISTA.search(texto)):
+            continue
+        if marca and marca not in href.lower():
+            continue
+        vistas.add(href)
+        candidatas.append(href)
+
+    for url in candidatas[:4]:
         try:
-            achado = _casar(links(url), chaves)
+            dados2 = links(url)
         except Exception:
             continue
+        achado = _casar(dados2, chaves) or _clicar_ate_o_concurso(pagina, chaves)
         if achado:
             return achado
 

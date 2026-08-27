@@ -53,6 +53,12 @@ ANEXO_INUTIL = re.compile(
     r"isen[çc][ãa]o|declara[çc][ãa]o|laudo|modelo|recurso|resultado"
     r"|homologa|deferimento|cronograma|conte[úu]do\s+program", re.I)
 
+# Arquivos que não são <a href> — ver `_pdf_por_clique`.
+_SELETOR_ARQUIVO = (
+    "span[class*=row-text], span[class*=link], span[class*=arquivo], "
+    "td[onclick], tr[onclick], div[onclick], span[onclick], [role=button]"
+)
+
 _JS_PDFS = """els => els.map(e => {
   const c = e.closest('div,li,tr,article,section') || e;
   return [e.href, (e.innerText + ' ' + c.innerText)
@@ -71,6 +77,55 @@ def _pdfs_da_pagina(pagina, url: str) -> list:
     return [(h, t) for h, t in dados
             if h and re.search(r"\.pdf|/download/|/arquivo", h, re.I)
             and not re.search(r"termos|politica|privacidade|lgpd", h, re.I)]
+
+
+def _pdf_por_clique(pagina) -> str:
+    """Clica no item de edital e devolve o endereço do download.
+
+    Para bancas onde o arquivo não é <a href>: na INEPAM, "ARQUIVOS
+    DISPONÍVEIS" são <span> e o downloadAnexo.do só aparece quando o
+    navegador começa a baixar.
+    """
+    try:
+        elementos = pagina.query_selector_all(_SELETOR_ARQUIVO)
+    except Exception:
+        return ""
+
+    # O edital de abertura primeiro; retificação e isenção não têm a
+    # tabela de vencimentos.
+    def prioridade(texto: str) -> int:
+        t = texto.lower()
+        # Retificação altera o edital, não o substitui: são poucas
+        # linhas, sem a tabela de cargos.
+        if re.search(r"rerratifica|retifica|errata", t):
+            return 4
+        if ANEXO_INUTIL.search(t):
+            return 3
+        if ANEXO_SALARIO.search(t):
+            return 0
+        if "abertura" in t or "edital do concurso" in t:
+            return 1
+        if "edital" in t:
+            return 2
+        return 3
+
+    candidatos = []
+    for el in elementos[:60]:
+        try:
+            texto = (el.inner_text() or "").strip()
+        except Exception:
+            continue
+        if len(texto) > 6 and "edital" in texto.lower():
+            candidatos.append((prioridade(texto), texto, el))
+
+    for _, texto, el in sorted(candidatos, key=lambda x: x[0])[:3]:
+        try:
+            with pagina.expect_download(timeout=20000) as espera:
+                el.click(timeout=8000)
+            return espera.value.url
+        except Exception:
+            continue
+    return ""
 
 
 def _melhor_pdf(pdfs: list) -> str:
@@ -124,6 +179,9 @@ def aprofundar_um(pagina, edital: dict) -> dict:
     if atual and atual.count("/") > 2:
         pdfs = _pdfs_da_pagina(pagina, atual)
         candidato = _melhor_pdf(pdfs)
+        if not candidato:
+            # A página pode listar o edital sem <a href>.
+            candidato = _pdf_por_clique(pagina)
         # Só troca se o candidato ABRIR: link que devolve HTML deixaria
         # o botão "Baixar edital" entregando página de erro.
         if candidato and candidato != edital.get("pdfEdital"):

@@ -296,11 +296,19 @@ export async function carregarEditais(){
   const hoje = new Date().toISOString().slice(0, 10);
   return todos.filter(e => {
     if(e.status === 'encerrado') return false;
+
     // Prazo vencido conta como encerrado mesmo que o status não tenha
     // sido recalculado ainda — foi o que deixou 4 editais vencidos
     // aparecendo como "encerrando".
     const fim = (e.inscricaoFim || '').slice(0, 10);
-    return !(fim && fim < hoje);
+    if(fim && fim < hoje) return false;
+
+    // Sem NENHUM link, o card é um beco sem saída: a pessoa lê o cargo,
+    // vê o salário e não tem para onde ir. Some da tela, mas continua
+    // no arquivo — quando a banca publicar o endereço, a varredura
+    // preenche e ele volta sozinho.
+    const temOnde = (e.siteInscricao || '').trim() || (e.pdfEdital || '').trim();
+    return Boolean(temOnde);
   });
 }
 

@@ -1297,7 +1297,7 @@
   "dataProva": "",
   "taxaInscricao": 0,
   "editalUrl": "edital.html?id=e-4ad0553bdca6",
-  "siteInscricao": "https://uepb.edu.br",
+  "siteInscricao": "https://cpcon.uepb.edu.br/prefeitura-municipal-de-guarabira/",
   "pdfEdital": "",
   "procedencia": "https://www.pciconcursos.com.br/noticias/prefeitura-de-guarabira-pb-abre-concurso-publico-com-vagas-imediatas-e-cadastro-de-reserva",
   "fonte": "PCI Concursos",
@@ -3618,7 +3618,7 @@
   "_trecho": " Prefeitura de Auriflama - SP abre concurso público com vagas para diversos cargos {\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"NewsArticle\",\"@id\":\"https://www.pciconcursos.com.br/noticias/prefeitura-de-auriflama-sp-abre-concurso-publico-com-vagas-para-diversos-cargos#noticia\",\"isPartOf\":{\"@",
   "revisado": false,
   "procedencia": "https://www.pciconcursos.com.br/noticias/prefeitura-de-auriflama-sp-abre-concurso-publico-com-vagas-para-diversos-cargos",
-  "siteInscricao": "https://www.inepam.org.br",
+  "siteInscricao": "https://app.inepam.org.br/concurso/concursoPaginaInterna.do?idInstituicao=95&idConcurso=1",
   "lat": -20.6836,
   "lon": -50.5572,
   "geoAprox": false,
@@ -3629,7 +3629,7 @@
     "Avaliação de títulos"
    ]
   },
-  "pdfEdital": "",
+  "pdfEdital": "https://app.inepam.org.br/concurso/downloadAnexo.do?idAnexo=2651",
   "editorial": "<p>A Prefeitura de Auriflama abriu concurso público de âmbito municipal, em Auriflama / SP, com vaga para <b>Auditor Fiscal</b>. São 1 vaga(s) imediata(s) mais cadastro de reserva.</p><p>A remuneração informada chega a <b>R$ 6.502,13</b>. O valor está em linha com a mediana dos concursos contábeis hoje no radar (R$ 7.018,00).</p><p>As inscrições vão de 10/08/2026 a <b>01/09/2026</b>, ou seja, 11 dias a partir de hoje.</p><p>A seleção prevê provas objetivas e avaliação de títulos.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Cargos de auditoria e fiscalização costumam aceitar também formações afins, o que tende a ampliar a concorrência. Confirme a exigência exata no edital.</p><p>A organização é da <b>INEPAM</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
   "banca": "INEPAM",
   "bancaDominio": "inepam.org.br"
@@ -3989,8 +3989,8 @@
   "uf": "SC",
   "cidade": "Salto Veloso",
   "vagas": "1 + Cadastro de Reserva",
-  "salario": 2045.84,
-  "salarioObs": "a partir de",
+  "salario": 9151.71,
+  "salarioObs": "",
   "cargaHoraria": "",
   "escolaridade": "superior",
   "nivel": "municipal",
@@ -4018,7 +4018,7 @@
     "Prova de títulos"
    ]
   },
-  "pdfEdital": "",
+  "pdfEdital": "https://cdn-arquivo.concursos.srv.br/APRENDER_SC/00253/PUBLICACOES/EDITAL_014_2026_CP_001_2026_SALTO_VELOSO_2026_07_30_14_25_55.pdf",
   "editorial": "<p>A Prefeitura de Salto Veloso abriu concurso público de âmbito municipal, em Salto Veloso / SC, com vaga para <b>Contador</b>. São 1 + Cadastro de Reserva vaga(s).</p><p>A remuneração informada chega a <b>R$ 9.151,71</b>. O valor está em linha com a mediana dos concursos contábeis hoje no radar (R$ 7.018,00).</p><p>As inscrições vão de 30/07/2026 a <b>28/08/2026</b> — restam apenas 7 dia(s).</p><p>A seleção prevê prova objetiva, prova prática e prova de títulos.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Confirme a exigência exata no edital.</p><p>A organização é da <b>Aprendersc</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
   "banca": "Aprendersc",
   "bancaDominio": "aprendersc.srv.br"
