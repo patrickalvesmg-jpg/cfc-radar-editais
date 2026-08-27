@@ -1,0 +1,11 @@
+# Quebra de linha normalizada.
+#
+# Sem isto o Git via 24 arquivos "modificados" quando só 5 tinham
+# mudança real: o resto era CRLF do Windows contra LF do repositório.
+# Isso escondia o que importava em cada commit.
+* text=auto eol=lf
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.svg text eol=lf
+*.pdf binary
