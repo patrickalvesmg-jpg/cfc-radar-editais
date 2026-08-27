@@ -59,7 +59,7 @@ _SELETOR_ARQUIVO = (
     "td[onclick], tr[onclick], div[onclick], span[onclick], [role=button]"
 )
 
-_JS_PDFS = """els => els.map(e => {
+_JS_PDFS = r"""els => els.map(e => {
   const c = e.closest('div,li,tr,article,section') || e;
   return [e.href, (e.innerText + ' ' + c.innerText)
                     .replace(/\s+/g,' ').trim().slice(0, 220)];
@@ -146,6 +146,30 @@ def _melhor_pdf(pdfs: list) -> str:
     return uteis[0][0] if uteis else (pdfs[0][0] if pdfs else "")
 
 
+def _inscricao_do_cargo(links: list, cargo: str) -> str:
+    """A inscrição do cargo contábil, quando a banca lista uma por cargo.
+
+    No IBAM cada cargo tem seu link ("004 | ANALISTA FISC.
+    MUN.-CONTABILIDADE"). Mandar a pessoa para a inscrição do
+    engenheiro seria pior que mandá-la para a home.
+    """
+    if not cargo:
+        return ""
+    palavras = [p for p in re.split(r"\W+", cargo.lower()) if len(p) > 3]
+    if not palavras:
+        return ""
+
+    melhor, nota_melhor = "", 0
+    for href, texto in links:
+        t = texto.lower()
+        if "inscre" in t and len(t) < 16:      # botão "INSCREVA-SE" solto
+            continue
+        nota = sum(1 for p in palavras if p[:6] in t)
+        if nota > nota_melhor:
+            melhor, nota_melhor = href, nota
+    return melhor if nota_melhor else ""
+
+
 def aprofundar_um(pagina, edital: dict) -> dict:
     """Enriquece um edital. Devolve o que mudou, para o log."""
     mudou = {}
@@ -165,6 +189,24 @@ def aprofundar_um(pagina, edital: dict) -> dict:
             edital["siteInscricao"] = achado
             mudou["siteInscricao"] = achado
             atual = achado
+        else:
+            # Nem toda banca tem página por concurso: o IBAM publica
+            # tudo na home, dentro do cartão do município — anexos,
+            # edital e um link de inscrição por cargo. Procurar uma
+            # página separada ali era buscar o que não existe.
+            do_cartao = descobrir.links_do_cartao(
+                pagina, descobrir.chaves_do_edital(edital))
+            if do_cartao:
+                pdf = _melhor_pdf(do_cartao)
+                if pdf and mod_salario.baixar_pdf(pdf):
+                    edital["pdfEdital"] = pdf
+                    mudou["pdfEdital"] = pdf
+                # Inscrição: preferimos a do CARGO contábil, se houver.
+                inscricao = _inscricao_do_cargo(do_cartao, edital.get("cargo", ""))
+                if inscricao:
+                    edital["siteInscricao"] = inscricao
+                    mudou["siteInscricao"] = inscricao
+                    atual = inscricao
 
     # ---- 3. PDF do edital
     #
@@ -244,3 +286,46 @@ def aprofundar(editais: list, limite: int = 0) -> int:
 
     print(f"  {total} editais enriquecidos")
     return total
+
+
+# ------------------------------------------------------------------
+# Linha de comando — é assim que o workflow semanal chama.
+# ------------------------------------------------------------------
+
+def main() -> int:
+    import argparse
+    import json
+
+    ap = argparse.ArgumentParser(description="Aprofunda os editais")
+    ap.add_argument("--pendentes", action="store_true",
+                    help="só os que estão sem link específico ou sem PDF")
+    ap.add_argument("--limite", type=int, default=0,
+                    help="no máximo N editais (0 = todos)")
+    args = ap.parse_args()
+
+    arquivo = Path(__file__).resolve().parent.parent / "data" / "editais.json"
+    editais = json.loads(arquivo.read_text(encoding="utf-8"))
+
+    alvos = editais
+    if args.pendentes:
+        # Quem já tem link do concurso E PDF não precisa ser revisitado
+        # toda semana: são ~40 min de navegador para reconfirmar o que
+        # já está certo.
+        alvos = [e for e in editais
+                 if (e.get("siteInscricao") or "").count("/") <= 2
+                 or not e.get("pdfEdital")]
+        print(f"  pendentes: {len(alvos)} de {len(editais)}")
+
+    if args.limite:
+        alvos = alvos[:args.limite]
+
+    aprofundar(alvos)
+
+    arquivo.write_text(json.dumps(editais, ensure_ascii=False, indent=1),
+                       encoding="utf-8")
+    print(f"  gravado: {len(editais)} editais")
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

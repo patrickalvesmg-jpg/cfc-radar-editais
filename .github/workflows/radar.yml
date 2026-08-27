@@ -44,7 +44,7 @@ jobs:
     # requisições ao mesmo host). O limite antigo era 15 min e mataria
     # o processo no meio, gravando nada. 90 dá folga para o dia em que
     # algum portal estiver lento.
-    timeout-minutes: 90
+    timeout-minutes: 240
 
     steps:
       - uses: actions/checkout@v4
@@ -53,12 +53,31 @@ jobs:
         with:
           python-version: "3.12"
 
-      # Sem dependências externas: o robô usa só a biblioteca padrão,
-      # então não há requirements.txt para instalar nem cadeia de
-      # suprimentos para auditar.
+      # A varredura usa só a biblioteca padrão. O APROFUNDAMENTO precisa
+      # de navegador (bancas que montam a lista por JavaScript) e de um
+      # leitor de PDF — instalados só aqui, para a varredura continuar
+      # rodando mesmo que este passo falhe.
+      - name: Preparar o aprofundamento
+        run: |
+          python -m pip install --quiet pypdf playwright
+          python -m playwright install --with-deps chromium
 
       - name: Varrer fontes
         run: python -u robo/atualizar.py --limite 30
+
+      # Link do concurso, PDF do edital e salário DO CARGO.
+      #
+      # Separado da varredura porque é lento (abre navegador e baixa
+      # PDF: ~1h nos 127 editais) e falha por motivos que não são
+      # nossos — site fora do ar, certificado vencido. `|| true` para
+      # que uma banca quebrada não derrube a publicação: sem ele, o
+      # radar deixaria de atualizar por causa de um portal instável.
+      #
+      # Prioriza quem está sem link específico ou sem PDF; quem já tem
+      # os dois não é revisitado toda semana.
+      - name: Aprofundar (link, PDF e salário do cargo)
+        timeout-minutes: 120
+        run: python -u robo/aprofundar.py --pendentes || true
 
       # Rede de segurança ANTES de publicar. Se a varredura produzir
       # algo que viole as regras do produto, o job falha e o site fica

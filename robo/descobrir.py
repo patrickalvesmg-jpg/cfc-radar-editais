@@ -62,7 +62,7 @@ CORRIGIR_URL = (
 
 # Lê o link E o texto do bloco em volta: o nome da cidade quase nunca
 # está no <a>, está no card.
-_JS_LINKS = """els => els.map(e => {
+_JS_LINKS = r"""els => els.map(e => {
   const caixa = e.closest('div,li,tr,article,section') || e;
   return [e.href,
           (e.innerText + ' ' + caixa.innerText)
@@ -133,27 +133,66 @@ def _marca(url: str) -> str:
     return max(partes, key=len) if partes else ""
 
 
+# Sobe do texto até o bloco que reage ao clique. Cada banca usa uma
+# tag diferente para o item — <span> na INEPAM, <h4> no IBAM,
+# <p class="card-text"> no Itame — mas em todas o item é um bloco
+# clicável em volta do nome do município.
+_JS_CAIXA_CLICAVEL = """el => {
+  let n = el;
+  for (let i = 0; i < 6 && n; i++) {
+    if (n.tagName === 'A' || n.onclick || n.getAttribute('onclick') ||
+        n.getAttribute('href') || n.getAttribute('role') === 'link' ||
+        n.getAttribute('role') === 'button' ||
+        (n.className || '').toString().match(/card|item|concurso|certame|box/i)) {
+      return n;
+    }
+    n = n.parentElement;
+  }
+  return el;
+}"""
+
+
 def _clicar_ate_o_concurso(pagina, chaves: list) -> str:
     """Clica no item que cita a cidade e devolve a URL onde parou.
 
-    Para bancas cujo "link" é um <span> com JavaScript. Sem isto a
-    página parece vazia mesmo listando o concurso na tela.
+    Para bancas cujo "link" não é <a href>. Sem isto a página parece
+    vazia mesmo listando o concurso na tela.
     """
-    try:
-        elementos = pagina.query_selector_all(_SELETOR_CLICAVEL)
-    except Exception:
-        return ""
+    candidatos = []
 
-    for el in elementos[:80]:
+    # 1) os suspeitos de sempre
+    try:
+        candidatos.extend(pagina.query_selector_all(_SELETOR_CLICAVEL))
+    except Exception:
+        pass
+
+    # 2) qualquer elemento de texto que cite a cidade — a tag varia por
+    #    banca, então não dá para listá-las todas.
+    try:
+        candidatos.extend(pagina.query_selector_all(
+            "h1,h2,h3,h4,h5,p,li,strong,b,label"))
+    except Exception:
+        pass
+
+    for el in candidatos[:220]:
         try:
             texto = _plano(el.inner_text())
         except Exception:
             continue
-        if not any(k in texto for k in chaves):
+        if not texto or not any(k in texto for k in chaves):
             continue
+        # Texto longo demais é a página inteira, não o item.
+        if len(texto) > 180:
+            continue
+
+        try:
+            alvo = el.evaluate_handle(_JS_CAIXA_CLICAVEL).as_element() or el
+        except Exception:
+            alvo = el
+
         antes = pagina.url
         try:
-            el.click(timeout=8000)
+            alvo.click(timeout=8000)
             pagina.wait_for_timeout(3000)
         except Exception:
             continue
@@ -172,6 +211,50 @@ def _casar(dados: list, chaves: list[str]) -> str:
             if k in pt or k.replace(" ", "-") in ph:
                 return href
     return ""
+
+
+# Ações e documentos dentro de um cartão de concurso.
+_JS_DO_CARTAO = """el => {
+  let caixa = el;
+  for (let i = 0; i < 7 && caixa; i++) {
+    if ((caixa.className || '').toString().match(/card|item|concurso|certame/i)
+        && caixa.querySelectorAll('a[href]').length > 1) break;
+    caixa = caixa.parentElement;
+  }
+  if (!caixa) return [];
+  return Array.from(caixa.querySelectorAll('a[href]'))
+    .map(a => [a.href, (a.innerText || '').replace(/\\s+/g, ' ').trim().slice(0, 90)]);
+}"""
+
+
+def links_do_cartao(pagina, chaves: list) -> list:
+    """[(href, texto)] de dentro do cartão que cita a cidade.
+
+    Para bancas que publicam tudo na home, sem página por concurso —
+    o IBAM é assim: anexos, edital e inscrição ficam no próprio cartão
+    do município.
+    """
+    try:
+        elementos = pagina.query_selector_all("h1,h2,h3,h4,h5,strong,b,span,td,p")
+    except Exception:
+        return []
+
+    for el in elementos[:220]:
+        try:
+            texto = _plano(el.inner_text())
+        except Exception:
+            continue
+        if not texto or len(texto) > 180:
+            continue
+        if not any(k in texto for k in chaves):
+            continue
+        try:
+            achados = el.evaluate(_JS_DO_CARTAO)
+        except Exception:
+            continue
+        if achados and len(achados) > 1:
+            return [(h, t) for h, t in achados if h]
+    return []
 
 
 def descobrir(pagina, home: str, edital: dict) -> str:
