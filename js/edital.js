@@ -59,7 +59,6 @@ function render(e){
     <div class="edital-topo" style="margin-bottom:var(--s-4)">
       <span class="badge ${st.classe}">${st.rot}</span>
       <span class="badge badge-neutro">${ESFERA[e.nivel] || esc(e.nivel)}</span>
-      ${e.revisado ? '' : '<span class="badge badge-warn">Aguardando conferência</span>'}
     </div>
 
     <h1 style="margin-bottom:var(--s-2)">${esc(e.cargo)}</h1>
@@ -99,10 +98,11 @@ function render(e){
 
       <aside>
         <div class="card destaque-salario">
-          <span class="rot">Remuneração até</span>
+          <span class="rot">${e.salarioObs ? 'Remuneração a partir de' : 'Remuneração do cargo'}</span>
           <div class="valor">${e.salario ? brl.format(e.salario) : '—'}</div>
-          ${e.salarioObs ? `<p class="obs">${esc(e.salarioObs)}</p>` : ''}
-          ${e.salario ? '<p class="obs">Valor informado para o concurso. Confirme a remuneração do cargo no edital.</p>' : ''}
+          ${e.salario ? `<p class="obs">${e.salarioObs
+              ? 'O edital publicou apenas a faixa do concurso; este é o piso. O valor do cargo está no anexo de vencimentos.'
+              : 'Vencimento inicial deste cargo, lido no anexo do edital. Confirme antes de se inscrever.'}</p>` : ''}
         </div>
 
         <div class="card" style="padding:var(--s-5);margin-top:var(--s-4)">

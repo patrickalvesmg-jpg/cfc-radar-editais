@@ -122,8 +122,18 @@ export function cardEdital(e, { favorito = false, interativo = true } = {}){
     prazoHtml = `<div class="prazo"><b>—</b>prazo a confirmar</div>`;
   }
 
+  // O rótulo diz de onde veio o número.
+  //
+  // Era "Até" para todo mundo, e isso estava errado das duas formas: o
+  // valor vinha do maior salário do edital (o do médico, do procurador),
+  // e o "Até" ainda prometia que o contador podia chegar lá.
+  //
+  // Agora: sem observação, é o vencimento DO CARGO, lido do anexo do
+  // edital — o rótulo é "Salário". Com `salarioObs` ("a partir de"), o
+  // edital só publicou faixa e mostramos o piso.
+  const rotuloSalario = e.salarioObs ? 'A partir de' : 'Salário';
   const salarioHtml = e.salario
-    ? `<div class="salario"><small>Até</small>${brl.format(e.salario)}</div>`
+    ? `<div class="salario"><small>${esc(rotuloSalario)}</small>${brl.format(e.salario)}</div>`
     : `<div class="salario"><small>Salário</small><span class="pendente">a confirmar</span></div>`;
 
   /* Editais recém-capturados podem vir sem cidade ou sem UF: o robô só
@@ -268,7 +278,30 @@ export function ligarMenuMobile(){
 export async function carregarEditais(){
   const res = await fetch('data/editais.json');
   if(!res.ok) throw new Error(`HTTP ${res.status}`);
-  return res.json();
+  const todos = await res.json();
+
+  // Encerrado não aparece no site (decisão do Patrick, 27/08/2026).
+  //
+  // Antes ficavam numa aba "Encerrados". A ideia era mostrar que aquela
+  // prefeitura abre concurso contábil, mas na prática ocupavam metade do
+  // radar com o que ninguém pode mais fazer — e quem clicava chegava
+  // numa inscrição fechada.
+  //
+  // O filtro fica AQUI, no único ponto por onde landing e plataforma
+  // carregam os dados: em qualquer outro lugar, uma tela nova nasceria
+  // mostrando encerrado de novo.
+  //
+  // Continuam no arquivo: o robô precisa deles para não recapturar o
+  // mesmo edital como novidade a cada varredura.
+  const hoje = new Date().toISOString().slice(0, 10);
+  return todos.filter(e => {
+    if(e.status === 'encerrado') return false;
+    // Prazo vencido conta como encerrado mesmo que o status não tenha
+    // sido recalculado ainda — foi o que deixou 4 editais vencidos
+    // aparecendo como "encerrando".
+    const fim = (e.inscricaoFim || '').slice(0, 10);
+    return !(fim && fim < hoje);
+  });
 }
 
 

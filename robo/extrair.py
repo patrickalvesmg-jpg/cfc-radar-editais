@@ -14,6 +14,7 @@ import unicodedata
 from datetime import datetime
 
 from config import BANCAS, UFS
+from fontes.estrategia import nome_cidade
 
 
 def _sem_acento(s: str) -> str:
@@ -388,6 +389,25 @@ def montar(achado: dict) -> dict:
     vagas = achado.get("_vagas") or extrair_vagas(texto)
     uf = achado.get("_uf") or extrair_uf(texto, orgao)
     cidade = achado.get("_cidade", "")
+
+    # Cidade deduzida do nome do órgão quando a fonte não a informa.
+    #
+    # Isto já existia, mas rodava em `atualizar.geolocalizar()` — depois
+    # daqui, quando o id JÁ estava calculado. Enquanto o PCI mandava a
+    # cidade, ninguém notou.
+    #
+    # Em 26/08/2026 a API do PCI parou de preencher `cidade.nome`: o
+    # objeto continua na resposta, com as chaves nulas, em 463 de 463
+    # concursos — os 278 municipais inclusive. Sem cidade o id vira só
+    # uf|cargo|prazo, e aí "Prefeitura de Matinhos" e "MatinhosPREV"
+    # colidem num id só, enquanto o mesmo concurso com prazo diferente
+    # vira dois. Medido: 120 de 146 capturados apareceram como "novos".
+    #
+    # Recupera 85% dos casos. O resto fica sem cidade mesmo — órgão
+    # estadual ("Perícia Oficial MA") não tem cidade no nome, e chutar
+    # seria pior que deixar vazio.
+    if not cidade:
+        cidade = nome_cidade(orgao)
 
     # O id precisa ser estável mesmo agora que `url` é o link interno:
     # usamos a procedência (URL de origem), que não muda entre execuções.
