@@ -63,7 +63,11 @@ function render(e){
 
     <h1 style="margin-bottom:var(--s-2)">${esc(e.cargo)}</h1>
     <p style="color:var(--cinza);font-size:1.1rem;margin-bottom:var(--s-4)">${esc(e.orgao)}</p>
-    ${e.resumo ? `<p class="edital-resumo">${esc(e.resumo)}</p>` : ''}
+    <!-- O `resumo` da fonte NÃO é exibido: ele descreve o concurso
+         inteiro ("vagas para advogado, motorista, serviços gerais") e
+         cita salários de outros cargos. Num radar de contabilidade
+         isso é ruído — e engana, porque o número que aparece ali não é
+         o da nossa vaga. O editorial abaixo cobre o que importa. -->
 
     <div class="detalhe-grid">
       <div>

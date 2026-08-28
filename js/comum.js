@@ -177,7 +177,12 @@ export function cardEdital(e, { favorito = false, interativo = true } = {}){
         ${e.banca ? item('banca', `Banca <b>${esc(e.banca)}</b>`) : ''}
         ${e.vagas ? item('vagas', `<b>${esc(e.vagas)}</b> vagas`) : ''}
         ${e.dataProva ? item('prova', `Prova <b>${dataBR(e.dataProva)}</b>`) : ''}
-        ${item('fonte', `${esc(e.fonte)} · ${hora(e.capturadoEm)}`)}
+        <!-- Mostramos a BANCA e a hora, nunca a fonte da captura.
+             "PCI Concursos" é portal concorrente: citá-lo no card dá
+             palco a quem disputa a mesma audiência, e ele não é quem
+             organiza o certame. Mesma regra dos links, que já só
+             apontam para o site oficial. -->
+        ${item('fonte', `Atualizado ${hora(e.capturadoEm)}`)}
       </div>
     </div>
 
