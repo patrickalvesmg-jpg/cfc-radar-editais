@@ -55,6 +55,11 @@ function render(e){
 
   document.title = `${e.cargo} — ${e.orgao} · Radar Concursos Contabilidade`;
 
+  // O campo `resumo` da fonte não é exibido de propósito: ele descreve
+  // o concurso INTEIRO ("vagas para advogado, motorista, serviços
+  // gerais") e cita salários de outros cargos. Num radar de
+  // contabilidade isso é ruído, e engana — o número que aparece ali não
+  // é o da nossa vaga. O editorial logo abaixo cobre o que importa.
   document.getElementById('detalhe').innerHTML = `
     <div class="edital-topo" style="margin-bottom:var(--s-4)">
       <span class="badge ${st.classe}">${st.rot}</span>
@@ -63,11 +68,6 @@ function render(e){
 
     <h1 style="margin-bottom:var(--s-2)">${esc(e.cargo)}</h1>
     <p style="color:var(--cinza);font-size:1.1rem;margin-bottom:var(--s-4)">${esc(e.orgao)}</p>
-    <!-- O `resumo` da fonte NÃO é exibido: ele descreve o concurso
-         inteiro ("vagas para advogado, motorista, serviços gerais") e
-         cita salários de outros cargos. Num radar de contabilidade
-         isso é ruído — e engana, porque o número que aparece ali não é
-         o da nossa vaga. O editorial abaixo cobre o que importa. -->
 
     <div class="detalhe-grid">
       <div>
