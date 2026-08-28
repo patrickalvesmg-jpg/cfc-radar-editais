@@ -1431,7 +1431,7 @@
   "revisado": false,
   "editorial": "<p>A Prefeitura de Ribeira do Pombal abriu concurso público de âmbito municipal, em Ribeira do Pombal / BA, com vaga para <b>Fiscal De Tributos</b>. São 3 + cadastro de reserva vaga(s).</p><p>A remuneração informada chega a <b>R$ 2.212,36</b>. O valor fica abaixo da mediana dos concursos contábeis hoje no radar (R$ 5.020,00).</p><p>As inscrições vão de 27/07/2026 a <b>24/08/2026</b>. O prazo já encerrou.</p><p>A seleção prevê prova objetiva, prova de títulos e teste de aptidão física.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Cargos de auditoria e fiscalização costumam aceitar também formações afins, o que tende a ampliar a concorrência. Confirme a exigência exata no edital.</p><p>A organização é da <b>Seleção Concursos</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
   "banca": "Seleção Concursos",
-  "bancaDominio": "net.br"
+  "bancaDominio": ""
  },
  {
   "id": "e-f84c5498fce1",
@@ -1750,7 +1750,7 @@
   "uf": "BA",
   "cidade": "Seabra",
   "vagas": "1",
-  "salario": 5000,
+  "salario": 2500.0,
   "salarioObs": "",
   "cargaHoraria": "",
   "escolaridade": "superior",
@@ -1761,7 +1761,7 @@
   "dataProva": "",
   "taxaInscricao": 0,
   "editalUrl": "edital.html?id=e-4dc5f80b1ac3",
-  "siteInscricao": "https://selecao.net.br",
+  "siteInscricao": "https://iset.selecao.net.br/informacoes/44/",
   "procedencia": "https://www.pciconcursos.com.br/noticias/camara-de-seabra-ba-abre-concurso-publico-com-salarios-de-ate-5000",
   "fonte": "PCI Concursos",
   "capturadoEm": "2026-08-20T11:58:11",
@@ -1773,10 +1773,10 @@
   "geoAprox": false,
   "resumo": "Confira vagas para níveis fundamental, médio e superior. As oportunidades abrangem cargos como advogado, motorista, técnico administrativo e serviços gerais em regime de 40 horas semanais.",
   "detalhes": {},
-  "pdfEdital": "",
-  "editorial": "<p>A Câmara de Seabra abriu concurso público de âmbito municipal, em Seabra / BA, com vaga para <b>Auxiliar De Contabilidade</b>. São 1 vaga(s).</p><p>A remuneração informada chega a <b>R$ 5.000,00</b>. O valor está em linha com a mediana dos concursos contábeis hoje no radar (R$ 5.020,00).</p><p>As inscrições vão de 14/08/2026 a <b>30/08/2026</b> — restam apenas 2 dia(s).</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Confirme a exigência exata no edital.</p><p>A organização é da <b>Seleção Concursos</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
+  "pdfEdital": "https://anexos-r2.selecao.net.br/uploads/792/concursos/44/anexos/a1197cbe-f340-4266-9220-1feb3dbcf542.pdf",
+  "editorial": "<p>A Câmara de Seabra abriu concurso público de âmbito municipal, em Seabra / BA, com vaga para <b>Auxiliar De Contabilidade</b>. São 1 vaga(s).</p><p>A remuneração informada chega a <b>R$ 2.500,00</b>. O valor fica abaixo da mediana dos concursos contábeis hoje no radar (R$ 5.020,00).</p><p>As inscrições vão de 14/08/2026 a <b>30/08/2026</b> — restam apenas 2 dia(s).</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Confirme a exigência exata no edital.</p><p>A organização é da <b>Seleção Concursos</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
   "banca": "Seleção Concursos",
-  "bancaDominio": "net.br"
+  "bancaDominio": ""
  },
  {
   "id": "e-3ef1b2f47245",
@@ -1896,7 +1896,7 @@
   "revisado": false,
   "editorial": "<p>A Prefeitura de Arabutã abriu concurso público de âmbito municipal, em Arabutã / SC, com vaga para <b>Auxiliar De Contabilidade</b>. São 1 + cadastro de reserva vaga(s).</p><p>A remuneração informada chega a <b>R$ 6.742,14</b>. O valor está em linha com a mediana dos concursos contábeis hoje no radar (R$ 5.020,00).</p><p>As inscrições vão de 24/07/2026 a <b>24/08/2026</b>. O prazo já encerrou.</p><p>A seleção prevê provas objetivas.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Confirme a exigência exata no edital.</p><p>A organização é da <b>Seleção Concursos</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
   "banca": "Seleção Concursos",
-  "bancaDominio": "net.br"
+  "bancaDominio": ""
  },
  {
   "id": "e-e4b9bc1fd1b5",
@@ -1974,7 +1974,7 @@
   "revisado": false,
   "editorial": "<p>IPMS - Instituto de Previdência do Município de Suzano abriu concurso público de âmbito municipal, em Suzano / SP, com vaga para <b>Analista Contábil</b>. São 1 vaga(s).</p><p>A remuneração informada chega a <b>R$ 5.186,89</b>. O valor está em linha com a mediana dos concursos contábeis hoje no radar (R$ 5.020,00).</p><p>As inscrições vão de 24/08/2026 a <b>25/09/2026</b>, ou seja, 28 dias a partir de hoje.</p><p>A seleção prevê prova objetiva.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Confirme a exigência exata no edital.</p><p>A organização é da <b>Seleção Concursos</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
   "banca": "Seleção Concursos",
-  "bancaDominio": "net.br"
+  "bancaDominio": ""
  },
  {
   "id": "e-97f0da492175",

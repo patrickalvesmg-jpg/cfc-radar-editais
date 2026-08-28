@@ -211,8 +211,35 @@ function blocoEditorial(e){
  * etapas do certame, taxa, isenção, validade. Some inteiro quando não
  * há nada a dizer — cartão vazio é pior que cartão ausente.
  */
+/**
+ * Texto raspado da banca que não serve para o leitor.
+ *
+ * O campo vem sem tratamento e às vezes traz a tabela de TODOS os
+ * cargos ("01 Advogado ... 02 Agente de Patrimônio") ou sobra de
+ * script ("toggleClass('abrir'); })"). Num radar de contabilidade
+ * isso é ruído, e pior: os valores citados são de outros cargos.
+ */
+function textoImprestavel(t){
+  if(!t) return true;
+  const s = String(t);
+  // sobra de código
+  if(/toggleClass|function\s*\(|=>|\}\)|<[a-z]+[\s>]/i.test(s)) return true;
+  // lista de cargos: vários valores em reais no mesmo campo
+  if((s.match(/R\$/g) || []).length > 2) return true;
+  // numeração de quadro de vagas ("01 Advogado ... 02 Agente ...")
+  if(/\b0\d\s+[A-ZÁÉÍÓÚÂÊÔÃÕÇ][a-zà-ú]+/.test(s) && s.length > 120) return true;
+  return false;
+}
+
 function blocoDetalhes(e){
-  const d = e.detalhes || {};
+  const bruto = e.detalhes || {};
+  // Cada campo passa pelo filtro: um item sujo não pode derrubar o
+  // bloco inteiro, nem aparecer só porque os outros estão limpos.
+  const d = {};
+  for(const [k, v] of Object.entries(bruto)){
+    if(k === 'etapas'){ d[k] = v; continue; }
+    if(!textoImprestavel(v)) d[k] = v;
+  }
   const temAlgo = d.etapas?.length || d.taxaTexto || d.isencao || d.validade || d.provaTexto;
   if(!temAlgo) return '';
 
