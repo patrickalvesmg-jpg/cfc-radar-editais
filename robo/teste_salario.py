@@ -110,6 +110,35 @@ def test_prefere_anexo_de_vencimentos():
     assert aprofundar._melhor_pdf(pdfs) == "https://x/anexo1.pdf"
 
 
+# --- valor sem "R$" (auditoria de 28/08/2026) ----------------------
+
+# Anexo de Cachoeira do Sul: a coluna traz o cifrão só no cabeçalho.
+TABELA_SEM_CIFRAO = (
+    "G02 Contador Ensino Superior completo e habilitacao legal para "
+    "exercicio da profissao de Contador 40h 01+CR 01 - - 4.486,69 243,80 "
+    "G01 Controlador Interno Possuir, no minimo, 21 anos"
+)
+
+
+def test_le_valor_sem_cifrao():
+    """O card mostrava R$ 19.535 porque o extrator exigia 'R$' e a
+    tabela não usa."""
+    assert salario.do_texto(TABELA_SEM_CIFRAO, "Contador") == 4486.69
+
+
+def test_nao_pesca_numero_solto_quando_ha_cifrao():
+    """Com 'R$' na janela, número solto não vale: seria nota de prova,
+    número de lei, percentual."""
+    texto = "Contador 40h 10 questoes 7,50 pontos R$ 4.000,00"
+    assert salario.do_texto(texto, "Contador") == 4000.00
+
+
+def test_valor_solto_exige_formato_de_dinheiro():
+    """'7,50' e '40' não são salário — sem milhar com ponto, ignora."""
+    texto = "Contador 40h nota minima 7,50 aprovados 40"
+    assert salario.do_texto(texto, "Contador") is None
+
+
 if __name__ == "__main__":
     falhas = 0
     for nome, fn in sorted(globals().items()):

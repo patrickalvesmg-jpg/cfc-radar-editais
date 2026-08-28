@@ -285,6 +285,23 @@ def aprofundar(editais: list, limite: int = 0) -> int:
         navegador.close()
 
     print(f"  {total} editais enriquecidos")
+
+    # O texto do edital cita o salário ("A remuneração informada chega a
+    # R$ X"). Ele foi escrito por `atualizar.py` ANTES desta correção,
+    # com o valor da captura — que é justamente o que acabamos de
+    # consertar. Sem regenerar, o card mostra R$ 3.859 e a descrição
+    # continua dizendo R$ 21.489: o mesmo edital com dois valores, e o
+    # errado é o que a pessoa lê por extenso.
+    if total:
+        try:
+            import editorial
+            editorial.aplicar(editais)
+            print("  editoriais regenerados com o salário corrigido")
+        except Exception as erro:
+            # Texto desatualizado é ruim, mas não justifica perder o
+            # salário certo que acabamos de gravar.
+            print(f"  editorial não regenerado: {type(erro).__name__}")
+
     return total
 
 

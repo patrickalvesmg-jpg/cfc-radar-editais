@@ -43,6 +43,12 @@ import urllib.request
 # casaria com número de processo e artigo de lei.
 VALOR = re.compile(r"R\$\s*([\d]{1,3}(?:\.\d{3})*,\d{2})")
 
+# O mesmo valor SEM o "R$" — várias tabelas põem o cifrão só no
+# cabeçalho da coluna: "G02 Contador ... 40h 01+CR 01 - - 4.486,69".
+# Exige milhar com ponto para não casar com nota de prova ("7,50") nem
+# com percentual.
+VALOR_SOLTO = re.compile(r"(?<![\d,.])([\d]{1,3}\.\d{3},\d{2})(?![\d])")
+
 # Cabeçalho da coluna que interessa. "Taxa" fica de fora de propósito.
 COLUNA_SALARIO = re.compile(
     r"sal[áa]rio|remunera|vencimento|subs[íi]dio|prov[ei]nto", re.I)
@@ -131,9 +137,20 @@ def do_texto(texto: str, cargo: str) -> float | None:
 
     melhor = None
     for m in re.finditer(padrao, plano):
-        achado = VALOR.search(corpo[m.end():m.end() + 300])
+        janela = corpo[m.end():m.end() + 300]
+
+        achado = VALOR.search(janela)
         if not achado:
-            continue
+            # Sem "R$" em lugar nenhum da janela, a tabela provavelmente
+            # põe o cifrão só no cabeçalho da coluna. Aceitamos o número
+            # solto — mas só aí, para não pescar nota nem percentual de
+            # um texto que tinha valores marcados corretamente.
+            if "R$" in janela:
+                continue
+            achado = VALOR_SOLTO.search(janela)
+            if not achado:
+                continue
+
         v = _num(achado.group(1))
         if v is None or not (MIN_SALARIO <= v <= MAX_SALARIO):
             continue
