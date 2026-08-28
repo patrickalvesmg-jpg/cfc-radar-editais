@@ -178,6 +178,27 @@ def conferir(editais: list[dict]) -> list[str]:
                 "vai duplicar na próxima captura"
             )
 
+        # 6. Link malformado.
+        #
+        #    `bancaDominio` chegou a valer "net.br" — sufixo, não
+        #    domínio — e o site montava https://net.br/, que não
+        #    existe. Domínio precisa de nome E sufixo.
+        dom = (e.get("bancaDominio") or "").strip()
+        if dom:
+            if re.match(r"^(com|net|org|gov|edu)\.br$", dom, re.I) or "." not in dom:
+                problemas.append(
+                    f"[{ident}] bancaDominio '{dom}' não é domínio — "
+                    "o link da organizadora vai quebrar"
+                )
+
+        #    Link de inscrição sem esquema não abre em lugar nenhum.
+        for campo in ("siteInscricao", "pdfEdital"):
+            url = (e.get(campo) or "").strip()
+            if url and not url.startswith(("http://", "https://")):
+                problemas.append(
+                    f"[{ident}] {campo} sem http(s): '{url[:50]}'"
+                )
+
     return problemas
 
 
