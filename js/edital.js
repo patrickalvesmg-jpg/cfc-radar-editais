@@ -17,6 +17,20 @@ import { logado } from './sessao.js';
 /** Domínios que nunca devem virar link: agregadores concorrentes. */
 const BLOQUEADOS = /pciconcursos|jcconcursos|concursosnobrasil|folhadirigida|qconcursos|grancursos|estrategiaconcursos/i;
 
+// Bancas fora do ar (auditado em 31/08/2026). O nome continua sendo
+// exibido — é informação verdadeira sobre quem organiza —, mas sem
+// virar link: mandar a pessoa a um site que não abre é pior que não
+// oferecer link nenhum.
+//
+//   exameconsultores.com.br  o DNS resolve, o servidor não serve nada
+//   access.org.br            falha o TLS e cai numa página de bloqueio
+//                            do Malwarebytes ("Riskware")
+//
+// Só entra aqui domínio confirmado NO NAVEGADOR. Banca que recusa
+// automação mas abre para gente (ameosc.org.br devolve 403 ao robô e
+// 200 ao navegador) NÃO entra — ver a tabela em robo/auditar_links.py.
+const FORA_DO_AR = /exameconsultores\.com\.br|access\.org\.br/i;
+
 function linkSeguro(url){
   if(!url || !/^https?:\/\//i.test(url)) return '';
   return BLOQUEADOS.test(url) ? '' : url;
@@ -114,7 +128,8 @@ function render(e){
           ${linha('Cargo', esc(e.cargo))}
           ${linha('Órgão', esc(e.orgao))}
           ${linha('Local', esc(local))}
-          ${linha('Organizadora', e.bancaDominio && !BLOQUEADOS.test(e.bancaDominio)
+          ${linha('Organizadora', e.bancaDominio
+              && !BLOQUEADOS.test(e.bancaDominio) && !FORA_DO_AR.test(e.bancaDominio)
               ? `<a class="link-banca" href="https://${esc(e.bancaDominio)}/"
                     target="_blank" rel="noopener noreferrer nofollow">${esc(e.banca)}</a>`
               : esc(e.banca))}

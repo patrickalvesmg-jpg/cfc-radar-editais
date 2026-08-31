@@ -1,89 +1,5 @@
 [
  {
-  "id": "e-402b65f01904",
-  "orgao": "MUNICÍPIO DE LAGOA DA PRATA",
-  "cargo": "Técnico Em Contabilidade",
-  "problemas": [
-   {
-    "campo": "siteInscricao",
-    "url": "https://novo.ibgpconcursos.com.br/informacoes/665/",
-    "erro": "HTTP 404"
-   }
-  ]
- },
- {
-  "id": "e-868ad33e742c",
-  "orgao": "MUNICÍPIO DE SÃO JOÃO DEL-REI",
-  "cargo": "Agente Fiscal de Tributos",
-  "problemas": [
-   {
-    "campo": "siteInscricao",
-    "url": "https://novo.ibgpconcursos.com.br/informacoes/733/",
-    "erro": "HTTP 404"
-   }
-  ]
- },
- {
-  "id": "e-b41d44b06836",
-  "orgao": "MUNICÍPIO DE COROMANDEL",
-  "cargo": "Controlador Interno",
-  "problemas": [
-   {
-    "campo": "siteInscricao",
-    "url": "https://novo.ibgpconcursos.com.br/informacoes/684/",
-    "erro": "HTTP 404"
-   }
-  ]
- },
- {
-  "id": "e-16f96b801833",
-  "orgao": "MUNICÍPIO DE IPABA",
-  "cargo": "Contador",
-  "problemas": [
-   {
-    "campo": "siteInscricao",
-    "url": "https://novo.ibgpconcursos.com.br/informacoes/710/",
-    "erro": "HTTP 404"
-   }
-  ]
- },
- {
-  "id": "e-497444ffb59d",
-  "orgao": "MUNICÍPIO DE SÃO JOÃO DEL-REI",
-  "cargo": "Técnico Em Contabilidade",
-  "problemas": [
-   {
-    "campo": "siteInscricao",
-    "url": "https://novo.ibgpconcursos.com.br/informacoes/736/",
-    "erro": "HTTP 404"
-   }
-  ]
- },
- {
-  "id": "e-c7b942594568",
-  "orgao": "MUNICÍPIO DE CONTAGEM",
-  "cargo": "Auditor de Controle Interno - Ciências Contábeis",
-  "problemas": [
-   {
-    "campo": "siteInscricao",
-    "url": "https://novo.ibgpconcursos.com.br/informacoes/739/",
-    "erro": "HTTP 404"
-   }
-  ]
- },
- {
-  "id": "e-9ee6677ddfb3",
-  "orgao": "CÂMARA MUNICIPAL DE LAMBARI",
-  "cargo": "Contador Público",
-  "problemas": [
-   {
-    "campo": "siteInscricao",
-    "url": "https://novo.ibgpconcursos.com.br/informacoes/747/",
-    "erro": "HTTP 404"
-   }
-  ]
- },
- {
   "id": "e-791797e47a8b",
   "orgao": "Prefeitura de Santana de Pirapama",
   "cargo": "Fiscal De Tributos",
@@ -135,37 +51,8 @@
   "cargo": "Contador",
   "problemas": [
    {
-    "campo": "siteInscricao",
-    "url": "https://www.access.org.br",
-    "erro": "URLError"
-   },
-   {
     "campo": "bancaDominio",
     "url": "access.org.br",
-    "erro": "URLError"
-   }
-  ]
- },
- {
-  "id": "e-8765850de9a5",
-  "orgao": "Câmara de Divisa Nova",
-  "cargo": "Contador",
-  "problemas": [
-   {
-    "campo": "siteInscricao",
-    "url": "https://www.imam.org.br",
-    "erro": "URLError"
-   }
-  ]
- },
- {
-  "id": "e-1e0aa6530d4a",
-  "orgao": "Câmara de Passos",
-  "cargo": "Contador",
-  "problemas": [
-   {
-    "campo": "siteInscricao",
-    "url": "https://www.gestaodeconcursos.com.br",
     "erro": "URLError"
    }
   ]

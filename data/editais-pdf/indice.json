@@ -90,6 +90,13 @@
   "origem": "https://anexos-r2.selecao.net.br/uploads/820/concursos/63/anexos/f73774a7-01a6-47e6-a774-81951588b94b.pdf",
   "sha256_8": "047f4bfe"
  },
+ "e-4933fccc3e8a": {
+  "arquivo": "data/editais-pdf/e-4933fccc3e8a-fca85c7e.pdf",
+  "baixadoEm": "2026-08-31",
+  "bytes": 385853,
+  "origem": "https://s3.amazonaws.com/sgs.institutoideap.com.br/camara-municipal-de-rio-piracicaba/1/1-2026/anexos/anexos--edital-concurso-publico-01-2026--camara-municipal-de-rio-piracicaba.pdf",
+  "sha256_8": "fca85c7e"
+ },
  "e-497444ffb59d": {
   "arquivo": "data/editais-pdf/e-497444ffb59d-acaf291f.pdf",
   "baixadoEm": "2026-08-31",

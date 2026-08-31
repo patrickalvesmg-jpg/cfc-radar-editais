@@ -319,7 +319,16 @@ export async function carregarEditais(){
     // vê o salário e não tem para onde ir. Some da tela, mas continua
     // no arquivo — quando a banca publicar o endereço, a varredura
     // preenche e ele volta sozinho.
-    const temOnde = (e.siteInscricao || '').trim() || (e.pdfEdital || '').trim();
+    //
+    // Link para site FORA DO AR também é beco sem saída, e pior: a
+    // pessoa clica e recebe erro. Auditado em 31/08/2026 —
+    // `exameconsultores.com.br` não serve nada e `access.org.br` cai
+    // numa página de bloqueio do Malwarebytes. Só vale a pena esconder
+    // quando não sobra NENHUMA outra saída: em Santana de Pirapama a
+    // banca morreu mas o PDF do edital está noutro host e abre.
+    const vivo = (url) => url && !/exameconsultores\.com\.br|access\.org\.br/i.test(url);
+    const temOnde = vivo((e.siteInscricao || '').trim())
+                 || vivo((e.pdfEdital || '').trim());
     return Boolean(temOnde);
   });
 }
