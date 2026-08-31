@@ -23,8 +23,16 @@ _MEDIANA = {"valor": 0.0}
 
 
 def preparar(editais):
-    """Mediana salarial do acervo — base da comparação."""
-    valores = sorted(e["salario"] for e in editais if e.get("salario"))
+    """Mediana salarial do acervo — base da comparação.
+
+    Só entram salários LIDOS NO ANEXO (`pdfEdital` preenchido). Os
+    demais vêm da manchete da fonte, que anuncia o teto do concurso —
+    o do médico, o do procurador. Incluí-los inflava a própria régua
+    contra a qual comparamos cada edital: a mediana ficava alta e um
+    salário contábil correto parecia "abaixo da mediana".
+    """
+    valores = sorted(e["salario"] for e in editais
+                     if e.get("salario") and (e.get("pdfEdital") or "").strip())
     if valores:
         meio = len(valores) // 2
         _MEDIANA["valor"] = (
@@ -105,14 +113,33 @@ def _remuneracao(e):
     if not sal:
         return ""
 
-    txt = f"A remuneração informada chega a <b>{_brl(sal)}</b>"
+    # Sem `pdfEdital` não abrimos o anexo: o número veio da manchete da
+    # fonte, que anuncia o TETO do concurso — quase sempre de outro
+    # cargo. Em Floresta/PE o editorial dizia "chega a R$ 15.005,27" e
+    # ainda concluía "acima da mediana"; o Fiscal de Tributos ganha
+    # R$ 1.688,08 e os R$ 15 mil eram do Médico UBS. Escrever isso por
+    # extenso é pior que no card: é a frase que a pessoa lê e acredita.
+    verificado = bool((e.get("pdfEdital") or "").strip())
+
+    if verificado:
+        txt = f"A remuneração do cargo é de <b>{_brl(sal)}</b>"
+    else:
+        txt = f"A remuneração divulgada para o concurso é de <b>{_brl(sal)}</b>"
     carga = (e.get("cargaHoraria") or "").strip()
     if carga:
         txt += f", para jornada de {carga}"
     txt += "."
 
+    if not verificado:
+        txt += (" Esse valor ainda não foi conferido no anexo de vencimentos"
+                " e pode ser de outro cargo do mesmo edital — confirme antes"
+                " de se inscrever.")
+
+    # A comparação com a mediana só faz sentido sobre valor verificado:
+    # comparar um teto de outro cargo com a mediana dá uma conclusão
+    # confiante sobre um número errado.
     med = _MEDIANA["valor"]
-    if med:
+    if med and verificado:
         if sal >= med * 1.35:
             txt += " É um valor acima da mediana dos concursos contábeis hoje no radar"
         elif sal <= med * 0.7:

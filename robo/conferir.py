@@ -199,6 +199,32 @@ def conferir(editais: list[dict]) -> list[str]:
                     f"[{ident}] {campo} sem http(s): '{url[:50]}'"
                 )
 
+        # 7. Salário implausível para a escolaridade.
+        #
+        #    Floresta/PE publicava "Fiscal de Tributos — R$ 15.005,27".
+        #    O cargo é de ENSINO MÉDIO e ganha R$ 1.688,08; os R$ 15 mil
+        #    eram do Médico UBS do mesmo edital. Erro de 8,9x, com
+        #    `confianca: alta` e sem PDF nenhum.
+        #
+        #    Cargo de nível médio com salário alto é sinal, não prova:
+        #    o TCE-GO paga R$ 11.862,19 a Técnico de Controle Externo, e
+        #    a própria matéria diz "cargos de nível médio". Barrar isso
+        #    seria trocar um erro por outro.
+        #
+        #    O que separa os dois casos é a ESFERA. Tribunal de contas,
+        #    assembleia e órgão federal pagam bem a nível médio; uma
+        #    PREFEITURA pagando R$ 15 mil a fiscal é teto de médico.
+        #    Por isso a regra vale só para o municipal, e só sem PDF —
+        #    com anexo lido, confiamos no que lemos.
+        sal = e.get("salario") or 0
+        tem_pdf = bool((e.get("pdfEdital") or "").strip())
+        if (sal > 10000 and e.get("escolaridade") == "medio"
+                and e.get("nivel") == "municipal" and not tem_pdf):
+            problemas.append(
+                f"[{ident}] R$ {sal:,.2f} para cargo de nível médio em concurso "
+                "municipal, sem PDF conferido — provável salário de outro cargo"
+            )
+
     return problemas
 
 

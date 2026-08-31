@@ -6,6 +6,13 @@
   "origem": "https://anexos-r2.selecao.net.br/uploads/281/concursos/4196/anexos/462f97e7-b038-48a8-8202-dfa8eb87bd4a.pdf",
   "sha256_8": "e0faf48a"
  },
+ "e-0fdec8095a55": {
+  "arquivo": "data/editais-pdf/e-0fdec8095a55-e58fdc88.pdf",
+  "baixadoEm": "2026-08-31",
+  "bytes": 716609,
+  "origem": "https://anexos-r2.selecao.net.br/uploads/861/concursos/3070/anexos/f196fabd-7d4e-49e6-bb8c-1fcc400cab06.pdf",
+  "sha256_8": "e58fdc88"
+ },
  "e-14bc25fd0f60": {
   "arquivo": "data/editais-pdf/e-14bc25fd0f60-4e19e157.pdf",
   "baixadoEm": "2026-08-31",
@@ -89,6 +96,13 @@
   "bytes": 126196,
   "origem": "https://novo.ibgpconcursos.com.br/rest/concurso/download/edital/22347/?file=site/anexos/684/01%20-%20ANEXO%20I%20-REQUISITO_JORNADA_VAGA_VENCIMENTO.pdf",
   "sha256_8": "e467f7f7"
+ },
+ "e-4caf1f212e1a": {
+  "arquivo": "data/editais-pdf/e-4caf1f212e1a-c3e43667.pdf",
+  "baixadoEm": "2026-08-31",
+  "bytes": 663326,
+  "origem": "https://sis.consesp.com.br/imagens_arquivos/concursos/arquivos/4922_4922.emdaepdracenacp001.2026.pdf",
+  "sha256_8": "c3e43667"
  },
  "e-514530b6bdd5": {
   "arquivo": "data/editais-pdf/e-514530b6bdd5-d293717d.pdf",
@@ -320,6 +334,13 @@
   "bytes": 126196,
   "origem": "https://novo.ibgpconcursos.com.br/rest/concurso/download/edital/22347/?file=site/anexos/684/01%20-%20ANEXO%20I%20-REQUISITO_JORNADA_VAGA_VENCIMENTO.pdf",
   "sha256_8": "e467f7f7"
+ },
+ "e-b624c9b43ba6": {
+  "arquivo": "data/editais-pdf/e-b624c9b43ba6-d049b759.pdf",
+  "baixadoEm": "2026-08-31",
+  "bytes": 1274606,
+  "origem": "https://anexos-r2.selecao.net.br/uploads/781/concursos/44/anexos/6446ac1d-6281-48f7-bdef-c0e5bcaca84e.pdf",
+  "sha256_8": "d049b759"
  },
  "e-b805ca91c760": {
   "arquivo": "data/editais-pdf/e-b805ca91c760-74824970.pdf",

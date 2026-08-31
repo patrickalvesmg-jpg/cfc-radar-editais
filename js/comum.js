@@ -131,7 +131,14 @@ export function cardEdital(e, { favorito = false, interativo = true } = {}){
   // Agora: sem observação, é o vencimento DO CARGO, lido do anexo do
   // edital — o rótulo é "Salário". Com `salarioObs` ("a partir de"), o
   // edital só publicou faixa e mostramos o piso.
-  const rotuloSalario = e.salarioObs ? 'A partir de' : 'Salário';
+  // Terceiro estado, acrescentado em 31/08/2026: "Salário" afirmava
+  // vencimento do cargo mesmo sem termos aberto o anexo. Em Floresta/PE
+  // o card dizia "Salário R$ 15.005,27" para um Fiscal de Tributos que
+  // ganha R$ 1.688,08 — o valor era do Médico UBS do mesmo concurso.
+  // Ter `pdfEdital` é a prova de que o número saiu do anexo.
+  const rotuloSalario = e.salarioObs        ? 'A partir de'
+                      : (e.pdfEdital || '') ? 'Salário'
+                                            : 'Divulgado';
   const salarioHtml = e.salario
     ? `<div class="salario"><small>${esc(rotuloSalario)}</small>${brl.format(e.salario)}</div>`
     : `<div class="salario"><small>Salário</small><span class="pendente">a confirmar</span></div>`;

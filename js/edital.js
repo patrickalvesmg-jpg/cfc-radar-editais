@@ -46,6 +46,35 @@ function render(e){
   const copia = /^data\/editais-pdf\/[\w.-]+\.pdf$/.test(bruto) ? bruto : '';
   const copiaEm = copia && e.pdfArquivoEm ? dataBR(e.pdfArquivoEm) : '';
 
+  // O salário tem TRÊS estados, não dois. Antes só havia "a partir de"
+  // (faixa) e "do cargo" — e este último afirmava "lido no anexo do
+  // edital" mesmo quando nunca abrimos anexo nenhum.
+  //
+  // Foi o caso de Floresta/PE (31/08/2026): o radar publicava
+  // "Fiscal de Tributos — R$ 15.005,27" com essa frase. O edital diz
+  // R$ 1.688,08; os R$ 15.005,27 são do MÉDICO UBS do mesmo concurso.
+  // Errado por 8,9x, e afirmando uma verificação que não houve.
+  //
+  // A prova de que lemos o anexo é ter `pdfEdital`. Sem ele o número
+  // veio da manchete da fonte, que anuncia o teto do concurso — quase
+  // sempre de outro cargo. Dizer isso é obrigação, não detalhe.
+  const lidoNoEdital = !!(e.pdfEdital || '').trim();
+  let rotuloSalario, obsSalario;
+  if (e.salarioObs) {
+    rotuloSalario = 'Remuneração a partir de';
+    obsSalario = 'O edital publicou apenas a faixa do concurso; este é o piso. '
+               + 'O valor do cargo está no anexo de vencimentos.';
+  } else if (lidoNoEdital) {
+    rotuloSalario = 'Remuneração do cargo';
+    obsSalario = 'Vencimento inicial deste cargo, lido no anexo do edital. '
+               + 'Confirme antes de se inscrever.';
+  } else {
+    rotuloSalario = 'Remuneração divulgada';
+    obsSalario = 'Valor divulgado para o concurso, ainda não conferido no anexo '
+               + 'de vencimentos. Pode ser de outro cargo — confira no edital '
+               + 'antes de se inscrever.';
+  }
+
   let prazoTexto;
   if(e.status === 'previsto'){
     prazoTexto = 'Edital ainda não publicado';
@@ -111,11 +140,9 @@ function render(e){
 
       <aside>
         <div class="card destaque-salario">
-          <span class="rot">${e.salarioObs ? 'Remuneração a partir de' : 'Remuneração do cargo'}</span>
+          <span class="rot">${rotuloSalario}</span>
           <div class="valor">${e.salario ? brl.format(e.salario) : '—'}</div>
-          ${e.salario ? `<p class="obs">${e.salarioObs
-              ? 'O edital publicou apenas a faixa do concurso; este é o piso. O valor do cargo está no anexo de vencimentos.'
-              : 'Vencimento inicial deste cargo, lido no anexo do edital. Confirme antes de se inscrever.'}</p>` : ''}
+          ${e.salario ? `<p class="obs">${obsSalario}</p>` : ''}
         </div>
 
         <div class="card" style="padding:var(--s-5);margin-top:var(--s-4)">
