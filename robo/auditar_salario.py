@@ -42,6 +42,23 @@ candidato, esta rotina prefere aquele cujo PDF contém o cargo.
     python robo/auditar_salario.py --limite 10    # só os 10 primeiros
     python robo/auditar_salario.py --so-suspeitos # só salário anômalo
     python robo/auditar_salario.py --aplicar      # grava
+
+**Ao conferir o resultado, cuidado com R$ 1.621,00.** É o salário
+mínimo de 2026, e ver o mesmo valor em cidades diferentes parece bug de
+leitura — o `do_texto` fica com o MENOR valor perto do cargo, então a
+suspeita natural é que ele pescou o mínimo de outra linha da tabela.
+
+Foi verificado em 31/08/2026 e **não é bug**: o edital de Equador/RN
+diz, no bloco do cargo, "Cargo 16: AUDITOR DE CONTROLE INTERNO ...
+Remuneração: R$ 1.621,00 ... Curso Superior em Ciências Contábeis ...
+40 horas semanais". Prefeitura pequena paga mínimo a cargo de nível
+superior mesmo. No mesmo PDF, os R$ 4.875,71 que tínhamos publicado são
+o salário dos PROFESSORES — apareciam 7 vezes, sempre em "Cargo 1..8:
+PROFESSOR".
+
+Ou seja: o valor repetido era o certo, e o valor "plausível" era o de
+outro cargo. Confirme no PDF antes de descartar leitura por parecer
+baixa demais.
 """
 
 import argparse
