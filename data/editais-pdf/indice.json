@@ -48,6 +48,13 @@
   "origem": "https://concursos-publicacoes.s3.amazonaws.com/1110/publico/edital_abertura/edital_1_6a91d2fbb3fca.pdf?id=6a958926f0b5d",
   "sha256_8": "a8c43d1a"
  },
+ "e-3bc74e43057d": {
+  "arquivo": "data/editais-pdf/e-3bc74e43057d-893712e2.pdf",
+  "baixadoEm": "2026-08-31",
+  "bytes": 723551,
+  "origem": "https://funcern.br/documents/2737/2%C2%AA_Retifica%C3%A7%C3%A3o_-_Edital_EquadorRN_1.pdf",
+  "sha256_8": "893712e2"
+ },
  "e-3ef1b2f47245": {
   "arquivo": "data/editais-pdf/e-3ef1b2f47245-d09cd7a2.pdf",
   "baixadoEm": "2026-08-31",
@@ -89,6 +96,13 @@
   "bytes": 129169,
   "origem": "https://novo.ibgpconcursos.com.br/rest/concurso/download/edital/23685/?file=site/anexos/736/01%20-%20ANEXO%20I%20%96%20REQUISITOS_DAMAE.pdf",
   "sha256_8": "acaf291f"
+ },
+ "e-49be55bc1b50": {
+  "arquivo": "data/editais-pdf/e-49be55bc1b50-2e335e95.pdf",
+  "baixadoEm": "2026-08-31",
+  "bytes": 768454,
+  "origem": "https://paulodefrontin.rj.gov.br/wp-content/plugins/frontin-core/assets/documents/edital-concurso-01-2026.pdf",
+  "sha256_8": "2e335e95"
  },
  "e-4a0909c14560": {
   "arquivo": "data/editais-pdf/e-4a0909c14560-e467f7f7.pdf",

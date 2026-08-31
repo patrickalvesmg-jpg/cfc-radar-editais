@@ -9,6 +9,26 @@ Três links por edital podem estar quebrados:
 Um link que não abre é pior que link ausente: a pessoa clica esperando
 o edital e recebe erro. Aqui só diagnostica — a correção vem depois,
 caso a caso.
+
+**Erro aqui não prova link quebrado.** Este teste usa `urllib`, e
+várias bancas recusam automação simples enquanto atendem navegador
+normalmente. Antes de mexer no dado, confirme no navegador — o
+candidato usa navegador, não urllib. Medido em 31/08/2026:
+
+| Domínio | urllib | navegador | conclusão |
+|---|---|---|---|
+| `ameosc.org.br` | 403 | **200** | link BOM, só bloqueia robô |
+| `imam.org.br` | 200 | 200 | falha anterior era passageira |
+| `gestaodeconcursos.com.br` | 200 | 200 | idem |
+| `jcmconcursos.com.br` | SSL | 200 (http) | certificado quebrado, site vivo |
+| `exameconsultores.com.br` | DNS | DNS | **fora do ar de verdade** |
+| `access.org.br` | SSL | SSL + riskware | **fora do ar de verdade** |
+
+Os dois últimos são reais: `exameconsultores.com.br` resolve o DNS mas
+não serve nada, e `access.org.br` falha o TLS e cai numa página de
+bloqueio do Malwarebytes ("Riskware"). Nesses, o que salva o candidato
+é o `pdfEdital`, que costuma estar em OUTRO host (o de Santana de
+Pirapama está no `anexos-r2.selecao.net.br` e abre normalmente).
 """
 import json
 import re
