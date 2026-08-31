@@ -33,7 +33,7 @@
   {
     "dominio": "cebraspe.org.br",
     "nome": "CESPE/CEBRASPE",
-    "editais": 8,
+    "editais": 7,
     "fontePrimaria": true,
     "site": "https://www.cebraspe.org.br/",
     "estados": [
@@ -174,6 +174,17 @@
     "situacao": "reserva"
   },
   {
+    "dominio": "concursosjcm.com.br",
+    "nome": "JCM Concursos",
+    "editais": 3,
+    "fontePrimaria": false,
+    "site": "https://www.concursosjcm.com.br/",
+    "estados": [
+      "MG"
+    ],
+    "situacao": "reserva"
+  },
+  {
     "dominio": "objetivas.com.br",
     "nome": "Objetiva Concursos",
     "editais": 3,
@@ -282,24 +293,6 @@
     "situacao": "reserva"
   },
   {
-    "dominio": "access.org.br",
-    "nome": "Instituto Access",
-    "editais": 2,
-    "fontePrimaria": true,
-    "site": "https://concursos.access.org.br/",
-    "estados": [
-      "ES",
-      "MG",
-      "PE",
-      "PI",
-      "PR",
-      "RJ",
-      "SC",
-      "SP"
-    ],
-    "situacao": "em_uso"
-  },
-  {
     "dominio": "institutoatame.org.br",
     "nome": "Instituto Atame",
     "editais": 2,
@@ -381,17 +374,6 @@
     "situacao": "reserva"
   },
   {
-    "dominio": "concursosjcm.com.br",
-    "nome": "JCM Concursos",
-    "editais": 2,
-    "fontePrimaria": false,
-    "site": "https://www.concursosjcm.com.br/",
-    "estados": [
-      "MG"
-    ],
-    "situacao": "reserva"
-  },
-  {
     "dominio": "legalleconcursos.com.br",
     "nome": "Legalle Concursos",
     "editais": 2,
@@ -466,6 +448,28 @@
     "fontePrimaria": false,
     "site": "https://aprendersc.srv.br/",
     "estados": [],
+    "situacao": "reserva"
+  },
+  {
+    "dominio": "cesgranrio.org.br",
+    "nome": "Cesgranrio",
+    "editais": 1,
+    "fontePrimaria": false,
+    "site": "https://www.cesgranrio.org.br/",
+    "estados": [
+      "BA",
+      "DF",
+      "MT",
+      "PA",
+      "PE",
+      "RJ",
+      "RN",
+      "RO",
+      "RS",
+      "SE",
+      "SP",
+      "TO"
+    ],
     "situacao": "reserva"
   },
   {
@@ -630,6 +634,41 @@
     "situacao": "reserva"
   },
   {
+    "dominio": "idecan.org.br",
+    "nome": "IDECAN",
+    "editais": 1,
+    "fontePrimaria": false,
+    "site": "https://idecan.org.br/",
+    "estados": [
+      "AC",
+      "AL",
+      "AP",
+      "BA",
+      "CE",
+      "DF",
+      "ES",
+      "GO",
+      "MA",
+      "MG",
+      "MS",
+      "PA",
+      "PB",
+      "PE",
+      "PI",
+      "PR",
+      "RJ",
+      "RN",
+      "RO",
+      "RR",
+      "RS",
+      "SC",
+      "SE",
+      "SP",
+      "TO"
+    ],
+    "situacao": "reserva"
+  },
+  {
     "dominio": "ifpi.edu.br",
     "nome": "IFPI",
     "editais": 1,
@@ -658,6 +697,24 @@
     "site": "https://inbrasp.org/",
     "estados": [],
     "situacao": "reserva"
+  },
+  {
+    "dominio": "access.org.br",
+    "nome": "Instituto Access",
+    "editais": 1,
+    "fontePrimaria": true,
+    "site": "https://concursos.access.org.br/",
+    "estados": [
+      "ES",
+      "MG",
+      "PE",
+      "PI",
+      "PR",
+      "RJ",
+      "SC",
+      "SP"
+    ],
+    "situacao": "em_uso"
   },
   {
     "dominio": "ajuri.org.br",
@@ -695,6 +752,21 @@
     "fontePrimaria": false,
     "site": "https://institutoindec.org.br/",
     "estados": [],
+    "situacao": "reserva"
+  },
+  {
+    "dominio": "institutomais.org.br",
+    "nome": "Instituto Mais",
+    "editais": 1,
+    "fontePrimaria": false,
+    "site": "https://www.institutomais.org.br/",
+    "estados": [
+      "BA",
+      "MG",
+      "RS",
+      "SC",
+      "SP"
+    ],
     "situacao": "reserva"
   },
   {
@@ -783,15 +855,6 @@
     "situacao": "reserva"
   },
   {
-    "dominio": "jcmconcursos.com.br",
-    "nome": "JCM Concursos",
-    "editais": 1,
-    "fontePrimaria": false,
-    "site": "https://jcmconcursos.com.br/",
-    "estados": [],
-    "situacao": "reserva"
-  },
-  {
     "dominio": "msconc.com.br",
     "nome": "MS Concursos",
     "editais": 1,
@@ -838,6 +901,15 @@
     "situacao": "reserva"
   },
   {
+    "dominio": "paulodefrontin.rj.gov.br",
+    "nome": "Paulodefrontin",
+    "editais": 1,
+    "fontePrimaria": false,
+    "site": "https://paulodefrontin.rj.gov.br/",
+    "estados": [],
+    "situacao": "reserva"
+  },
+  {
     "dominio": "pedradourada.mg.gov.br",
     "nome": "Pedradourada",
     "editais": 1,
@@ -847,25 +919,13 @@
     "situacao": "reserva"
   },
   {
-    "dominio": "selecon.org.br",
-    "nome": "SELECON",
+    "dominio": "selecon-mt.selecao.net.br",
+    "nome": "Selecon mt",
     "editais": 1,
     "fontePrimaria": false,
-    "site": "https://selecon.org.br/",
-    "estados": [
-      "BA",
-      "MA",
-      "MG",
-      "MS",
-      "MT",
-      "RJ",
-      "RO",
-      "RR",
-      "SC",
-      "SE",
-      "SP"
-    ],
-    "situacao": "em_uso"
+    "site": "https://selecon-mt.selecao.net.br/",
+    "estados": [],
+    "situacao": "reserva"
   },
   {
     "dominio": "versatilsolucoesadm.com.br",
@@ -1267,28 +1327,6 @@
     "site": "https://www.cepuerj.uerj.br/",
     "estados": [
       "RJ"
-    ],
-    "situacao": "reserva"
-  },
-  {
-    "dominio": "cesgranrio.org.br",
-    "nome": "Cesgranrio",
-    "editais": 0,
-    "fontePrimaria": false,
-    "site": "https://www.cesgranrio.org.br/",
-    "estados": [
-      "BA",
-      "DF",
-      "MT",
-      "PA",
-      "PE",
-      "RJ",
-      "RN",
-      "RO",
-      "RS",
-      "SE",
-      "SP",
-      "TO"
     ],
     "situacao": "reserva"
   },
@@ -2640,41 +2678,6 @@
     "situacao": "reserva"
   },
   {
-    "dominio": "idecan.org.br",
-    "nome": "IDECAN",
-    "editais": 0,
-    "fontePrimaria": false,
-    "site": "https://idecan.org.br/",
-    "estados": [
-      "AC",
-      "AL",
-      "AP",
-      "BA",
-      "CE",
-      "DF",
-      "ES",
-      "GO",
-      "MA",
-      "MG",
-      "MS",
-      "PA",
-      "PB",
-      "PE",
-      "PI",
-      "PR",
-      "RJ",
-      "RN",
-      "RO",
-      "RR",
-      "RS",
-      "SC",
-      "SE",
-      "SP",
-      "TO"
-    ],
-    "situacao": "reserva"
-  },
-  {
     "dominio": "idescassessoria.org.br",
     "nome": "IDESC",
     "editais": 0,
@@ -3405,21 +3408,6 @@
     "situacao": "reserva"
   },
   {
-    "dominio": "institutomais.org.br",
-    "nome": "Instituto Mais",
-    "editais": 0,
-    "fontePrimaria": false,
-    "site": "https://www.institutomais.org.br/",
-    "estados": [
-      "BA",
-      "MG",
-      "RS",
-      "SC",
-      "SP"
-    ],
-    "situacao": "reserva"
-  },
-  {
     "dominio": "sustente.org.br",
     "nome": "Instituto Sustente",
     "editais": 0,
@@ -3989,6 +3977,27 @@
       "PA"
     ],
     "situacao": "reserva"
+  },
+  {
+    "dominio": "selecon.org.br",
+    "nome": "SELECON",
+    "editais": 0,
+    "fontePrimaria": false,
+    "site": "https://selecon.org.br/",
+    "estados": [
+      "BA",
+      "MA",
+      "MG",
+      "MS",
+      "MT",
+      "RJ",
+      "RO",
+      "RR",
+      "SC",
+      "SE",
+      "SP"
+    ],
+    "situacao": "em_uso"
   },
   {
     "dominio": "saude.pe.gov.br",
