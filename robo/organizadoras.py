@@ -120,8 +120,16 @@ def dominio(url: str) -> str:
         "inscricao", "inscricoes", "edital", "editais", "site",
         "selecao", "sistema", "candidato",
     )
+    # Sufixos de duas partes: aqui o domínio da banca tem TRÊS rótulos
+    # ("selecao.net.br"), e parar em `len > 2` comeria o nome dela.
+    # Foi o que aconteceu: `selecao.net.br` — que É a banca, não um
+    # subdomínio de serviço — virava "net.br", e o site montava o link
+    # da organizadora para `https://net.br/`. Achado em 31/08/2026,
+    # afetava 3 editais (IPMS Suzano, Ribeira do Pombal, Arabutã).
+    _COMPOSTO = ("com.br", "net.br", "org.br", "gov.br", "edu.br")
     partes = host.split(".")
-    while len(partes) > 2 and partes[0] in _SERVICO:
+    minimo = 3 if host.endswith(_COMPOSTO) else 2
+    while len(partes) > minimo and partes[0] in _SERVICO:
         partes.pop(0)
     host = ".".join(partes)
     # Órgão público (rs.gov.br, pr.gov.br) não é banca: quem organiza é
@@ -163,23 +171,54 @@ def vincular(editais: list[dict]) -> None:
 
 
 def gravar_catalogo(editais: list[dict]) -> None:
-    """Grava o catálogo com a contagem de editais por organizadora."""
+    """Grava o catálogo com a contagem de editais por organizadora.
+
+    **Banca sem edital aberto continua no catálogo** (decisão do Patrick,
+    20/08/2026, reafirmada em 31/08). Antes esta função montava a lista
+    só a partir dos editais capturados: quem não tinha concurso contábil
+    naquele instante simplesmente sumia do arquivo, e voltava na
+    varredura seguinte se reaparecesse.
+
+    Isso apagava justamente o que interessa guardar — o mapa de ONDE
+    procurar. Banca sem vaga de contador hoje pode abrir uma no mês que
+    vem; descartá-la é jogar fora o endereço.
+
+    Agora a contagem dos editais é MESCLADA sobre o mapa permanente de
+    `data/bancas-catalogo.json` (378 organizadoras). Quem não aparece em
+    nenhum edital fica com `editais: 0` — presente, contável, e nunca
+    perdido entre uma varredura e outra.
+    """
     contagem: dict[str, int] = {}
     for e in editais:
         d = e.get("bancaDominio") or dominio(e.get("siteInscricao") or "")
         if d and not HOSTS_DE_ARQUIVO.search(d):
             contagem[d] = contagem.get(d, 0) + 1
 
-    catalogo = [
-        {
+    # Mapa permanente: as bancas conhecidas, tenham elas edital ou não.
+    permanente: dict[str, dict] = {}
+    mapa = ARQUIVO.parent / "bancas-catalogo.json"
+    if mapa.exists():
+        try:
+            for b in json.loads(mapa.read_text(encoding="utf-8")):
+                permanente[b["dominio"]] = b
+        except (json.JSONDecodeError, OSError, KeyError):
+            permanente = {}
+
+    dominios = set(permanente) | set(contagem)
+    catalogo = []
+    for d in dominios:
+        base = permanente.get(d, {})
+        catalogo.append({
             "dominio": d,
-            "nome": CANONICO.get(d, nome_da_banca(f"https://{d}")),
-            "editais": n,
+            "nome": CANONICO.get(d) or base.get("nome") or nome_da_banca(f"https://{d}"),
+            "editais": contagem.get(d, 0),
             "fontePrimaria": d in FONTES_PRIMARIAS,
-            "site": f"https://{d}/",
-        }
-        for d, n in sorted(contagem.items(), key=lambda x: -x[1])
-    ]
+            "site": base.get("site") or f"https://{d}/",
+            "estados": base.get("estados", []),
+            "situacao": base.get("situacao", "reserva"),
+        })
+    # Quem tem edital primeiro; depois por histórico de atuação.
+    catalogo.sort(key=lambda c: (-c["editais"], c["nome"].lower()))
 
     ARQUIVO.parent.mkdir(parents=True, exist_ok=True)
     ARQUIVO.write_text(
@@ -187,4 +226,6 @@ def gravar_catalogo(editais: list[dict]) -> None:
         encoding="utf-8",
     )
     primarias = sum(1 for c in catalogo if c["fontePrimaria"])
-    print(f"  Organizadoras: {len(catalogo)} ({primarias} como fonte primária)")
+    ativas = sum(1 for c in catalogo if c["editais"])
+    print(f"  Organizadoras: {len(catalogo)} no catálogo "
+          f"({ativas} com edital agora, {primarias} como fonte primária)")

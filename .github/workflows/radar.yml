@@ -79,6 +79,14 @@ jobs:
         timeout-minutes: 120
         run: python -u robo/aprofundar.py --pendentes || true
 
+      # A cópia do PDF só vale enquanto o concurso está aberto
+      # (política do Patrick, 31/08/2026). Sem esta limpeza o
+      # `data/editais-pdf/` cresce para sempre, e o Pages tem teto de
+      # 1 GB. Edital encerrado continua no site, com o link da banca —
+      # some só o arquivo.
+      - name: Limpar PDF de edital encerrado
+        run: python -u robo/limpar_pdf.py --aplicar || true
+
       # Rede de segurança ANTES de publicar. Se a varredura produzir
       # algo que viole as regras do produto, o job falha e o site fica
       # como está — melhor um dia desatualizado que um dia errado.

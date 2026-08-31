@@ -1,0 +1,4657 @@
+[
+ {
+  "dominio": "acesseconcursossc.com.br",
+  "nome": "Acesse Concursos",
+  "site": "https://acesseconcursossc.com.br/",
+  "concursosHistorico": 200,
+  "estados": [
+   "ES",
+   "PR",
+   "SC",
+   "SP"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "aptarp.com.br",
+  "nome": "Apta",
+  "site": "https://www.aptarp.com.br/",
+  "concursosHistorico": 200,
+  "estados": [
+   "GO",
+   "MG",
+   "PR",
+   "SP"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "cefetmg.br",
+  "nome": "CEFET/MG",
+  "site": "https://www.cefetmg.br/",
+  "concursosHistorico": 200,
+  "estados": [
+   "BA",
+   "ES",
+   "MG"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "cematconcurso.com.br",
+  "nome": "CEMAT",
+  "site": "https://www.cematconcurso.com.br/",
+  "concursosHistorico": 200,
+  "estados": [
+   "SP"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "cmmconcursos.com.br",
+  "nome": "CMM Concursos",
+  "site": "https://portal.cmmconcursos.com.br/",
+  "concursosHistorico": 200,
+  "estados": [
+   "MS",
+   "PR",
+   "SC",
+   "SP"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "conscamweb.com.br",
+  "nome": "CONSCAM",
+  "site": "https://www.conscamweb.com.br/",
+  "concursosHistorico": 200,
+  "estados": [
+   "GO",
+   "MG",
+   "MT",
+   "RJ",
+   "RS",
+   "SC",
+   "SP"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "consesp.com.br",
+  "nome": "CONSESP",
+  "site": "https://www.consesp.com.br/",
+  "concursosHistorico": 200,
+  "estados": [
+   "GO",
+   "MG",
+   "MS",
+   "PR",
+   "SC",
+   "SP"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "cps.sp.gov.br",
+  "nome": "Centro Paula Souza",
+  "site": "https://www.cps.sp.gov.br/",
+  "concursosHistorico": 200,
+  "estados": [
+   "SP"
+  ],
+  "situacao": "orgao_publico"
+ },
+ {
+  "dominio": "consulpam.com.br",
+  "nome": "Consulpam",
+  "site": "https://consulpam.com.br/",
+  "concursosHistorico": 200,
+  "estados": [
+   "BA",
+   "CE",
+   "DF",
+   "GO",
+   "MA",
+   "MG",
+   "PA",
+   "PB",
+   "PE",
+   "PI",
+   "PR",
+   "RJ",
+   "RN",
+   "RS",
+   "SC",
+   "SP",
+   "TO"
+  ],
+  "situacao": "em_uso"
+ },
+ {
+  "dominio": "ufpi.br",
+  "nome": "Copese/UFPI",
+  "site": "https://www.ufpi.br/",
+  "concursosHistorico": 200,
+  "estados": [
+   "PI"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "exameconsultores.com.br",
+  "nome": "Exame Consultores",
+  "site": "https://www.exameconsultores.com.br/",
+  "concursosHistorico": 200,
+  "estados": [
+   "AL",
+   "MG"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "fauel.org.br",
+  "nome": "FAUEL",
+  "site": "https://www.fauel.org.br/",
+  "concursosHistorico": 200,
+  "estados": [
+   "PR",
+   "SC"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "furb.br",
+  "nome": "FURB",
+  "site": "https://www.furb.br/",
+  "concursosHistorico": 200,
+  "estados": [
+   "SC"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "furg.br",
+  "nome": "FURG",
+  "site": "https://furg.br/",
+  "concursosHistorico": 200,
+  "estados": [
+   "RN",
+   "RS"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "fundacaofafipa.org.br",
+  "nome": "Fundação FAFIPA",
+  "site": "https://www.fundacaofafipa.org.br/",
+  "concursosHistorico": 200,
+  "estados": [
+   "MG",
+   "MS",
+   "MT",
+   "PR",
+   "RS",
+   "SC",
+   "SP",
+   "TO"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "fundacaolasalle.org.br",
+  "nome": "Fundação La Salle",
+  "site": "https://fundacaolasalle.org.br/",
+  "concursosHistorico": 200,
+  "estados": [
+   "RS"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "glconsultoria.com.br",
+  "nome": "GL Consultoria",
+  "site": "https://portal.glconsultoria.com.br/",
+  "concursosHistorico": 200,
+  "estados": [
+   "MG",
+   "SP"
+  ],
+  "situacao": "em_uso"
+ },
+ {
+  "dominio": "hc.fm.usp.br",
+  "nome": "Hospital das Clínicas",
+  "site": "https://www.hc.fm.usp.br/",
+  "concursosHistorico": 200,
+  "estados": [
+   "SP"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "ibam-concursos.org.br",
+  "nome": "IBAM Concursos",
+  "site": "https://www.ibam-concursos.org.br/",
+  "concursosHistorico": 200,
+  "estados": [
+   "AL",
+   "BA",
+   "ES",
+   "MG",
+   "PE",
+   "RJ",
+   "SC",
+   "SP"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "ibamsp-concursos.org.br",
+  "nome": "IBAM-SP",
+  "site": "https://www.ibamsp-concursos.org.br/",
+  "concursosHistorico": 200,
+  "estados": [
+   "RJ",
+   "SC",
+   "SP"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "ifc.edu.br",
+  "nome": "IFC",
+  "site": "https://ifc.edu.br/",
+  "concursosHistorico": 200,
+  "estados": [
+   "SC"
+  ],
+  "situacao": "orgao_publico"
+ },
+ {
+  "dominio": "ifce.edu.br",
+  "nome": "IFCE",
+  "site": "https://portal.ifce.edu.br/",
+  "concursosHistorico": 200,
+  "estados": [
+   "CE",
+   "SC"
+  ],
+  "situacao": "orgao_publico"
+ },
+ {
+  "dominio": "ifes.edu.br",
+  "nome": "IFES",
+  "site": "https://www.ifes.edu.br/",
+  "concursosHistorico": 200,
+  "estados": [
+   "ES",
+   "SE"
+  ],
+  "situacao": "orgao_publico"
+ },
+ {
+  "dominio": "iffarroupilha.edu.br",
+  "nome": "IFFarroupilha",
+  "site": "https://www.iffarroupilha.edu.br/",
+  "concursosHistorico": 200,
+  "estados": [
+   "RS"
+  ],
+  "situacao": "orgao_publico"
+ },
+ {
+  "dominio": "ifg.edu.br",
+  "nome": "IFG",
+  "site": "https://www.ifg.edu.br/",
+  "concursosHistorico": 200,
+  "estados": [
+   "GO",
+   "PI"
+  ],
+  "situacao": "orgao_publico"
+ },
+ {
+  "dominio": "ifgoiano.edu.br",
+  "nome": "IFGoiano",
+  "site": "https://ifgoiano.edu.br/",
+  "concursosHistorico": 200,
+  "estados": [
+   "GO"
+  ],
+  "situacao": "orgao_publico"
+ },
+ {
+  "dominio": "validate.perfdrive.com",
+  "nome": "IFMG",
+  "site": "https://validate.perfdrive.com/",
+  "concursosHistorico": 200,
+  "estados": [
+   "MG"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "ifnmg.edu.br",
+  "nome": "IFNMG",
+  "site": "https://www.ifnmg.edu.br/",
+  "concursosHistorico": 200,
+  "estados": [
+   "MG"
+  ],
+  "situacao": "orgao_publico"
+ },
+ {
+  "dominio": "reitoria.ifpr.edu.br",
+  "nome": "IFPR",
+  "site": "https://reitoria.ifpr.edu.br/",
+  "concursosHistorico": 200,
+  "estados": [
+   "PR"
+  ],
+  "situacao": "orgao_publico"
+ },
+ {
+  "dominio": "ifrn.edu.br",
+  "nome": "IFRN",
+  "site": "https://portal.ifrn.edu.br/",
+  "concursosHistorico": 200,
+  "estados": [
+   "RN"
+  ],
+  "situacao": "orgao_publico"
+ },
+ {
+  "dominio": "ifro.edu.br",
+  "nome": "IFRO",
+  "site": "https://www.ifro.edu.br/",
+  "concursosHistorico": 200,
+  "estados": [
+   "RO"
+  ],
+  "situacao": "orgao_publico"
+ },
+ {
+  "dominio": "ifrs.edu.br",
+  "nome": "IFRS",
+  "site": "https://ifrs.edu.br/",
+  "concursosHistorico": 200,
+  "estados": [
+   "RS"
+  ],
+  "situacao": "orgao_publico"
+ },
+ {
+  "dominio": "ifsp.edu.br",
+  "nome": "IFSP",
+  "site": "https://www.ifsp.edu.br/",
+  "concursosHistorico": 200,
+  "estados": [
+   "PE",
+   "SP"
+  ],
+  "situacao": "orgao_publico"
+ },
+ {
+  "dominio": "ifsuldeminas.edu.br",
+  "nome": "IFSULDEMINAS",
+  "site": "https://portal.ifsuldeminas.edu.br/",
+  "concursosHistorico": 200,
+  "estados": [
+   "MG"
+  ],
+  "situacao": "orgao_publico"
+ },
+ {
+  "dominio": "seletivos.ifto.edu.br",
+  "nome": "IFTO",
+  "site": "https://seletivos.ifto.edu.br/",
+  "concursosHistorico": 200,
+  "estados": [
+   "TO"
+  ],
+  "situacao": "orgao_publico"
+ },
+ {
+  "dominio": "institutoindec.com.br",
+  "nome": "Instituto INDEC",
+  "site": "https://www.institutoindec.com.br/",
+  "concursosHistorico": 200,
+  "estados": [
+   "AL",
+   "PE",
+   "SP"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "institutomais.org.br",
+  "nome": "Instituto Mais",
+  "site": "https://www.institutomais.org.br/",
+  "concursosHistorico": 200,
+  "estados": [
+   "BA",
+   "MG",
+   "RS",
+   "SC",
+   "SP"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "integribrasil.com.br",
+  "nome": "Integri Brasil",
+  "site": "https://www.integribrasil.com.br/",
+  "concursosHistorico": 200,
+  "estados": [
+   "RS",
+   "SP"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "klcconcursos.com.br",
+  "nome": "KLC Concursos",
+  "site": "https://www.klcconcursos.com.br/",
+  "concursosHistorico": 200,
+  "estados": [
+   "GO",
+   "MG",
+   "MS",
+   "MT",
+   "PR",
+   "SC",
+   "SP"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "legalleconcursos.com.br",
+  "nome": "Legalle Concursos",
+  "site": "https://portal.editais.legalleconcursos.com.br/",
+  "concursosHistorico": 200,
+  "estados": [
+   "BA",
+   "MG",
+   "PI",
+   "PR",
+   "RO",
+   "RS",
+   "SC",
+   "SP"
+  ],
+  "situacao": "em_uso"
+ },
+ {
+  "dominio": "omconcursos.com.br",
+  "nome": "OM Consultoria",
+  "site": "https://www.omconcursos.com.br/",
+  "concursosHistorico": 200,
+  "estados": [
+   "PR",
+   "SP"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "objetivas.com.br",
+  "nome": "Objetiva Concursos",
+  "site": "https://objetivas.com.br/",
+  "concursosHistorico": 200,
+  "estados": [
+   "BA",
+   "ES",
+   "GO",
+   "MG",
+   "MT",
+   "PE",
+   "PR",
+   "RS",
+   "SC",
+   "SE",
+   "SP"
+  ],
+  "situacao": "em_uso"
+ },
+ {
+  "dominio": "publiconsult.com.br",
+  "nome": "Publiconsult",
+  "site": "https://www.publiconsult.com.br/",
+  "concursosHistorico": 200,
+  "estados": [
+   "SP"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "rboconcursos.selecao.net.br",
+  "nome": "RBO Concursos",
+  "site": "https://rboconcursos.selecao.net.br/",
+  "concursosHistorico": 200,
+  "estados": [
+   "ES",
+   "MG",
+   "MT",
+   "RJ",
+   "RN",
+   "SC",
+   "SE",
+   "SP"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "uema.br",
+  "nome": "UEMA",
+  "site": "https://www.uema.br/",
+  "concursosHistorico": 200,
+  "estados": [
+   "MA"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "uepb.edu.br",
+  "nome": "UEPB",
+  "site": "https://uepb.edu.br/",
+  "concursosHistorico": 200,
+  "estados": [
+   "PB",
+   "PE"
+  ],
+  "situacao": "orgao_publico"
+ },
+ {
+  "dominio": "uerj.br",
+  "nome": "UERJ",
+  "site": "https://www.uerj.br/",
+  "concursosHistorico": 200,
+  "estados": [
+   "RJ"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "ufabc.edu.br",
+  "nome": "UFABC",
+  "site": "https://www.ufabc.edu.br/",
+  "concursosHistorico": 200,
+  "estados": [
+   "SP"
+  ],
+  "situacao": "orgao_publico"
+ },
+ {
+  "dominio": "ufc.br",
+  "nome": "UFC",
+  "site": "https://www.ufc.br/",
+  "concursosHistorico": 200,
+  "estados": [
+   "CE"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "ufcg.edu.br",
+  "nome": "UFCG",
+  "site": "https://www.ufcg.edu.br/",
+  "concursosHistorico": 200,
+  "estados": [
+   "PB"
+  ],
+  "situacao": "orgao_publico"
+ },
+ {
+  "dominio": "ufes.br",
+  "nome": "UFES",
+  "site": "https://www.ufes.br/",
+  "concursosHistorico": 200,
+  "estados": [
+   "ES",
+   "MG",
+   "SE"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "uff.br",
+  "nome": "UFF",
+  "site": "https://www.uff.br/",
+  "concursosHistorico": 200,
+  "estados": [
+   "RJ"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "sistemas.ufg.br",
+  "nome": "UFG",
+  "site": "https://sistemas.ufg.br/",
+  "concursosHistorico": 200,
+  "estados": [
+   "GO",
+   "MT",
+   "TO"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "ufjf.br",
+  "nome": "UFJF",
+  "site": "https://www.ufjf.br/",
+  "concursosHistorico": 200,
+  "estados": [
+   "MG"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "ufmg.br",
+  "nome": "UFMG",
+  "site": "https://www.ufmg.br/",
+  "concursosHistorico": 200,
+  "estados": [
+   "MG"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "ufmt.br",
+  "nome": "UFMT",
+  "site": "https://www.ufmt.br/",
+  "concursosHistorico": 200,
+  "estados": [
+   "MT"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "ufop.br",
+  "nome": "UFOP",
+  "site": "https://www.ufop.br/",
+  "concursosHistorico": 200,
+  "estados": [
+   "BA",
+   "MG"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "ufrb.edu.br",
+  "nome": "UFRB",
+  "site": "https://ufrb.edu.br/",
+  "concursosHistorico": 200,
+  "estados": [
+   "BA",
+   "PB"
+  ],
+  "situacao": "orgao_publico"
+ },
+ {
+  "dominio": "progesp.ufrn.br",
+  "nome": "UFRN",
+  "site": "https://www.progesp.ufrn.br/",
+  "concursosHistorico": 200,
+  "estados": [
+   "RN"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "ufrrj.br",
+  "nome": "UFRRJ",
+  "site": "https://portal.ufrrj.br/",
+  "concursosHistorico": 200,
+  "estados": [
+   "RJ",
+   "RR"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "progep.ufs.br",
+  "nome": "UFS",
+  "site": "https://progep.ufs.br/",
+  "concursosHistorico": 200,
+  "estados": [
+   "MG",
+   "SC",
+   "SE"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "ufscar.br",
+  "nome": "UFSCar",
+  "site": "https://www.ufscar.br/",
+  "concursosHistorico": 200,
+  "estados": [
+   "SP"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "ufsj.edu.br",
+  "nome": "UFSJ",
+  "site": "https://www.ufsj.edu.br/",
+  "concursosHistorico": 200,
+  "estados": [
+   "MG"
+  ],
+  "situacao": "orgao_publico"
+ },
+ {
+  "dominio": "uftm.edu.br",
+  "nome": "UFTM",
+  "site": "https://www.uftm.edu.br/",
+  "concursosHistorico": 200,
+  "estados": [
+   "MG",
+   "MT"
+  ],
+  "situacao": "orgao_publico"
+ },
+ {
+  "dominio": "ufu.br",
+  "nome": "UFU",
+  "site": "https://editais.ufu.br/",
+  "concursosHistorico": 200,
+  "estados": [
+   "MG",
+   "SP"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "ufv.br",
+  "nome": "UFV",
+  "site": "https://www.ufv.br/",
+  "concursosHistorico": 200,
+  "estados": [
+   "MG"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "unemat.br",
+  "nome": "UNEMAT",
+  "site": "https://www.unemat.br/",
+  "concursosHistorico": 200,
+  "estados": [
+   "MT"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "www2.unesp.br",
+  "nome": "UNESP",
+  "site": "https://www2.unesp.br/",
+  "concursosHistorico": 200,
+  "estados": [
+   "SP"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "unicamp.br",
+  "nome": "UNICAMP",
+  "site": "https://www.unicamp.br/",
+  "concursosHistorico": 200,
+  "estados": [
+   "SP"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "unifal-mg.edu.br",
+  "nome": "UNIFAL",
+  "site": "https://www.unifal-mg.edu.br/",
+  "concursosHistorico": 200,
+  "estados": [
+   "MG"
+  ],
+  "situacao": "orgao_publico"
+ },
+ {
+  "dominio": "unifesp.br",
+  "nome": "UNIFESP",
+  "site": "https://unifesp.br/",
+  "concursosHistorico": 200,
+  "estados": [
+   "SP"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "unipampa.edu.br",
+  "nome": "UNIPAMPA",
+  "site": "https://www.unipampa.edu.br/",
+  "concursosHistorico": 200,
+  "estados": [
+   "RS"
+  ],
+  "situacao": "orgao_publico"
+ },
+ {
+  "dominio": "www5.usp.br",
+  "nome": "USP",
+  "site": "https://www5.usp.br/",
+  "concursosHistorico": 200,
+  "estados": [
+   "SP"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "utfpr.edu.br",
+  "nome": "UTFPR",
+  "site": "https://www.utfpr.edu.br/",
+  "concursosHistorico": 200,
+  "estados": [
+   "PR"
+  ],
+  "situacao": "orgao_publico"
+ },
+ {
+  "dominio": "vunesp.com.br",
+  "nome": "VUNESP",
+  "site": "https://www.vunesp.com.br/",
+  "concursosHistorico": 200,
+  "estados": [
+   "PR",
+   "RJ",
+   "RO",
+   "SC",
+   "SP"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "fepese.org.br",
+  "nome": "Fepese",
+  "site": "https://fepese.org.br/",
+  "concursosHistorico": 199,
+  "estados": [
+   "AL",
+   "SC",
+   "TO"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "ifmt.edu.br",
+  "nome": "IFMT",
+  "site": "https://selecao.ifmt.edu.br/",
+  "concursosHistorico": 199,
+  "estados": [
+   "MG",
+   "MT"
+  ],
+  "situacao": "orgao_publico"
+ },
+ {
+  "dominio": "ifsul.edu.br",
+  "nome": "IFSul",
+  "site": "https://www.ifsul.edu.br/",
+  "concursosHistorico": 199,
+  "estados": [
+   "PR",
+   "RS"
+  ],
+  "situacao": "orgao_publico"
+ },
+ {
+  "dominio": "uems.br",
+  "nome": "UEMS",
+  "site": "https://www.uems.br/",
+  "concursosHistorico": 199,
+  "estados": [
+   "MS"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "ufpr.br",
+  "nome": "UFPR",
+  "site": "https://ufpr.br/",
+  "concursosHistorico": 199,
+  "estados": [
+   "PR"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "ufrgs.br",
+  "nome": "UFRGS",
+  "site": "https://www.ufrgs.br/",
+  "concursosHistorico": 199,
+  "estados": [
+   "RS"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "prodegesp.ufsc.br",
+  "nome": "UFSC",
+  "site": "https://prodegesp.ufsc.br/",
+  "concursosHistorico": 199,
+  "estados": [
+   "PR",
+   "RS",
+   "SC"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "ufvjm.edu.br",
+  "nome": "UFVJM",
+  "site": "https://portal.ufvjm.edu.br/",
+  "concursosHistorico": 199,
+  "estados": [
+   "ES",
+   "MG"
+  ],
+  "situacao": "orgao_publico"
+ },
+ {
+  "dominio": "zambini.org.br",
+  "nome": "Zambini",
+  "site": "https://www.zambini.org.br/",
+  "concursosHistorico": 199,
+  "estados": [
+   "SP"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "ameosc.org.br",
+  "nome": "AMEOSC",
+  "site": "https://www.ameosc.org.br/",
+  "concursosHistorico": 198,
+  "estados": [
+   "MG",
+   "SC"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "ciee.org.br",
+  "nome": "CIEE",
+  "site": "https://www.ciee.org.br/",
+  "concursosHistorico": 198,
+  "estados": [
+   "BA",
+   "DF",
+   "MS",
+   "MT",
+   "PR",
+   "RN",
+   "RO",
+   "RS",
+   "SC",
+   "SP"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "nossorumo.org.br",
+  "nome": "Instituto Nosso Rumo",
+  "site": "https://www.nossorumo.org.br/",
+  "concursosHistorico": 198,
+  "estados": [
+   "AC",
+   "AL",
+   "ES",
+   "MG",
+   "MS",
+   "PA",
+   "PE",
+   "PR",
+   "RJ",
+   "RO",
+   "SP"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "unila.edu.br",
+  "nome": "UNILA",
+  "site": "https://www.unila.edu.br/",
+  "concursosHistorico": 198,
+  "estados": [
+   "PR"
+  ],
+  "situacao": "orgao_publico"
+ },
+ {
+  "dominio": "consep-pi.com.br",
+  "nome": "Consep",
+  "site": "https://www.consep-pi.com.br/",
+  "concursosHistorico": 197,
+  "estados": [
+   "BA",
+   "CE",
+   "MA",
+   "MG",
+   "PA",
+   "PB",
+   "PI",
+   "PR",
+   "SP",
+   "TO"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "ippec.org.br",
+  "nome": "IPPEC - Instituto de Pesquisas, Pós-Graduação e Ensino de Cascavel",
+  "site": "https://ippec.org.br/",
+  "concursosHistorico": 197,
+  "estados": [
+   "MS",
+   "MT",
+   "PR",
+   "RO",
+   "RS",
+   "SC"
+  ],
+  "situacao": "bloqueia"
+ },
+ {
+  "dominio": "fundatec.org.br",
+  "nome": "FUNDATEC",
+  "site": "https://www.fundatec.org.br/",
+  "concursosHistorico": 196,
+  "estados": [
+   "AM",
+   "AP",
+   "MG",
+   "MT",
+   "PE",
+   "PR",
+   "RS",
+   "SC",
+   "SP",
+   "TO"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "imam.org.br",
+  "nome": "IMAM Concursos",
+  "site": "https://www.imam.org.br/",
+  "concursosHistorico": 195,
+  "estados": [
+   "MG",
+   "RJ"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "shdias.com.br",
+  "nome": "SHDias",
+  "site": "https://www.shdias.com.br/",
+  "concursosHistorico": 195,
+  "estados": [
+   "GO",
+   "MS",
+   "SP"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "msconcursos.com.br",
+  "nome": "MSConcursos",
+  "site": "https://www.msconcursos.com.br/",
+  "concursosHistorico": 194,
+  "estados": [
+   "AC",
+   "AL",
+   "AM",
+   "BA",
+   "CE",
+   "GO",
+   "MG",
+   "MS",
+   "MT",
+   "PA",
+   "PB",
+   "PE",
+   "PR",
+   "RJ",
+   "RO",
+   "RS",
+   "SC",
+   "SP",
+   "TO"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "faurgs.com.br",
+  "nome": "FAURGS",
+  "site": "https://www.faurgs.com.br/",
+  "concursosHistorico": 193,
+  "estados": [
+   "RN",
+   "RS",
+   "SC"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "omniconcursospublicos.com.br",
+  "nome": "Omni Concursos",
+  "site": "https://www.omniconcursospublicos.com.br/",
+  "concursosHistorico": 193,
+  "estados": [
+   "ES",
+   "GO",
+   "MG",
+   "MS",
+   "MT",
+   "PR",
+   "RO",
+   "RS",
+   "SC",
+   "SP"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "sigmaassessoria.com.br",
+  "nome": "Sigma Assessoria",
+  "site": "https://www.sigmaassessoria.com.br/",
+  "concursosHistorico": 193,
+  "estados": [
+   "MS",
+   "RS",
+   "SC",
+   "SP"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "portalpadrao.ufma.br",
+  "nome": "UFMA",
+  "site": "https://portalpadrao.ufma.br/",
+  "concursosHistorico": 193,
+  "estados": [
+   "MA"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "unilab.edu.br",
+  "nome": "UNILAB",
+  "site": "https://unilab.edu.br/",
+  "concursosHistorico": 193,
+  "estados": [
+   "BA",
+   "CE",
+   "PR"
+  ],
+  "situacao": "orgao_publico"
+ },
+ {
+  "dominio": "uffs.edu.br",
+  "nome": "UFFS",
+  "site": "https://www.uffs.edu.br/",
+  "concursosHistorico": 192,
+  "estados": [
+   "PR",
+   "RS",
+   "SC"
+  ],
+  "situacao": "orgao_publico"
+ },
+ {
+  "dominio": "unioeste.br",
+  "nome": "Unioeste",
+  "site": "https://www.unioeste.br/",
+  "concursosHistorico": 191,
+  "estados": [
+   "PR",
+   "SC"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "idecan.org.br",
+  "nome": "IDECAN",
+  "site": "https://idecan.org.br/",
+  "concursosHistorico": 190,
+  "estados": [
+   "AC",
+   "AL",
+   "AP",
+   "BA",
+   "CE",
+   "DF",
+   "ES",
+   "GO",
+   "MA",
+   "MG",
+   "MS",
+   "PA",
+   "PB",
+   "PE",
+   "PI",
+   "PR",
+   "RJ",
+   "RN",
+   "RO",
+   "RR",
+   "RS",
+   "SC",
+   "SE",
+   "SP",
+   "TO"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "concursosfcc.com.br",
+  "nome": "FCC",
+  "site": "https://www.concursosfcc.com.br/",
+  "concursosHistorico": 189,
+  "estados": [
+   "AL",
+   "AM",
+   "AP",
+   "BA",
+   "CE",
+   "DF",
+   "ES",
+   "GO",
+   "MA",
+   "MS",
+   "MT",
+   "PB",
+   "PE",
+   "PI",
+   "PR",
+   "RJ",
+   "RN",
+   "RR",
+   "RS",
+   "SC",
+   "SE",
+   "SP",
+   "TO"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "seap.selecao.site",
+  "nome": "SEAP",
+  "site": "https://portal.seap.selecao.site/",
+  "concursosHistorico": 188,
+  "estados": [
+   "AM",
+   "CE",
+   "MA",
+   "MG",
+   "PA"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "exatuspr.com.br",
+  "nome": "Exatus",
+  "site": "https://www.exatuspr.com.br/",
+  "concursosHistorico": 187,
+  "estados": [
+   "BA",
+   "DF",
+   "ES",
+   "MG",
+   "MS",
+   "PA",
+   "PR",
+   "RJ",
+   "RO",
+   "RS",
+   "SC",
+   "SE",
+   "SP",
+   "TO"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "ibfc.org.br",
+  "nome": "IBFC",
+  "site": "https://www.ibfc.org.br/",
+  "concursosHistorico": 187,
+  "estados": [
+   "AC",
+   "AM",
+   "AP",
+   "BA",
+   "CE",
+   "DF",
+   "ES",
+   "GO",
+   "MA",
+   "MG",
+   "MS",
+   "MT",
+   "PA",
+   "PB",
+   "PE",
+   "PR",
+   "RJ",
+   "RN",
+   "RR",
+   "RS",
+   "SC",
+   "SE",
+   "SP"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "www2.unirio.br",
+  "nome": "UNIRIO",
+  "site": "https://www2.unirio.br/",
+  "concursosHistorico": 185,
+  "estados": [
+   "RJ"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "quadrix.org.br",
+  "nome": "Instituto Quadrix",
+  "site": "https://www.quadrix.org.br/",
+  "concursosHistorico": 184,
+  "estados": [
+   "AC",
+   "AL",
+   "AM",
+   "AP",
+   "BA",
+   "CE",
+   "DF",
+   "ES",
+   "GO",
+   "MA",
+   "MG",
+   "MS",
+   "MT",
+   "PA",
+   "PB",
+   "PE",
+   "PI",
+   "PR",
+   "RJ",
+   "RN",
+   "RO",
+   "RR",
+   "RS",
+   "SC",
+   "SE",
+   "SP",
+   "TO"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "funvapi.com.br",
+  "nome": "FUNVAPI",
+  "site": "https://www.funvapi.com.br/",
+  "concursosHistorico": 181,
+  "estados": [
+   "AL",
+   "AM",
+   "CE",
+   "GO",
+   "MA",
+   "PA",
+   "PB",
+   "PE",
+   "PI",
+   "RN",
+   "RO",
+   "RR"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "consulplan.net",
+  "nome": "Consulplan",
+  "site": "https://www.consulplan.net/",
+  "concursosHistorico": 180,
+  "estados": [
+   "AM",
+   "BA",
+   "CE",
+   "DF",
+   "ES",
+   "GO",
+   "MG",
+   "MS",
+   "MT",
+   "PA",
+   "PE",
+   "PI",
+   "PR",
+   "RJ",
+   "RN",
+   "RO",
+   "RS",
+   "SC",
+   "SE",
+   "SP",
+   "TO"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "ifbaiano.edu.br",
+  "nome": "IFBaiano",
+  "site": "https://ifbaiano.edu.br/",
+  "concursosHistorico": 179,
+  "estados": [
+   "BA"
+  ],
+  "situacao": "orgao_publico"
+ },
+ {
+  "dominio": "institutoaocp.org.br",
+  "nome": "Instituto AOCP",
+  "site": "https://www.institutoaocp.org.br/",
+  "concursosHistorico": 178,
+  "estados": [
+   "AC",
+   "AL",
+   "AM",
+   "BA",
+   "CE",
+   "DF",
+   "ES",
+   "GO",
+   "MA",
+   "MG",
+   "MS",
+   "MT",
+   "PA",
+   "PB",
+   "PE",
+   "PI",
+   "PR",
+   "RJ",
+   "RN",
+   "RO",
+   "RR",
+   "RS",
+   "SC",
+   "SE",
+   "SP",
+   "TO"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "ufms.br",
+  "nome": "UFMS",
+  "site": "https://www.ufms.br/",
+  "concursosHistorico": 177,
+  "estados": [
+   "MS",
+   "MT",
+   "RS"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "indepac.selecao.net.br",
+  "nome": "INDEPAC",
+  "site": "https://indepac.selecao.net.br/",
+  "concursosHistorico": 175,
+  "estados": [
+   "MG",
+   "PR",
+   "SC",
+   "SP"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "conhecimento.fgv.br",
+  "nome": "FGV",
+  "site": "https://conhecimento.fgv.br/",
+  "concursosHistorico": 173,
+  "estados": [
+   "AC",
+   "AL",
+   "AM",
+   "BA",
+   "CE",
+   "DF",
+   "ES",
+   "GO",
+   "MA",
+   "MG",
+   "MS",
+   "MT",
+   "PA",
+   "PE",
+   "PI",
+   "PR",
+   "RJ",
+   "RN",
+   "RO",
+   "RR",
+   "RS",
+   "SC",
+   "SE",
+   "SP",
+   "TO"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "cespe.unb.br",
+  "nome": "CESPE",
+  "site": "https://www.cespe.unb.br/",
+  "concursosHistorico": 171,
+  "estados": [
+   "AC",
+   "AL",
+   "AM",
+   "BA",
+   "CE",
+   "DF",
+   "GO",
+   "MA",
+   "MG",
+   "MT",
+   "PA",
+   "PB",
+   "PE",
+   "PI",
+   "PR",
+   "RN",
+   "RR",
+   "RS",
+   "SC",
+   "SE",
+   "SP",
+   "TO"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "ufpel.edu.br",
+  "nome": "UFPEL",
+  "site": "https://concursos.ufpel.edu.br/",
+  "concursosHistorico": 165,
+  "estados": [
+   "PE",
+   "RS"
+  ],
+  "situacao": "orgao_publico"
+ },
+ {
+  "dominio": "unifei.edu.br",
+  "nome": "UNIFEI",
+  "site": "https://www.unifei.edu.br/",
+  "concursosHistorico": 163,
+  "estados": [
+   "MG"
+  ],
+  "situacao": "orgao_publico"
+ },
+ {
+  "dominio": "selecon.org.br",
+  "nome": "SELECON",
+  "site": "https://selecon.org.br/",
+  "concursosHistorico": 162,
+  "estados": [
+   "BA",
+   "MA",
+   "MG",
+   "MS",
+   "MT",
+   "RJ",
+   "RO",
+   "RR",
+   "SC",
+   "SE",
+   "SP"
+  ],
+  "situacao": "em_uso"
+ },
+ {
+  "dominio": "amauc.org.br",
+  "nome": "Amauc",
+  "site": "https://www.amauc.org.br/",
+  "concursosHistorico": 160,
+  "estados": [
+   "SC"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "concursosjcm.com.br",
+  "nome": "JCM Concursos",
+  "site": "https://www.concursosjcm.com.br/",
+  "concursosHistorico": 159,
+  "estados": [
+   "MG"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "avancasp.org.br",
+  "nome": "AvançaSP",
+  "site": "https://www.avancasp.org.br/",
+  "concursosHistorico": 157,
+  "estados": [
+   "MG",
+   "RJ",
+   "SP"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "caipimes.com.br",
+  "nome": "CAIP/IMES",
+  "site": "https://www.caipimes.com.br/",
+  "concursosHistorico": 155,
+  "estados": [
+   "ES",
+   "SP"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "cebraspe.org.br",
+  "nome": "CESPE/CEBRASPE",
+  "site": "https://www.cebraspe.org.br/",
+  "concursosHistorico": 154,
+  "estados": [
+   "AC",
+   "AL",
+   "AM",
+   "BA",
+   "CE",
+   "DF",
+   "ES",
+   "GO",
+   "MA",
+   "MG",
+   "MS",
+   "MT",
+   "PA",
+   "PB",
+   "PE",
+   "PI",
+   "PR",
+   "RJ",
+   "RN",
+   "RO",
+   "RR",
+   "RS",
+   "SC",
+   "SE",
+   "SP",
+   "TO"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "ifpb.edu.br",
+  "nome": "IFPB",
+  "site": "https://www.ifpb.edu.br/",
+  "concursosHistorico": 153,
+  "estados": [
+   "PB",
+   "PE"
+  ],
+  "situacao": "orgao_publico"
+ },
+ {
+  "dominio": "fapec.org",
+  "nome": "FAPEC",
+  "site": "https://www.fapec.org/",
+  "concursosHistorico": 150,
+  "estados": [
+   "AL",
+   "MS",
+   "SP"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "idib.org.br",
+  "nome": "IDIB",
+  "site": "https://idib.org.br/",
+  "concursosHistorico": 150,
+  "estados": [
+   "AP",
+   "BA",
+   "CE",
+   "DF",
+   "ES",
+   "GO",
+   "MA",
+   "MG",
+   "MS",
+   "MT",
+   "PA",
+   "PB",
+   "PE",
+   "PI",
+   "RJ",
+   "RN",
+   "RO",
+   "RR",
+   "RS",
+   "SC",
+   "TO"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "sigmams.com.br",
+  "nome": "Sigma",
+  "site": "https://www.sigmams.com.br/",
+  "concursosHistorico": 149,
+  "estados": [
+   "MS",
+   "RS",
+   "SC",
+   "SP"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "institutoconsulplan.org.br",
+  "nome": "Instituto Consulplan",
+  "site": "https://institutoconsulplan.org.br/",
+  "concursosHistorico": 146,
+  "estados": [
+   "AL",
+   "AM",
+   "BA",
+   "CE",
+   "DF",
+   "ES",
+   "GO",
+   "MG",
+   "MS",
+   "PA",
+   "PB",
+   "PE",
+   "PI",
+   "PR",
+   "RJ",
+   "RN",
+   "RO",
+   "RS",
+   "SC",
+   "SE",
+   "SP"
+  ],
+  "situacao": "em_uso"
+ },
+ {
+  "dominio": "pedrosite.com.br",
+  "nome": "Faepesul",
+  "site": "https://pedrosite.com.br/",
+  "concursosHistorico": 145,
+  "estados": [
+   "PR",
+   "RS",
+   "SC"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "apiceconsultoria.com",
+  "nome": "Ápice",
+  "site": "https://apiceconsultoria.com/",
+  "concursosHistorico": 142,
+  "estados": [
+   "PB",
+   "PE",
+   "PR",
+   "SP"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "gestaodeconcursos.com.br",
+  "nome": "Fundep / Gestão de Concursos",
+  "site": "https://www.gestaodeconcursos.com.br/",
+  "concursosHistorico": 141,
+  "estados": [
+   "MG",
+   "SE",
+   "SP"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "reisauditores.com.br",
+  "nome": "Reis & Reis Auditores",
+  "site": "https://novo.reisauditores.com.br/",
+  "concursosHistorico": 138,
+  "estados": [
+   "GO",
+   "MG",
+   "SP"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "aocp.com.br",
+  "nome": "AOCP",
+  "site": "https://www.aocp.com.br/",
+  "concursosHistorico": 134,
+  "estados": [
+   "AC",
+   "AL",
+   "BA",
+   "CE",
+   "DF",
+   "ES",
+   "GO",
+   "MG",
+   "MS",
+   "PA",
+   "PB",
+   "PE",
+   "PR",
+   "RJ",
+   "RN",
+   "RO",
+   "RR",
+   "RS",
+   "SC",
+   "SE",
+   "SP",
+   "TO"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "ibade.org.br",
+  "nome": "IBADE",
+  "site": "https://ibade.org.br/",
+  "concursosHistorico": 133,
+  "estados": [
+   "AC",
+   "AM",
+   "ES",
+   "GO",
+   "MA",
+   "MG",
+   "MS",
+   "MT",
+   "PB",
+   "PE",
+   "RJ",
+   "RN",
+   "RO",
+   "RS",
+   "SC",
+   "SE",
+   "SP"
+  ],
+  "situacao": "em_uso"
+ },
+ {
+  "dominio": "ufpe.br",
+  "nome": "UFPE",
+  "site": "https://www.ufpe.br/",
+  "concursosHistorico": 131,
+  "estados": [
+   "PE",
+   "RN",
+   "RS"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "msmconsultoria.com.br",
+  "nome": "MSM Consultoria",
+  "site": "https://www.msmconsultoria.com.br/",
+  "concursosHistorico": 129,
+  "estados": [
+   "BA",
+   "ES",
+   "MG"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "ifam.edu.br",
+  "nome": "IFAM",
+  "site": "https://www.ifam.edu.br/",
+  "concursosHistorico": 127,
+  "estados": [
+   "AM"
+  ],
+  "situacao": "orgao_publico"
+ },
+ {
+  "dominio": "ifms.edu.br",
+  "nome": "IFMS",
+  "site": "https://www.ifms.edu.br/",
+  "concursosHistorico": 127,
+  "estados": [
+   "MS"
+  ],
+  "situacao": "orgao_publico"
+ },
+ {
+  "dominio": "portalfadesp.org.br",
+  "nome": "Fadesp",
+  "site": "https://portalfadesp.org.br/",
+  "concursosHistorico": 126,
+  "estados": [
+   "AP",
+   "PA"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "institutolegatus.com.br",
+  "nome": "Instituto Legatus",
+  "site": "https://www.institutolegatus.com.br/",
+  "concursosHistorico": 125,
+  "estados": [
+   "AP",
+   "BA",
+   "MA",
+   "PI"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "maximaauditores.com.br",
+  "nome": "Máxima",
+  "site": "https://www.maximaauditores.com.br/",
+  "concursosHistorico": 125,
+  "estados": [
+   "BA",
+   "ES",
+   "MG",
+   "MS"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "institutoatame.org.br",
+  "nome": "Instituto Atame",
+  "site": "https://portal.institutoatame.org.br/",
+  "concursosHistorico": 124,
+  "estados": [
+   "MT"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "ufpb.br",
+  "nome": "UFPB",
+  "site": "https://www.ufpb.br/",
+  "concursosHistorico": 124,
+  "estados": [
+   "PB"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "ufrr.br",
+  "nome": "DRH/UFRR",
+  "site": "https://ufrr.br/",
+  "concursosHistorico": 122,
+  "estados": [
+   "PR",
+   "RR"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "fsadu.org.br",
+  "nome": "Fundação Sousândrade",
+  "site": "https://fsadu.org.br/",
+  "concursosHistorico": 122,
+  "estados": [
+   "GO",
+   "MA",
+   "PA",
+   "PI",
+   "SE"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "planejarconcursos.com.br",
+  "nome": "Planejar",
+  "site": "https://www.planejarconcursos.com.br/",
+  "concursosHistorico": 121,
+  "estados": [
+   "AP",
+   "BA",
+   "ES",
+   "PE",
+   "PI",
+   "SE"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "exitusconcursos.net.br",
+  "nome": "Exitus Concursos",
+  "site": "https://portal.exitusconcursos.net.br/",
+  "concursosHistorico": 119,
+  "estados": [
+   "PR",
+   "SP"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "upenet.com.br",
+  "nome": "UPENET",
+  "site": "https://www.upenet.com.br/",
+  "concursosHistorico": 118,
+  "estados": [
+   "PE"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "ifpa.edu.br",
+  "nome": "IFPA",
+  "site": "https://www.ifpa.edu.br/",
+  "concursosHistorico": 115,
+  "estados": [
+   "AP",
+   "PA"
+  ],
+  "situacao": "orgao_publico"
+ },
+ {
+  "dominio": "web.sigmarh.com.br",
+  "nome": "Sigma RH",
+  "site": "https://web.sigmarh.com.br/",
+  "concursosHistorico": 114,
+  "estados": [
+   "MG",
+   "SP"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "ibgpconcursos.com.br",
+  "nome": "IBGP Concursos",
+  "site": "https://ibgpconcursos.com.br/",
+  "concursosHistorico": 112,
+  "estados": [
+   "MG",
+   "RO",
+   "RS"
+  ],
+  "situacao": "em_uso"
+ },
+ {
+  "dominio": "fenixconcursos.com.br",
+  "nome": "Fenix Concursos",
+  "site": "https://fenixconcursos.com.br/",
+  "concursosHistorico": 111,
+  "estados": [
+   "SC",
+   "SP"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "itame.com.br",
+  "nome": "Itame Concursos",
+  "site": "https://www.itame.com.br/",
+  "concursosHistorico": 111,
+  "estados": [
+   "GO",
+   "MG",
+   "MT"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "copeve.ufal.br",
+  "nome": "Copeve/UFAL",
+  "site": "https://copeve.ufal.br/",
+  "concursosHistorico": 107,
+  "estados": [
+   "AL"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "ifsc.edu.br",
+  "nome": "IFSC",
+  "site": "https://www.ifsc.edu.br/",
+  "concursosHistorico": 105,
+  "estados": [
+   "SC",
+   "SP"
+  ],
+  "situacao": "orgao_publico"
+ },
+ {
+  "dominio": "directacarreiras.com.br",
+  "nome": "Directa",
+  "site": "https://www.directacarreiras.com.br/",
+  "concursosHistorico": 104,
+  "estados": [
+   "MG",
+   "RJ",
+   "RS",
+   "SP"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "fundacaounicentro.com.br",
+  "nome": "FAU - Fundação de Apoio ao Desenvolvimento Unicentro",
+  "site": "https://fundacaounicentro.com.br/",
+  "concursosHistorico": 104,
+  "estados": [
+   "PR"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "ufopa.edu.br",
+  "nome": "UFOPA",
+  "site": "https://www.ufopa.edu.br/",
+  "concursosHistorico": 104,
+  "estados": [
+   "MG",
+   "PA",
+   "PR"
+  ],
+  "situacao": "orgao_publico"
+ },
+ {
+  "dominio": "w2consultores.com.br",
+  "nome": "W2 Auditoria e Consultoria",
+  "site": "https://www.w2consultores.com.br/",
+  "concursosHistorico": 102,
+  "estados": [
+   "ES",
+   "GO",
+   "MG",
+   "MT"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "ufca.edu.br",
+  "nome": "UFCA",
+  "site": "https://www.ufca.edu.br/",
+  "concursosHistorico": 101,
+  "estados": [
+   "CE",
+   "GO"
+  ],
+  "situacao": "orgao_publico"
+ },
+ {
+  "dominio": "eplconcursos.com.br",
+  "nome": "EPL Concursos",
+  "site": "https://www.eplconcursos.com.br/",
+  "concursosHistorico": 98,
+  "estados": [
+   "BA",
+   "ES",
+   "MA",
+   "MG",
+   "MS",
+   "PB",
+   "PE",
+   "PI",
+   "PR",
+   "RN",
+   "RS",
+   "SC",
+   "SP"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "ipefae.org.br",
+  "nome": "IPEFAE",
+  "site": "https://www.ipefae.org.br/",
+  "concursosHistorico": 98,
+  "estados": [
+   "MG",
+   "SP"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "uel.br",
+  "nome": "UEL",
+  "site": "https://portal.uel.br/",
+  "concursosHistorico": 98,
+  "estados": [
+   "PR"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "primeconcursospublicos.com.br",
+  "nome": "Prime Concursos",
+  "site": "https://www.primeconcursospublicos.com.br/",
+  "concursosHistorico": 97,
+  "estados": [
+   "RS",
+   "SP"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "prh.uem.br",
+  "nome": "DRH/UEM",
+  "site": "https://prh.uem.br/",
+  "concursosHistorico": 96,
+  "estados": [
+   "PR"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "fumarc.com.br",
+  "nome": "FUMARC",
+  "site": "https://www.fumarc.com.br/",
+  "concursosHistorico": 96,
+  "estados": [
+   "ES",
+   "MG",
+   "SP"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "cetroconcursos.com.br",
+  "nome": "Cetro",
+  "site": "https://www.cetroconcursos.com.br/",
+  "concursosHistorico": 95,
+  "estados": [
+   "AM",
+   "DF",
+   "MG",
+   "PR",
+   "RJ",
+   "RO",
+   "RS",
+   "SP"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "nc.ufpr.br",
+  "nome": "NC/UFPR",
+  "site": "https://www.nc.ufpr.br/",
+  "concursosHistorico": 95,
+  "estados": [
+   "PR"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "unir.br",
+  "nome": "UNIR",
+  "site": "https://www.unir.br/",
+  "concursosHistorico": 95,
+  "estados": [
+   "RO"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "dedalusconcursos.com.br",
+  "nome": "Dédalus Concursos",
+  "site": "https://dedalusconcursos.com.br/",
+  "concursosHistorico": 93,
+  "estados": [
+   "BA",
+   "CE",
+   "MA",
+   "MG",
+   "MT",
+   "RJ",
+   "RN",
+   "SC",
+   "SP"
+  ],
+  "situacao": "bloqueia"
+ },
+ {
+  "dominio": "premierconcursos.com.br",
+  "nome": "Premier",
+  "site": "https://www.premierconcursos.com.br/",
+  "concursosHistorico": 93,
+  "estados": [
+   "PR",
+   "RS",
+   "SC"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "udesc.br",
+  "nome": "UDESC",
+  "site": "https://www.udesc.br/",
+  "concursosHistorico": 93,
+  "estados": [
+   "SC"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "ufrpe.br",
+  "nome": "UFRPE",
+  "site": "https://www.ufrpe.br/",
+  "concursosHistorico": 93,
+  "estados": [
+   "PE"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "uea.edu.br",
+  "nome": "UEA",
+  "site": "https://www.uea.edu.br/",
+  "concursosHistorico": 92,
+  "estados": [
+   "AM",
+   "PA"
+  ],
+  "situacao": "orgao_publico"
+ },
+ {
+  "dominio": "institutobrasil.net.br",
+  "nome": "Instituto Brasil",
+  "site": "https://institutobrasil.net.br/",
+  "concursosHistorico": 91,
+  "estados": [
+   "AM",
+   "MT",
+   "PR",
+   "RO",
+   "SC"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "unc.br",
+  "nome": "UnC",
+  "site": "https://www.unc.br/",
+  "concursosHistorico": 91,
+  "estados": [
+   "PR",
+   "SC"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "aietec.com.br",
+  "nome": "Consultec",
+  "site": "https://aietec.com.br/",
+  "concursosHistorico": 90,
+  "estados": [
+   "BA",
+   "PB",
+   "SC"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "gualimp.com.br",
+  "nome": "Gualimp",
+  "site": "https://www.gualimp.com.br/",
+  "concursosHistorico": 90,
+  "estados": [
+   "ES",
+   "MG",
+   "RJ"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "cetapnet.com.br",
+  "nome": "CETAP",
+  "site": "https://www.cetapnet.com.br/",
+  "concursosHistorico": 89,
+  "estados": [
+   "PA",
+   "RR"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "ifrj.edu.br",
+  "nome": "IFRJ",
+  "site": "https://www.ifrj.edu.br/",
+  "concursosHistorico": 89,
+  "estados": [
+   "RJ",
+   "RO",
+   "RS"
+  ],
+  "situacao": "orgao_publico"
+ },
+ {
+  "dominio": "ufcspa.edu.br",
+  "nome": "UFCSPA",
+  "site": "https://www.ufcspa.edu.br/",
+  "concursosHistorico": 89,
+  "estados": [
+   "RS"
+  ],
+  "situacao": "orgao_publico"
+ },
+ {
+  "dominio": "aplicativa.net.br",
+  "nome": "Instituto Aplicativa",
+  "site": "https://www.aplicativa.net.br/",
+  "concursosHistorico": 88,
+  "estados": [
+   "MG",
+   "SP"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "gabrielexcelencia.net.br",
+  "nome": "Gabriel Excelência",
+  "site": "https://www.gabrielexcelencia.net.br/",
+  "concursosHistorico": 86,
+  "estados": [
+   "MA",
+   "PI"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "ufba.br",
+  "nome": "UFBA",
+  "site": "https://ufba.br/",
+  "concursosHistorico": 86,
+  "estados": [
+   "BA",
+   "PA"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "ufla.br",
+  "nome": "UFLA",
+  "site": "https://ufla.br/",
+  "concursosHistorico": 85,
+  "estados": [
+   "MG"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "cvest.ifpe.edu.br",
+  "nome": "IFPE",
+  "site": "https://cvest.ifpe.edu.br/",
+  "concursosHistorico": 84,
+  "estados": [
+   "PE"
+  ],
+  "situacao": "orgao_publico"
+ },
+ {
+  "dominio": "ufgd.edu.br",
+  "nome": "UFGD",
+  "site": "https://www.ufgd.edu.br/",
+  "concursosHistorico": 83,
+  "estados": [
+   "MS"
+  ],
+  "situacao": "orgao_publico"
+ },
+ {
+  "dominio": "unicentro.br",
+  "nome": "UNICENTRO",
+  "site": "https://www.unicentro.br/",
+  "concursosHistorico": 83,
+  "estados": [
+   "PR"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "ieses.org",
+  "nome": "IESES",
+  "site": "https://ieses.org/",
+  "concursosHistorico": 82,
+  "estados": [
+   "AL",
+   "AM",
+   "CE",
+   "MG",
+   "MS",
+   "PA",
+   "PB",
+   "RJ",
+   "RO",
+   "RS",
+   "SC",
+   "SP"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "srdigitalizacoes.com.br",
+  "nome": "SR Digitalizações",
+  "site": "https://concursos.srdigitalizacoes.com.br/",
+  "concursosHistorico": 82,
+  "estados": [
+   "ES",
+   "SP"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "aplicativaassessoria.net",
+  "nome": "Aplicativa Assessoria",
+  "site": "https://aplicativaassessoria.net/",
+  "concursosHistorico": 81,
+  "estados": [
+   "SP"
+  ],
+  "situacao": "em_uso"
+ },
+ {
+  "dominio": "iades.com.br",
+  "nome": "Iades",
+  "site": "https://www.iades.com.br/",
+  "concursosHistorico": 81,
+  "estados": [
+   "AC",
+   "AM",
+   "BA",
+   "DF",
+   "ES",
+   "GO",
+   "MG",
+   "MS",
+   "MT",
+   "PA",
+   "PI",
+   "RJ",
+   "RN",
+   "RO",
+   "RS",
+   "SE",
+   "TO"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "facape.br",
+  "nome": "Facape",
+  "site": "https://www.facape.br/",
+  "concursosHistorico": 80,
+  "estados": [
+   "BA",
+   "PE",
+   "SP"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "institutoibdo.com.br",
+  "nome": "IBDO",
+  "site": "https://www.institutoibdo.com.br/",
+  "concursosHistorico": 79,
+  "estados": [
+   "CE",
+   "ES",
+   "MG",
+   "MT",
+   "PI",
+   "RJ",
+   "RN",
+   "SC",
+   "SP"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "ufac.br",
+  "nome": "UFAC",
+  "site": "https://www.ufac.br/",
+  "concursosHistorico": 79,
+  "estados": [
+   "AC"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "ufal.br",
+  "nome": "UFAL",
+  "site": "https://ufal.br/",
+  "concursosHistorico": 79,
+  "estados": [
+   "AL"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "cops.uel.br",
+  "nome": "Cops/UEL",
+  "site": "https://www.cops.uel.br/",
+  "concursosHistorico": 77,
+  "estados": [
+   "PR"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "uepg.br",
+  "nome": "UEPG",
+  "site": "https://www.uepg.br/",
+  "concursosHistorico": 77,
+  "estados": [
+   "PR"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "ivin.com.br",
+  "nome": "IVIN",
+  "site": "https://ivin.com.br/",
+  "concursosHistorico": 76,
+  "estados": [
+   "CE",
+   "MA",
+   "MG",
+   "PA",
+   "PI",
+   "TO"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "uerr.edu.br",
+  "nome": "UERR",
+  "site": "https://uerr.edu.br/",
+  "concursosHistorico": 75,
+  "estados": [
+   "RR"
+  ],
+  "situacao": "orgao_publico"
+ },
+ {
+  "dominio": "abconcursospublicos.org",
+  "nome": "AB Concursos Públicos",
+  "site": "https://abconcursospublicos.org/",
+  "concursosHistorico": 74,
+  "estados": [
+   "ES",
+   "MG",
+   "MT",
+   "SC",
+   "SP"
+  ],
+  "situacao": "em_uso"
+ },
+ {
+  "dominio": "eloassessoriaeservicos.com.br",
+  "nome": "Elo Assessoria",
+  "site": "https://novo.eloassessoriaeservicos.com.br/",
+  "concursosHistorico": 74,
+  "estados": [
+   "MG"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "ifs.edu.br",
+  "nome": "IFS",
+  "site": "https://www.ifs.edu.br/",
+  "concursosHistorico": 74,
+  "estados": [
+   "SE"
+  ],
+  "situacao": "orgao_publico"
+ },
+ {
+  "dominio": "uenp.edu.br",
+  "nome": "UENP",
+  "site": "https://www.uenp.edu.br/",
+  "concursosHistorico": 73,
+  "estados": [
+   "PR"
+  ],
+  "situacao": "orgao_publico"
+ },
+ {
+  "dominio": "planexcon.com.br",
+  "nome": "Planexcon",
+  "site": "https://www.planexcon.com.br/",
+  "concursosHistorico": 67,
+  "estados": [
+   "SP"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "inicio.ifac.edu.br",
+  "nome": "IFAC",
+  "site": "https://inicio.ifac.edu.br/",
+  "concursosHistorico": 66,
+  "estados": [
+   "AC"
+  ],
+  "situacao": "orgao_publico"
+ },
+ {
+  "dominio": "copese.uft.edu.br",
+  "nome": "Copese/UFT",
+  "site": "https://www.copese.uft.edu.br/",
+  "concursosHistorico": 65,
+  "estados": [
+   "TO"
+  ],
+  "situacao": "orgao_publico"
+ },
+ {
+  "dominio": "srconcursos.com.br",
+  "nome": "SR Concursos",
+  "site": "https://srconcursos.com.br/",
+  "concursosHistorico": 65,
+  "estados": [
+   "BA",
+   "SP"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "ueg.br",
+  "nome": "UEG",
+  "site": "https://www.ueg.br/",
+  "concursosHistorico": 65,
+  "estados": [
+   "GO"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "uneb.br",
+  "nome": "UNEB",
+  "site": "https://www.selecao.uneb.br/",
+  "concursosHistorico": 64,
+  "estados": [
+   "BA"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "funcern.br",
+  "nome": "FUNCERN",
+  "site": "https://funcern.br/",
+  "concursosHistorico": 63,
+  "estados": [
+   "PB",
+   "PE",
+   "RN"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "unespar.edu.br",
+  "nome": "UNESPAR",
+  "site": "https://www.unespar.edu.br/",
+  "concursosHistorico": 63,
+  "estados": [
+   "MS",
+   "PR"
+  ],
+  "situacao": "orgao_publico"
+ },
+ {
+  "dominio": "epts.com.br",
+  "nome": "EPTS",
+  "site": "https://www.epts.com.br/",
+  "concursosHistorico": 60,
+  "estados": [
+   "AM",
+   "SP"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "gazzinelliconsultoria.com.br",
+  "nome": "Gazzinelli",
+  "site": "https://www.gazzinelliconsultoria.com.br/",
+  "concursosHistorico": 59,
+  "estados": [
+   "BA",
+   "ES",
+   "MG"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "famema.br",
+  "nome": "FAMEMA",
+  "site": "https://www.famema.br/",
+  "concursosHistorico": 58,
+  "estados": [
+   "SP"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "ceperj.rj.gov.br",
+  "nome": "CEPERJ",
+  "site": "https://www.ceperj.rj.gov.br/",
+  "concursosHistorico": 57,
+  "estados": [
+   "DF",
+   "RJ"
+  ],
+  "situacao": "orgao_publico"
+ },
+ {
+  "dominio": "concursospublica.com.br",
+  "nome": "Pública Concursos",
+  "site": "https://portal.concursospublica.com.br/",
+  "concursosHistorico": 57,
+  "estados": [
+   "SP"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "cscconsultoria.com.br",
+  "nome": "CSC Consultoria",
+  "site": "https://www.cscconsultoria.com.br/",
+  "concursosHistorico": 56,
+  "estados": [
+   "SP"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "hcassessoria.selecao.net.br",
+  "nome": "HC Assessoria",
+  "site": "https://hcassessoria.selecao.net.br/",
+  "concursosHistorico": 56,
+  "estados": [
+   "PI",
+   "PR",
+   "RS",
+   "SC"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "amplasc.org.br",
+  "nome": "AMPLASC",
+  "site": "https://www.amplasc.org.br/",
+  "concursosHistorico": 55,
+  "estados": [
+   "RR",
+   "SC"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "concepcaoconsultoria.com.br",
+  "nome": "Concepção",
+  "site": "https://www.concepcaoconsultoria.com.br/",
+  "concursosHistorico": 55,
+  "estados": [
+   "AL",
+   "BA",
+   "ES",
+   "SE"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "portal1.iff.edu.br",
+  "nome": "IFF",
+  "site": "https://portal1.iff.edu.br/",
+  "concursosHistorico": 55,
+  "estados": [
+   "RJ",
+   "RS"
+  ],
+  "situacao": "orgao_publico"
+ },
+ {
+  "dominio": "institutobrio.org.br",
+  "nome": "Instituto Brio",
+  "site": "https://www.institutobrio.org.br/",
+  "concursosHistorico": 55,
+  "estados": [
+   "MG",
+   "SP"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "admtec.org.br",
+  "nome": "ADM&TEC",
+  "site": "https://admtec.org.br/",
+  "concursosHistorico": 54,
+  "estados": [
+   "AL",
+   "MG",
+   "PE"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "uesc.br",
+  "nome": "UESC",
+  "site": "https://www.uesc.br/",
+  "concursosHistorico": 54,
+  "estados": [
+   "BA",
+   "PI"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "jmsbhz.com.br",
+  "nome": "JMS",
+  "site": "https://www.jmsbhz.com.br/",
+  "concursosHistorico": 53,
+  "estados": [
+   "MG"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "comperve.ufrn.br",
+  "nome": "COMPERVE/UFRN",
+  "site": "https://www.comperve.ufrn.br/",
+  "concursosHistorico": 52,
+  "estados": [
+   "RN"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "gsaconcursos.com.br",
+  "nome": "GSA",
+  "site": "https://gsaconcursos.com.br/",
+  "concursosHistorico": 52,
+  "estados": [
+   "SC",
+   "SP"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "imperioconcursos.com.br",
+  "nome": "Império Concursos",
+  "site": "https://portal.imperioconcursos.com.br/",
+  "concursosHistorico": 52,
+  "estados": [
+   "MG",
+   "MS",
+   "MT",
+   "PR",
+   "SC",
+   "SP"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "unibave.net",
+  "nome": "Febave/ Unibave Federação Educacional Barriga Verde",
+  "site": "https://concursos.unibave.net/",
+  "concursosHistorico": 51,
+  "estados": [
+   "RN",
+   "SC"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "institutodom.com",
+  "nome": "Instituto DOM",
+  "site": "https://www.institutodom.com/",
+  "concursosHistorico": 51,
+  "estados": [
+   "AL",
+   "ES",
+   "MG",
+   "MS",
+   "MT",
+   "PR",
+   "RS",
+   "SC",
+   "SP"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "cetrede.com.br",
+  "nome": "CETREDE",
+  "site": "https://www.cetrede.com.br/",
+  "concursosHistorico": 50,
+  "estados": [
+   "CE"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "idhtec.org.br",
+  "nome": "IDHTec",
+  "site": "https://www.idhtec.org.br/",
+  "concursosHistorico": 50,
+  "estados": [
+   "AL",
+   "BA",
+   "MA",
+   "PB",
+   "PE"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "unifesspa.edu.br",
+  "nome": "UNIFESSPA",
+  "site": "https://www.unifesspa.edu.br/",
+  "concursosHistorico": 50,
+  "estados": [
+   "PA"
+  ],
+  "situacao": "orgao_publico"
+ },
+ {
+  "dominio": "assconpp.com.br",
+  "nome": "ASSCONPP",
+  "site": "https://assconpp.com.br/",
+  "concursosHistorico": 49,
+  "estados": [
+   "RS",
+   "SC"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "cefet-rj.br",
+  "nome": "CEFET/RJ",
+  "site": "https://www.cefet-rj.br/",
+  "concursosHistorico": 49,
+  "estados": [
+   "MG",
+   "RJ"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "funrio.org.br",
+  "nome": "FUNRIO",
+  "site": "https://funrio.org.br/",
+  "concursosHistorico": 49,
+  "estados": [
+   "BA",
+   "DF",
+   "GO",
+   "MG",
+   "MS",
+   "PA",
+   "PI",
+   "RJ",
+   "RO",
+   "RR",
+   "RS",
+   "SP",
+   "TO"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "institutoqualicon.org.br",
+  "nome": "Qualicon",
+  "site": "https://institutoqualicon.org.br/",
+  "concursosHistorico": 48,
+  "estados": [
+   "AM",
+   "GO",
+   "SC",
+   "SP"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "icap-to.com.br",
+  "nome": "ICAP",
+  "site": "https://icap-to.com.br/",
+  "concursosHistorico": 47,
+  "estados": [
+   "MA",
+   "PA",
+   "TO"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "idrhconcursos.com.br",
+  "nome": "IDRH Concursos",
+  "site": "https://www.idrhconcursos.com.br/",
+  "concursosHistorico": 47,
+  "estados": [
+   "RS",
+   "SP"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "www12.concursoscopec.com.br",
+  "nome": "CETAM",
+  "site": "https://www12.concursoscopec.com.br/",
+  "concursosHistorico": 46,
+  "estados": [
+   "AM"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "unesc.selecao.net.br",
+  "nome": "UNESC",
+  "site": "https://unesc.selecao.net.br/",
+  "concursosHistorico": 46,
+  "estados": [
+   "SC",
+   "SP"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "educapb.com.br",
+  "nome": "Educa PB",
+  "site": "https://educapb.com.br/",
+  "concursosHistorico": 45,
+  "estados": [
+   "PB"
+  ],
+  "situacao": "em_uso"
+ },
+ {
+  "dominio": "idescassessoria.org.br",
+  "nome": "IDESC",
+  "site": "https://www.idescassessoria.org.br/",
+  "concursosHistorico": 45,
+  "estados": [
+   "GO",
+   "MA",
+   "PA",
+   "TO"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "agirh.org",
+  "nome": "Agirh",
+  "site": "https://www.agirh.org/",
+  "concursosHistorico": 44,
+  "estados": [
+   "SP"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "cs.ufg.br",
+  "nome": "CS/UFG",
+  "site": "https://cs.ufg.br/",
+  "concursosHistorico": 44,
+  "estados": [
+   "AP",
+   "GO"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "gestaoeconcurso.com.br",
+  "nome": "Gestão Concurso",
+  "site": "https://gestaoeconcurso.com.br/",
+  "concursosHistorico": 44,
+  "estados": [
+   "MG"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "fortaleza.ce.gov.br",
+  "nome": "IMPARH",
+  "site": "https://www.fortaleza.ce.gov.br/",
+  "concursosHistorico": 44,
+  "estados": [
+   "CE"
+  ],
+  "situacao": "orgao_publico"
+ },
+ {
+  "dominio": "eticaconcursos.com.br",
+  "nome": "Ética Concursos",
+  "site": "https://eticaconcursos.com.br/",
+  "concursosHistorico": 44,
+  "estados": [
+   "MG",
+   "PR",
+   "RS",
+   "SC",
+   "SP"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "fundacaocefetbahia.org.br",
+  "nome": "Fundação CEFETBAHIA",
+  "site": "https://www.fundacaocefetbahia.org.br/",
+  "concursosHistorico": 43,
+  "estados": [
+   "BA"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "ufra.edu.br",
+  "nome": "UFRA",
+  "site": "https://novo.ufra.edu.br/",
+  "concursosHistorico": 43,
+  "estados": [
+   "AM",
+   "PA"
+  ],
+  "situacao": "orgao_publico"
+ },
+ {
+  "dominio": "univali.br",
+  "nome": "UNIVALI",
+  "site": "https://portal.univali.br/",
+  "concursosHistorico": 43,
+  "estados": [
+   "SC"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "cepuerj.uerj.br",
+  "nome": "Cepuerj",
+  "site": "https://www.cepuerj.uerj.br/",
+  "concursosHistorico": 42,
+  "estados": [
+   "RJ"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "alfaumuarama.com.br",
+  "nome": "Faculdade Alfa Umuarama",
+  "site": "https://www.alfaumuarama.com.br/",
+  "concursosHistorico": 42,
+  "estados": [
+   "PR"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "actio.srv.br",
+  "nome": "ACTIO ASSESSORIA",
+  "site": "https://portal.actio.srv.br/",
+  "concursosHistorico": 41,
+  "estados": [
+   "SC",
+   "SP"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "comprazen.com.br",
+  "nome": "ITEC",
+  "site": "https://comprazen.com.br/",
+  "concursosHistorico": 41,
+  "estados": [
+   "GO",
+   "MG",
+   "MT"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "pucpr.br",
+  "nome": "PUC-PR",
+  "site": "https://www.pucpr.br/",
+  "concursosHistorico": 40,
+  "estados": [
+   "MG",
+   "MS",
+   "PR"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "unitau.br",
+  "nome": "Unitau",
+  "site": "https://unitau.br/",
+  "concursosHistorico": 39,
+  "estados": [
+   "SP"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "nubesconcursos.com.br",
+  "nome": "Nubes",
+  "site": "https://nubesconcursos.com.br/",
+  "concursosHistorico": 38,
+  "estados": [
+   "SC"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "depsec.unifap.br",
+  "nome": "UNIFAP",
+  "site": "https://depsec.unifap.br/",
+  "concursosHistorico": 38,
+  "estados": [
+   "AP"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "univasf.edu.br",
+  "nome": "UNIVASF",
+  "site": "https://www.concurso.univasf.edu.br/",
+  "concursosHistorico": 38,
+  "estados": [
+   "BA",
+   "PE",
+   "PI"
+  ],
+  "situacao": "orgao_publico"
+ },
+ {
+  "dominio": "fucapconcursos.com.br",
+  "nome": "FUCAP",
+  "site": "https://fucapconcursos.com.br/",
+  "concursosHistorico": 37,
+  "estados": [
+   "AL",
+   "BA",
+   "MG",
+   "SC",
+   "SP"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "sigmapesquisas.com.br",
+  "nome": "Sigma Consultoria",
+  "site": "https://www.sigmapesquisas.com.br/",
+  "concursosHistorico": 37,
+  "estados": [
+   "GO",
+   "RS",
+   "SC",
+   "SP"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "tjgo.jus.br",
+  "nome": "Tribunal de Justiça - GO",
+  "site": "https://www.tjgo.jus.br/",
+  "concursosHistorico": 37,
+  "estados": [
+   "GO"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "uesb.br",
+  "nome": "UESB",
+  "site": "https://www.uesb.br/",
+  "concursosHistorico": 37,
+  "estados": [
+   "BA"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "fundape.org",
+  "nome": "Fundape",
+  "site": "https://www.fundape.org/",
+  "concursosHistorico": 36,
+  "estados": [
+   "AC"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "fundacaocajuina.org.br",
+  "nome": "Fundação Cajuína",
+  "site": "https://www.fundacaocajuina.org.br/",
+  "concursosHistorico": 36,
+  "estados": [
+   "PI"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "cesgranrio.org.br",
+  "nome": "Cesgranrio",
+  "site": "https://www.cesgranrio.org.br/",
+  "concursosHistorico": 35,
+  "estados": [
+   "BA",
+   "DF",
+   "MT",
+   "PA",
+   "PE",
+   "RJ",
+   "RN",
+   "RO",
+   "RS",
+   "SE",
+   "SP",
+   "TO"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "acafe.org.br",
+  "nome": "Sistema Acafe",
+  "site": "https://www.acafe.org.br/",
+  "concursosHistorico": 35,
+  "estados": [
+   "SC"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "urca.br",
+  "nome": "URCA",
+  "site": "https://www.urca.br/",
+  "concursosHistorico": 35,
+  "estados": [
+   "CE",
+   "PE"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "funtefpr.org.br",
+  "nome": "FUNTEF-CP",
+  "site": "https://funtefpr.org.br/",
+  "concursosHistorico": 34,
+  "estados": [
+   "PR"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "nucepe.uespi.br",
+  "nome": "Nucepe/UESPI",
+  "site": "https://nucepe.uespi.br/",
+  "concursosHistorico": 34,
+  "estados": [
+   "MA",
+   "PI",
+   "TO"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "amigapublica.com.br",
+  "nome": "Amiga Pública",
+  "site": "https://www.amigapublica.com.br/",
+  "concursosHistorico": 33,
+  "estados": [
+   "AL",
+   "BA",
+   "PB",
+   "SE",
+   "TO"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "ifsertao-pe.edu.br",
+  "nome": "IFSERTÃO",
+  "site": "https://www.ifsertao-pe.edu.br/",
+  "concursosHistorico": 33,
+  "estados": [
+   "PE"
+  ],
+  "situacao": "orgao_publico"
+ },
+ {
+  "dominio": "ceps.ufpa.br",
+  "nome": "Ceps/UFPA",
+  "site": "https://www.ceps.ufpa.br/",
+  "concursosHistorico": 32,
+  "estados": [
+   "MG",
+   "PA"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "uespi.br",
+  "nome": "UESPI",
+  "site": "https://www.uespi.br/",
+  "concursosHistorico": 32,
+  "estados": [
+   "PI"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "wedoconcursos.selecao.net.br",
+  "nome": "WE DO Concursos",
+  "site": "https://wedoconcursos.selecao.net.br/",
+  "concursosHistorico": 32,
+  "estados": [
+   "RS",
+   "SC"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "metrocapital.com.br",
+  "nome": "Metrocapital",
+  "site": "https://www.metrocapital.com.br/",
+  "concursosHistorico": 31,
+  "estados": [
+   "SP"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "atena.listaeditais.com.br",
+  "nome": "Atena Assessoria Educacional",
+  "site": "https://atena.listaeditais.com.br/",
+  "concursosHistorico": 29,
+  "estados": [
+   "SC"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "access.org.br",
+  "nome": "Instituto Access",
+  "site": "https://concursos.access.org.br/",
+  "concursosHistorico": 29,
+  "estados": [
+   "ES",
+   "MG",
+   "PE",
+   "PI",
+   "PR",
+   "RJ",
+   "SC",
+   "SP"
+  ],
+  "situacao": "em_uso"
+ },
+ {
+  "dominio": "uece.br",
+  "nome": "UECE",
+  "site": "https://www.uece.br/",
+  "concursosHistorico": 29,
+  "estados": [
+   "CE"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "ecapconsultoria.com.br",
+  "nome": "Ecap Consultoria",
+  "site": "https://www.ecapconsultoria.com.br/",
+  "concursosHistorico": 28,
+  "estados": [
+   "MG",
+   "RJ"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "unoesc.edu.br",
+  "nome": "Fundação Universidade do Oeste de Santa Catarina",
+  "site": "https://www.unoesc.edu.br/",
+  "concursosHistorico": 28,
+  "estados": [
+   "RS",
+   "SC"
+  ],
+  "situacao": "orgao_publico"
+ },
+ {
+  "dominio": "paconcursos.selecao.net.br",
+  "nome": "Inaz do Pará",
+  "site": "https://paconcursos.selecao.net.br/",
+  "concursosHistorico": 27,
+  "estados": [
+   "AC",
+   "BA",
+   "DF",
+   "MA",
+   "MG",
+   "MS",
+   "PA",
+   "PE",
+   "PR",
+   "RJ",
+   "RO",
+   "SC",
+   "SP",
+   "TO"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "tsrconcursos.com.br",
+  "nome": "TSR Concursos",
+  "site": "https://www.tsrconcursos.com.br/",
+  "concursosHistorico": 27,
+  "estados": [
+   "SP"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "unirg.edu.br",
+  "nome": "UNIRG",
+  "site": "https://www.unirg.edu.br/",
+  "concursosHistorico": 26,
+  "estados": [
+   "TO"
+  ],
+  "situacao": "orgao_publico"
+ },
+ {
+  "dominio": "astralassessoria.com.br",
+  "nome": "Astral",
+  "site": "https://www.astralassessoria.com.br/",
+  "concursosHistorico": 25,
+  "estados": [
+   "SP"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "famaconsultoria.selecao.net.br",
+  "nome": "Fama Consultoria",
+  "site": "https://famaconsultoria.selecao.net.br/",
+  "concursosHistorico": 24,
+  "estados": [
+   "PR",
+   "SP"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "ganzaroliassessoria.com.br",
+  "nome": "Ganzaroli",
+  "site": "https://site.ganzaroliassessoria.com.br/",
+  "concursosHistorico": 24,
+  "estados": [
+   "GO"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "unifimes.edu.br",
+  "nome": "Unifimes",
+  "site": "https://unifimes.edu.br/",
+  "concursosHistorico": 23,
+  "estados": [
+   "GO"
+  ],
+  "situacao": "orgao_publico"
+ },
+ {
+  "dominio": "concurso4.fundacaocefetminas.org.br",
+  "nome": "Fundação CefetMinas",
+  "site": "https://concurso4.fundacaocefetminas.org.br/",
+  "concursosHistorico": 22,
+  "estados": [
+   "AM",
+   "BA",
+   "MG",
+   "RJ"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "institutoagata.com.br",
+  "nome": "Ágata",
+  "site": "https://institutoagata.com.br/",
+  "concursosHistorico": 22,
+  "estados": [
+   "AP",
+   "PA"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "coseac.uff.br",
+  "nome": "Coseac/UFF",
+  "site": "https://www.coseac.uff.br/",
+  "concursosHistorico": 21,
+  "estados": [
+   "RJ"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "aroeira.jetcloud.com.br",
+  "nome": "Fundação Aroeira",
+  "site": "https://aroeira.jetcloud.com.br/",
+  "concursosHistorico": 21,
+  "estados": [
+   "GO",
+   "TO"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "psconcursos.com.br",
+  "nome": "PS Concursos",
+  "site": "https://www.psconcursos.com.br/",
+  "concursosHistorico": 21,
+  "estados": [
+   "SC"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "domcintra.org.br",
+  "nome": "Fundação Dom Cintra",
+  "site": "https://www.domcintra.org.br/",
+  "concursosHistorico": 20,
+  "estados": [
+   "MG",
+   "RJ",
+   "TO"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "ifrr.edu.br",
+  "nome": "IFRR",
+  "site": "https://www.ifrr.edu.br/",
+  "concursosHistorico": 20,
+  "estados": [
+   "RR"
+  ],
+  "situacao": "orgao_publico"
+ },
+ {
+  "dominio": "promun.com.br",
+  "nome": "Promun",
+  "site": "https://promun.com.br/",
+  "concursosHistorico": 20,
+  "estados": [
+   "CE",
+   "MG",
+   "PE",
+   "SP"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "ljconcursos.com.br",
+  "nome": "LJ Concursos",
+  "site": "https://www.ljconcursos.com.br/",
+  "concursosHistorico": 19,
+  "estados": [
+   "MA",
+   "PA",
+   "PI"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "universidadepatativa.com.br",
+  "nome": "UPA",
+  "site": "https://www.universidadepatativa.com.br/",
+  "concursosHistorico": 19,
+  "estados": [
+   "AL",
+   "CE",
+   "PE",
+   "SC"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "upe.br",
+  "nome": "UPE",
+  "site": "https://www.upe.br/",
+  "concursosHistorico": 19,
+  "estados": [
+   "PE"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "coned.com.br",
+  "nome": "Coned",
+  "site": "https://www.coned.com.br/",
+  "concursosHistorico": 18,
+  "estados": [
+   "AP",
+   "PA"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "fundacaoadm.org.br",
+  "nome": "Fundação ADM",
+  "site": "https://www.fundacaoadm.org.br/",
+  "concursosHistorico": 18,
+  "estados": [
+   "BA"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "coperve.ufpb.br",
+  "nome": "Coperve/UFPB",
+  "site": "https://www.coperve.ufpb.br/",
+  "concursosHistorico": 17,
+  "estados": [
+   "PB"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "fecilcam.br",
+  "nome": "FECILCAM",
+  "site": "https://www.fecilcam.br/",
+  "concursosHistorico": 17,
+  "estados": [
+   "PR"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "inqc.org.br",
+  "nome": "INQC - Instituto Nacional de Qualificação e Capacitação",
+  "site": "https://www.inqc.org.br/",
+  "concursosHistorico": 17,
+  "estados": [
+   "RJ",
+   "RS"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "neteducconcursos.com.br",
+  "nome": "NetEduc",
+  "site": "https://neteducconcursos.com.br/",
+  "concursosHistorico": 17,
+  "estados": [
+   "RJ",
+   "SP"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "assepublica.selecao.site",
+  "nome": "AssePublica",
+  "site": "https://portal.assepublica.selecao.site/",
+  "concursosHistorico": 16,
+  "estados": [
+   "MT"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "fadurpe.com.br",
+  "nome": "Fadurpe",
+  "site": "https://fadurpe.com.br/",
+  "concursosHistorico": 16,
+  "estados": [
+   "AL",
+   "PE"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "igdrh.selecao.net.br",
+  "nome": "IGDRH",
+  "site": "https://igdrh.selecao.net.br/",
+  "concursosHistorico": 16,
+  "estados": [
+   "PE",
+   "RJ",
+   "SP"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "nce.ufrj.br",
+  "nome": "NCE/UFRJ",
+  "site": "https://www.nce.ufrj.br/",
+  "concursosHistorico": 16,
+  "estados": [
+   "AP",
+   "ES",
+   "MG",
+   "RJ",
+   "SP"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "ammabarbacena.com.br",
+  "nome": "AMMA",
+  "site": "https://ammabarbacena.com.br/",
+  "concursosHistorico": 15,
+  "estados": [
+   "MG"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "cabraleoliveira.com.br",
+  "nome": "Cabral & Oliveira",
+  "site": "https://portal.cabraleoliveira.com.br/",
+  "concursosHistorico": 15,
+  "estados": [
+   "MG"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "assessoriapublica.com.br",
+  "nome": "Organização Paulista",
+  "site": "https://www.assessoriapublica.com.br/",
+  "concursosHistorico": 15,
+  "estados": [
+   "GO",
+   "MT",
+   "SP"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "auctorconsultoria.com.br",
+  "nome": "Auctor Consultoria",
+  "site": "https://www.auctorconsultoria.com.br/",
+  "concursosHistorico": 14,
+  "estados": [
+   "MG"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "cp2.g12.br",
+  "nome": "Colégio Pedro II",
+  "site": "https://www.cp2.g12.br/",
+  "concursosHistorico": 14,
+  "estados": [
+   "RJ"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "institutojkma.org",
+  "nome": "Instituto JK",
+  "site": "https://institutojkma.org/",
+  "concursosHistorico": 13,
+  "estados": [
+   "MA"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "proconsult.listaeditais.com.br",
+  "nome": "Proconsult",
+  "site": "https://proconsult.listaeditais.com.br/",
+  "concursosHistorico": 13,
+  "estados": [
+   "GO"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "iade.org.br",
+  "nome": "IADE",
+  "site": "https://www.iade.org.br/",
+  "concursosHistorico": 12,
+  "estados": [
+   "CE",
+   "ES",
+   "GO",
+   "MG",
+   "RO",
+   "SP"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "ibap-rj.org.br",
+  "nome": "IBAP-RJ",
+  "site": "https://ibap-rj.org.br/",
+  "concursosHistorico": 12,
+  "estados": [
+   "ES",
+   "RJ"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "uergs.edu.br",
+  "nome": "UERGS",
+  "site": "https://www.uergs.edu.br/",
+  "concursosHistorico": 12,
+  "estados": [
+   "RS"
+  ],
+  "situacao": "orgao_publico"
+ },
+ {
+  "dominio": "univesp.br",
+  "nome": "UNIVESP",
+  "site": "https://univesp.br/",
+  "concursosHistorico": 12,
+  "estados": [
+   "SP"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "fw.uri.br",
+  "nome": "URI Concursos",
+  "site": "https://www.fw.uri.br/",
+  "concursosHistorico": 12,
+  "estados": [
+   "RS"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "website.acep.org.br",
+  "nome": "ACEP",
+  "site": "https://website.acep.org.br/",
+  "concursosHistorico": 11,
+  "estados": [
+   "CE"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "oppusconcursos.com.br",
+  "nome": "Oppus",
+  "site": "https://oppusconcursos.com.br/",
+  "concursosHistorico": 11,
+  "estados": [
+   "BA",
+   "MG",
+   "MT",
+   "PE",
+   "PR",
+   "SP"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "recrutamentobrasil.com.br",
+  "nome": "Recrutamento Brasil",
+  "site": "https://portal.recrutamentobrasil.com.br/",
+  "concursosHistorico": 11,
+  "estados": [
+   "MG",
+   "PR",
+   "SP"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "sead.portal.ap.gov.br",
+  "nome": "SEAD-AP",
+  "site": "https://sead.portal.ap.gov.br/",
+  "concursosHistorico": 11,
+  "estados": [
+   "AP"
+  ],
+  "situacao": "orgao_publico"
+ },
+ {
+  "dominio": "ian.org.br",
+  "nome": "IAN - Instituto de Avaliação Nacional",
+  "site": "https://portal.ian.org.br/",
+  "concursosHistorico": 10,
+  "estados": [
+   "BA",
+   "MT",
+   "RJ",
+   "RS"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "institutoacesso.org.br",
+  "nome": "Instituto Acesso",
+  "site": "https://www.institutoacesso.org.br/",
+  "concursosHistorico": 10,
+  "estados": [
+   "AM",
+   "ES",
+   "RJ",
+   "SC",
+   "SP"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "institutoideap.com.br",
+  "nome": "Instituto IDEAP",
+  "site": "https://novo.institutoideap.com.br/",
+  "concursosHistorico": 10,
+  "estados": [
+   "MG",
+   "SP"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "uva.ce.gov.br",
+  "nome": "UVA",
+  "site": "https://www.uva.ce.gov.br/",
+  "concursosHistorico": 10,
+  "estados": [
+   "CE"
+  ],
+  "situacao": "orgao_publico"
+ },
+ {
+  "dominio": "ambasp.org.br",
+  "nome": "Ambasp",
+  "site": "https://ambasp.org.br/",
+  "concursosHistorico": 9,
+  "estados": [
+   "MG"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "consultaradvogados.com.br",
+  "nome": "Consultar",
+  "site": "https://www.consultaradvogados.com.br/",
+  "concursosHistorico": 9,
+  "estados": [
+   "GO"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "ajuri.org.br",
+  "nome": "Instituto Ajuri",
+  "site": "https://www.ajuri.org.br/",
+  "concursosHistorico": 9,
+  "estados": [
+   "RR"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "statusnet.com.br",
+  "nome": "Status Consultoria",
+  "site": "https://concursos.statusnet.com.br/",
+  "concursosHistorico": 9,
+  "estados": [
+   "BA"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "superestagios.com.br",
+  "nome": "Super Estágios",
+  "site": "https://www.superestagios.com.br/",
+  "concursosHistorico": 9,
+  "estados": [
+   "DF",
+   "ES",
+   "MA",
+   "MS",
+   "RS",
+   "SP"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "santoangelo.uri.br",
+  "nome": "URI Serviços",
+  "site": "https://www.santoangelo.uri.br/",
+  "concursosHistorico": 9,
+  "estados": [
+   "RS"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "fesg.org.br",
+  "nome": "FESG Concursos",
+  "site": "https://concursos.fesg.org.br/",
+  "concursosHistorico": 8,
+  "estados": [
+   "GO"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "fapetec.org",
+  "nome": "Fapetec",
+  "site": "https://www.fapetec.org/",
+  "concursosHistorico": 8,
+  "estados": [
+   "DF",
+   "SP"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "abareete.proseleta.com.br",
+  "nome": "Instituto Abaré-eté",
+  "site": "https://abareete.proseleta.com.br/",
+  "concursosHistorico": 8,
+  "estados": [
+   "AM",
+   "RO"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "sustente.org.br",
+  "nome": "Instituto Sustente",
+  "site": "https://www.sustente.org.br/",
+  "concursosHistorico": 8,
+  "estados": [
+   "PE"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "sismeta.com.br",
+  "nome": "Sismeta",
+  "site": "https://www.sismeta.com.br/",
+  "concursosHistorico": 8,
+  "estados": [
+   "PE"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "unisc.br",
+  "nome": "UNISC",
+  "site": "https://www.unisc.br/",
+  "concursosHistorico": 8,
+  "estados": [
+   "RS",
+   "SC"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "uepa.br",
+  "nome": "EUPA",
+  "site": "https://www.uepa.br/",
+  "concursosHistorico": 7,
+  "estados": [
+   "PA"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "gamaconsult.com.br",
+  "nome": "Gama Consult",
+  "site": "https://www.gamaconsult.com.br/",
+  "concursosHistorico": 7,
+  "estados": [
+   "MG",
+   "MT",
+   "PR",
+   "SP"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "marinha.mil.br",
+  "nome": "Marinha do Brasil",
+  "site": "https://www.marinha.mil.br/",
+  "concursosHistorico": 7,
+  "estados": [
+   "DF",
+   "MS",
+   "RJ"
+  ],
+  "situacao": "orgao_publico"
+ },
+ {
+  "dominio": "ncpconcursos.com.br",
+  "nome": "NCP",
+  "site": "https://portal.ncpconcursos.com.br/",
+  "concursosHistorico": 7,
+  "estados": [
+   "SP"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "paqtc.org.br",
+  "nome": "PaqTcPB",
+  "site": "https://www.paqtc.org.br/",
+  "concursosHistorico": 7,
+  "estados": [
+   "PB"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "activaassessoria.com.br",
+  "nome": "Activa Assessoria",
+  "site": "https://www.activaassessoria.com.br/",
+  "concursosHistorico": 6,
+  "estados": [
+   "MT",
+   "RO"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "fgrconcursos.org.br",
+  "nome": "FGR",
+  "site": "https://www.fgrconcursos.org.br/",
+  "concursosHistorico": 6,
+  "estados": [
+   "MG"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "msconc.com.br",
+  "nome": "MS Concursos",
+  "site": "https://concursos.msconc.com.br/",
+  "concursosHistorico": 6,
+  "estados": [
+   "BA",
+   "SP"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "unimontes.br",
+  "nome": "UNIMONTES",
+  "site": "https://unimontes.br/",
+  "concursosHistorico": 6,
+  "estados": [
+   "MG"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "asinstituto.com.br",
+  "nome": "A.S. Instituto",
+  "site": "https://asinstituto.com.br/",
+  "concursosHistorico": 5,
+  "estados": [
+   "SC"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "fcja.com.br",
+  "nome": "FCJA",
+  "site": "https://fcja.com.br/",
+  "concursosHistorico": 5,
+  "estados": [
+   "SC"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "fgpa.org.br",
+  "nome": "FGPA",
+  "site": "https://fgpa.org.br/",
+  "concursosHistorico": 5,
+  "estados": [
+   "MG"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "funcefet.com.br",
+  "nome": "FUNCEFET",
+  "site": "https://www.funcefet.com.br/",
+  "concursosHistorico": 5,
+  "estados": [
+   "RJ"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "infocol.com.br",
+  "nome": "Informática e Concursos LTDA - Infocol",
+  "site": "https://infocol.com.br/",
+  "concursosHistorico": 5,
+  "estados": [
+   "GO"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "facepealfenas.org.br",
+  "nome": "Facepe",
+  "site": "https://www.facepealfenas.org.br/",
+  "concursosHistorico": 4,
+  "estados": [
+   "MG"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "iepinstituto.org.br",
+  "nome": "IEP",
+  "site": "https://iepinstituto.org.br/",
+  "concursosHistorico": 4,
+  "estados": [
+   "PE"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "escolideres.com.br",
+  "nome": "Escola de Formação de Líderes Ltda - ME (Escolíderes)",
+  "site": "https://portal.escolideres.com.br/",
+  "concursosHistorico": 3,
+  "estados": [
+   "MG"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "nortetecnologia.com",
+  "nome": "Norte Tecnologia",
+  "site": "https://www.nortetecnologia.com/",
+  "concursosHistorico": 3,
+  "estados": [
+   "RR"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "paconcursos.com.br",
+  "nome": "Pará Concursos",
+  "site": "https://paconcursos.com.br/",
+  "concursosHistorico": 3,
+  "estados": [
+   "PA"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "consisconsultoria.com.br",
+  "nome": "CONSIS Consultoria",
+  "site": "https://www.consisconsultoria.com.br/",
+  "concursosHistorico": 2,
+  "estados": [
+   "CE",
+   "PE"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "frgestaopublica.com.br",
+  "nome": "FR Gestão Pública",
+  "site": "https://frgestaopublica.com.br/",
+  "concursosHistorico": 2,
+  "estados": [
+   "BA"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "unitins.br",
+  "nome": "Fundação Universidade do Tocantins",
+  "site": "https://www.unitins.br/",
+  "concursosHistorico": 2,
+  "estados": [
+   "TO"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "uvanet.br",
+  "nome": "Universidade Estadual Vale do Acaraú",
+  "site": "https://concursos.uvanet.br/",
+  "concursosHistorico": 2,
+  "estados": [
+   "CE"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "fab.mil.br",
+  "nome": "Aeronáutica do Brasil",
+  "site": "https://www.fab.mil.br/",
+  "concursosHistorico": 1,
+  "estados": [
+   "RJ"
+  ],
+  "situacao": "orgao_publico"
+ },
+ {
+  "dominio": "assertcon.com",
+  "nome": "Assertcon",
+  "site": "https://www.assertcon.com/",
+  "concursosHistorico": 1,
+  "estados": [
+   "GO"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "funepu.com.br",
+  "nome": "FUNEPU",
+  "site": "https://funepu.com.br/",
+  "concursosHistorico": 1,
+  "estados": [
+   "MG"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "fronteprojetos.com.br",
+  "nome": "Fronte Concursos e Projetos",
+  "site": "https://portal.fronteprojetos.com.br/",
+  "concursosHistorico": 1,
+  "estados": [
+   "SP"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "fundacaofat.org.br",
+  "nome": "Fundação FAT",
+  "site": "https://fundacaofat.org.br/",
+  "concursosHistorico": 1,
+  "estados": [
+   "SP"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "ismam.org.br",
+  "nome": "ISMAM",
+  "site": "https://www.ismam.org.br/",
+  "concursosHistorico": 1,
+  "estados": [
+   "MG"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "informacon3.com.br",
+  "nome": "Informacon3",
+  "site": "https://informacon3.com.br/",
+  "concursosHistorico": 1,
+  "estados": [
+   "GO"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "assessorialider.com.br",
+  "nome": "Lider Consultoria e Assessoria",
+  "site": "https://assessorialider.com.br/",
+  "concursosHistorico": 1,
+  "estados": [
+   "MT"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "assepublica.com.br",
+  "nome": "NNAI",
+  "site": "https://assepublica.com.br/",
+  "concursosHistorico": 1,
+  "estados": [
+   "MT"
+  ],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "agrobase.com.br",
+  "nome": "Agrobase",
+  "site": "https://www.agrobase.com.br/",
+  "concursosHistorico": 0,
+  "estados": [],
+  "situacao": "reserva"
+ },
+ {
+  "dominio": "saude.pe.gov.br",
+  "nome": "SES/PE",
+  "site": "https://portal.saude.pe.gov.br/",
+  "concursosHistorico": 0,
+  "estados": [],
+  "situacao": "orgao_publico"
+ }
+]

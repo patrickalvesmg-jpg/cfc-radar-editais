@@ -63,7 +63,12 @@ js/
   app.js          plataforma
 
 data/
-  editais.json    12 editais de exemplo
+  editais.json          os editais capturados pelo robô (dados reais)
+  organizadoras.json    bancas, com quantos editais cada uma tem AGORA
+  bancas-catalogo.json  mapa permanente das 378 bancas do Brasil —
+                        inclui as sem concurso contábil aberto, que são
+                        reserva, não descarte
+  editais-pdf/          cópia do PDF de cada edital + indice.json
 ```
 
 Sem build, sem npm, sem framework — HTML/CSS/JS puro com módulos ES.

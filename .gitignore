@@ -8,3 +8,6 @@ __pycache__/
 # Sistema
 .DS_Store
 Thumbs.db
+
+# Log de execução local — ruído em PR, cada rodada reescreve.
+varredura.log

@@ -17,6 +17,26 @@ divulgados?"* — mesmo os que ainda não interessam.
 Ele **não** é a lista de fontes ativas do robô: essa é a de
 `NOSSAS-FONTES.md`. Aqui está o mapa completo, para consulta.
 
+### Agora também em dado estruturado (31/08/2026)
+
+Esta tabela virou `data/bancas-catalogo.json` — 378 organizadoras com
+domínio, site, histórico, estados e situação. Até então o mapa existia
+só aqui em Markdown, e o robô não conseguia usá-lo.
+
+Isso conserta um apagamento silencioso: `robo/organizadoras.py` montava
+`data/organizadoras.json` **só a partir dos editais capturados**, então
+uma banca sem concurso contábil naquela varredura simplesmente sumia do
+arquivo. A decisão registrada acima — "não descartar banca por não ter
+concurso hoje" — valia para este documento, mas não para o dado que o
+robô gerava.
+
+Agora a contagem de editais é mesclada **sobre** o mapa permanente:
+quem não tem concurso aberto fica com `editais: 0`, presente e
+contável. Testes em `robo/teste_organizadoras.py`.
+
+Ao editar a tabela abaixo, regere o JSON para as duas versões não
+divergirem.
+
 ## Como ler a coluna "Situação"
 
 | Marca | O que significa |

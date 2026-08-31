@@ -85,30 +85,42 @@ def _plano(texto: str) -> str:
     return "".join(saida)
 
 
-def baixar_pdf(url: str, tempo: int = 60) -> str:
-    """Texto do PDF. '' se não der (404, PDF de imagem, timeout)."""
+def baixar_pdf_completo(url: str, tempo: int = 60) -> tuple[str, bytes]:
+    """(texto, bytes) do PDF. ('', b'') se não der.
+
+    Devolve também os bytes para que quem quiser ARQUIVAR o edital não
+    precise baixar de novo — é o mesmo arquivo, e pedir duas vezes à
+    banca seria o dobro de requisição sem motivo. Ver `arquivo_pdf.py`.
+    """
     try:
         import pypdf
     except ImportError:
-        return ""
+        return "", b""
     try:
         req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
         dados = urllib.request.urlopen(req, timeout=tempo).read()
     except Exception:
-        return ""
+        return "", b""
 
     # Vários links "de PDF" devolvem HTML: página de erro, aviso de
     # cookie, ou o visualizador em vez do arquivo. O pypdf tenta ler
     # assim mesmo e cospe "invalid pdf header" no log sem devolver
     # nada útil. Todo PDF começa com %PDF (às vezes após um BOM).
     if b"%PDF" not in dados[:1024]:
-        return ""
+        return "", b""
 
     try:
         leitor = pypdf.PdfReader(io.BytesIO(dados))
-        return "\n".join(p.extract_text() or "" for p in leitor.pages)
+        return "\n".join(p.extract_text() or "" for p in leitor.pages), dados
     except Exception:
-        return ""
+        # Ilegível como texto (digitalização), mas o arquivo é PDF de
+        # verdade e ainda serve para o candidato baixar.
+        return "", dados
+
+
+def baixar_pdf(url: str, tempo: int = 60) -> str:
+    """Texto do PDF. '' se não der (404, PDF de imagem, timeout)."""
+    return baixar_pdf_completo(url, tempo)[0]
 
 
 def do_texto(texto: str, cargo: str) -> float | None:

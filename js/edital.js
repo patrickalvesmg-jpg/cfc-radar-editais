@@ -37,6 +37,15 @@ function render(e){
   const inscricao = linkSeguro(e.siteInscricao);
   const pdf = linkSeguro(e.pdfEdital);
 
+  // Cópia local do edital. É caminho relativo dentro do próprio site
+  // (data/editais-pdf/...), então NÃO passa por linkSeguro — aquele
+  // exige http(s) e serve para barrar link de concorrente, que é outro
+  // problema. Aqui basta garantir que é caminho nosso: nada de "//",
+  // de esquema, nem de "../" saindo da pasta.
+  const bruto = (e.pdfArquivo || '').trim();
+  const copia = /^data\/editais-pdf\/[\w.-]+\.pdf$/.test(bruto) ? bruto : '';
+  const copiaEm = copia && e.pdfArquivoEm ? dataBR(e.pdfArquivoEm) : '';
+
   let prazoTexto;
   if(e.status === 'previsto'){
     prazoTexto = 'Edital ainda não publicado';
@@ -123,6 +132,14 @@ function render(e){
               Abrir edital em PDF
             </a>
             <p class="nota-pdf">Arquivo oficial da banca, sempre na versão vigente.</p>
+          ` : ''}
+
+          ${copia ? `
+            <a href="${esc(copia)}" class="link-copia"
+               target="_blank" rel="noopener noreferrer">
+              ${pdf ? 'Se o link acima não abrir, use a cópia que guardamos'
+                    : 'Baixar a cópia do edital que guardamos'}${copiaEm ? ` (${copiaEm})` : ''}
+            </a>
           ` : ''}
 
           ${inscricao ? `

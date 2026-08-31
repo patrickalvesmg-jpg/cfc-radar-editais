@@ -25,6 +25,7 @@ BASE = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(BASE / "robo"))
 
 import aprofundar
+import arquivo_pdf
 import descobrir
 import salario as mod_salario
 
@@ -49,16 +50,31 @@ def pdfs_da_pagina(pg, url):
     return saida
 
 
-def melhor_valor(pdfs, cargo):
+def melhor_valor(pdfs, cargo, edital_id=""):
     """Abre cada PDF e devolve (valor, url) do primeiro que tiver o
-    cargo numa tabela de vencimentos."""
+    cargo numa tabela de vencimentos.
+
+    Guarda uma cópia do PDF escolhido (pedido do Patrick, 31/08/2026):
+    são os mesmos bytes que já baixamos para ler o salário, e o link da
+    banca sai do ar quando o concurso encerra.
+    """
+    primeiro_valido = None
     for u in pdfs[:12]:
-        texto = mod_salario.baixar_pdf(u)
+        texto, dados = mod_salario.baixar_pdf_completo(u)
+        if dados and primeiro_valido is None:
+            primeiro_valido = (u, dados)
         if not texto:
             continue
         v = mod_salario.do_texto(texto, cargo)
         if v is not None:
+            if edital_id:
+                arquivo_pdf.guardar_bytes(edital_id, u, dados)
             return v, u
+    # Não achou o cargo, mas há PDF legítimo: guarda assim mesmo — o
+    # candidato quer o edital, mesmo quando a tabela não é lida.
+    if primeiro_valido and edital_id:
+        url_pdf, dados_pdf = primeiro_valido
+        arquivo_pdf.guardar_bytes(edital_id, url_pdf, dados_pdf)
     return None, ""
 
 
@@ -102,7 +118,7 @@ with sync_playwright() as pw:
                   flush=True)
             continue
 
-        valor, url = melhor_valor(candidatos, cargo)
+        valor, url = melhor_valor(candidatos, cargo, e.get("id", ""))
         if valor is None:
             sem_pdf += 1
             print(f"  [{i}/{len(alvos)}] cargo não achado  {nome:24} {cargo[:22]} "
@@ -127,9 +143,13 @@ if corrigiu:
     editorial.aplicar(editais)
     print("\n  editoriais regenerados")
 
+# Aponta cada edital para a cópia local do PDF, quando existir.
+com_copia = arquivo_pdf.aplicar_aos_editais(editais)
+
 arq.write_text(json.dumps(editais, ensure_ascii=False, indent=1), encoding="utf-8")
 
 print(f"\n{'='*58}")
 print(f"CONFERIDOS no PDF : {conferiu}")
 print(f"CORRIGIDOS        : {corrigiu}")
 print(f"sem PDF utilizável: {sem_pdf}")
+print(f"com cópia do PDF  : {com_copia}")

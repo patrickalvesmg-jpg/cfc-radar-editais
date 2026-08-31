@@ -23,6 +23,22 @@ from datetime import date, timedelta
 from config import eh_abertura, eh_relevante
 from http_util import buscar
 
+# ATENÇÃO — FORA DO AR desde pelo menos 31/08/2026.
+#
+# O host `api.queridodiario.ok.org.br` devolve **404 em tudo**, não só
+# nas nossas consultas: a raiz `/` e o `/docs` também. Não é o filtro
+# nem o formato da query — a API saiu do ar ou mudou de endereço, e o
+# endereço novo não é nenhuma das variações óbvias (`/gazettes`,
+# `/api/v1/gazettes`, `backend.`). O site `queridodiario.ok.org.br`
+# continua no ar e responde HTML.
+#
+# Efeito hoje: as 8 consultas falham e a fonte devolve 0. A varredura
+# NÃO quebra (falha de fonte é tolerada de propósito), mas o log enche
+# de 404 e o rendimento é zero.
+#
+# Antes de consertar, vale lembrar o que já sabíamos: esta fonte já
+# rendia pouco (ver o bloco abaixo e o README). Reativar só compensa se
+# a API nova indexar a tabela de cargos — que era o problema real.
 API = "https://api.queridodiario.ok.org.br/api/gazettes"
 
 # Janela de validade. Inscrição de concurso municipal costuma durar

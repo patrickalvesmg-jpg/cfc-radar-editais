@@ -25,6 +25,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
+import arquivo_pdf
 import descobrir
 import salario as mod_salario
 
@@ -234,7 +235,13 @@ def aprofundar_um(pagina, edital: dict) -> dict:
     # ---- 4. salário do cargo
     pdf = edital.get("pdfEdital") or ""
     if pdf:
-        texto = mod_salario.baixar_pdf(pdf)
+        # Guarda a cópia com os MESMOS bytes que já baixamos para ler o
+        # salário (política de 31/08/2026 — ver arquivo_pdf.py). Sem
+        # isto só a verificação manual arquivaria, e a rotina semanal
+        # continuaria descartando o arquivo.
+        texto, dados = mod_salario.baixar_pdf_completo(pdf)
+        if dados and edital.get("id"):
+            arquivo_pdf.guardar_bytes(edital["id"], pdf, dados)
         if texto:
             valor, obs = mod_salario.resolver(edital.get("cargo", ""), texto)
             if valor is not None:

@@ -12,7 +12,13 @@ Números medidos em **20/08/2026**, sobre os 209 editais no ar.
 > Para o **mapa completo de quem organiza concurso no Brasil** — as 382
 > bancas com site, histórico e estados —, veja
 > `CATALOGO-ORGANIZADORAS.md`. Lá estão inclusive as que não têm vaga
-> contábil hoje: são reserva, não descarte.
+> contábil hoje: são reserva, não descarte. Desde 31/08/2026 o mesmo
+> mapa existe em dado estruturado: `data/bancas-catalogo.json`.
+>
+> **QConcursos ficou de fora** (testado em 31/08/2026): responde 403 até
+> no `robots.txt`, mesmo com User-Agent de navegador real. É agregador
+> como o PCI, já está na blocklist de link, e o que ele lista vem das
+> bancas que já lemos. Detalhe em `FONTES.md` §7.
 
 ---
 

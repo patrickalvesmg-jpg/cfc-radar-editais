@@ -1077,6 +1077,15 @@ body.tem-demo .boas-vindas{padding-top:calc(var(--topbar-h) + var(--faixa-demo-h
   color:var(--cinza-esc);line-height:1.5;text-align:center;
 }
 
+/* Cópia local do edital: alternativa discreta, nunca concorre com o
+   link oficial da banca — o oficial é o botão, este é texto. */
+.link-copia{
+  display:block;margin-top:var(--s-3);font-size:var(--t-micro);
+  color:var(--cinza-esc);line-height:1.5;text-align:center;
+  text-decoration:underline;text-underline-offset:2px;
+}
+.link-copia:hover{color:var(--carvao)}
+
 @media (max-width:760px){
   .edital-resumo{font-size:.95rem;padding-left:var(--s-3);margin-bottom:var(--s-5)}
 }

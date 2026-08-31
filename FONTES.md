@@ -146,6 +146,40 @@ canal de contato, e um site que divulga os concursos delas é do
 interesse delas. Um pedido de acesso pode render mais que qualquer
 raspador.
 
+### QConcursos — testado em 31/08/2026, fora (não repetir)
+
+O Patrick pediu para incluir o *Mapa de Concursos Públicos* do
+QConcursos (`qconcursos.com/questoes-de-concursos/mapa-concursos-publicos`).
+**Não dá, e não deveríamos mesmo que desse.** Medido, não suposto:
+
+| Requisição | Resposta |
+|---|---|
+| `robots.txt` com nosso User-Agent | **403** |
+| `robots.txt` com User-Agent de Chrome real | **403** |
+| a própria página do mapa, com Chrome real | **403** |
+
+O 403 vem do Cloudflare e alcança **até o `robots.txt`** — o site nega
+a leitura do próprio arquivo que declara o que é permitido. É a mesma
+assinatura de VUNESP, FCC e IBFC: bloqueio deliberado e ativo, não
+descuido de configuração.
+
+Contornar exigiria proxy residencial e resolução do desafio do
+Cloudflare. Além de romper um "não" explícito, seria uma corrida:
+funciona umas semanas, eles apertam, e o robô que roda sozinho toda
+segunda passa a **falhar em silêncio** — o defeito mais caro que este
+projeto já teve (ver o `\b` virando backspace).
+
+**E não perdemos nada.** O QConcursos é agregador, a mesma natureza do
+PCI que já lemos por API — e por isso já está na blocklist de
+`js/edital.js`, `robo/conferir.py` e `robo/fontes/pci.py`: nenhum link
+do radar pode mandar visitante para plataforma concorrente. O que ele
+lista sai das **bancas**, que é onde o radar já busca, com cargo por
+extenso e salário estruturado — dado melhor do que o agregador daria.
+
+Onde está o ganho real de cobertura: nas bancas de
+`data/bancas-catalogo.json` ainda não sondadas (296 em reserva), que
+são acessíveis e oficiais.
+
 ---
 
 ## 8. Rodada extra de sondagem (19/08/2026)

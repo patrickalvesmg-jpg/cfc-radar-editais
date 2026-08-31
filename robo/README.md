@@ -65,6 +65,7 @@ já estruturados.
 | **FCC** | `robots.txt` proíbe `/concursos/` — justamente a área necessária |
 | **VUNESP** | Responde **403** a qualquer automação, inclusive no `robots.txt` |
 | **IBFC** | Idem |
+| **QConcursos** | **403** até no `robots.txt`, mesmo com User-Agent de Chrome real (medido em 31/08/2026). É agregador, como o PCI — e já está na blocklist de link. Detalhe em `FONTES.md` §7 |
 
 Incluí-las exigiria contornar bloqueio explícito. Se forem importantes,
 o caminho é pedir acesso/parceria à banca — não burlar.
@@ -186,6 +187,58 @@ Edital já revisado normalmente não é tocado pelo robô. A **única
 exceção** é o `siteInscricao`: se estiver vazio e uma fonte nova trouxer
 o endereço, ele é preenchido. É acréscimo, não substituição — um edital
 sem link é inútil para quem quer se inscrever.
+
+## O PDF do edital fica guardado (31/08/2026)
+
+Antes o radar guardava só o **link** do edital. O robô baixava o PDF
+para ler o salário e descartava os bytes.
+
+Link não é arquivo. Três coisas acontecem com um link de banca:
+
+1. o concurso encerra e a banca tira a página do ar;
+2. a banca republica o edital **retificado na mesma URL** — e o que a
+   pessoa baixa deixa de ser o que a gente leu;
+3. o link some na reforma do site da banca.
+
+Agora `robo/arquivo_pdf.py` grava o arquivo em `data/editais-pdf/`, com
+índice em `data/editais-pdf/indice.json`. São **os mesmos bytes** que
+já baixávamos — `salario.baixar_pdf_completo` devolve texto *e* bytes,
+para não pedir o arquivo duas vezes à banca.
+
+- Nome: `<id-do-edital>-<hash8>.pdf`, com hash **do conteúdo**. Edital
+  retificado vira arquivo novo em vez de sobrescrever o antigo em
+  silêncio — dá para ver que mudou.
+- Recusa HTML disfarçado de PDF (página de erro com URL `.pdf`) e
+  arquivo acima de 12 MB (digitalização sem texto pesquisável).
+- O edital ganha os campos `pdfArquivo` e `pdfArquivoEm`.
+
+**A cópia não substitui a fonte.** A página do edital mostra o link
+oficial da banca em primeiro lugar; o arquivo guardado é a alternativa
+para quando o oficial sai do ar.
+
+Quem arquiva: `verificar.py` e `aprofundar.py` (o passo semanal). Os
+dois reaproveitam o download que já faziam.
+
+### Guardamos enquanto o concurso está aberto
+
+Política do Patrick (31/08/2026): **encerrou, apaga o arquivo.** Sem
+isso a pasta cresce para sempre e o Pages tem teto de 1 GB.
+
+```bash
+python robo/limpar_pdf.py            # mostra o que sairia
+python robo/limpar_pdf.py --aplicar  # apaga
+```
+
+Roda toda semana no Actions, antes do `conferir.py`. O edital encerrado
+continua no site com o link da banca — some só o arquivo.
+
+**Ressalva que importa:** apagar do disco **não tira do histórico do
+Git**. Quem clonar o repositório inteiro continua baixando tudo que já
+passou por lá. A limpeza controla a árvore de trabalho e o Pages, não o
+histórico — para isso seria preciso reescrevê-lo (`git filter-repo`),
+que muda todos os commits e é decisão bem maior.
+
+Testes: `python robo/teste_arquivo_pdf.py`.
 
 ## Revisão (o passo humano)
 
