@@ -146,6 +146,55 @@ canal de contato, e um site que divulga os concursos delas é do
 interesse delas. Um pedido de acesso pode render mais que qualquer
 raspador.
 
+### AcheConcursos — sondado em 31/08/2026, NÃO vira fonte
+
+O Patrick pediu para avaliar
+`acheconcursos.com.br/busca-concursos/cargo-contador`. Diferente do
+QConcursos, este **permite** a leitura: o `robots.txt` traz `Allow: /`
+e a página de busca não está em nenhum `Disallow` (só `/premium/`,
+`/apostilas/`, `/forum/` e downloads). O `http_util.pode_acessar`
+confirma. Ou seja: dava para usar — e ainda assim não compensa.
+
+**O que ele tem:** uma tabela com concurso, abertura, prazo, vagas e
+"Salários **Até**", e uma página por concurso que linka o site oficial
+da banca (FADE-UFPE, CEBRASPE, CESGRANRIO, Instituto Mais).
+
+**O que rende, medido:** 70 concursos distintos somando seis buscas por
+cargo contábil (contador, técnico em contabilidade, auditor fiscal,
+fiscal de tributos, analista contábil, controlador interno). Desses,
+**apenas 3 são concurso contábil que não temos**: TRANSPETRO
+(CESGRANRIO), Concurso Unificado PI e FUNDACI Ilhabela. Um quarto
+candidato, o CRECI-SP, não cita nenhum cargo contábil — seria falso
+positivo.
+
+**Bancas novas: nenhuma.** Visitei as 66 páginas de concurso e extraí
+todo domínio externo: 49 domínios, 21 fora do catálogo. Depois de tirar
+CDN, S3 e o fornecedor do site (`desenvolveweb.com.br`, que aparecia 66
+vezes), sobraram 14 candidatas — e todas já eram conhecidas:
+
+- 7 já estavam em `organizadoras.json`, vindas dos nossos editais;
+- 5 eram subdomínios de `selecao.net.br` de bancas que já temos;
+- `fundep.selecao.net.br` é a FUNDEP, catalogada como
+  `gestaodeconcursos.com.br`;
+- `fundacaounespar.org.br` é a **própria Fundação FAFIPA** num segundo
+  domínio — o site responde "Fundação FAFIPA | CNPJ 05.566.804/0001-76".
+  Isso virou uma linha no `organizadoras.CANONICO`: sem ela o radar
+  exibiria "Fundacaounespar" como se fosse outra banca.
+
+**Conclusão: fica de fora.** É agregador (mesma natureza do PCI, que já
+lemos por API), está na blocklist de link por ser concorrente, e o
+ganho seria 3 editais contra o custo de mais uma fonte para manter. O
+próprio `FONTES.md` já registrava que ele não tem `/wp-json`.
+
+**O que vale aproveitar dele:** os 3 concursos acima, cadastrados à
+mão, e a confirmação de que a cobertura de bancas está boa — uma fonte
+independente não achou nenhuma organizadora que o catálogo não tivesse.
+
+E um alerta sobre a coluna dele: **"Salários Até" é o teto do
+concurso**, o mesmo número que causou o erro de Floresta/PE (ver
+`robo/auditar_salario.py`). Se um dia essa fonte for ligada, o valor
+dela entra como não verificado, nunca como salário do cargo.
+
 ### QConcursos — testado em 31/08/2026, fora (não repetir)
 
 O Patrick pediu para incluir o *Mapa de Concursos Públicos* do

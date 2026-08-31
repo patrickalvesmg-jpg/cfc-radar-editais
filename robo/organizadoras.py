@@ -29,6 +29,11 @@ ARQUIVO = RAIZ / "data" / "organizadoras.json"
 # que já observamos nos editais capturados.
 CANONICO = {
     "fundacaofafipa.org.br": "Fundação FAFIPA",
+    # Segundo domínio da MESMA fundação — o site responde
+    # "Fundação FAFIPA | CNPJ 05.566.804/0001-76". Sem esta linha o
+    # site exibiria "Fundacaounespar" como se fosse outra banca.
+    # Achado em 31/08/2026 ao sondar o AcheConcursos.
+    "fundacaounespar.org.br": "Fundação FAFIPA",
     "ibgpconcursos.com.br": "IBGP Concursos",
     "cebraspe.org.br": "CESPE/CEBRASPE",
     "avancasp.org.br": "AvançaSP",
