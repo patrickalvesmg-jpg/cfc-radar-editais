@@ -31,6 +31,43 @@ def _chave_id(texto: str) -> str:
     return re.sub(r"[^a-z0-9]+", "", limpo)
 
 
+# UFs, para tirar a sigla colada no fim do nome da cidade.
+_UFS = ("ac", "al", "am", "ap", "ba", "ce", "df", "es", "go", "ma", "mg",
+        "ms", "mt", "pa", "pb", "pe", "pi", "pr", "rj", "rn", "ro", "rr",
+        "rs", "sc", "se", "sp", "to")
+
+
+def _chave_cidade(cidade: str) -> str:
+    """Chave da cidade tolerante ao jeito de cada fonte escrever.
+
+    Duas diferenças puramente de redação criavam DUAS entradas do mesmo
+    concurso (achado em 01/09/2026, 4 duplicatas no ar):
+
+      · a UF colada no nome — o CEBRASPE manda "CAMARA MUNICIPAL PONTA
+        PORA MS" e o PCI manda "Ponta Porã": `pontaporams` != `pontapora`;
+      · o nome truncado — o PCI gravou "São João del" onde o IBGP gravou
+        "São João Del-Rei": `saojoaodel` != `saojoaodelrei`.
+
+    Aqui só tiramos a UF, que é seguro: a sigla não faz parte do nome.
+
+    **O truncamento NÃO é resolvido cortando o nome.** Cheguei a usar
+    prefixo de 10 caracteres e medi o estrago no próprio acervo: unia
+    "Conceição da Barra de Minas" com "Conceição do Mato Dentro" (as
+    duas viram `conceicaod`) — cidades diferentes, no mesmo estado, com
+    concurso aberto ao mesmo tempo. Fundir isso seria pior que a
+    duplicata: some um concurso de verdade e ninguém percebe.
+
+    O truncamento é tratado onde dá para conferir, em
+    `conferir.py`: lá o par é apontado ao revisor com os dois nomes na
+    tela, e a decisão é humana.
+    """
+    chave = _chave_id(cidade)
+    for uf in _UFS:
+        if chave.endswith(uf) and len(chave) > len(uf) + 3:
+            return chave[: -len(uf)]
+    return chave
+
+
 def id_estavel(cidade: str, uf: str, cargo: str, fim: str) -> str:
     """ID determinístico pela IDENTIDADE do concurso, não pela redação
     da fonte.
@@ -47,7 +84,7 @@ def id_estavel(cidade: str, uf: str, cargo: str, fim: str) -> str:
     que cada fonte escreve de um jeito.
     """
     base = "|".join((
-        _chave_id(cidade), _chave_id(uf), _chave_id(cargo), (fim or "")[:10],
+        _chave_cidade(cidade), _chave_id(uf), _chave_id(cargo), (fim or "")[:10],
     ))
     return "e-" + hashlib.sha1(base.encode()).hexdigest()[:12]
 

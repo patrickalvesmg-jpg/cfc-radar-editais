@@ -2,7 +2,7 @@
   {
     "dominio": "ibgpconcursos.com.br",
     "nome": "IBGP Concursos",
-    "editais": 18,
+    "editais": 15,
     "fontePrimaria": false,
     "site": "https://ibgpconcursos.com.br/",
     "estados": [
@@ -33,7 +33,7 @@
   {
     "dominio": "cebraspe.org.br",
     "nome": "CESPE/CEBRASPE",
-    "editais": 7,
+    "editais": 6,
     "fontePrimaria": true,
     "site": "https://www.cebraspe.org.br/",
     "estados": [

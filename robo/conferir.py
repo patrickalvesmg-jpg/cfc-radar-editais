@@ -55,6 +55,7 @@ CONTABIL = re.compile(
 # passar a conferência não pega (ou o contrário).
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from config import area_alheia   # noqa: E402
+import extrair                  # noqa: E402
 from extrair import id_estavel  # noqa: E402
 
 UFS = {
@@ -86,6 +87,8 @@ def conferir(editais: list[dict]) -> list[str]:
 
     hoje = date.today()
     vistos: dict[str, str] = {}
+    # (cargo, uf, prazo) -> [(chave_cidade, rotulo)] — ver checagem 7b
+    por_cargo: dict[tuple, list] = {}
 
     for e in editais:
         ident = f"{e.get('orgao', '?')[:40]} — {e.get('cargo', '?')[:28]}"
@@ -198,6 +201,36 @@ def conferir(editais: list[dict]) -> list[str]:
                 problemas.append(
                     f"[{ident}] {campo} sem http(s): '{url[:50]}'"
                 )
+
+        # 7b. Mesmo concurso capturado duas vezes, por grafia diferente
+        #     da cidade.
+        #
+        #     Achado em 01/09/2026: 4 duplicatas no ar. O id sai de
+        #     cidade+uf+cargo+prazo, e duas fontes escrevem a cidade
+        #     diferente — o PCI gravou "São João del" onde o IBGP gravou
+        #     "São João Del-Rei". Ids diferentes, mesmo concurso, dois
+        #     cards.
+        #
+        #     A UF colada ("PONTA PORA MS") já é resolvida no
+        #     `_chave_cidade`. O nome TRUNCADO não dá para resolver
+        #     sozinho sem arriscar fundir cidades de verdade — medido:
+        #     cortar em 10 caracteres uniria "Conceição da Barra de
+        #     Minas" com "Conceição do Mato Dentro". Então aqui só
+        #     apontamos o par, com os dois nomes, para o revisor decidir.
+        chave = (extrair._chave_id(e.get("cargo", "")),
+                 e.get("uf", ""), (e.get("inscricaoFim") or "")[:10])
+        cid = extrair._chave_cidade(e.get("cidade", ""))
+        if chave[0] and chave[2] and cid:
+            for outro_cid, outro_ident in por_cargo.get(chave, []):
+                if outro_cid == cid:
+                    continue
+                if outro_cid.startswith(cid) or cid.startswith(outro_cid):
+                    problemas.append(
+                        f"[{ident}] parece o MESMO concurso de [{outro_ident}] "
+                        f"— cidade '{e.get('cidade')}' vs a do outro registro, "
+                        "mesmo cargo e mesmo prazo. Funda os dois."
+                    )
+            por_cargo.setdefault(chave, []).append((cid, ident))
 
         # 7. Salário implausível para a escolaridade.
         #
