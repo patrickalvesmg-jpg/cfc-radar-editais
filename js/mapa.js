@@ -150,9 +150,38 @@ function rotularEstados(svg, contagem){
 }
 
 
+/**
+ * Um edital de exemplo, para quem não tem conta. O mais urgente do
+ * Brasil inteiro (menor prazo restante), ignorando qualquer filtro —
+ * é sempre o mesmo, some quando urgência muda sozinho e não precisa
+ * de manutenção manual (decisão do Patrick, 01/09/2026).
+ */
+function exemploMaisUrgente(){
+  return [...editais].sort((a, b) => {
+    const da = diasAte(a.inscricaoFim), db = diasAte(b.inscricaoFim);
+    if(da === null) return 1;
+    if(db === null) return -1;
+    return da - db;
+  })[0];
+}
+
 function renderTabela(){
   const alvo = document.getElementById('mapa-lista');
   if(!alvo) return;
+
+  // Pedido do Patrick (01/09/2026): a primeira versão desse bloqueio
+  // mostrava várias linhas raspadas ("Concurso aberto — Minas Gerais"
+  // repetido oito vezes) e ficou estranho — muito espaço para pouca
+  // informação de verdade. A segunda versão é mais direta: sem conta,
+  // mapa/chips/busca/filtros continuam VISÍVEIS (dão volume, mostram
+  // que a base é grande), mas usá-los não filtra nada — mostra o
+  // convite de cadastro. A lista sempre tem UM edital de exemplo
+  // completo (o mais urgente do Brasil todo), para provar que o dado é
+  // real sem entregar o acervo peça por peça.
+  if(!logado()){
+    renderExemploUnico(alvo);
+    return;
+  }
 
   const lista = aplicarFiltros();
 
@@ -180,16 +209,6 @@ function renderTabela(){
     return;
   }
 
-  // Pedido do Patrick (01/09/2026): sem cadastro, NENHUM dado do
-  // edital aparece — nem os 3 primeiros. Antes o limite era "3 linhas
-  // completas liberadas, resto borrado"; dava para juntar boa parte
-  // do acervo clicando estado por estado sem nunca criar conta.
-  //
-  // O corte acontece ANTES de montar as linhas: gerar 113 linhas
-  // completas e escondê-las com CSS deixaria o dado no HTML, legível
-  // por quem abrisse o código-fonte — bloqueio que não bloqueia.
-  const liberado = logado();
-
   const ordenada = [...lista].sort((a, b) => {
     if(filtros.ordem === 'salario') return (b.salario || 0) - (a.salario || 0);
     // Padrão: prazo mais curto primeiro — é o que decide a ação.
@@ -198,38 +217,6 @@ function renderTabela(){
     if(db === null) return -1;
     return da - db;
   });
-
-  if(!liberado){
-    // Card raspado para TODOS os editais do filtro atual — não sobra
-    // "amostra grátis" nenhuma. Mostramos linhas de verdade (com
-    // `linhaRaspada`, que não vaza cidade/cargo/salário) em vez de só
-    // um número, porque a fileira de UFs repetidas já comunica volume
-    // ("tem bastante coisa aqui") sem entregar o dado individual.
-    const RASPADAS_MAX = 8;
-    alvo.innerHTML = `
-      <div class="tabela-wrap">
-        <table class="tabela-editais tabela-raspada">
-          <tbody>${ordenada.slice(0, RASPADAS_MAX).map(linhaRaspada).join('')}</tbody>
-        </table>
-      </div>
-
-      <div class="paywall paywall-cheio">
-        <div class="cadeado" aria-hidden="true">
-          <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="4" y="10" width="16" height="11" rx="2"/>
-            <path d="M8 10V7a4 4 0 0 1 8 0v3"/>
-          </svg>
-        </div>
-        <h3>${ordenada.length} ${ordenada.length === 1 ? 'edital' : 'editais'} ${ordenada.length === 1 ? 'encontrado' : 'encontrados'}</h3>
-        <p>
-          Crie sua conta grátis para ver cidade, cargo, salário, banca e
-          o link de inscrição de cada concurso.
-        </p>
-        <a href="cadastro.html" class="btn btn-lima">Ver todos os editais</a>
-        <p class="micro">É grátis. Não pedimos senha nem cartão.</p>
-      </div>`;
-    return;
-  }
 
   const visiveis = ordenada.slice(0, mostrando);
 
@@ -283,27 +270,76 @@ function aplicarFiltros(){
 }
 
 /**
- * Linha SEM CADASTRO. Pedido do Patrick (01/09/2026): antes 3 linhas
- * completas por estado ficavam visíveis sem conta — cargo, salário,
- * prazo e órgão, tudo de graça. Alguém sem cadastrar conseguia juntar
- * boa parte dos editais clicando estado por estado.
+ * Tela sem cadastro: UM edital completo de exemplo + convite. Segunda
+ * versão do bloqueio (01/09/2026) — a primeira mostrava várias linhas
+ * raspadas ("Concurso aberto — Minas Gerais" repetido) e ficou
+ * estranha, muito espaço vazio para pouca informação de verdade.
  *
- * Agora NENHUM dado do edital individual aparece: nem cidade, nem
- * cargo, nem órgão, nem banca, nem salário, nem prazo — só a UF, que
- * já é a informação que o filtro pediu (a pessoa clicou naquele
- * estado, então "tem concurso aqui" não é novidade nenhuma).
- *
- * Cidade fica de fora de propósito: dar a cidade é dar munição para
- * achar o edital por fora (busca no Google, direto no site da banca),
- * o que devolve de graça o que o cadastro deveria trocar.
+ * O exemplo é sempre o edital de menor prazo do PAÍS TODO, ignorando
+ * qualquer estado/filtro escolhido — interagir com mapa, chips, busca
+ * ou os selects não muda o que aparece aqui; eles só abrem o convite
+ * de cadastro (ver `pedirCadastro`). Isso é intencional: filtrar por
+ * estado É o produto pago, então mostrar resultado filtrado de graça
+ * devolveria de graça o que o cadastro deveria trocar.
  */
-function linhaRaspada(e){
-  return `
-    <tr class="linha-raspada">
-      <td colspan="6">
-        <span class="raspado-uf">Concurso aberto — ${esc(UFS_NOME[(e.uf || '').toUpperCase()] || e.uf || 'Brasil')}</span>
-      </td>
-    </tr>`;
+function renderExemploUnico(alvo){
+  const titulo = document.getElementById('mapa-titulo');
+  if(titulo) titulo.textContent = 'Um exemplo do que você encontra aqui';
+
+  const limpar = document.getElementById('mapa-limpar');
+  if(limpar) limpar.hidden = true;
+
+  const exemplo = exemploMaisUrgente();
+  if(!exemplo){
+    alvo.innerHTML = `<p class="mapa-vazio">Nenhum edital aberto no momento.</p>`;
+    return;
+  }
+
+  alvo.innerHTML = `
+    <div class="tabela-wrap">
+      <table class="tabela-editais">
+        <thead>
+          <tr>
+            <th scope="col">Órgão / Cargo</th>
+            <th scope="col">Local</th>
+            <th scope="col">Organizadora</th>
+            <th scope="col" class="num">Vagas</th>
+            <th scope="col" class="num">Salário até</th>
+            <th scope="col">Inscrições até</th>
+            <th scope="col"><span class="sr-only">Ação</span></th>
+          </tr>
+        </thead>
+        <tbody>${linha(exemplo)}</tbody>
+      </table>
+    </div>
+
+    <div class="paywall paywall-cheio">
+      <div class="cadeado" aria-hidden="true">
+        <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="4" y="10" width="16" height="11" rx="2"/>
+          <path d="M8 10V7a4 4 0 0 1 8 0v3"/>
+        </svg>
+      </div>
+      <h3>${editais.length} editais no radar agora</h3>
+      <p>
+        Este é só um exemplo. Crie sua conta grátis para filtrar por
+        estado e ver todos os concursos, com salário, prazo e link de
+        inscrição.
+      </p>
+      <a href="cadastro.html" class="btn btn-lima">Ver todos os editais</a>
+      <p class="micro">É grátis. Não pedimos senha nem cartão.</p>
+    </div>`;
+}
+
+/**
+ * Sem conta, qualquer interação com mapa/chips/filtros/busca não
+ * filtra nada — mostra o convite. Rola até ele em vez de recarregar a
+ * lista, para não dar a impressão de que "não achou nada": a pessoa
+ * clicou, algo aconteceu, e o que aconteceu é o convite.
+ */
+function pedirCadastro(){
+  document.getElementById('mapa-lista')
+    ?.scrollIntoView({ behavior:'smooth', block:'nearest' });
 }
 
 function linha(e){
@@ -335,6 +371,13 @@ function linha(e){
 /* ---------------- interação ---------------- */
 
 function selecionar(uf){
+  // Sem conta, tocar num estado não filtra — abre o convite. Sai daqui
+  // ANTES de mexer em `ufAtiva`: se deixasse mudar o estado ativo e só
+  // trocasse o que a lista mostra, o mapa pintaria o estado escolhido
+  // como se tivesse funcionado, e um refresh da página confirmaria o
+  // filtro (porque `renderTabela` decide pelo login, não por isto).
+  if(!logado()){ pedirCadastro(); return; }
+
   mostrando = POR_PAGINA;   // filtro novo, lista do começo
   ufAtiva = (ufAtiva === uf) ? '' : uf;
   pintarMapa();
@@ -377,28 +420,38 @@ function pintarChips(){
 }
 
 function ligarFiltros(){
+  // Sem conta, busca e os três selects não filtram — abrem o convite.
+  // A checagem fica no TOPO de cada handler, antes de tocar em
+  // `filtros`: se deixasse o valor mudar e só a renderização soubesse
+  // ignorá-lo, o campo ficaria com um valor que não bate com o que a
+  // tela mostra (ex.: select em "Federal" com o exemplo único visível,
+  // que pode nem ser federal) — pequeno, mas é exatamente o tipo de
+  // inconsistência que confunde no reload ou ao finalmente logar.
   const busca = document.getElementById('f-busca');
   if(busca){
     let t;
     busca.addEventListener('input', ev => {
+      if(!logado()){ ev.target.value = ''; pedirCadastro(); return; }
       clearTimeout(t);
       t = setTimeout(() => { filtros.busca = ev.target.value; mostrando = POR_PAGINA; renderTabela(); }, 180);
     });
   }
 
-  document.getElementById('f-escolaridade')?.addEventListener('change', ev => {
-    filtros.escolaridade = ev.target.value; mostrando = POR_PAGINA; renderTabela();
-  });
-  document.getElementById('f-nivel')?.addEventListener('change', ev => {
-    filtros.nivel = ev.target.value; mostrando = POR_PAGINA; renderTabela();
-  });
-  document.getElementById('f-ordem')?.addEventListener('change', ev => {
-    filtros.ordem = ev.target.value; mostrando = POR_PAGINA; renderTabela();
-  });
+  function ligarSelect(id, campo){
+    const el = document.getElementById(id);
+    el?.addEventListener('change', ev => {
+      if(!logado()){ ev.target.value = ''; pedirCadastro(); return; }
+      filtros[campo] = ev.target.value; mostrando = POR_PAGINA; renderTabela();
+    });
+  }
+  ligarSelect('f-escolaridade', 'escolaridade');
+  ligarSelect('f-nivel', 'nivel');
+  ligarSelect('f-ordem', 'ordem');
 
   document.querySelector('.filtros-rapidos')?.addEventListener('click', ev => {
     const chip = ev.target.closest('.chip-uf');
     if(!chip) return;
+    if(!logado()){ pedirCadastro(); return; }
     const uf = chip.dataset.uf || '';
     // Chip "Todos" limpa; chip do estado ativo alterna para limpar.
     ufAtiva = (!uf || uf === ufAtiva) ? '' : uf;
