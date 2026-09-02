@@ -12,7 +12,7 @@
 
 import { brl, dataBR, diasAte, esc, ESFERA } from './comum.js';
 import { ehNovo, mostrarAviso } from './novidades.js';
-import { logado, LIMITE_GRATIS } from './sessao.js';
+import { logado } from './sessao.js';
 
 const UFS_NOME = {
   AC:'Acre', AL:'Alagoas', AM:'Amazonas', AP:'Amapá', BA:'Bahia',
@@ -36,7 +36,7 @@ const POR_PAGINA = 20;
 let mostrando = POR_PAGINA;
 
 let aoFiltrar = null;
-const filtros = { busca:'', escolaridade:'', ordem:'prazo' };
+const filtros = { busca:'', escolaridade:'', nivel:'', ordem:'prazo' };
 
 /* ---------------- densidade por estado ---------------- */
 
@@ -180,13 +180,14 @@ function renderTabela(){
     return;
   }
 
-  // Sem acesso liberado, a lista mostra só os primeiros; o resto vai
-  // borrado atrás do convite. Quem já informou o e-mail vê tudo, e aí
-  // vale a paginação normal.
+  // Pedido do Patrick (01/09/2026): sem cadastro, NENHUM dado do
+  // edital aparece — nem os 3 primeiros. Antes o limite era "3 linhas
+  // completas liberadas, resto borrado"; dava para juntar boa parte
+  // do acervo clicando estado por estado sem nunca criar conta.
   //
-  // O corte acontece ANTES de montar as linhas: gerar 127 e esconder
-  // com CSS deixaria o conteúdo no HTML, legível por quem abrisse o
-  // código-fonte — bloqueio que não bloqueia.
+  // O corte acontece ANTES de montar as linhas: gerar 113 linhas
+  // completas e escondê-las com CSS deixaria o dado no HTML, legível
+  // por quem abrisse o código-fonte — bloqueio que não bloqueia.
   const liberado = logado();
 
   const ordenada = [...lista].sort((a, b) => {
@@ -198,14 +199,39 @@ function renderTabela(){
     return da - db;
   });
 
-  // Quem não liberou o acesso vê só os primeiros; o resto vai borrado
-  // atrás do convite. O corte acontece ANTES de montar as linhas —
-  // gerar 127 e esconder com CSS deixaria tudo legível no código-fonte,
-  // bloqueio que não bloqueia.
-  const visiveis   = liberado ? ordenada.slice(0, mostrando)
-                              : ordenada.slice(0, LIMITE_GRATIS);
-  const bloqueadas = liberado ? []
-                              : ordenada.slice(LIMITE_GRATIS);
+  if(!liberado){
+    // Card raspado para TODOS os editais do filtro atual — não sobra
+    // "amostra grátis" nenhuma. Mostramos linhas de verdade (com
+    // `linhaRaspada`, que não vaza cidade/cargo/salário) em vez de só
+    // um número, porque a fileira de UFs repetidas já comunica volume
+    // ("tem bastante coisa aqui") sem entregar o dado individual.
+    const RASPADAS_MAX = 8;
+    alvo.innerHTML = `
+      <div class="tabela-wrap">
+        <table class="tabela-editais tabela-raspada">
+          <tbody>${ordenada.slice(0, RASPADAS_MAX).map(linhaRaspada).join('')}</tbody>
+        </table>
+      </div>
+
+      <div class="paywall paywall-cheio">
+        <div class="cadeado" aria-hidden="true">
+          <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="4" y="10" width="16" height="11" rx="2"/>
+            <path d="M8 10V7a4 4 0 0 1 8 0v3"/>
+          </svg>
+        </div>
+        <h3>${ordenada.length} ${ordenada.length === 1 ? 'edital' : 'editais'} ${ordenada.length === 1 ? 'encontrado' : 'encontrados'}</h3>
+        <p>
+          Crie sua conta grátis para ver cidade, cargo, salário, banca e
+          o link de inscrição de cada concurso.
+        </p>
+        <a href="cadastro.html" class="btn btn-lima">Ver todos os editais</a>
+        <p class="micro">É grátis. Não pedimos senha nem cartão.</p>
+      </div>`;
+    return;
+  }
+
+  const visiveis = ordenada.slice(0, mostrando);
 
   alvo.innerHTML = `
     <div class="tabela-wrap">
@@ -227,34 +253,11 @@ function renderTabela(){
       </table>
     </div>
 
-    ${bloqueadas.length ? `
-      <div class="trancado">
-        <div class="tabela-wrap">
-          <table class="tabela-editais" aria-hidden="true">
-            <tbody>${bloqueadas.slice(0, 5).map(linha).join('')}</tbody>
-          </table>
-        </div>
-
-        <div class="paywall">
-          <div class="cadeado" aria-hidden="true">
-            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="4" y="10" width="16" height="11" rx="2"/>
-              <path d="M8 10V7a4 4 0 0 1 8 0v3"/>
-            </svg>
-          </div>
-          <h3>${bloqueadas.length} ${bloqueadas.length === 1 ? 'edital' : 'editais'} ${bloqueadas.length === 1 ? 'bloqueado' : 'bloqueados'}</h3>
-          <p>
-            Informe seu e-mail para ver a lista completa, com salário,
-            prazo e link de inscrição de cada concurso.
-          </p>
-          <a href="cadastro.html" class="btn btn-lima">Ver todos os editais</a>
-          <p class="micro">É grátis. Não pedimos senha nem cartão.</p>
-        </div>
-      </div>` : (ordenada.length > mostrando ? `
+    ${ordenada.length > mostrando ? `
       <button type="button" class="btn btn-ghost btn-block ver-mais" id="ver-mais">
         Ver mais ${Math.min(POR_PAGINA, ordenada.length - mostrando)}
         de ${ordenada.length - mostrando} restantes
-      </button>` : '')}`;
+      </button>` : ''}`;
 
   document.getElementById('ver-mais')?.addEventListener('click', () => {
     mostrando += POR_PAGINA;
@@ -269,6 +272,7 @@ function aplicarFiltros(){
   return editais.filter(e => {
     if(ufAtiva && (e.uf || '').toUpperCase() !== ufAtiva) return false;
     if(filtros.escolaridade && e.escolaridade !== filtros.escolaridade) return false;
+    if(filtros.nivel && e.nivel !== filtros.nivel) return false;
     if(termo){
       const alvo = [e.orgao, e.cargo, e.cidade, e.banca, e.uf]
         .filter(Boolean).join(' ').toLowerCase();
@@ -276,6 +280,30 @@ function aplicarFiltros(){
     }
     return true;
   });
+}
+
+/**
+ * Linha SEM CADASTRO. Pedido do Patrick (01/09/2026): antes 3 linhas
+ * completas por estado ficavam visíveis sem conta — cargo, salário,
+ * prazo e órgão, tudo de graça. Alguém sem cadastrar conseguia juntar
+ * boa parte dos editais clicando estado por estado.
+ *
+ * Agora NENHUM dado do edital individual aparece: nem cidade, nem
+ * cargo, nem órgão, nem banca, nem salário, nem prazo — só a UF, que
+ * já é a informação que o filtro pediu (a pessoa clicou naquele
+ * estado, então "tem concurso aqui" não é novidade nenhuma).
+ *
+ * Cidade fica de fora de propósito: dar a cidade é dar munição para
+ * achar o edital por fora (busca no Google, direto no site da banca),
+ * o que devolve de graça o que o cadastro deveria trocar.
+ */
+function linhaRaspada(e){
+  return `
+    <tr class="linha-raspada">
+      <td colspan="6">
+        <span class="raspado-uf">Concurso aberto — ${esc(UFS_NOME[(e.uf || '').toUpperCase()] || e.uf || 'Brasil')}</span>
+      </td>
+    </tr>`;
 }
 
 function linha(e){
@@ -360,6 +388,9 @@ function ligarFiltros(){
 
   document.getElementById('f-escolaridade')?.addEventListener('change', ev => {
     filtros.escolaridade = ev.target.value; mostrando = POR_PAGINA; renderTabela();
+  });
+  document.getElementById('f-nivel')?.addEventListener('change', ev => {
+    filtros.nivel = ev.target.value; mostrando = POR_PAGINA; renderTabela();
   });
   document.getElementById('f-ordem')?.addEventListener('change', ev => {
     filtros.ordem = ev.target.value; mostrando = POR_PAGINA; renderTabela();

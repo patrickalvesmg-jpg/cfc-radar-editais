@@ -405,6 +405,41 @@ body.tem-demo .boas-vindas{padding-top:calc(var(--topbar-h) + var(--faixa-demo-h
   margin-top:var(--s-3);font-size:var(--t-micro);color:var(--cinza-esc);
 }
 
+/* ============================================================
+   LINHA RASPADA — tabela do mapa sem cadastro (01/09/2026)
+   Diferente de `.trancado` (blur sobre dado real), aqui o HTML
+   nunca carrega cidade/cargo/salário: a linha só tem a UF. Não
+   precisa de blur porque não há nada sensível para esconder — é
+   comunicar "existe algo aqui" sem entregar o quê.
+   ============================================================ */
+.tabela-raspada tbody tr.linha-raspada{border-bottom:1px solid var(--linha-fraca)}
+/* :first-child para VENCER a regra mobile que vira <td> em flex
+   space-between e soma um rótulo ::before — sem isso "São Paulo" e
+   "Rio Grande do Sul" quebravam linha e sobrepunham o texto seguinte
+   em telas estreitas (achado em teste no celular, 01/09/2026). Esta
+   linha só tem um <td colspan> e não é uma ficha de campos, então
+   nenhuma dessas regras deveria valer aqui. */
+.tabela-raspada .linha-raspada td:first-child{
+  display:block !important;margin-bottom:0;padding:0;
+}
+.tabela-raspada .linha-raspada td:first-child::before{content:none}
+.tabela-raspada .raspado-uf{
+  display:block;padding:var(--s-4) var(--s-2);
+  color:var(--cinza);font-size:var(--t-sm);letter-spacing:.02em;
+  background:repeating-linear-gradient(
+    -45deg,transparent,transparent 8px,var(--linha-fraca) 8px,var(--linha-fraca) 9px
+  );
+}
+.tabela-raspada tbody tr.linha-raspada:hover .raspado-uf{color:var(--cinza-esc)}
+
+/* O paywall de baixo do volume raspado precisa de FLUXO normal, não
+   posicionamento absoluto (`.paywall` original vive dentro de
+   `.trancado`, que tem altura fixa dos cards borrados por trás — aqui
+   não há isso, a tabela raspada tem a altura do seu próprio conteúdo). */
+.paywall-cheio{
+  position:static;transform:none;margin:var(--s-6) auto 0;
+}
+
 /* comparativo visitante × cadastrado — colapsa em uma coluna no mobile */
 .planos-grid{
   display:grid;
