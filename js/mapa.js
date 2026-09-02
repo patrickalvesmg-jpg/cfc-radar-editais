@@ -337,7 +337,71 @@ function renderExemploUnico(alvo){
  * lista, para não dar a impressão de que "não achou nada": a pessoa
  * clicou, algo aconteceu, e o que aconteceu é o convite.
  */
+// Pedido do Patrick (01/09/2026): a primeira tentativa de filtrar sem
+// conta merece uma chamada forte, não só rolar até o card que já
+// estava na tela. Só a PRIMEIRA — variável em memória, não
+// localStorage: "por visita" quer dizer que um F5 ou aba nova mostra
+// de novo, o que é o comportamento certo para um aviso, diferente de
+// uma preferência que devesse persistir.
+let modalJaMostrado = false;
+
+function fecharModalCadastro(){
+  document.getElementById('modal-cadastro-fundo')?.remove();
+  document.removeEventListener('keydown', fecharComEsc);
+}
+
+function fecharComEsc(ev){
+  if(ev.key === 'Escape') fecharModalCadastro();
+}
+
+function mostrarModalCadastro(){
+  if(document.getElementById('modal-cadastro-fundo')) return; // já aberto
+
+  const fundo = document.createElement('div');
+  fundo.id = 'modal-cadastro-fundo';
+  fundo.className = 'modal-cadastro-fundo';
+  fundo.setAttribute('role', 'dialog');
+  fundo.setAttribute('aria-modal', 'true');
+  fundo.setAttribute('aria-labelledby', 'modal-cadastro-titulo');
+  fundo.innerHTML = `
+    <div class="modal-cadastro">
+      <button type="button" class="modal-cadastro-fechar" aria-label="Fechar">
+        <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M18 6 6 18M6 6l12 12"/>
+        </svg>
+      </button>
+      <div class="cadeado" aria-hidden="true">
+        <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="4" y="10" width="16" height="11" rx="2"/>
+          <path d="M8 10V7a4 4 0 0 1 8 0v3"/>
+        </svg>
+      </div>
+      <h3 id="modal-cadastro-titulo">Para filtrar, crie sua conta grátis</h3>
+      <p>
+        Filtrar por estado, cargo ou salário é exclusivo de quem tem
+        conta. Leva menos de um minuto e já libera todos os
+        ${esc(String(editais.length))} editais do radar.
+      </p>
+      <a href="cadastro.html" class="btn btn-lima">Criar conta grátis</a>
+      <p class="micro">É grátis. Não pedimos senha nem cartão.</p>
+    </div>`;
+
+  document.body.appendChild(fundo);
+  document.addEventListener('keydown', fecharComEsc);
+
+  fundo.addEventListener('click', ev => {
+    if(ev.target === fundo) fecharModalCadastro();
+  });
+  fundo.querySelector('.modal-cadastro-fechar')
+    .addEventListener('click', fecharModalCadastro);
+}
+
 function pedirCadastro(){
+  if(!modalJaMostrado){
+    modalJaMostrado = true;
+    mostrarModalCadastro();
+  }
+
   document.getElementById('mapa-lista')
     ?.scrollIntoView({ behavior:'smooth', block:'nearest' });
 }

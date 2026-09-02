@@ -413,6 +413,54 @@ body.tem-demo .boas-vindas{padding-top:calc(var(--topbar-h) + var(--faixa-demo-h
   position:static;transform:none;margin:var(--s-6) auto 0;
 }
 
+/* ============================================================
+   POP-UP DE CADASTRO — primeira tentativa de filtrar sem conta
+   (01/09/2026). Chamada mais forte que só rolar até o card: a
+   pessoa clicou esperando um resultado e recebeu um modal, não
+   silêncio. z-index acima da topbar (90) e da faixa de aviso (80).
+   ============================================================ */
+.modal-cadastro-fundo{
+  position:fixed;inset:0;z-index:200;
+  background:rgba(10,16,10,.62);
+  display:grid;place-items:center;padding:var(--s-4);
+  animation:modalFundo .18s ease-out;
+}
+@keyframes modalFundo{from{opacity:0}to{opacity:1}}
+
+.modal-cadastro{
+  width:min(100%,440px);text-align:center;
+  padding:var(--s-6) var(--s-5);
+  background:linear-gradient(150deg,var(--lima-wash),var(--carvao) 55%);
+  border:1px solid rgba(159,227,26,.34);border-radius:var(--r-lg);
+  box-shadow:var(--sombra-3);
+  animation:modalEntra .22s cubic-bezier(.2,.8,.2,1);
+}
+@keyframes modalEntra{
+  from{opacity:0;transform:translateY(10px) scale(.97)}
+  to{opacity:1;transform:none}
+}
+.modal-cadastro .cadeado{
+  width:52px;height:52px;margin:0 auto var(--s-4);
+  display:grid;place-items:center;border-radius:50%;
+  background:var(--lima);color:var(--tinta-sobre-acento);
+}
+.modal-cadastro .cadeado svg{width:24px;height:24px;stroke:currentColor;fill:none;stroke-width:2.2}
+.modal-cadastro h3{font-size:1.35rem;margin-bottom:var(--s-3)}
+.modal-cadastro p{color:var(--cinza);font-size:var(--t-sm);margin-bottom:var(--s-5)}
+.modal-cadastro .btn{width:100%}
+.modal-cadastro .micro{
+  margin-top:var(--s-3);font-size:var(--t-micro);color:var(--cinza-esc);
+}
+.modal-cadastro-fechar{
+  position:absolute;top:var(--s-3);right:var(--s-3);
+  width:32px;height:32px;display:grid;place-items:center;
+  border-radius:50%;border:1px solid var(--linha);background:var(--carvao);
+  color:var(--cinza-esc);cursor:pointer;
+}
+.modal-cadastro-fechar:hover{color:var(--branco);border-color:var(--cinza-esc)}
+.modal-cadastro-fechar svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2.2}
+.modal-cadastro{position:relative}
+
 /* comparativo visitante × cadastrado — colapsa em uma coluna no mobile */
 .planos-grid{
   display:grid;
