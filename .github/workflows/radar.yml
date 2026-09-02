@@ -27,6 +27,15 @@ on:
     - cron: "47 8 * * 1"
   workflow_dispatch:        # permite rodar na hora, pela aba Actions
 
+  # NÃO adicionamos aqui `robo/sondar_bancas.py` (a sondagem manual das
+  # 378 organizadoras do catálogo). Ela existe, está pronta, e roda por
+  # `python robo/sondar_bancas.py` — mas fica FORA do cron até o Patrick
+  # decidir ativar (ele sugeriu semanal ou quinzenal, 01/09/2026). Ver
+  # FONTES.md §3b para o porquê: ~1h30 de execução contra os ~50 min
+  # daqui, e a primeira rodada completa não achou concurso genuinamente
+  # novo — os 10 achados brutos eram falso positivo ou já estavam no
+  # radar por outra fonte.
+
 permissions:
   contents: write
 

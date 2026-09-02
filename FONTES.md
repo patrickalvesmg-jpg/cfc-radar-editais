@@ -76,6 +76,78 @@ Detalhe em `robo/_sonda.json`.
 
 ---
 
+## 3b. Sondagem manual das 378 organizadoras — pronta, NÃO agendada
+
+Pedido do Patrick (01/09/2026): abrir o site de **cada** organizadora do
+catálogo (`data/bancas-catalogo.json` — as 378, ativas e reserva) e
+procurar vaga contábil aberta agora, mesmo quando nenhuma fonte
+estruturada está apontando para ela. É diferente da varredura normal:
+aqui abre a HOME de cada banca com navegador, sem depender de API.
+
+```bash
+python robo/sondar_bancas.py                     # as 378, sequencial
+python robo/sondar_bancas.py --situacao reserva   # só as 296 nunca sondadas
+python robo/sondar_bancas.py --lote 0:100         # só um pedaço (para rodar em paralelo)
+```
+
+**Fica pronta para rodar à mão ou ligar depois — não está no
+agendamento** (nem no `.github/workflows/radar.yml`, nem em nenhum
+cron). O Patrick sugeriu rodar semanal ou quinzenal quando for ativada;
+por ora é sob demanda.
+
+Por que não entra na varredura semanal ainda: rodar as 378 leva perto
+de 1h30 (medido em 01/09/2026: 4 lotes de ~75 em paralelo, ~25 min cada
+com Playwright) contra os ~50 min da varredura normal — quase triplica
+o tempo do job. E a primeira rodada completa (296 bancas em reserva)
+**não achou nenhum concurso contábil genuinamente novo**: dos 10
+candidatos brutos, 8 eram falso positivo e 2 já estavam no radar por
+outra fonte (ver abaixo). Vale rodar de tempos em tempos, não toda
+semana.
+
+### O que a auditoria manual da primeira rodada revelou
+
+Verifiquei os 10 achados brutos um a um, abrindo cada página — não
+descartei por suposição:
+
+| # | Banca | Por que não era achado novo |
+|---|---|---|
+| 1 | Acesse Concursos (Curitibanos/SC) | Concurso de **2018**, encerrado há 8 anos — o card da listagem não tinha ano nenhum |
+| 2 | IBAM Concursos (Concórdia/SC) | Real e aberto, mas **já estava no radar** via PCI (mesmo salário: R$ 9.900,22) |
+| 3 | FGV | Exame de Suficiência do CFC — prova de qualificação, não concurso público |
+| 4 | CEBRASPE (SEFAZ/AL) | Real, mas **já estava no radar** via PCI |
+| 5 | Reis & Reis Auditores | "Contabilidade Pública" é serviço que a empresa vende |
+| 6 | Máxima Auditores | Texto institucional genérico |
+| 7 | Cops/UEL | PSS já **encerrado** — "Homologação de Inscrições" em março, "Resultado Final" em maio/2026 |
+| 8 | UNEB | "Ciências Contábeis" é nome de curso de graduação |
+| 9 | FUNCERN | O próprio card dizia "Finalizado", e era vaga de Design/Publicidade |
+| 10 | PaqTcPB | Notícia de **resultado** de etapa, processo já em fase de entrevistas |
+
+Isso motivou 4 correções que já estão no `robo/sondar_bancas.py`:
+
+1. **Confirmar na página de detalhe, não só no card.** Casos 1 e 7 só
+   ficaram claros abrindo a página — o card da listagem, sozinho, não
+   tinha informação suficiente (sem ano, ou com "inscrições" citado
+   mas já encerradas).
+2. **`href` resolvido para absoluto, não o atributo cru.** A checagem
+   acima pulava justamente quando o link do card é relativo
+   (`/v2/Selecao/...`, o caso mais comum) — `get_attribute("href")`
+   devolve o valor cru; é preciso ler a propriedade `.href` do DOM.
+3. **PDFs do MESMO card, não os mais próximos no código da página.**
+   Quando a home lista vários concursos simultâneos (a IBAM tinha 6 na
+   mesma página), a ordem visual dos elementos não é a ordem de
+   agrupamento — pegar "os PDFs vizinhos" trouxe o anexo de outro
+   concurso.
+4. **Deduplicar contra `data/editais.json`.** Sem isso, toda rodada
+   "reencontraria" IBAM/Concórdia e CEBRASPE/SEFAZ-AL como se fossem
+   novos, porque a sondagem não sabe que outra fonte já capturou o
+   mesmo concurso.
+
+Resultado no arquivo: `achou` = candidato novo para revisar à mão;
+`ja_no_radar` = achou, mas já temos; `nada` = nenhum sinal contábil;
+`fora_do_ar` = o site não respondeu em https nem http.
+
+---
+
 ## 4. Portais testados e descartados
 
 | Portal | Motivo |

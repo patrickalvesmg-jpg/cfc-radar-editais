@@ -11,3 +11,8 @@ Thumbs.db
 
 # Log de execução local — ruído em PR, cada rodada reescreve.
 varredura.log
+
+# Saída da sondagem manual (robo/sondar_bancas.py) — resultado bruto
+# para o Patrick revisar antes de qualquer coisa virar oficial, não
+# dado de produção. Cada rodada reescreve por cima.
+robo/sondagem-ultima.json
