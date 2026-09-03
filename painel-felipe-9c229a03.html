@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<meta name="theme-color" content="#0a0f0a" />
+<meta name="robots" content="noindex, nofollow, noarchive">
+<title>Painel do dono · Radar Concursos Contabilidade</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Archivo:wght@600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/app.css">
+<style>
+  /* Só desta página — não vale gastar espaço no app.css por um uso só. */
+  .painel-topo{padding:var(--s-7) 0 var(--s-5)}
+  .painel-topo h1{font-family:var(--display);font-weight:900;font-size:2rem;margin:0 0 var(--s-2)}
+  .painel-topo p{color:var(--cinza);max-width:60ch}
+  .painel-resumo{
+    display:flex;gap:var(--s-6);flex-wrap:wrap;margin-top:var(--s-5);
+    padding:var(--s-5) 0;border-block:1px solid var(--linha);
+  }
+  .painel-resumo div{display:flex;flex-direction:column;gap:2px}
+  .painel-resumo .n{
+    font-family:var(--display);font-weight:900;font-size:1.6rem;color:var(--lima);
+    font-variant-numeric:tabular-nums;
+  }
+  .painel-resumo .l{font-size:var(--t-xs);color:var(--cinza)}
+  .painel-vazio{padding:var(--s-7) 0;text-align:center;color:var(--cinza)}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a href="index.html" class="marca" aria-label="CFC Academy — Radar Concursos Contabilidade">
+      <img src="assets/img/logo-cfc.svg" alt="CFC Academy" class="marca-logo"
+           width="180" height="55">
+      <span class="marca-sub">Radar Concursos<br>Contabilidade</span>
+    </a>
+  </div>
+</header>
+
+<main id="painel">
+  <section class="container painel-topo">
+    <h1>Concursos novos desta semana</h1>
+    <p>
+      Tudo o que o robô capturou na última varredura — antes de qualquer
+      filtro do site público. Use para estudar o que chegou e montar posts
+      em cima disso.
+    </p>
+
+    <div class="painel-resumo" id="resumo">
+      <div><span class="n" id="r-total">—</span><span class="l">Editais novos</span></div>
+      <div><span class="n" id="r-data">—</span><span class="l">Última varredura</span></div>
+      <div><span class="n" id="r-estados">—</span><span class="l">Estados atingidos</span></div>
+      <div><span class="n" id="r-salario">—</span><span class="l">Maior salário</span></div>
+    </div>
+  </section>
+
+  <section class="blk blk-resultados">
+    <div class="container">
+      <div class="lista" id="lista"></div>
+      <p class="painel-vazio" id="vazio" hidden>
+        Nenhum edital novo desde a última varredura.
+      </p>
+    </div>
+  </section>
+</main>
+
+<script type="module" src="js/painel-felipe.js"></script>
+</body>
+</html>
