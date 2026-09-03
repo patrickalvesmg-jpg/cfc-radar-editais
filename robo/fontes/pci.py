@@ -247,6 +247,35 @@ def _site_inscricao(texto: str, html: str = "") -> str:
     return alvo if alvo.startswith("http") else f"https://{alvo}"
 
 
+def _extrair_cargo_e_vagas(html: str) -> tuple[str, str]:
+    """Cargo contábil e número de vagas DELE, a partir do corpo visível.
+
+    O JSON-LD (schema.org) vem ANTES do corpo no HTML, com headline,
+    contador de interações e outros números que nada têm a ver com
+    vaga. Rodar CARGO_DETALHE sobre o texto com o JSON-LD ainda dentro
+    puxava esse lixo para o grupo de vagas quando o corpo visível não
+    tinha o padrão explícito "Cargo (N vagas)" perto o bastante — foi
+    assim que "658" (claramente de um contador do JSON-LD, não vaga)
+    saiu idêntico em 8 concursos de estados diferentes na mesma
+    varredura (31/08/2026). O corte precisa vir ANTES da busca, não
+    depois: usar `corpo`, nunca `texto`, para o CARGO_DETALHE.
+    """
+    corpo_html = re.split(r'class="n\d{5,}"', html)[0]
+    texto = re.sub(r"\s+", " ", TAG.sub(" ", corpo_html))
+    corpo = re.sub(r'\{"@context".*?\}\]\}', " ", texto, flags=re.S)
+    corpo = re.sub(r"\s+", " ", corpo).strip()
+
+    m = CARGO_DETALHE.search(corpo)
+    if m:
+        cargo = re.sub(r"\s+", " ", m.group(1)).strip().title()
+        vagas = m.group(2).strip()
+        # "1 vaga + CR" -> "1 + CR" ; "CR" -> "CR"
+        vagas = re.sub(r"\s*vagas?\s*", " ", vagas, flags=re.I).strip()
+        return cargo, vagas
+
+    return "Área contábil — verificar edital", ""
+
+
 def _confirmar_cargo(url: str) -> tuple | None:
     """Abre o detalhe e devolve (cargo, vagas, site, resumo, texto_longo).
 
@@ -284,21 +313,14 @@ def _confirmar_cargo(url: str) -> tuple | None:
             resumo = m_desc.group(1)
         resumo = re.sub(r"\s+", " ", resumo).strip()
 
+    cargo, vagas = _extrair_cargo_e_vagas(html)
+
     # Corpo da matéria, sem o JSON-LD e sem menu — é dele que saem as
     # etapas, a taxa e a validade exibidas na página do edital.
     corpo = re.sub(r'\{"@context".*?\}\]\}', " ", texto, flags=re.S)
     corpo = re.sub(r"\s+", " ", corpo).strip()
 
-    m = CARGO_DETALHE.search(texto)
-    if m:
-        cargo = re.sub(r"\s+", " ", m.group(1)).strip().title()
-        vagas = m.group(2).strip()
-        # "1 vaga + CR" -> "1 + CR" ; "CR" -> "CR"
-        vagas = re.sub(r"\s*vagas?\s*", " ", vagas, flags=re.I).strip()
-        return cargo, vagas, site, resumo, corpo
-
-    # Termo contábil presente, mas sem o padrão "Cargo (n vagas)".
-    return "Área contábil — verificar edital", "", site, resumo, corpo
+    return cargo, vagas, site, resumo, corpo
 
 
 def coletar(limite: int = 25) -> list[dict]:

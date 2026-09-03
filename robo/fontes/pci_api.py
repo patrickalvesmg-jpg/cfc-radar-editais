@@ -79,6 +79,20 @@ def _corpo(html: str) -> str:
     return re.sub(r"\s+", " ", TAG.sub(" ", SIDEBAR.split(html)[0]))
 
 
+# O JSON-LD (schema.org) vem ANTES do corpo no HTML da matéria, com
+# headline, contador de interações e outros números sem relação com
+# vaga nenhuma. CARGO_DETALHE rodando sobre o texto com o JSON-LD ainda
+# dentro puxava esse lixo para o grupo de vagas — foi assim que "658"
+# (contador do JSON-LD, não vaga) saiu idêntico em 8 concursos de
+# estados diferentes na mesma varredura (31/08/2026). Ver mesma
+# correção em fontes/pci.py.
+JSONLD = re.compile(r'\{"@context".*?\}\]\}', re.S)
+
+
+def _sem_jsonld(texto: str) -> str:
+    return re.sub(r"\s+", " ", JSONLD.sub(" ", texto)).strip()
+
+
 def _salario(texto: str) -> float:
     """Maior valor plausível de remuneração citado."""
     valores = []
@@ -117,7 +131,7 @@ def _detalhar(uri: str, cargo_api: str) -> tuple | None:
     if not PADRAO_CONTABIL.search(texto):
         return None
 
-    m = CARGO_DETALHE.search(texto)
+    m = CARGO_DETALHE.search(_sem_jsonld(texto))
     if m:
         cargo = re.sub(r"\s+", " ", m.group(1)).strip().title()
         vagas = re.sub(r"\s*vagas?\s*", " ", m.group(2), flags=re.I).strip()
