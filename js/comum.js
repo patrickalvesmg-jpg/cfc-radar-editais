@@ -237,12 +237,20 @@ export function animarNumero(el, alvo){
 export function renderStats(editais){
   const abertos = editais.filter(e => e.status === 'aberto' || e.status === 'encerrando');
   const vagas = editais.reduce((s,e) => s + numeroVagas(e.vagas), 0);
-  const maior = Math.max(...editais.map(e => e.salario || 0));
+  const salarios = editais.map(e => e.salario || 0).filter(s => s > 0);
+  const maior = salarios.length ? Math.max(...salarios) : 0;
+  // Média só sobre quem tem salário confirmado — edital sem valor não
+  // entra na conta, senão puxaria a média para baixo sem motivo real.
+  const media = salarios.length
+    ? salarios.reduce((s,v) => s + v, 0) / salarios.length
+    : 0;
 
   animarNumero(document.getElementById('s-abertos'), abertos.length);
   animarNumero(document.getElementById('s-vagas'), vagas);
   const el = document.getElementById('s-salario');
   if(el) el.textContent = brl.format(maior);
+  const elMedia = document.getElementById('s-salario-medio');
+  if(elMedia) elMedia.textContent = brl.format(media);
 }
 
 /* ---------------- feed de capturas ---------------- */
