@@ -30,6 +30,8 @@
   }
   .painel-resumo .l{font-size:var(--t-xs);color:var(--cinza)}
   .painel-vazio{padding:var(--s-7) 0;text-align:center;color:var(--cinza)}
+  .painel-semana{margin-top:var(--s-5);display:flex;align-items:center;gap:var(--s-3)}
+  .painel-semana label{font-size:var(--t-xs);color:var(--cinza)}
 </style>
 </head>
 <body>
@@ -46,16 +48,21 @@
 
 <main id="painel">
   <section class="container painel-topo">
-    <h1>Concursos novos desta semana</h1>
+    <h1>Concursos novos por varredura</h1>
     <p>
-      Tudo o que o robô capturou na última varredura — antes de qualquer
-      filtro do site público. Use para estudar o que chegou e montar posts
-      em cima disso.
+      O que o robô capturou em cada varredura semanal, restrito ao que
+      também está ativo no site público. Use para estudar o que chegou
+      e montar posts em cima disso.
     </p>
 
+    <div class="painel-semana">
+      <label for="f-semana">Varredura</label>
+      <select id="f-semana" class="campo" style="width:auto"></select>
+    </div>
+
     <div class="painel-resumo" id="resumo">
-      <div><span class="n" id="r-total">—</span><span class="l">Editais novos</span></div>
-      <div><span class="n" id="r-data">—</span><span class="l">Última varredura</span></div>
+      <div><span class="n" id="r-total">—</span><span class="l">Editais nesta varredura</span></div>
+      <div><span class="n" id="r-data">—</span><span class="l">Data da varredura</span></div>
       <div><span class="n" id="r-estados">—</span><span class="l">Estados atingidos</span></div>
       <div><span class="n" id="r-salario">—</span><span class="l">Maior salário</span></div>
     </div>
@@ -65,7 +72,7 @@
     <div class="container">
       <div class="lista" id="lista"></div>
       <p class="painel-vazio" id="vazio" hidden>
-        Nenhum edital novo desde a última varredura.
+        Nenhum edital ativo nesta varredura.
       </p>
     </div>
   </section>

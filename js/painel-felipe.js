@@ -5,42 +5,56 @@
    (ver painel-felipe-*.html). Não tem sessão, não tem senha:
    quem tem a URL, tem acesso. Ver decisão em ago-set/2026.
 
-   Mostra os editais capturados na ÚLTIMA varredura do robô, restrito
-   aos que também estão ATIVOS no site público (decisão do Patrick,
-   03/09/2026: o que a varredura pegou mas ainda não tem link, ou já
-   venceu, fica de fora — não adianta o Felipe postar sobre um edital
-   que ninguém consegue acessar). Por isso usamos carregarEditais(),
-   o MESMO filtro de "pronto para visitante" que index/app usam —
-   qualquer mudança nessa regra vale aqui também, sem duplicar lógica.
+   Mostra os editais de UMA varredura por vez (seletor no topo),
+   restrito aos que também estão ATIVOS no site público (decisão do
+   Patrick, 03/09/2026: o que a varredura pegou mas ainda não tem
+   link, ou já venceu, fica de fora — não adianta o Felipe postar
+   sobre um edital que ninguém consegue acessar). Por isso usamos
+   carregarEditais(), o MESMO filtro de "pronto para visitante" que
+   index/app usam — qualquer mudança nessa regra vale aqui também,
+   sem duplicar lógica.
+
+   ATUALIZAÇÃO: automática, sem passo manual nenhum. O robô
+   (.github/workflows/radar.yml) sobrescreve data/editais.json toda
+   segunda-feira, e esta página lê esse mesmo arquivo — o próximo
+   carregamento já mostra a varredura nova no seletor. Não existe
+   rotina separada de "atualizar o relatório do Felipe" (decisão do
+   Patrick, 03/09/2026).
    ============================================================ */
 
-import { brl, dataBR, esc, cardEdital, observar, carregarEditais } from './comum.js';
+import { brl, dataBR, cardEdital, observar, carregarEditais } from './comum.js';
 
-const brDataCurta = (iso) => {
-  const [a, m, d] = iso.split('-');
-  return `${d}/${m}`;
-};
+/** Agrupa os editais ativos por dia de captura — cada dia distinto é
+ *  uma varredura (o robô roda uma vez por semana, então cada grupo
+ *  tende a ser uma segunda-feira diferente). Mais recente primeiro. */
+function agruparPorVarredura(ativos){
+  const porData = new Map();
+  for(const e of ativos){
+    const data = (e.capturadoEm || '').slice(0, 10);
+    if(!data) continue;
+    if(!porData.has(data)) porData.set(data, []);
+    porData.get(data).push(e);
+  }
+  return [...porData.entries()]
+    .sort((a, b) => b[0].localeCompare(a[0]))
+    .map(([data, lista]) => ({
+      data,
+      lista: [...lista].sort((x, y) => (y.capturadoEm || '').localeCompare(x.capturadoEm || '')),
+    }));
+}
 
-/** "Novo" aqui = capturado no MESMO DIA da varredura mais recente do
- *  acervo inteiro — não depende de navegador nem de visita anterior,
- *  ao contrário de js/novidades.js (que é "novo para quem visita"). */
-function editaisDaUltimaVarredura(ativos){
-  const datas = ativos
-    .map(e => (e.capturadoEm || '').slice(0, 10))
-    .filter(Boolean);
-  if(!datas.length) return { data: '', lista: [] };
-
-  const ultima = datas.reduce((max, d) => (d > max ? d : max), datas[0]);
-  const lista = ativos
-    .filter(e => (e.capturadoEm || '').slice(0, 10) === ultima)
-    .sort((a, b) => (b.capturadoEm || '').localeCompare(a.capturadoEm || ''));
-
-  return { data: ultima, lista };
+function preencherSeletor(varreduras, aoTrocar){
+  const sel = document.getElementById('f-semana');
+  sel.innerHTML = varreduras.map((v, i) => `
+    <option value="${v.data}">
+      ${dataBR(v.data)}${i === 0 ? ' (mais recente)' : ''} — ${v.lista.length} editais
+    </option>`).join('');
+  sel.addEventListener('change', () => aoTrocar(sel.value));
 }
 
 function renderResumo(data, lista){
   document.getElementById('r-total').textContent = lista.length;
-  document.getElementById('r-data').textContent = data ? brDataCurta(data) : '—';
+  document.getElementById('r-data').textContent = data ? dataBR(data) : '—';
 
   const estados = new Set(lista.map(e => e.uf).filter(Boolean));
   document.getElementById('r-estados').textContent = estados.size || '—';
@@ -76,9 +90,23 @@ function renderLista(lista){
 async function iniciar(){
   try{
     const ativos = await carregarEditais();
-    const { data, lista } = editaisDaUltimaVarredura(ativos);
-    renderResumo(data, lista);
-    renderLista(lista);
+    const varreduras = agruparPorVarredura(ativos);
+
+    if(!varreduras.length){
+      renderResumo('', []);
+      renderLista([]);
+      document.querySelector('.painel-semana').hidden = true;
+      return;
+    }
+
+    const porData = new Map(varreduras.map(v => [v.data, v.lista]));
+    const mostrar = (data) => {
+      renderResumo(data, porData.get(data) || []);
+      renderLista(porData.get(data) || []);
+    };
+
+    preencherSeletor(varreduras, mostrar);
+    mostrar(varreduras[0].data); // mais recente por padrão
   }catch(erro){
     console.error('[painel-felipe] falha ao carregar editais:', erro);
     document.getElementById('vazio').hidden = false;
