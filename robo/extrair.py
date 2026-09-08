@@ -396,13 +396,22 @@ def _limpar_orgao(bruto: str, titulo: str) -> str:
     """Nome do órgão a partir do campo bruto da fonte.
 
     Cuidado com o último segmento: em 'Prefeitura de X/SP' ele é a UF,
-    não o órgão. Descartamos segmentos que sejam só sigla de estado.
+    não o órgão. Descartamos segmentos que sejam só sigla de estado —
+    e também segmentos de 1-2 letras em geral, não só UF: "EPTC -
+    Empresa Pública de Transporte e Circulação S/A" tem uma barra
+    dentro da própria sigla ("S/A"), e o split cortava ali, sobrando
+    "A" sozinho como "último segmento" — nome de órgão vazio de
+    verdade (achado em 08/09/2026, virou card com orgao="A").
     """
     if bruto:
-        partes = [p.strip() for p in bruto.split("/") if p.strip()]
-        partes = [p for p in partes if p.upper() not in UFS]
+        # "S/A" é sigla legítima com barra dentro — não é separador de
+        # segmento aqui. Junta de volta antes de splitar por UF.
+        protegido = re.sub(r"\bS\s*/\s*A\b", "SA", bruto, flags=re.I)
+        partes = [p.strip() for p in protegido.split("/") if p.strip()]
+        partes = [p for p in partes if p.upper() not in UFS and len(p) > 2]
         if partes:
-            return _sem_prefixo(partes[-1])[:120]
+            nome = _sem_prefixo(partes[-1])[:120]
+            return re.sub(r"\bSA\b", "S/A", nome)
     return _sem_prefixo(titulo)[:120]
 
 
