@@ -152,8 +152,8 @@ function render(){
     resumo.textContent = '';
   }else if(estado.ordem === 'novos'){
     const dia = dataUltimaVarredura(estado.editais);
-    resumo.textContent = `${lista.length} ${lista.length === 1 ? 'edital novo' : 'editais novos'}`
-      + (dia ? ` na varredura de ${dataBR(dia)}` : '');
+    resumo.textContent = `${lista.length} ${lista.length === 1 ? 'concurso novo' : 'concursos novos'}`
+      + (dia ? ` desde ${dataBR(dia)}` : '');
   }else{
     resumo.textContent = `${lista.length} ${lista.length === 1 ? 'edital encontrado' : 'editais encontrados'}`;
   }
