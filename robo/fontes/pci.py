@@ -379,7 +379,18 @@ def coletar(limite: int = 25) -> list[dict]:
                 "fonte_tipo": "pci",
                 "titulo": orgao,
                 "orgao_bruto": orgao,
-                "texto": texto_bloco[:2000],
+                # NÃO usar texto_bloco aqui: é a linha da LISTAGEM
+                # ("Prefeitura X ... 26 vagas até R$ Y ... Vários
+                # Cargos"), sempre sobre o TOTAL do concurso. Quando
+                # _vagas sai vazio (sem "Cargo (N vagas)" explícito no
+                # corpo), extrair.montar() cai no fallback
+                # extrair_vagas(texto) — e rodando sobre texto_bloco
+                # ele pescava o total do concurso como se fosse vaga do
+                # cargo contábil ("943", "436"...). texto_longo é o
+                # corpo da matéria, já sem JSON-LD, específico deste
+                # concurso — mesma causa raiz do bug do "658"/"943" em
+                # pci_api.py, achado em 08/09/2026.
+                "texto": texto_longo[:2000] if texto_longo else texto_bloco[:2000],
                 # O `url` do agregador NÃO vai para o site: ele serve só
                 # como procedência interna, para o revisor conferir a
                 # origem. O radar nunca manda visitante a concorrente.

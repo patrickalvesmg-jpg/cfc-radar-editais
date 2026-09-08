@@ -105,7 +105,6 @@ def _uf_cidade(post: dict) -> tuple[str, str]:
 SALARIO = re.compile(r"R\$\s*([\d]{1,3}(?:\.\d{3})*(?:,\d{2})?)")
 DATA = re.compile(r"(\d{1,2})/(\d{1,2})/(\d{4})")
 UF = re.compile(r"\(([A-Z]{2})\)")
-VAGAS = re.compile(r"(\d{1,4})\s*vagas?", re.I)
 
 
 # O título precisa conter algo que se pareça com nome de órgão. Manchete
@@ -370,7 +369,6 @@ def coletar(limite: int = 20) -> list[dict]:
                 inicio, fim = _prazo(texto)
                 cargo_m = CARGO.search(texto)
                 uf_m = UF.search(titulo)
-                vagas_m = VAGAS.search(texto)
 
                 # Sem cargo contábil nomeado, o registro viraria
                 # "Prefeitura X — verificar edital", que não ajuda
@@ -414,7 +412,19 @@ def coletar(limite: int = 20) -> list[dict]:
                     "publicado_em": (post.get("date") or "")[:10],
                     "_cargo": (cargo_m.group(1).title() if cargo_m else ""),
                     "_uf": uf_m.group(1) if uf_m else "",
-                    "_vagas": vagas_m.group(1) if vagas_m else "",
+                    # SEM extração de vagas nesta fonte, de propósito: a
+                    # matéria é prosa jornalística ("abre N vagas...
+                    # para os cargos de Contador, Assistente..."), sem
+                    # nenhuma estrutura tipo "Cargo (N vagas)" que
+                    # separe o total do concurso da vaga do cargo
+                    # contábil especificamente. Um regex solto pegava
+                    # sempre o total (achado em 08/09/2026: "436 vagas"
+                    # do concurso inteiro virou "vaga do Contador").
+                    # Vazio aqui é o correto — extrair.montar() ainda
+                    # tenta o fallback extrair_vagas(texto), mas sobre
+                    # o corpo da matéria real, não sobre um número já
+                    # sabidamente do total.
+                    "_vagas": "",
                     "_salario": _salario(texto),
                     "_inscricao_inicio": inicio,
                     "_inscricao_fim": fim,

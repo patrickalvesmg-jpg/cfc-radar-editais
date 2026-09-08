@@ -153,7 +153,14 @@ def _detalhar(uri: str, cargo_api: str) -> tuple | None:
     if area_alheia(cargo):
         return None
 
-    return cargo, vagas, _site_inscricao(texto, html), texto
+    # O `texto` retornado aqui vira o achado["texto"] salvo — e é sobre
+    # ELE que extrair.montar() roda o fallback extrair_vagas() quando
+    # `vagas` sai vazio daqui (nenhum "Cargo (N vagas)" explícito no
+    # corpo). Devolver o texto AINDA COM o JSON-LD reabriu exatamente o
+    # mesmo bug do "658"/"943": o fallback pescava um número solto do
+    # metadado como se fosse vaga. `vagas` sozinho não bastava corrigir
+    # — o texto bruto salvo também precisa estar limpo.
+    return cargo, vagas, _site_inscricao(texto, html), _sem_jsonld(texto)
 
 
 def coletar(_limite: int = 0) -> list[dict]:

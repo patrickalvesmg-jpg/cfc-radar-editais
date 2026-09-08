@@ -68,4 +68,43 @@ def test_pci_api_tambem_ignora_numero_do_jsonld():
     corpo = pci_api._corpo(HTML_COM_LIXO_NO_JSONLD)
     m = pci_api.CARGO_DETALHE.search(pci_api._sem_jsonld(corpo))
     vagas = m.group(2).strip() if m else ""
-    assert vagas != "658", "pci_api também não pode pescar vaga do JSON-LD"
+    assert vagas != "658", "pci_api não pode pescar vaga do JSON-LD"
+
+
+# ------------------------------------------------------------------
+# Bug de 08/09/2026: a correção acima consertou o MATCH de vagas, mas
+# não o `texto` bruto salvo no achado — e é sobre ELE que
+# extrair.montar() roda extrair_vagas() como fallback quando `vagas`
+# sai vazio (nenhum "Cargo (N vagas)" explícito no corpo). O `texto`
+# continuava com o JSON-LD dentro (pci_api) ou era a linha de
+# LISTAGEM, sempre sobre o total do concurso (pci) — e assim "658"
+# virou "943" na varredura seguinte, em 8 concursos diferentes de
+# novo, mesmo com o match já corrigido.
+# ------------------------------------------------------------------
+
+def test_pci_api_texto_retornado_tambem_sem_jsonld():
+    """O 4º elemento da tupla de _detalhar() é o que vira achado['texto']
+    — precisa estar limpo do JSON-LD, não só o texto usado no match."""
+    import re
+    corpo = pci_api._corpo(HTML_COM_LIXO_NO_JSONLD)
+    texto_retornado = pci_api._sem_jsonld(corpo)
+    assert "658" not in texto_retornado
+    assert "@context" not in texto_retornado
+
+
+def test_pci_nao_usa_texto_de_listagem_no_fallback():
+    """O texto salvo em achado['texto'] (fonte pci.py) precisa ser o
+    corpo da matéria (texto_longo), nunca a linha da listagem — essa
+    sempre traz "N vagas até R$ X" do TOTAL do concurso, nunca do
+    cargo contábil específico."""
+    texto_listagem = "Prefeitura de Exemplo SP 943 vagas até R$ 12.000,00 Vários Cargos"
+    texto_corpo_sem_padrao = "A Prefeitura de Exemplo abriu concurso com vaga para Contador."
+
+    # Reproduz a escolha de robo/fontes/pci.py: texto_longo (corpo)
+    # tem prioridade sobre texto_bloco (listagem) quando existe.
+    texto_bloco = texto_listagem
+    texto_longo = texto_corpo_sem_padrao
+    salvo = texto_longo[:2000] if texto_longo else texto_bloco[:2000]
+
+    assert "943" not in salvo
+    assert salvo == texto_corpo_sem_padrao

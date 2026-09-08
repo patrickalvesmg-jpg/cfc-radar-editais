@@ -209,15 +209,25 @@ def extrair_banca(texto: str) -> str:
 
 
 def extrair_vagas(texto: str) -> str:
-    m = re.search(
-        r"(\d{1,4})\s*(?:\(\w+\)\s*)?vagas?", texto, re.I
-    )
-    if not m:
-        return ""
-    vagas = m.group(1)
-    if re.search(r"cadastro\s+de\s+reserva|\bCR\b", texto, re.I):
-        return f"{vagas} + CR"
-    return vagas
+    """Desativado de propósito — sempre vazio.
+
+    Um "(\\d+)\\s*vagas?" solto no texto não tem como saber se é do
+    CARGO CONTÁBIL ou do concurso inteiro ("Prefeitura abre 436 vagas
+    para os cargos de Contador, Assistente..."), e o número do total
+    é sempre maior. Isso já causou o mesmo bug em fontes diferentes:
+    "658" (pci.py/pci_api.py, JSON-LD, 31/08/2026), depois "943"
+    (mesmas fontes, texto de listagem, 08/09/2026), depois "436"
+    (portais_wp.py, título da matéria, 08/09/2026) — sempre o mesmo
+    problema estrutural: número de contexto nenhum viés para o maior
+    total disponível no texto.
+
+    Vagas do cargo contábil só entram no site quando a FONTE consegue
+    afirmar isso de forma estruturada (ex.: CARGO_DETALHE em pci.py,
+    que exige "Cargo (N vagas)" explícito) — nunca por regex solta
+    aqui. Ver filosofia no topo do arquivo: campo que não dá para
+    afirmar fica vazio.
+    """
+    return ""
 
 
 # Esfera pelo TIPO de órgão. Ordem importa: "Universidade Federal" tem
