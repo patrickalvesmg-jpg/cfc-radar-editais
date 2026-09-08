@@ -74,6 +74,17 @@ DOMINIO_PROIBIDO = re.compile(
     re.I,
 )
 
+# Documento LEGÍTIMO do processo seletivo, mas nunca o edital em si —
+# link para um desses não pode virar "a página do concurso". Achado
+# em 08/09/2026: UFPE mandava para "baixar_noticia.php?id=..." que
+# era o resultado de isenção de taxa (lista com CPF de candidatos),
+# não o edital — o card levava quem clicasse a um documento errado.
+CAMINHO_NAO_E_EDITAL = re.compile(
+    r"isen[çc][ãa]o|resultado|convoca[çc][ãa]o|recurso|gabarito"
+    r"|homologa[çc][ãa]o|classifica[çc][ãa]o",
+    re.I,
+)
+
 
 def _corpo(html: str) -> str:
     return re.sub(r"\s+", " ", TAG.sub(" ", SIDEBAR.split(html)[0]))
@@ -109,7 +120,7 @@ def _salario(texto: str) -> float:
 def _site_inscricao(texto: str, html: str) -> str:
     """Página do concurso na banca, ou o domínio dela."""
     for u in dict.fromkeys(re.findall(r'href="(https?://[^"]+)"', html)):
-        if DOMINIO_PROIBIDO.search(u):
+        if DOMINIO_PROIBIDO.search(u) or CAMINHO_NAO_E_EDITAL.search(u):
             continue
         if re.search(r"/(?:concurso|edital|informacoes|processo)", u, re.I):
             return u

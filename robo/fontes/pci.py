@@ -189,10 +189,17 @@ def _e_util(url: str) -> bool:
         return False
     if not caminho or len(caminho) < 3:
         return False
-    # Descarta assets e páginas institucionais.
+    # Descarta assets, páginas institucionais e documentos LEGÍTIMOS do
+    # processo seletivo que não são o edital em si — link para
+    # resultado de isenção, lista de convocação, gabarito etc. não pode
+    # virar "a página do concurso". Achado em 08/09/2026: UFPE mandava
+    # para "baixar_noticia.php?id=..." que era o resultado de isenção
+    # de taxa (lista com CPF de candidatos), não o edital.
     return not re.search(
         r"\.(?:png|jpe?g|gif|svg|css|js|ico)$"
-        r"|/(?:contato|sobre|privacidade|termos|politica|login|cookies)\b",
+        r"|/(?:contato|sobre|privacidade|termos|politica|login|cookies)\b"
+        r"|isen[çc][ãa]o|resultado|convoca[çc][ãa]o|recurso|gabarito"
+        r"|homologa[çc][ãa]o|classifica[çc][ãa]o",
         caminho, re.I,
     )
 

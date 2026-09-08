@@ -17,7 +17,7 @@
   "dataProva": "",
   "taxaInscricao": 0,
   "editalUrl": "edital.html?id=e-bea809df873e",
-  "siteInscricao": "https://fadeconcursos.org.br/concursoufpe2026/baixar_noticia.php?id=MjA=",
+  "siteInscricao": "",
   "procedencia": "https://www.pciconcursos.com.br/noticias/ufpe-publica-retificacao-do-concurso-para-cargos-tecnico-administrativos",
   "fonte": "PCI Concursos",
   "capturadoEm": "2026-09-08T10:04:53",
@@ -114,7 +114,7 @@
   "lon": -37.0731,
   "geoAprox": true,
   "revisado": false,
-  "editorial": "<p>SE - Conselho Regional de Educação Física da 20ª Região abriu concurso público de âmbito federal, em SE, com vaga para <b>Contador</b>. São 1 + cadastro de reserva vaga(s).</p><p>A remuneração do cargo é de <b>R$ 3.614,06</b>. O valor está em linha com a mediana dos concursos contábeis hoje no radar (R$ 4.852,57).</p><p>As inscrições vão de 17/08/2026 a <b>21/09/2026</b>, ou seja, 13 dias a partir de hoje.</p><p>A seleção prevê prova objetiva e prova discursiva.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Confirme a exigência exata no edital.</p><p>A organização é da <b>Instituto Quadrix</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
+  "editorial": "<p>SE - Conselho Regional de Educação Física da 20ª Região abriu concurso público de âmbito federal, em SE, com vaga para <b>Contador</b>. São 1 + cadastro de reserva vaga(s).</p><p>A remuneração do cargo é de <b>R$ 3.614,06</b>. O valor está em linha com a mediana dos concursos contábeis hoje no radar (R$ 4.396,32).</p><p>As inscrições vão de 17/08/2026 a <b>21/09/2026</b>, ou seja, 13 dias a partir de hoje.</p><p>A seleção prevê prova objetiva e prova discursiva.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Confirme a exigência exata no edital.</p><p>A organização é da <b>Instituto Quadrix</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
   "bancaDominio": "quadrix.org.br",
   "pdfArquivo": "data/editais-pdf/e-0fdec8095a55-e58fdc88.pdf",
   "pdfArquivoEm": "2026-09-08"
@@ -202,7 +202,7 @@
   "uf": "PB",
   "cidade": "Cuité de Mamanguape",
   "vagas": "1",
-  "salario": 11975.0,
+  "salario": 2000.0,
   "salarioObs": "",
   "cargaHoraria": "",
   "escolaridade": "superior",
@@ -230,7 +230,7 @@
   "lon": -35.2502,
   "geoAprox": false,
   "revisado": false,
-  "editorial": "<p>A Prefeitura de Cuité de Mamanguape abriu concurso público de âmbito municipal, em Cuité de Mamanguape / PB, com vaga para <b>Fiscal De Tributos</b>. São 1 vaga(s).</p><p>A remuneração do cargo é de <b>R$ 11.975,00</b>. É um valor acima da mediana dos concursos contábeis hoje no radar (R$ 4.852,57).</p><p>As inscrições vão de 14/08/2026 a <b>13/09/2026</b> — restam apenas 5 dia(s).</p><p>A seleção prevê provas objetivas.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Cargos de auditoria e fiscalização costumam aceitar também formações afins, o que tende a ampliar a concorrência. Confirme a exigência exata no edital.</p><p>A organização é da <b>Educa PB</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
+  "editorial": "<p>A Prefeitura de Cuité de Mamanguape abriu concurso público de âmbito municipal, em Cuité de Mamanguape / PB, com vaga para <b>Fiscal De Tributos</b>. São 1 vaga(s).</p><p>A remuneração do cargo é de <b>R$ 2.000,00</b>. O valor fica abaixo da mediana dos concursos contábeis hoje no radar (R$ 4.396,32).</p><p>As inscrições vão de 14/08/2026 a <b>13/09/2026</b> — restam apenas 5 dia(s).</p><p>A seleção prevê provas objetivas.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Cargos de auditoria e fiscalização costumam aceitar também formações afins, o que tende a ampliar a concorrência. Confirme a exigência exata no edital.</p><p>A organização é da <b>Educa PB</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
   "banca": "Educa PB",
   "bancaDominio": "educapb.com.br",
   "pdfArquivo": "data/editais-pdf/e-fe205fc9934b-ab6e0bb6.pdf",
@@ -272,7 +272,7 @@
   "lon": -35.981,
   "geoAprox": false,
   "revisado": false,
-  "editorial": "<p>A Prefeitura de Caruaru abriu concurso público de âmbito municipal, em Caruaru / PE, com vaga para <b>Auditor Fiscal Municipal, Analista Fiscal Municipal</b>.</p><p>A remuneração do cargo é de <b>R$ 6.000,00</b>. O valor está em linha com a mediana dos concursos contábeis hoje no radar (R$ 4.852,57).</p><p>As inscrições vão de 10/08/2026 a <b>08/10/2026</b>, ou seja, 30 dias a partir de hoje.</p><p>A seleção prevê provas objetivas.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Cargos de auditoria e fiscalização costumam aceitar também formações afins, o que tende a ampliar a concorrência. Confirme a exigência exata no edital.</p><p>A organização é da <b>IBAM Concursos</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
+  "editorial": "<p>A Prefeitura de Caruaru abriu concurso público de âmbito municipal, em Caruaru / PE, com vaga para <b>Auditor Fiscal Municipal, Analista Fiscal Municipal</b>.</p><p>A remuneração do cargo é de <b>R$ 6.000,00</b>. É um valor acima da mediana dos concursos contábeis hoje no radar (R$ 4.396,32).</p><p>As inscrições vão de 10/08/2026 a <b>08/10/2026</b>, ou seja, 30 dias a partir de hoje.</p><p>A seleção prevê provas objetivas.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Cargos de auditoria e fiscalização costumam aceitar também formações afins, o que tende a ampliar a concorrência. Confirme a exigência exata no edital.</p><p>A organização é da <b>IBAM Concursos</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
   "bancaDominio": "ibam-concursos.org.br",
   "pdfArquivo": "data/editais-pdf/e-9e466e051b5d-fe050e7f.pdf",
   "pdfArquivoEm": "2026-09-08"
@@ -285,7 +285,7 @@
   "uf": "RN",
   "cidade": "e Câmara de Equador",
   "vagas": "1",
-  "salario": 4875.71,
+  "salario": 1621.0,
   "salarioObs": "",
   "cargaHoraria": "",
   "escolaridade": "superior",
@@ -314,7 +314,7 @@
   "lon": -36.717,
   "geoAprox": false,
   "revisado": false,
-  "editorial": "<p>A Prefeitura e Câmara de Equador abriu concurso público de âmbito municipal, em e Câmara de Equador / RN, com vaga para <b>Auditor De Controle Interno</b>. São 1 vaga(s).</p><p>A remuneração do cargo é de <b>R$ 4.875,71</b>. O valor está em linha com a mediana dos concursos contábeis hoje no radar (R$ 5.554,20).</p><p>As inscrições vão de 24/08/2026 a <b>17/09/2026</b>, ou seja, 9 dias a partir de hoje.</p><p>A seleção prevê provas objetivas e avaliação de títulos.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Cargos de auditoria e fiscalização costumam aceitar também formações afins, o que tende a ampliar a concorrência. Confirme a exigência exata no edital.</p><p>A organização é da <b>Funcern</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
+  "editorial": "<p>A Prefeitura e Câmara de Equador abriu concurso público de âmbito municipal, em e Câmara de Equador / RN, com vaga para <b>Auditor De Controle Interno</b>. São 1 vaga(s).</p><p>A remuneração do cargo é de <b>R$ 1.621,00</b>. O valor fica abaixo da mediana dos concursos contábeis hoje no radar (R$ 4.396,32).</p><p>As inscrições vão de 24/08/2026 a <b>17/09/2026</b>, ou seja, 9 dias a partir de hoje.</p><p>A seleção prevê provas objetivas e avaliação de títulos.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Cargos de auditoria e fiscalização costumam aceitar também formações afins, o que tende a ampliar a concorrência. Confirme a exigência exata no edital.</p><p>A organização é da <b>Funcern</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
   "bancaDominio": "funcern.br",
   "pdfArquivo": "data/editais-pdf/e-3bc74e43057d-893712e2.pdf",
   "pdfArquivoEm": "2026-08-31"
@@ -393,7 +393,7 @@
    ]
   },
   "pdfEdital": "https://cdn.cebraspe.org.br/concursos/CAMARA_MUNICIPAL_PONTAPORA_MS_26/arquivos/4D1A8250B5C31E91D6EF22CD6FFAEAC93329629A1E7618F7A7BCAA271EABA272.pdf",
-  "editorial": "<p>A Câmara de Ponta Porã abriu concurso público de âmbito municipal, em Ponta Porã / MS, com vaga para <b>Contador</b>. São 1 vaga(s).</p><p>A remuneração do cargo é de <b>R$ 7.999,59</b>. É um valor acima da mediana dos concursos contábeis hoje no radar (R$ 5.554,20).</p><p>As inscrições vão de 21/08/2026 a <b>10/09/2026</b> — restam apenas 2 dia(s).</p><p>A seleção prevê provas objetivas e avaliação de títulos.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Confirme a exigência exata no edital.</p><p>A organização é da <b>CESPE/CEBRASPE</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
+  "editorial": "<p>A Câmara de Ponta Porã abriu concurso público de âmbito municipal, em Ponta Porã / MS, com vaga para <b>Contador</b>. São 1 vaga(s).</p><p>A remuneração do cargo é de <b>R$ 7.999,59</b>. É um valor acima da mediana dos concursos contábeis hoje no radar (R$ 4.396,32).</p><p>As inscrições vão de 21/08/2026 a <b>10/09/2026</b> — restam apenas 2 dia(s).</p><p>A seleção prevê provas objetivas e avaliação de títulos.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Confirme a exigência exata no edital.</p><p>A organização é da <b>CESPE/CEBRASPE</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
   "banca": "CESPE/CEBRASPE",
   "bancaDominio": "cebraspe.org.br",
   "pdfArquivo": "data/editais-pdf/e-3ef1b2f47245-d09cd7a2.pdf",
@@ -472,7 +472,7 @@
   "lon": -49.8268,
   "geoAprox": false,
   "revisado": false,
-  "editorial": "<p>A Prefeitura de Heitoraí abriu concurso público de âmbito municipal, em Heitoraí / GO, com vaga para <b>Fiscal De Tributos</b>. São 1 vaga(s).</p><p>A remuneração do cargo é de <b>R$ 2.710,76</b>. O valor fica abaixo da mediana dos concursos contábeis hoje no radar (R$ 4.852,57).</p><p>As inscrições vão de 20/09/2026 a <b>20/10/2026</b>, ou seja, 42 dias a partir de hoje.</p><p>A seleção prevê provas objetivas.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Cargos de auditoria e fiscalização costumam aceitar também formações afins, o que tende a ampliar a concorrência. Confirme a exigência exata no edital.</p><p>A organização é da <b>Itame Concursos</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
+  "editorial": "<p>A Prefeitura de Heitoraí abriu concurso público de âmbito municipal, em Heitoraí / GO, com vaga para <b>Fiscal De Tributos</b>. São 1 vaga(s).</p><p>A remuneração do cargo é de <b>R$ 2.710,76</b>. O valor fica abaixo da mediana dos concursos contábeis hoje no radar (R$ 4.396,32).</p><p>As inscrições vão de 20/09/2026 a <b>20/10/2026</b>, ou seja, 42 dias a partir de hoje.</p><p>A seleção prevê provas objetivas.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Cargos de auditoria e fiscalização costumam aceitar também formações afins, o que tende a ampliar a concorrência. Confirme a exigência exata no edital.</p><p>A organização é da <b>Itame Concursos</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
   "banca": "Itame Concursos",
   "bancaDominio": "itame.com.br",
   "pdfArquivo": "data/editais-pdf/e-555836337276-afa9ecad.pdf",
@@ -624,7 +624,7 @@
   "lon": -39.1715,
   "geoAprox": false,
   "revisado": false,
-  "editorial": "<p>A Prefeitura de Conceição do Almeida abriu concurso público de âmbito municipal, em Conceição do Almeida / BA, com vaga para <b>Fiscal De Tributos</b>. São 1 vaga(s) imediata(s) mais cadastro de reserva.</p><p>A remuneração do cargo é de <b>R$ 1.621,00</b>. O valor fica abaixo da mediana dos concursos contábeis hoje no radar (R$ 4.852,57).</p><p>As inscrições vão de 10/08/2026 a <b>10/09/2026</b> — restam apenas 2 dia(s).</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Cargos de auditoria e fiscalização costumam aceitar também formações afins, o que tende a ampliar a concorrência. Confirme a exigência exata no edital.</p><p>A organização é da <b>Objetiva Concursos</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
+  "editorial": "<p>A Prefeitura de Conceição do Almeida abriu concurso público de âmbito municipal, em Conceição do Almeida / BA, com vaga para <b>Fiscal De Tributos</b>. São 1 vaga(s) imediata(s) mais cadastro de reserva.</p><p>A remuneração do cargo é de <b>R$ 1.621,00</b>. O valor fica abaixo da mediana dos concursos contábeis hoje no radar (R$ 4.396,32).</p><p>As inscrições vão de 10/08/2026 a <b>10/09/2026</b> — restam apenas 2 dia(s).</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Cargos de auditoria e fiscalização costumam aceitar também formações afins, o que tende a ampliar a concorrência. Confirme a exigência exata no edital.</p><p>A organização é da <b>Objetiva Concursos</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
   "banca": "Objetiva Concursos",
   "bancaDominio": "objetivas.com.br",
   "pdfArquivo": "data/editais-pdf/e-7cad8a8fff6e-e43ad8f8.pdf",
@@ -665,7 +665,7 @@
   "lon": -52.9066,
   "geoAprox": false,
   "revisado": false,
-  "editorial": "<p>A Prefeitura de Nova Erechim abriu concurso público de âmbito municipal, em Nova Erechim / SC, com vaga para <b>Tesoureiro</b>. A oferta é para cadastro de reserva.</p><p>A remuneração do cargo é de <b>R$ 8.209,35</b>. É um valor acima da mediana dos concursos contábeis hoje no radar (R$ 4.852,57).</p><p>As inscrições vão de 05/08/2026 a <b>10/09/2026</b> — restam apenas 2 dia(s).</p><p>A seleção prevê provas objetivas.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Confirme a exigência exata no edital.</p><p>A organização é da <b>IBAM Concursos</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
+  "editorial": "<p>A Prefeitura de Nova Erechim abriu concurso público de âmbito municipal, em Nova Erechim / SC, com vaga para <b>Tesoureiro</b>. A oferta é para cadastro de reserva.</p><p>A remuneração do cargo é de <b>R$ 8.209,35</b>. É um valor acima da mediana dos concursos contábeis hoje no radar (R$ 4.396,32).</p><p>As inscrições vão de 05/08/2026 a <b>10/09/2026</b> — restam apenas 2 dia(s).</p><p>A seleção prevê provas objetivas.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Confirme a exigência exata no edital.</p><p>A organização é da <b>IBAM Concursos</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
   "banca": "IBAM Concursos",
   "bancaDominio": "ibam-concursos.org.br",
   "pdfArquivo": "data/editais-pdf/e-b805ca91c760-74824970.pdf",
@@ -706,7 +706,7 @@
    ]
   },
   "pdfEdital": "https://anexos-r2.selecao.net.br/uploads/602/concursos/43/anexos/231b0577-2f6b-4eaf-9bda-5dbc1139103b.pdf",
-  "editorial": "<p>A Câmara de São Miguel do Guaporé abriu concurso público de âmbito municipal, em São Miguel do Guaporé / RO, com vaga para <b>Contador</b>. São 1 vaga(s) imediata(s) mais cadastro de reserva.</p><p>A remuneração do cargo é de <b>R$ 5.838,64</b>. O valor está em linha com a mediana dos concursos contábeis hoje no radar (R$ 4.852,57).</p><p>As inscrições vão de 25/08/2026 a <b>18/09/2026</b>, ou seja, 10 dias a partir de hoje.</p><p>A seleção prevê provas objetivas.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Confirme a exigência exata no edital.</p><p>A organização é da <b>Gama Consult</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
+  "editorial": "<p>A Câmara de São Miguel do Guaporé abriu concurso público de âmbito municipal, em São Miguel do Guaporé / RO, com vaga para <b>Contador</b>. São 1 vaga(s) imediata(s) mais cadastro de reserva.</p><p>A remuneração do cargo é de <b>R$ 5.838,64</b>. O valor está em linha com a mediana dos concursos contábeis hoje no radar (R$ 4.396,32).</p><p>As inscrições vão de 25/08/2026 a <b>18/09/2026</b>, ou seja, 10 dias a partir de hoje.</p><p>A seleção prevê provas objetivas.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Confirme a exigência exata no edital.</p><p>A organização é da <b>Gama Consult</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
   "banca": "Gama Consult",
   "bancaDominio": "gamaconsult.com.br",
   "pdfArquivo": "data/editais-pdf/e-26f1066c5a4d-545bf1c3.pdf",
@@ -789,7 +789,7 @@
   "lon": -54.2811,
   "geoAprox": false,
   "revisado": false,
-  "editorial": "<p>A Prefeitura de Primavera do Leste abriu concurso público de âmbito municipal, em Primavera do Leste / MT, com vaga para <b>Controlador Interno</b>. São Ciências Contábeis vaga(s).</p><p>A remuneração do cargo é de <b>R$ 16.346,38</b>. É um valor acima da mediana dos concursos contábeis hoje no radar (R$ 4.852,57).</p><p>As inscrições vão de 08/07/2026 a <b>30/08/2026</b>. O prazo já encerrou.</p><p>A seleção prevê prova objetiva, prova discursiva e avaliação de títulos.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Confirme a exigência exata no edital.</p><p>A organização é da <b>Institutoatame</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
+  "editorial": "<p>A Prefeitura de Primavera do Leste abriu concurso público de âmbito municipal, em Primavera do Leste / MT, com vaga para <b>Controlador Interno</b>. São Ciências Contábeis vaga(s).</p><p>A remuneração do cargo é de <b>R$ 16.346,38</b>. É um valor acima da mediana dos concursos contábeis hoje no radar (R$ 4.396,32).</p><p>As inscrições vão de 08/07/2026 a <b>30/08/2026</b>. O prazo já encerrou.</p><p>A seleção prevê prova objetiva, prova discursiva e avaliação de títulos.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Confirme a exigência exata no edital.</p><p>A organização é da <b>Institutoatame</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
   "bancaDominio": "institutoatame.org.br"
  },
  {
@@ -829,7 +829,7 @@
   "lon": -55.7499,
   "geoAprox": false,
   "revisado": false,
-  "editorial": "<p>SAAE - Prefeitura de Chapada dos Guimarães abriu concurso público de âmbito municipal, em Chapada dos Guimarães / MT, com vaga para <b>Fiscal De Tributos</b>. São 4 vaga(s).</p><p>A remuneração do cargo é de <b>R$ 4.987,20</b>. O valor está em linha com a mediana dos concursos contábeis hoje no radar (R$ 4.852,57).</p><p>As inscrições vão de 07/08/2026 a <b>10/09/2026</b> — restam apenas 2 dia(s).</p><p>A seleção prevê prova objetiva e avaliação de títulos.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Cargos de auditoria e fiscalização costumam aceitar também formações afins, o que tende a ampliar a concorrência. Confirme a exigência exata no edital.</p><p>A organização é da <b>Selecon</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
+  "editorial": "<p>SAAE - Prefeitura de Chapada dos Guimarães abriu concurso público de âmbito municipal, em Chapada dos Guimarães / MT, com vaga para <b>Fiscal De Tributos</b>. São 4 vaga(s).</p><p>A remuneração do cargo é de <b>R$ 4.987,20</b>. O valor está em linha com a mediana dos concursos contábeis hoje no radar (R$ 4.396,32).</p><p>As inscrições vão de 07/08/2026 a <b>10/09/2026</b> — restam apenas 2 dia(s).</p><p>A seleção prevê prova objetiva e avaliação de títulos.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Cargos de auditoria e fiscalização costumam aceitar também formações afins, o que tende a ampliar a concorrência. Confirme a exigência exata no edital.</p><p>A organização é da <b>Selecon</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
   "bancaDominio": "selecon.org.br",
   "pdfArquivo": "data/editais-pdf/e-6322be2c49f0-e05b2664.pdf",
   "pdfArquivoEm": "2026-09-08"
@@ -866,7 +866,7 @@
   "lon": -50.9192,
   "geoAprox": false,
   "revisado": false,
-  "editorial": "<p>A Prefeitura de Rio Verde abriu concurso público de âmbito municipal, em Rio Verde / GO, com vaga para <b>Auditor Fiscal Da Receita Municipal</b>.</p><p>A remuneração do cargo é de <b>R$ 4.809,00</b>. O valor está em linha com a mediana dos concursos contábeis hoje no radar (R$ 4.852,57).</p><p>As inscrições vão de 25/09/2026 a <b>22/10/2026</b>, ou seja, 44 dias a partir de hoje.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Cargos de auditoria e fiscalização costumam aceitar também formações afins, o que tende a ampliar a concorrência. Confirme a exigência exata no edital.</p><p>A organização é da <b>UNIRV</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
+  "editorial": "<p>A Prefeitura de Rio Verde abriu concurso público de âmbito municipal, em Rio Verde / GO, com vaga para <b>Auditor Fiscal Da Receita Municipal</b>.</p><p>A remuneração divulgada para o concurso é de <b>R$ 4.809,00</b>. Esse valor ainda não foi conferido no anexo de vencimentos e pode ser de outro cargo do mesmo edital — confirme antes de se inscrever. a partir de.</p><p>As inscrições vão de 25/09/2026 a <b>22/10/2026</b>, ou seja, 44 dias a partir de hoje.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Cargos de auditoria e fiscalização costumam aceitar também formações afins, o que tende a ampliar a concorrência. Confirme a exigência exata no edital.</p><p>A organização é da <b>UNIRV</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
   "bancaDominio": "unirv.edu.br",
   "pdfArquivo": "data/editais-pdf/e-a4bdadbad29c-a2d34183.pdf",
   "pdfArquivoEm": "2026-09-08"
@@ -946,7 +946,7 @@
   "lon": -58.0951,
   "geoAprox": false,
   "revisado": false,
-  "editorial": "<p>A Câmara de Mirassol D'Oeste abriu concurso público de âmbito municipal, em Mirassol D'Oeste / MT, com vaga para <b>Contador</b>. São 1 + Cadastro de Reserva vaga(s).</p><p>A remuneração do cargo é de <b>R$ 7.460,59</b>. É um valor acima da mediana dos concursos contábeis hoje no radar (R$ 4.852,57).</p><p>As inscrições vão de 08/09/2026 a <b>08/10/2026</b>, ou seja, 30 dias a partir de hoje.</p><p>A seleção prevê provas objetivas.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Confirme a exigência exata no edital.</p><p>A organização é da <b>Institutoatame</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
+  "editorial": "<p>A Câmara de Mirassol D'Oeste abriu concurso público de âmbito municipal, em Mirassol D'Oeste / MT, com vaga para <b>Contador</b>. São 1 + Cadastro de Reserva vaga(s).</p><p>A remuneração do cargo é de <b>R$ 7.460,59</b>. É um valor acima da mediana dos concursos contábeis hoje no radar (R$ 4.396,32).</p><p>As inscrições vão de 08/09/2026 a <b>08/10/2026</b>, ou seja, 30 dias a partir de hoje.</p><p>A seleção prevê provas objetivas.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Confirme a exigência exata no edital.</p><p>A organização é da <b>Institutoatame</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
   "bancaDominio": "institutoatame.org.br",
   "pdfArquivo": "data/editais-pdf/e-0291547ee9ea-8e7a8001.pdf",
   "pdfArquivoEm": "2026-09-08"
@@ -987,7 +987,7 @@
   "lon": -35.7089,
   "geoAprox": true,
   "revisado": false,
-  "editorial": "<p>SEFAZ - Secretaria de Estado da Fazenda de Alagoas abriu concurso público de âmbito estadual, em AL, com vaga para <b>Auditor Fiscal Da Administração Tributária Estadual</b>. São 943 vaga(s) imediata(s) mais cadastro de reserva.</p><p>A remuneração divulgada para o concurso é de <b>R$ 25.270,68</b>. Esse valor ainda não foi conferido no anexo de vencimentos e pode ser de outro cargo do mesmo edital — confirme antes de se inscrever.</p><p>As inscrições vão de 17/09/2026 a <b>21/10/2026</b>, ou seja, 43 dias a partir de hoje.</p><p>A seleção prevê provas objetivas.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Cargos de auditoria e fiscalização costumam aceitar também formações afins, o que tende a ampliar a concorrência. Confirme a exigência exata no edital.</p><p>A organização é da <b>CESPE/CEBRASPE</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
+  "editorial": "<p>SEFAZ - Secretaria de Estado da Fazenda de Alagoas abriu concurso público de âmbito estadual, em AL, com vaga para <b>Auditor Fiscal Da Administração Tributária Estadual</b>. A oferta é para cadastro de reserva.</p><p>A remuneração divulgada para o concurso é de <b>R$ 25.270,68</b>. Esse valor ainda não foi conferido no anexo de vencimentos e pode ser de outro cargo do mesmo edital — confirme antes de se inscrever.</p><p>As inscrições vão de 17/09/2026 a <b>21/10/2026</b>, ou seja, 43 dias a partir de hoje.</p><p>A seleção prevê provas objetivas.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Cargos de auditoria e fiscalização costumam aceitar também formações afins, o que tende a ampliar a concorrência. Confirme a exigência exata no edital.</p><p>A organização é da <b>CESPE/CEBRASPE</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
   "bancaDominio": "cebraspe.org.br",
   "pdfArquivo": "data/editais-pdf/e-538d1b1b4359-a051ed38.pdf",
   "pdfArquivoEm": "2026-09-08"
@@ -1063,7 +1063,7 @@
   "lon": -36.4233,
   "geoAprox": false,
   "revisado": false,
-  "editorial": "<p>A Prefeitura de Belo Jardim abriu concurso público de âmbito municipal, em Belo Jardim / PE, com vaga para <b>Contador</b>. São 1 vaga(s).</p><p>A remuneração do cargo é de <b>R$ 3.500,00</b>. O valor está em linha com a mediana dos concursos contábeis hoje no radar (R$ 4.852,57).</p><p>As inscrições vão de 01/09/2026 a <b>04/10/2026</b>, ou seja, 26 dias a partir de hoje.</p><p>A seleção prevê prova objetiva e prova de títulos.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Confirme a exigência exata no edital.</p><p>A organização é da <b>Funvapi</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
+  "editorial": "<p>A Prefeitura de Belo Jardim abriu concurso público de âmbito municipal, em Belo Jardim / PE, com vaga para <b>Contador</b>. São 1 vaga(s).</p><p>A remuneração do cargo é de <b>R$ 3.500,00</b>. O valor está em linha com a mediana dos concursos contábeis hoje no radar (R$ 4.396,32).</p><p>As inscrições vão de 01/09/2026 a <b>04/10/2026</b>, ou seja, 26 dias a partir de hoje.</p><p>A seleção prevê prova objetiva e prova de títulos.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Confirme a exigência exata no edital.</p><p>A organização é da <b>Funvapi</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
   "bancaDominio": "funvapi.com.br",
   "pdfArquivo": "data/editais-pdf/e-9475f863d83f-7e75b5ec.pdf",
   "pdfArquivoEm": "2026-09-08"
@@ -1104,7 +1104,7 @@
   "lon": -38.5687,
   "geoAprox": false,
   "revisado": false,
-  "editorial": "<p>A Prefeitura de Floresta abriu concurso público de âmbito municipal, em Floresta / PE, com vaga para <b>Fiscal De Tributos</b>. São 4 vaga(s).</p><p>A remuneração do cargo é de <b>R$ 1.688,08</b>. O valor fica abaixo da mediana dos concursos contábeis hoje no radar (R$ 4.852,57).</p><p>As inscrições vão de 24/08/2026 a <b>01/10/2026</b>, ou seja, 23 dias a partir de hoje.</p><p>A seleção prevê prova objetiva.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Cargos de auditoria e fiscalização costumam aceitar também formações afins, o que tende a ampliar a concorrência. Confirme a exigência exata no edital.</p><p>A organização é da <b>Facetconcursos</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
+  "editorial": "<p>A Prefeitura de Floresta abriu concurso público de âmbito municipal, em Floresta / PE, com vaga para <b>Fiscal De Tributos</b>. São 4 vaga(s).</p><p>A remuneração do cargo é de <b>R$ 1.688,08</b>. O valor fica abaixo da mediana dos concursos contábeis hoje no radar (R$ 4.396,32).</p><p>As inscrições vão de 24/08/2026 a <b>01/10/2026</b>, ou seja, 23 dias a partir de hoje.</p><p>A seleção prevê prova objetiva.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Cargos de auditoria e fiscalização costumam aceitar também formações afins, o que tende a ampliar a concorrência. Confirme a exigência exata no edital.</p><p>A organização é da <b>Facetconcursos</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
   "bancaDominio": "facetconcursos.com.br",
   "pdfArquivo": "data/editais-pdf/e-b624c9b43ba6-d049b759.pdf",
   "pdfArquivoEm": "2026-09-08"
@@ -1499,7 +1499,7 @@
   "lon": -45.5401,
   "geoAprox": false,
   "revisado": false,
-  "editorial": "<p>A Prefeitura de Lagoa da Prata abriu concurso público de âmbito municipal, em Lagoa da Prata / MG, com vaga para <b>Técnico Em Contabilidade</b>. São 2 vaga(s).</p><p>A remuneração do cargo é de <b>R$ 3.859,65</b>. O valor está em linha com a mediana dos concursos contábeis hoje no radar (R$ 4.852,57).</p><p>As inscrições vão de 05/10/2026 a <b>03/11/2026</b>, ou seja, 56 dias a partir de hoje. A taxa de inscrição é de R$ 80,00.</p><p>A seleção prevê provas objetivas, com prova marcada para 29/11/2026.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Confirme a exigência exata no edital.</p><p>A organização é da <b>IBGP Concursos</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
+  "editorial": "<p>A Prefeitura de Lagoa da Prata abriu concurso público de âmbito municipal, em Lagoa da Prata / MG, com vaga para <b>Técnico Em Contabilidade</b>. São 2 vaga(s).</p><p>A remuneração do cargo é de <b>R$ 3.859,65</b>. O valor está em linha com a mediana dos concursos contábeis hoje no radar (R$ 4.396,32).</p><p>As inscrições vão de 05/10/2026 a <b>03/11/2026</b>, ou seja, 56 dias a partir de hoje. A taxa de inscrição é de R$ 80,00.</p><p>A seleção prevê provas objetivas, com prova marcada para 29/11/2026.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Confirme a exigência exata no edital.</p><p>A organização é da <b>IBGP Concursos</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
   "bancaDominio": "ibgpconcursos.com.br",
   "pdfArquivo": "data/editais-pdf/e-402b65f01904-9b987121.pdf",
   "pdfArquivoEm": "2026-09-08"
@@ -1539,7 +1539,7 @@
   "lon": -45.5927,
   "geoAprox": false,
   "revisado": false,
-  "editorial": "<p>A Câmara de Dores do Indaiá abriu concurso público de âmbito municipal, em Dores do Indaiá / MG, com vaga para <b>Controlador Interno</b>. São 1 vaga(s).</p><p>A remuneração do cargo é de <b>R$ 4.500,00</b>. O valor está em linha com a mediana dos concursos contábeis hoje no radar (R$ 4.852,57).</p><p>As inscrições vão de 05/10/2026 a <b>03/11/2026</b>, ou seja, 56 dias a partir de hoje. A taxa de inscrição é de R$ 100,00.</p><p>A seleção prevê prova objetiva, com prova marcada para 22/11/2026.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Confirme a exigência exata no edital.</p><p>A organização é da <b>IBGP Concursos</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
+  "editorial": "<p>A Câmara de Dores do Indaiá abriu concurso público de âmbito municipal, em Dores do Indaiá / MG, com vaga para <b>Controlador Interno</b>. São 1 vaga(s).</p><p>A remuneração do cargo é de <b>R$ 4.500,00</b>. O valor está em linha com a mediana dos concursos contábeis hoje no radar (R$ 4.396,32).</p><p>As inscrições vão de 05/10/2026 a <b>03/11/2026</b>, ou seja, 56 dias a partir de hoje. A taxa de inscrição é de R$ 100,00.</p><p>A seleção prevê prova objetiva, com prova marcada para 22/11/2026.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Confirme a exigência exata no edital.</p><p>A organização é da <b>IBGP Concursos</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
   "banca": "IBGP Concursos",
   "bancaDominio": "ibgpconcursos.com.br",
   "pdfArquivo": "data/editais-pdf/e-bc766b049bf4-0565c3b5.pdf",
@@ -1618,7 +1618,7 @@
    ]
   },
   "pdfEdital": "https://novo.ibgpconcursos.com.br/rest/concurso/download/edital/22347/?file=site/anexos/684/01%20-%20ANEXO%20I%20-REQUISITO_JORNADA_VAGA_VENCIMENTO.pdf",
-  "editorial": "<p>A Prefeitura de Coromandel abriu concurso público de âmbito municipal, em Coromandel / MG, com vaga para <b>Contador</b>. São 1 vaga(s).</p><p>A remuneração do cargo é de <b>R$ 4.562,82</b>. O valor está em linha com a mediana dos concursos contábeis hoje no radar (R$ 4.852,57).</p><p>As inscrições vão de 08/09/2026 a <b>08/10/2026</b>, ou seja, 30 dias a partir de hoje. A taxa de inscrição é de R$ 100,00.</p><p>A seleção prevê prova objetiva, com prova marcada para 01/11/2026.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Confirme a exigência exata no edital.</p><p>A organização é da <b>IBGP Concursos</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
+  "editorial": "<p>A Prefeitura de Coromandel abriu concurso público de âmbito municipal, em Coromandel / MG, com vaga para <b>Contador</b>. São 1 vaga(s).</p><p>A remuneração do cargo é de <b>R$ 4.562,82</b>. O valor está em linha com a mediana dos concursos contábeis hoje no radar (R$ 4.396,32).</p><p>As inscrições vão de 08/09/2026 a <b>08/10/2026</b>, ou seja, 30 dias a partir de hoje. A taxa de inscrição é de R$ 100,00.</p><p>A seleção prevê prova objetiva, com prova marcada para 01/11/2026.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Confirme a exigência exata no edital.</p><p>A organização é da <b>IBGP Concursos</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
   "banca": "IBGP Concursos",
   "bancaDominio": "ibgpconcursos.com.br",
   "pdfArquivo": "data/editais-pdf/e-4a0909c14560-e467f7f7.pdf",
@@ -1660,7 +1660,7 @@
   "lon": -42.4139,
   "geoAprox": false,
   "revisado": false,
-  "editorial": "<p>A Prefeitura de Ipaba abriu concurso público de âmbito municipal, em Ipaba / MG, com vaga para <b>Técnico Em Contabilidade</b>. São 1 vaga(s).</p><p>A remuneração do cargo é de <b>R$ 3.579,82</b>. O valor está em linha com a mediana dos concursos contábeis hoje no radar (R$ 4.852,57).</p><p>As inscrições vão de 09/09/2026 a <b>08/10/2026</b>, ou seja, 30 dias a partir de hoje. A taxa de inscrição é de R$ 80,00.</p><p>A seleção prevê provas objetivas, com prova marcada para 06/12/2026.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Confirme a exigência exata no edital.</p><p>A organização é da <b>IBGP Concursos</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
+  "editorial": "<p>A Prefeitura de Ipaba abriu concurso público de âmbito municipal, em Ipaba / MG, com vaga para <b>Técnico Em Contabilidade</b>. São 1 vaga(s).</p><p>A remuneração do cargo é de <b>R$ 3.579,82</b>. O valor está em linha com a mediana dos concursos contábeis hoje no radar (R$ 4.396,32).</p><p>As inscrições vão de 09/09/2026 a <b>08/10/2026</b>, ou seja, 30 dias a partir de hoje. A taxa de inscrição é de R$ 80,00.</p><p>A seleção prevê provas objetivas, com prova marcada para 06/12/2026.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Confirme a exigência exata no edital.</p><p>A organização é da <b>IBGP Concursos</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
   "bancaDominio": "ibgpconcursos.com.br",
   "pdfArquivo": "data/editais-pdf/e-4705496de5d1-6ebf71a2.pdf",
   "pdfArquivoEm": "2026-09-08"
@@ -1701,7 +1701,7 @@
   "lon": -53.0578,
   "geoAprox": false,
   "revisado": false,
-  "editorial": "<p>A Câmara de Saltinho abriu concurso público de âmbito municipal, em Saltinho / SC, com vaga para <b>Contador</b>. A oferta é para cadastro de reserva.</p><p>A remuneração do cargo é de <b>R$ 7.447,36</b>. É um valor acima da mediana dos concursos contábeis hoje no radar (R$ 4.852,57).</p><p>As inscrições vão de 20/08/2026 a <b>15/09/2026</b> — restam apenas 7 dia(s).</p><p>A seleção prevê prova objetiva.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Confirme a exigência exata no edital.</p><p>A organização é da <b>Omniinstituto</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
+  "editorial": "<p>A Câmara de Saltinho abriu concurso público de âmbito municipal, em Saltinho / SC, com vaga para <b>Contador</b>. A oferta é para cadastro de reserva.</p><p>A remuneração do cargo é de <b>R$ 7.447,36</b>. É um valor acima da mediana dos concursos contábeis hoje no radar (R$ 4.396,32).</p><p>As inscrições vão de 20/08/2026 a <b>15/09/2026</b> — restam apenas 7 dia(s).</p><p>A seleção prevê prova objetiva.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Confirme a exigência exata no edital.</p><p>A organização é da <b>Omniinstituto</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
   "bancaDominio": "omniinstituto.org.br",
   "pdfArquivo": "data/editais-pdf/e-81064241490f-9fb58726.pdf",
   "pdfArquivoEm": "2026-09-08"
@@ -1781,7 +1781,7 @@
    ]
   },
   "pdfEdital": "https://cdnsite.institutoconsulplan.org.br/concursos/1307/c7759d2af2fa461a8e593ccaf8e7d44b.pdf",
-  "editorial": "<p>A Prefeitura de Belo Vale abriu concurso público de âmbito municipal, em Belo Vale / MG, com vaga para <b>Analista Contábil</b>. São 1 vaga(s).</p><p>A remuneração do cargo é de <b>R$ 6.173,36</b>. O valor está em linha com a mediana dos concursos contábeis hoje no radar (R$ 4.852,57).</p><p>As inscrições vão de 02/10/2026 a <b>03/11/2026</b>, ou seja, 56 dias a partir de hoje.</p><p>A seleção prevê provas objetivas e avaliação de títulos.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Confirme a exigência exata no edital.</p><p>A organização é da <b>Instituto Consulplan</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
+  "editorial": "<p>A Prefeitura de Belo Vale abriu concurso público de âmbito municipal, em Belo Vale / MG, com vaga para <b>Analista Contábil</b>. São 1 vaga(s).</p><p>A remuneração do cargo é de <b>R$ 6.173,36</b>. É um valor acima da mediana dos concursos contábeis hoje no radar (R$ 4.396,32).</p><p>As inscrições vão de 02/10/2026 a <b>03/11/2026</b>, ou seja, 56 dias a partir de hoje.</p><p>A seleção prevê provas objetivas e avaliação de títulos.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Confirme a exigência exata no edital.</p><p>A organização é da <b>Instituto Consulplan</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
   "banca": "Instituto Consulplan",
   "bancaDominio": "institutoconsulplan.org.br",
   "pdfArquivo": "data/editais-pdf/e-14bc25fd0f60-4e19e157.pdf",
@@ -1794,7 +1794,7 @@
   "uf": "MG",
   "cidade": "Santana de Pirapama",
   "vagas": "1",
-  "salario": 6221.41,
+  "salario": 2255.25,
   "salarioObs": "",
   "cargaHoraria": "",
   "escolaridade": "superior",
@@ -1823,7 +1823,7 @@
    ]
   },
   "pdfEdital": "https://anexos-r2.selecao.net.br/uploads/140/concursos/544/anexos/6220e2a6-1c0e-49c5-a6cd-2ececf14dc7b.pdf",
-  "editorial": "<p>A Prefeitura de Santana de Pirapama abriu concurso público de âmbito municipal, em Santana de Pirapama / MG, com vaga para <b>Fiscal De Tributos</b>. São 1 vaga(s).</p><p>A remuneração do cargo é de <b>R$ 6.221,41</b>. O valor está em linha com a mediana dos concursos contábeis hoje no radar (R$ 4.852,57).</p><p>As inscrições vão de 12/10/2026 a <b>10/11/2026</b>, ou seja, 63 dias a partir de hoje.</p><p>A seleção prevê provas objetivas e avaliação de títulos.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Cargos de auditoria e fiscalização costumam aceitar também formações afins, o que tende a ampliar a concorrência. Confirme a exigência exata no edital.</p><p>A organização é da <b>Exame Consultores</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
+  "editorial": "<p>A Prefeitura de Santana de Pirapama abriu concurso público de âmbito municipal, em Santana de Pirapama / MG, com vaga para <b>Fiscal De Tributos</b>. São 1 vaga(s).</p><p>A remuneração do cargo é de <b>R$ 2.255,25</b>. O valor fica abaixo da mediana dos concursos contábeis hoje no radar (R$ 4.396,32).</p><p>As inscrições vão de 12/10/2026 a <b>10/11/2026</b>, ou seja, 63 dias a partir de hoje.</p><p>A seleção prevê provas objetivas e avaliação de títulos.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Cargos de auditoria e fiscalização costumam aceitar também formações afins, o que tende a ampliar a concorrência. Confirme a exigência exata no edital.</p><p>A organização é da <b>Exame Consultores</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
   "banca": "Exame Consultores",
   "bancaDominio": "exameconsultores.com.br",
   "pdfArquivo": "data/editais-pdf/e-d6b4ec097a43-83eab2c8.pdf",
@@ -1943,7 +1943,7 @@
   "lon": -43.743,
   "geoAprox": false,
   "revisado": false,
-  "editorial": "<p>A Prefeitura de Pedro Teixeira abriu concurso público de âmbito municipal, em Pedro Teixeira / MG, com vaga para <b>Controlador Interno</b>. São 1 vaga(s).</p><p>A remuneração do cargo é de <b>R$ 3.127,80</b>. O valor fica abaixo da mediana dos concursos contábeis hoje no radar (R$ 4.852,57).</p><p>As inscrições vão de 30/09/2026 a <b>30/10/2026</b>, ou seja, 52 dias a partir de hoje.</p><p>A seleção prevê prova objetiva.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Confirme a exigência exata no edital.</p><p>A organização é da <b>JCM Concursos</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
+  "editorial": "<p>A Prefeitura de Pedro Teixeira abriu concurso público de âmbito municipal, em Pedro Teixeira / MG, com vaga para <b>Controlador Interno</b>. São 1 vaga(s).</p><p>A remuneração do cargo é de <b>R$ 3.127,80</b>. O valor está em linha com a mediana dos concursos contábeis hoje no radar (R$ 4.396,32).</p><p>As inscrições vão de 30/09/2026 a <b>30/10/2026</b>, ou seja, 52 dias a partir de hoje.</p><p>A seleção prevê prova objetiva.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Confirme a exigência exata no edital.</p><p>A organização é da <b>JCM Concursos</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
   "banca": "JCM Concursos",
   "bancaDominio": "concursosjcm.com.br",
   "pdfArquivo": "data/editais-pdf/e-53279f91d0d0-49eda624.pdf",
@@ -2024,7 +2024,7 @@
   "lon": -43.1829,
   "geoAprox": false,
   "revisado": false,
-  "editorial": "<p>A Câmara de Rio Piracicaba abriu concurso público de âmbito municipal, em Rio Piracicaba / MG, com vaga para <b>Controlador Interno</b>. São 1 vaga(s).</p><p>A remuneração do cargo é de <b>R$ 4.000,00</b>. O valor está em linha com a mediana dos concursos contábeis hoje no radar (R$ 4.852,57).</p><p>As inscrições vão de 14/09/2026 a <b>13/10/2026</b>, ou seja, 35 dias a partir de hoje.</p><p>A seleção prevê provas objetivas e prova de títulos.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Confirme a exigência exata no edital.</p><p>A organização é da <b>Instituto IDEAP</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
+  "editorial": "<p>A Câmara de Rio Piracicaba abriu concurso público de âmbito municipal, em Rio Piracicaba / MG, com vaga para <b>Controlador Interno</b>. São 1 vaga(s).</p><p>A remuneração do cargo é de <b>R$ 4.000,00</b>. O valor está em linha com a mediana dos concursos contábeis hoje no radar (R$ 4.396,32).</p><p>As inscrições vão de 14/09/2026 a <b>13/10/2026</b>, ou seja, 35 dias a partir de hoje.</p><p>A seleção prevê provas objetivas e prova de títulos.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Confirme a exigência exata no edital.</p><p>A organização é da <b>Instituto IDEAP</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
   "banca": "Instituto IDEAP",
   "bancaDominio": "institutoideap.org.br",
   "pdfArquivo": "data/editais-pdf/e-2b0270eaf394-fca85c7e.pdf",
@@ -2065,7 +2065,7 @@
   "lon": -44.095,
   "geoAprox": false,
   "revisado": false,
-  "editorial": "<p>A Câmara de Itacarambi abriu concurso público de âmbito municipal, em Itacarambi / MG, com vaga para <b>Controlador Interno</b>. São 1 vaga(s).</p><p>A remuneração do cargo é de <b>R$ 3.737,48</b>. O valor fica abaixo da mediana dos concursos contábeis hoje no radar (R$ 5.554,20).</p><p>As inscrições vão de 10/09/2026 a <b>07/10/2026</b>, ou seja, 29 dias a partir de hoje.</p><p>A seleção prevê prova objetiva.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Confirme a exigência exata no edital.</p><p>A organização é da <b>FADENOR</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
+  "editorial": "<p>A Câmara de Itacarambi abriu concurso público de âmbito municipal, em Itacarambi / MG, com vaga para <b>Controlador Interno</b>. São 1 vaga(s).</p><p>A remuneração do cargo é de <b>R$ 3.737,48</b>. O valor está em linha com a mediana dos concursos contábeis hoje no radar (R$ 4.396,32).</p><p>As inscrições vão de 10/09/2026 a <b>07/10/2026</b>, ou seja, 29 dias a partir de hoje.</p><p>A seleção prevê prova objetiva.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Confirme a exigência exata no edital.</p><p>A organização é da <b>FADENOR</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
   "banca": "FADENOR",
   "bancaDominio": "fadenor.com.br",
   "pdfArquivo": "data/editais-pdf/e-79fbb9a78a96-739b4efa.pdf",
@@ -2117,7 +2117,7 @@
   "uf": "MG",
   "cidade": "Campanário",
   "vagas": "2 AC",
-  "salario": 3820.21,
+  "salario": 1621.0,
   "salarioObs": "",
   "cargaHoraria": "",
   "escolaridade": "superior",
@@ -2129,7 +2129,7 @@
   "taxaInscricao": 0,
   "editalUrl": "edital.html?id=e-ab9c7f82b374",
   "siteInscricao": "https://www.msmconsultoria.com.br/2026/pm_campanario/",
-  "pdfEdital": "https://www.msmconsultoria.com.br/2026/pm_campanario/anxvii.pdf",
+  "pdfEdital": "",
   "procedencia": "https://www.pciconcursos.com.br/noticias/prefeitura-de-campanario-mg-retifica-edital-de-concurso-publico",
   "fonte": "PCI Concursos",
   "capturadoEm": "2026-09-08T10:04:52",
@@ -2146,11 +2146,9 @@
   "lon": -41.7355,
   "geoAprox": false,
   "revisado": false,
-  "editorial": "<p>A Prefeitura de Campanário abriu concurso público de âmbito municipal, em Campanário / MG, com vaga para <b>Agente Fiscal De Tributos</b>. São 2 AC vaga(s).</p><p>A remuneração do cargo é de <b>R$ 3.820,21</b>. O valor está em linha com a mediana dos concursos contábeis hoje no radar (R$ 4.852,57).</p><p>As inscrições vão de 02/09/2026 a <b>02/10/2026</b>, ou seja, 24 dias a partir de hoje.</p><p>A seleção prevê provas objetivas e avaliação de títulos.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Cargos de auditoria e fiscalização costumam aceitar também formações afins, o que tende a ampliar a concorrência. Confirme a exigência exata no edital.</p><p>A organização é da <b>MSM Consultoria</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
+  "editorial": "<p>A Prefeitura de Campanário abriu concurso público de âmbito municipal, em Campanário / MG, com vaga para <b>Agente Fiscal De Tributos</b>. São 2 AC vaga(s).</p><p>A remuneração divulgada para o concurso é de <b>R$ 1.621,00</b>. Esse valor ainda não foi conferido no anexo de vencimentos e pode ser de outro cargo do mesmo edital — confirme antes de se inscrever.</p><p>As inscrições vão de 02/09/2026 a <b>02/10/2026</b>, ou seja, 24 dias a partir de hoje.</p><p>A seleção prevê provas objetivas e avaliação de títulos.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Cargos de auditoria e fiscalização costumam aceitar também formações afins, o que tende a ampliar a concorrência. Confirme a exigência exata no edital.</p><p>A organização é da <b>MSM Consultoria</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
   "banca": "MSM Consultoria",
-  "bancaDominio": "msmconsultoria.com.br",
-  "pdfArquivo": "data/editais-pdf/e-ab9c7f82b374-f482cad0.pdf",
-  "pdfArquivoEm": "2026-09-08"
+  "bancaDominio": "msmconsultoria.com.br"
  },
  {
   "id": "e-7682a6fca4d0",
@@ -2198,7 +2196,7 @@
   "uf": "RS",
   "cidade": "Cachoeira do Sul",
   "vagas": "1 + cadastro de reserva",
-  "salario": 19535.28,
+  "salario": 4486.69,
   "salarioObs": "",
   "cargaHoraria": "",
   "escolaridade": "superior",
@@ -2226,7 +2224,7 @@
    ]
   },
   "pdfEdital": "https://anexos-r2.selecao.net.br/uploads/361/concursos/2603/anexos/97eee19b-8387-4760-a5ab-b82dba102186.pdf",
-  "editorial": "<p>A Prefeitura de Cachoeira do Sul abriu concurso público de âmbito municipal, em Cachoeira do Sul / RS, com vaga para <b>Contador</b>. São 1 + cadastro de reserva vaga(s).</p><p>A remuneração do cargo é de <b>R$ 19.535,28</b>. É um valor acima da mediana dos concursos contábeis hoje no radar (R$ 5.554,20).</p><p>As inscrições vão de 18/08/2026 a <b>15/09/2026</b> — restam apenas 7 dia(s).</p><p>A seleção prevê provas objetivas.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Confirme a exigência exata no edital.</p><p>A organização é da <b>Objetiva Concursos</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
+  "editorial": "<p>A Prefeitura de Cachoeira do Sul abriu concurso público de âmbito municipal, em Cachoeira do Sul / RS, com vaga para <b>Contador</b>. São 1 + cadastro de reserva vaga(s).</p><p>A remuneração do cargo é de <b>R$ 4.486,69</b>. O valor está em linha com a mediana dos concursos contábeis hoje no radar (R$ 4.396,32).</p><p>As inscrições vão de 18/08/2026 a <b>15/09/2026</b> — restam apenas 7 dia(s).</p><p>A seleção prevê provas objetivas.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Confirme a exigência exata no edital.</p><p>A organização é da <b>Objetiva Concursos</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
   "banca": "Objetiva Concursos",
   "bancaDominio": "objetivas.com.br",
   "pdfArquivo": "data/editais-pdf/e-c4d6f8165889-e2838bef.pdf",
@@ -2267,7 +2265,7 @@
    ]
   },
   "pdfEdital": "https://concursos-publicacoes.s3.amazonaws.com/1110/publico/edital_abertura/edital_1_6a91d2fbb3fca.pdf?id=6a958926f0b5d",
-  "editorial": "<p>A Prefeitura e Câmara de Redentora abriu concurso público de âmbito municipal, em e Câmara de Redentora / RS, com vaga para <b>Contador</b>. A oferta é para cadastro de reserva.</p><p>A remuneração do cargo é de <b>R$ 4.927,58</b>. O valor está em linha com a mediana dos concursos contábeis hoje no radar (R$ 4.852,57).</p><p>As inscrições vão de 13/08/2026 a <b>11/09/2026</b> — restam apenas 3 dia(s).</p><p>A seleção prevê provas objetivas.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Confirme a exigência exata no edital.</p><p>A organização é da <b>FUNDATEC</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
+  "editorial": "<p>A Prefeitura e Câmara de Redentora abriu concurso público de âmbito municipal, em e Câmara de Redentora / RS, com vaga para <b>Contador</b>. A oferta é para cadastro de reserva.</p><p>A remuneração do cargo é de <b>R$ 4.927,58</b>. O valor está em linha com a mediana dos concursos contábeis hoje no radar (R$ 4.396,32).</p><p>As inscrições vão de 13/08/2026 a <b>11/09/2026</b> — restam apenas 3 dia(s).</p><p>A seleção prevê provas objetivas.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Confirme a exigência exata no edital.</p><p>A organização é da <b>FUNDATEC</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
   "banca": "FUNDATEC",
   "bancaDominio": "fundatec.org.br",
   "pdfArquivo": "data/editais-pdf/e-35fc04921cd3-a8c43d1a.pdf",
@@ -2308,7 +2306,7 @@
    ]
   },
   "pdfEdital": "https://anexos-r2.selecao.net.br/uploads/361/concursos/2605/anexos/244b6c5f-1252-46d2-8a86-7059b62cb79e.pdf",
-  "editorial": "<p>A Prefeitura de Estrela abriu concurso público de âmbito municipal, em Estrela / RS, com vaga para <b>Auditor Fiscal</b>. São 2 vaga(s) imediata(s) mais cadastro de reserva.</p><p>A remuneração do cargo é de <b>R$ 8.058,13</b>. É um valor acima da mediana dos concursos contábeis hoje no radar (R$ 5.554,20).</p><p>As inscrições vão de 18/08/2026 a <b>18/09/2026</b>, ou seja, 10 dias a partir de hoje.</p><p>A seleção prevê provas objetivas.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Cargos de auditoria e fiscalização costumam aceitar também formações afins, o que tende a ampliar a concorrência. Confirme a exigência exata no edital.</p><p>A organização é da <b>Objetiva Concursos</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
+  "editorial": "<p>A Prefeitura de Estrela abriu concurso público de âmbito municipal, em Estrela / RS, com vaga para <b>Auditor Fiscal</b>. São 2 vaga(s) imediata(s) mais cadastro de reserva.</p><p>A remuneração do cargo é de <b>R$ 8.058,13</b>. É um valor acima da mediana dos concursos contábeis hoje no radar (R$ 4.396,32).</p><p>As inscrições vão de 18/08/2026 a <b>18/09/2026</b>, ou seja, 10 dias a partir de hoje.</p><p>A seleção prevê provas objetivas.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Cargos de auditoria e fiscalização costumam aceitar também formações afins, o que tende a ampliar a concorrência. Confirme a exigência exata no edital.</p><p>A organização é da <b>Objetiva Concursos</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
   "banca": "Objetiva Concursos",
   "bancaDominio": "objetivas.com.br",
   "pdfArquivo": "data/editais-pdf/e-a388b488816c-86f84d3f.pdf",
@@ -2388,7 +2386,7 @@
    ]
   },
   "pdfEdital": "",
-  "editorial": "<p>A Prefeitura de Toropi abriu concurso público de âmbito municipal, em Toropi / RS, com vaga para <b>Contador</b>. São 1 vaga(s).</p><p>A remuneração do cargo é de <b>R$ 8.900,00</b>. É um valor acima da mediana dos concursos contábeis hoje no radar (R$ 4.852,57).</p><p>As inscrições vão de 18/08/2026 a <b>10/09/2026</b> — restam apenas 2 dia(s).</p><p>A seleção prevê prova objetiva.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Confirme a exigência exata no edital.</p><p>A organização é da <b>Instituto Legalle</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
+  "editorial": "<p>A Prefeitura de Toropi abriu concurso público de âmbito municipal, em Toropi / RS, com vaga para <b>Contador</b>. São 1 vaga(s).</p><p>A remuneração divulgada para o concurso é de <b>R$ 8.900,00</b>. Esse valor ainda não foi conferido no anexo de vencimentos e pode ser de outro cargo do mesmo edital — confirme antes de se inscrever. a partir de.</p><p>As inscrições vão de 18/08/2026 a <b>10/09/2026</b> — restam apenas 2 dia(s).</p><p>A seleção prevê prova objetiva.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Confirme a exigência exata no edital.</p><p>A organização é da <b>Instituto Legalle</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
   "banca": "Instituto Legalle",
   "bancaDominio": "institutolegalle.org.br",
   "pdfArquivo": "data/editais-pdf/e-47e677515880-8dba13a6.pdf",
@@ -2429,7 +2427,7 @@
    ]
   },
   "pdfEdital": "https://anexos-r2.selecao.net.br/uploads/281/concursos/4205/anexos/1474a5ca-a79a-4f78-a916-8e2cbef19e3a.pdf",
-  "editorial": "<p>A Prefeitura de Coronel Vivida abriu concurso público de âmbito municipal, em Coronel Vivida / PR, com vaga para <b>Contador</b>. A oferta é para cadastro de reserva.</p><p>A remuneração do cargo é de <b>R$ 6.347,27</b>. O valor está em linha com a mediana dos concursos contábeis hoje no radar (R$ 4.852,57).</p><p>As inscrições vão de 11/08/2026 a <b>08/10/2026</b>, ou seja, 30 dias a partir de hoje.</p><p>A seleção prevê provas objetivas, com prova marcada para 01/11/2026.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Confirme a exigência exata no edital.</p><p>A organização é da <b>Fundação FAFIPA</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
+  "editorial": "<p>A Prefeitura de Coronel Vivida abriu concurso público de âmbito municipal, em Coronel Vivida / PR, com vaga para <b>Contador</b>. A oferta é para cadastro de reserva.</p><p>A remuneração do cargo é de <b>R$ 6.347,27</b>. É um valor acima da mediana dos concursos contábeis hoje no radar (R$ 4.396,32).</p><p>As inscrições vão de 11/08/2026 a <b>08/10/2026</b>, ou seja, 30 dias a partir de hoje.</p><p>A seleção prevê provas objetivas, com prova marcada para 01/11/2026.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Confirme a exigência exata no edital.</p><p>A organização é da <b>Fundação FAFIPA</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
   "banca": "Fundação FAFIPA",
   "bancaDominio": "fundacaofafipa.org.br",
   "pdfArquivo": "data/editais-pdf/e-514530b6bdd5-005b8854.pdf",
@@ -2466,7 +2464,7 @@
   "resumo": "Oportunidades para candidatos com nível superior oferecem remunerações de até R$ 3.868,20 com jornadas de 20 horas semanais. A seleção contará com provas de múltipla escolha e análise de títulos.",
   "detalhes": {},
   "pdfEdital": "https://www.imam.org.br/documentos/EditalCamaraDivisaNovaConcuso001202691639210066104270828.pdf",
-  "editorial": "<p>A Câmara de Divisa Nova abriu concurso público de âmbito municipal, em Divisa Nova / MG, com vaga para <b>Contador</b>. São 1 vaga(s).</p><p>A remuneração do cargo é de <b>R$ 3.868,20</b>. O valor está em linha com a mediana dos concursos contábeis hoje no radar (R$ 4.852,57).</p><p>As inscrições vão de 06/10/2026 a <b>10/11/2026</b>, ou seja, 63 dias a partir de hoje.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Confirme a exigência exata no edital.</p><p>A organização é da <b>IMAM Concursos</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
+  "editorial": "<p>A Câmara de Divisa Nova abriu concurso público de âmbito municipal, em Divisa Nova / MG, com vaga para <b>Contador</b>. São 1 vaga(s).</p><p>A remuneração do cargo é de <b>R$ 3.868,20</b>. O valor está em linha com a mediana dos concursos contábeis hoje no radar (R$ 4.396,32).</p><p>As inscrições vão de 06/10/2026 a <b>10/11/2026</b>, ou seja, 63 dias a partir de hoje.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Confirme a exigência exata no edital.</p><p>A organização é da <b>IMAM Concursos</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
   "banca": "IMAM Concursos",
   "bancaDominio": "imam.org.br",
   "pdfArquivo": "data/editais-pdf/e-8765850de9a5-fd3885bf.pdf",
@@ -2546,7 +2544,7 @@
   "lon": -51.7928,
   "geoAprox": false,
   "revisado": false,
-  "editorial": "<p>A Prefeitura de Marialva abriu concurso público de âmbito municipal, em Marialva / PR, com vaga para <b>Contador</b>. São 1 vaga(s).</p><p>A remuneração do cargo é de <b>R$ 6.768,66</b>. É um valor acima da mediana dos concursos contábeis hoje no radar (R$ 4.852,57).</p><p>As inscrições vão de 10/08/2026 a <b>03/09/2026</b>. O prazo já encerrou.</p><p>A seleção prevê provas objetivas, com prova marcada para 27/09/2026.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Confirme a exigência exata no edital.</p><p>A organização é da <b>FAFIPA</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
+  "editorial": "<p>A Prefeitura de Marialva abriu concurso público de âmbito municipal, em Marialva / PR, com vaga para <b>Contador</b>. São 1 vaga(s).</p><p>A remuneração do cargo é de <b>R$ 6.768,66</b>. É um valor acima da mediana dos concursos contábeis hoje no radar (R$ 4.396,32).</p><p>As inscrições vão de 10/08/2026 a <b>03/09/2026</b>. O prazo já encerrou.</p><p>A seleção prevê provas objetivas, com prova marcada para 27/09/2026.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Confirme a exigência exata no edital.</p><p>A organização é da <b>FAFIPA</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
   "banca": "FAFIPA",
   "bancaDominio": "fundacaofafipa.org.br"
  },
@@ -2588,7 +2586,7 @@
   "lon": -44.4729,
   "geoAprox": false,
   "revisado": false,
-  "editorial": "<p>A Prefeitura de Conceição da Barra de Minas abriu concurso público de âmbito municipal, em Conceição da Barra de Minas / MG, com vaga para <b>Contador</b>. São 1 vaga(s).</p><p>A remuneração do cargo é de <b>R$ 4.856,66</b>. O valor está em linha com a mediana dos concursos contábeis hoje no radar (R$ 4.852,57).</p><p>As inscrições vão de 19/08/2026 a <b>18/09/2026</b>, ou seja, 10 dias a partir de hoje.</p><p>A seleção prevê prova objetiva, prova prática e prova de títulos.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Confirme a exigência exata no edital.</p><p>A organização é da <b>JCM Concursos</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
+  "editorial": "<p>A Prefeitura de Conceição da Barra de Minas abriu concurso público de âmbito municipal, em Conceição da Barra de Minas / MG, com vaga para <b>Contador</b>. São 1 vaga(s).</p><p>A remuneração do cargo é de <b>R$ 4.856,66</b>. O valor está em linha com a mediana dos concursos contábeis hoje no radar (R$ 4.396,32).</p><p>As inscrições vão de 19/08/2026 a <b>18/09/2026</b>, ou seja, 10 dias a partir de hoje.</p><p>A seleção prevê prova objetiva, prova prática e prova de títulos.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Confirme a exigência exata no edital.</p><p>A organização é da <b>JCM Concursos</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
   "bancaDominio": "jcmconcursos.com.br",
   "pdfArquivo": "data/editais-pdf/e-b1fe838e202d-669963d8.pdf",
   "pdfArquivoEm": "2026-09-08"
@@ -2625,7 +2623,7 @@
   "lon": -52.0278,
   "geoAprox": false,
   "revisado": false,
-  "editorial": "<p>A Câmara de Concórdia abriu concurso público de âmbito municipal, em Concórdia / SC, com vaga para <b>Contador</b>. São 1 + cadastro de reserva vaga(s).</p><p>A remuneração do cargo é de <b>R$ 9.900,22</b>. É um valor acima da mediana dos concursos contábeis hoje no radar (R$ 4.852,57).</p><p>As inscrições vão de 19/08/2026 a <b>18/09/2026</b>, ou seja, 10 dias a partir de hoje.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Confirme a exigência exata no edital.</p><p>A organização é da <b>IBAM Concursos</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
+  "editorial": "<p>A Câmara de Concórdia abriu concurso público de âmbito municipal, em Concórdia / SC, com vaga para <b>Contador</b>. São 1 + cadastro de reserva vaga(s).</p><p>A remuneração do cargo é de <b>R$ 9.900,22</b>. É um valor acima da mediana dos concursos contábeis hoje no radar (R$ 4.396,32).</p><p>As inscrições vão de 19/08/2026 a <b>18/09/2026</b>, ou seja, 10 dias a partir de hoje.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Confirme a exigência exata no edital.</p><p>A organização é da <b>IBAM Concursos</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
   "bancaDominio": "ibam-concursos.org.br",
   "pdfArquivo": "data/editais-pdf/e-89a472626acd-9cde8f7f.pdf",
   "pdfArquivoEm": "2026-09-08"
@@ -2666,7 +2664,7 @@
   "lon": -51.095,
   "geoAprox": false,
   "revisado": false,
-  "editorial": "<p>A Prefeitura de Calmon abriu concurso público de âmbito municipal, em Calmon / SC, com vaga para <b>Técnico Em Contabilidade</b>. São 1 vaga(s) imediata(s) mais cadastro de reserva.</p><p>A remuneração do cargo é de <b>R$ 4.047,37</b>. O valor está em linha com a mediana dos concursos contábeis hoje no radar (R$ 4.852,57).</p><p>As inscrições vão de 23/08/2026 a <b>14/09/2026</b> — restam apenas 6 dia(s).</p><p>A seleção prevê provas objetivas.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Confirme a exigência exata no edital.</p><p>A organização é da <b>Fundação FAFIPA</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
+  "editorial": "<p>A Prefeitura de Calmon abriu concurso público de âmbito municipal, em Calmon / SC, com vaga para <b>Técnico Em Contabilidade</b>. São 1 vaga(s) imediata(s) mais cadastro de reserva.</p><p>A remuneração do cargo é de <b>R$ 4.047,37</b>. O valor está em linha com a mediana dos concursos contábeis hoje no radar (R$ 4.396,32).</p><p>As inscrições vão de 23/08/2026 a <b>14/09/2026</b> — restam apenas 6 dia(s).</p><p>A seleção prevê provas objetivas.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Confirme a exigência exata no edital.</p><p>A organização é da <b>Fundação FAFIPA</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
   "bancaDominio": "fundacaofafipa.org.br",
   "pdfArquivo": "data/editais-pdf/e-70bc3fedef7d-b2e5ca15.pdf",
   "pdfArquivoEm": "2026-09-08"
@@ -2707,7 +2705,7 @@
   "lon": -51.0809,
   "geoAprox": false,
   "revisado": false,
-  "editorial": "<p>A Prefeitura de Alvorada abriu concurso público de âmbito municipal, em Alvorada / RS, com vaga para <b>Contador</b>. A oferta é para cadastro de reserva.</p><p>A remuneração do cargo é de <b>R$ 18.974,55</b>. É um valor acima da mediana dos concursos contábeis hoje no radar (R$ 4.852,57).</p><p>As inscrições vão de 28/08/2026 a <b>26/09/2026</b>, ou seja, 18 dias a partir de hoje.</p><p>A seleção prevê provas objetivas.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Confirme a exigência exata no edital.</p><p>A organização é da <b>Instituto Legalle</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
+  "editorial": "<p>A Prefeitura de Alvorada abriu concurso público de âmbito municipal, em Alvorada / RS, com vaga para <b>Contador</b>. A oferta é para cadastro de reserva.</p><p>A remuneração divulgada para o concurso é de <b>R$ 18.974,55</b>. Esse valor ainda não foi conferido no anexo de vencimentos e pode ser de outro cargo do mesmo edital — confirme antes de se inscrever. a partir de.</p><p>As inscrições vão de 28/08/2026 a <b>26/09/2026</b>, ou seja, 18 dias a partir de hoje.</p><p>A seleção prevê provas objetivas.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Confirme a exigência exata no edital.</p><p>A organização é da <b>Instituto Legalle</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
   "bancaDominio": "institutolegalle.org.br",
   "pdfArquivo": "data/editais-pdf/e-738acdd04f04-8dba13a6.pdf",
   "pdfArquivoEm": "2026-09-08"
@@ -2748,7 +2746,7 @@
   "lon": -44.9411,
   "geoAprox": false,
   "revisado": false,
-  "editorial": "<p>SAAE - Serviço Autônomo de Água e Esgoto do Município de Pirapora abriu concurso público de âmbito municipal, em Pirapora / MG, com vaga para <b>Contador</b>. São 1 vaga(s).</p><p>A remuneração do cargo é de <b>R$ 4.848,48</b>. O valor está em linha com a mediana dos concursos contábeis hoje no radar (R$ 4.852,57).</p><p>As inscrições vão de 20/10/2026 a <b>18/11/2026</b>, ou seja, 71 dias a partir de hoje. A taxa de inscrição é de R$ 100,00.</p><p>A seleção prevê provas objetivas, com prova marcada para 20/12/2026.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Confirme a exigência exata no edital.</p><p>A organização é da <b>IBGP Concursos</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
+  "editorial": "<p>SAAE - Serviço Autônomo de Água e Esgoto do Município de Pirapora abriu concurso público de âmbito municipal, em Pirapora / MG, com vaga para <b>Contador</b>. São 1 vaga(s).</p><p>A remuneração do cargo é de <b>R$ 4.848,48</b>. O valor está em linha com a mediana dos concursos contábeis hoje no radar (R$ 4.396,32).</p><p>As inscrições vão de 20/10/2026 a <b>18/11/2026</b>, ou seja, 71 dias a partir de hoje. A taxa de inscrição é de R$ 100,00.</p><p>A seleção prevê provas objetivas, com prova marcada para 20/12/2026.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Confirme a exigência exata no edital.</p><p>A organização é da <b>IBGP Concursos</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
   "bancaDominio": "ibgpconcursos.com.br",
   "pdfArquivo": "data/editais-pdf/e-44bf03a16d51-f09418ba.pdf",
   "pdfArquivoEm": "2026-09-08"
@@ -2789,7 +2787,7 @@
   "lon": -47.6779,
   "geoAprox": false,
   "revisado": false,
-  "editorial": "<p>A Câmara de Nova Ponte abriu concurso público de âmbito municipal, em Nova Ponte / MG, com vaga para <b>Controlador Interno</b>. São 1 vaga(s).</p><p>A remuneração do cargo é de <b>R$ 5.200,00</b>. O valor está em linha com a mediana dos concursos contábeis hoje no radar (R$ 4.852,57).</p><p>As inscrições vão de 27/10/2026 a <b>26/11/2026</b>, ou seja, 79 dias a partir de hoje.</p><p>A seleção prevê prova objetiva.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Confirme a exigência exata no edital.</p><p>A organização é da <b>Versatilsolucoesadm</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
+  "editorial": "<p>A Câmara de Nova Ponte abriu concurso público de âmbito municipal, em Nova Ponte / MG, com vaga para <b>Controlador Interno</b>. São 1 vaga(s).</p><p>A remuneração do cargo é de <b>R$ 5.200,00</b>. O valor está em linha com a mediana dos concursos contábeis hoje no radar (R$ 4.396,32).</p><p>As inscrições vão de 27/10/2026 a <b>26/11/2026</b>, ou seja, 79 dias a partir de hoje.</p><p>A seleção prevê prova objetiva.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Confirme a exigência exata no edital.</p><p>A organização é da <b>Versatilsolucoesadm</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
   "bancaDominio": "versatilsolucoesadm.com.br",
   "pdfArquivo": "data/editais-pdf/e-e754e51f2554-584ea63c.pdf",
   "pdfArquivoEm": "2026-09-08"
@@ -2830,7 +2828,7 @@
   "lon": -44.1744,
   "geoAprox": false,
   "revisado": false,
-  "editorial": "<p>A Câmara de Tiradentes abriu concurso público de âmbito municipal, em Tiradentes / MG, com vaga para <b>Controlador Interno</b>. São 1 vaga(s).</p><p>A remuneração do cargo é de <b>R$ 2.952,86</b>. O valor fica abaixo da mediana dos concursos contábeis hoje no radar (R$ 4.852,57).</p><p>As inscrições vão de 26/10/2026 a <b>24/11/2026</b>, ou seja, 77 dias a partir de hoje.</p><p>A seleção prevê provas objetivas.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Confirme a exigência exata no edital.</p><p>A organização é da <b>Ibdoprojetos</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
+  "editorial": "<p>A Câmara de Tiradentes abriu concurso público de âmbito municipal, em Tiradentes / MG, com vaga para <b>Controlador Interno</b>. São 1 vaga(s).</p><p>A remuneração do cargo é de <b>R$ 2.952,86</b>. O valor fica abaixo da mediana dos concursos contábeis hoje no radar (R$ 4.396,32).</p><p>As inscrições vão de 26/10/2026 a <b>24/11/2026</b>, ou seja, 77 dias a partir de hoje.</p><p>A seleção prevê provas objetivas.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Confirme a exigência exata no edital.</p><p>A organização é da <b>Ibdoprojetos</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
   "bancaDominio": "ibdoprojetos.org.br",
   "pdfArquivo": "data/editais-pdf/e-806e186d6508-31b3486c.pdf",
   "pdfArquivoEm": "2026-09-08"
@@ -2871,7 +2869,7 @@
   "lon": -48.5477,
   "geoAprox": true,
   "revisado": false,
-  "editorial": "<p>A Câmara de Vereadores de São Joaquim abriu concurso público de âmbito municipal, em Vereadores de São Joaquim / SC, com vaga para <b>Assessor De Contabilidade, Assessor Jurídico, Secretário(A)</b>. São 943 vaga(s) imediata(s) mais cadastro de reserva.</p><p>A remuneração divulgada para o concurso é de <b>R$ 9.870,45</b>. Esse valor ainda não foi conferido no anexo de vencimentos e pode ser de outro cargo do mesmo edital — confirme antes de se inscrever.</p><p>As inscrições vão de 28/08/2026 a <b>27/09/2026</b>, ou seja, 19 dias a partir de hoje.</p><p>A seleção prevê prova objetiva.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Confirme a exigência exata no edital.</p><p>A organização é da <b>Acesseconcursossc</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
+  "editorial": "<p>A Câmara de Vereadores de São Joaquim abriu concurso público de âmbito municipal, em Vereadores de São Joaquim / SC, com vaga para <b>Assessor De Contabilidade, Assessor Jurídico, Secretário(A)</b>. A oferta é para cadastro de reserva.</p><p>A remuneração divulgada para o concurso é de <b>R$ 9.870,45</b>. Esse valor ainda não foi conferido no anexo de vencimentos e pode ser de outro cargo do mesmo edital — confirme antes de se inscrever.</p><p>As inscrições vão de 28/08/2026 a <b>27/09/2026</b>, ou seja, 19 dias a partir de hoje.</p><p>A seleção prevê prova objetiva.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Confirme a exigência exata no edital.</p><p>A organização é da <b>Acesseconcursossc</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
   "bancaDominio": "acesseconcursossc.com.br"
  },
  {
@@ -2999,7 +2997,7 @@
   "cidade": "Piratini",
   "vagas": "1 + Cadastro de Reserva",
   "salario": 5471.63,
-  "salarioObs": "",
+  "salarioObs": "a partir de",
   "cargaHoraria": "",
   "escolaridade": "superior",
   "nivel": "municipal",
@@ -3010,7 +3008,7 @@
   "taxaInscricao": 0,
   "editalUrl": "edital.html?id=e-fc3872c0787f",
   "siteInscricao": "https://portal.institutoiaspe.com.br/edital/ver/12",
-  "pdfEdital": "https://cdn.institutoiaspe.com.br/edital/1/12/f14cbe69c6d908d8736d4e4f124cccca.pdf",
+  "pdfEdital": "",
   "procedencia": "https://www.pciconcursos.com.br/noticias/camara-de-piratini-rs-abre-concurso-publico-para-contador-oficial-legislativo-e-servente",
   "fonte": "PCI Concursos",
   "capturadoEm": "2026-09-08T10:04:52",
@@ -3026,10 +3024,8 @@
   "lon": -53.0973,
   "geoAprox": false,
   "revisado": false,
-  "editorial": "<p>A Câmara de Piratini abriu concurso público de âmbito municipal, em Piratini / RS, com vaga para <b>Contador</b>. São 1 + Cadastro de Reserva vaga(s).</p><p>A remuneração do cargo é de <b>R$ 5.471,63</b>. O valor está em linha com a mediana dos concursos contábeis hoje no radar (R$ 4.852,57).</p><p>As inscrições vão de 11/09/2026 a <b>01/10/2026</b>, ou seja, 23 dias a partir de hoje.</p><p>A seleção prevê prova objetiva.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Confirme a exigência exata no edital.</p><p>A organização é da <b>Institutoiaspe</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
-  "bancaDominio": "institutoiaspe.com.br",
-  "pdfArquivo": "data/editais-pdf/e-fc3872c0787f-909e2bf3.pdf",
-  "pdfArquivoEm": "2026-09-08"
+  "editorial": "<p>A Câmara de Piratini abriu concurso público de âmbito municipal, em Piratini / RS, com vaga para <b>Contador</b>. São 1 + Cadastro de Reserva vaga(s).</p><p>A remuneração divulgada para o concurso é de <b>R$ 5.471,63</b>. Esse valor ainda não foi conferido no anexo de vencimentos e pode ser de outro cargo do mesmo edital — confirme antes de se inscrever. a partir de.</p><p>As inscrições vão de 11/09/2026 a <b>01/10/2026</b>, ou seja, 23 dias a partir de hoje.</p><p>A seleção prevê prova objetiva.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Confirme a exigência exata no edital.</p><p>A organização é da <b>Institutoiaspe</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
+  "bancaDominio": "institutoiaspe.com.br"
  },
  {
   "id": "e-59e500fb5b87",
@@ -3068,7 +3064,7 @@
   "lon": -51.2177,
   "geoAprox": true,
   "revisado": false,
-  "editorial": "<p>A EPTC - Empresa Pública de Transporte e Circulação S/A abriu concurso público de âmbito municipal, em Porto Alegre / RS, com vaga para <b>Contador</b>. A oferta é para cadastro de reserva.</p><p>A remuneração divulgada para o concurso é de <b>R$ 9.780,90</b>. Esse valor ainda não foi conferido no anexo de vencimentos e pode ser de outro cargo do mesmo edital — confirme antes de se inscrever.</p><p>As inscrições vão de 09/09/2026 a <b>09/10/2026</b>, ou seja, 31 dias a partir de hoje.</p><p>A seleção prevê provas objetivas e avaliação de títulos.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Confirme a exigência exata no edital.</p>"
+  "editorial": "<p>EPTC - Empresa Pública de Transporte e Circulação S/A abriu concurso público de âmbito municipal, em Porto Alegre / RS, com vaga para <b>Contador</b>. A oferta é para cadastro de reserva.</p><p>A remuneração divulgada para o concurso é de <b>R$ 9.780,90</b>. Esse valor ainda não foi conferido no anexo de vencimentos e pode ser de outro cargo do mesmo edital — confirme antes de se inscrever.</p><p>As inscrições vão de 09/09/2026 a <b>09/10/2026</b>, ou seja, 31 dias a partir de hoje.</p><p>A seleção prevê provas objetivas e avaliação de títulos.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Confirme a exigência exata no edital.</p>"
  },
  {
   "id": "e-6e23f02d1fbd",
@@ -3106,7 +3102,7 @@
   "lon": -52.6783,
   "geoAprox": false,
   "revisado": false,
-  "editorial": "<p>A Prefeitura de Canguçu abriu concurso público de âmbito municipal, em Canguçu / RS, com vaga para <b>Contador</b>. São 1 vaga(s) imediata(s) mais cadastro de reserva.</p><p>A remuneração do cargo é de <b>R$ 7.470,46</b>. É um valor acima da mediana dos concursos contábeis hoje no radar (R$ 4.852,57).</p><p>As inscrições vão de 10/09/2026 a <b>02/10/2026</b>, ou seja, 24 dias a partir de hoje.</p><p>A seleção prevê provas objetivas.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Confirme a exigência exata no edital.</p><p>A organização é da <b>Objetiva Concursos</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
+  "editorial": "<p>A Prefeitura de Canguçu abriu concurso público de âmbito municipal, em Canguçu / RS, com vaga para <b>Contador</b>. São 1 vaga(s) imediata(s) mais cadastro de reserva.</p><p>A remuneração do cargo é de <b>R$ 7.470,46</b>. É um valor acima da mediana dos concursos contábeis hoje no radar (R$ 4.396,32).</p><p>As inscrições vão de 10/09/2026 a <b>02/10/2026</b>, ou seja, 24 dias a partir de hoje.</p><p>A seleção prevê provas objetivas.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Confirme a exigência exata no edital.</p><p>A organização é da <b>Objetiva Concursos</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
   "bancaDominio": "objetivas.com.br",
   "pdfArquivo": "data/editais-pdf/e-6e23f02d1fbd-5e60972a.pdf",
   "pdfArquivoEm": "2026-09-08"
@@ -3185,7 +3181,7 @@
   "lon": -46.6333,
   "geoAprox": true,
   "revisado": false,
-  "editorial": "<p>EMDAEP - Empresa de Desenvolvimento, Água, Esgoto e Pavimentação de Dracena abriu concurso público de âmbito federal, em SP, com vaga para <b>Auxiliar De Contabilidade</b>. São 1 vaga(s).</p><p>A remuneração do cargo é de <b>R$ 3.422,75</b>. O valor está em linha com a mediana dos concursos contábeis hoje no radar (R$ 4.852,57).</p><p>As inscrições vão de 18/08/2026 a <b>13/09/2026</b> — restam apenas 5 dia(s).</p><p>A seleção prevê prova objetiva e prova prática.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Confirme a exigência exata no edital.</p><p>A organização é da <b>CONSESP</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
+  "editorial": "<p>EMDAEP - Empresa de Desenvolvimento, Água, Esgoto e Pavimentação de Dracena abriu concurso público de âmbito federal, em SP, com vaga para <b>Auxiliar De Contabilidade</b>. São 1 vaga(s).</p><p>A remuneração do cargo é de <b>R$ 3.422,75</b>. O valor está em linha com a mediana dos concursos contábeis hoje no radar (R$ 4.396,32).</p><p>As inscrições vão de 18/08/2026 a <b>13/09/2026</b> — restam apenas 5 dia(s).</p><p>A seleção prevê prova objetiva e prova prática.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Confirme a exigência exata no edital.</p><p>A organização é da <b>CONSESP</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
   "banca": "CONSESP",
   "bancaDominio": "consesp.com.br",
   "pdfArquivo": "data/editais-pdf/e-4caf1f212e1a-c3e43667.pdf",
@@ -3223,7 +3219,7 @@
   "lon": -44.261,
   "geoAprox": false,
   "revisado": false,
-  "editorial": "<p>O MUNICÍPIO DE SÃO JOÃO DEL-REI abriu concurso público de âmbito municipal, em São João Del-Rei / MG, com vaga para <b>Agente Fiscal de Tributos</b>. São 3 vaga(s).</p><p>A remuneração do cargo é de <b>R$ 4.040,05</b>. O valor está em linha com a mediana dos concursos contábeis hoje no radar (R$ 5.554,20).</p><p>As inscrições vão de 13/10/2026 a <b>12/11/2026</b>, ou seja, 65 dias a partir de hoje. A taxa de inscrição é de R$ 80,00.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Cargos de auditoria e fiscalização costumam aceitar também formações afins, o que tende a ampliar a concorrência. Confirme a exigência exata no edital.</p><p>A organização é da <b>IBGP Concursos</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
+  "editorial": "<p>O MUNICÍPIO DE SÃO JOÃO DEL-REI abriu concurso público de âmbito municipal, em São João Del-Rei / MG, com vaga para <b>Agente Fiscal de Tributos</b>. São 3 vaga(s).</p><p>A remuneração do cargo é de <b>R$ 4.040,05</b>. O valor está em linha com a mediana dos concursos contábeis hoje no radar (R$ 4.396,32).</p><p>As inscrições vão de 13/10/2026 a <b>12/11/2026</b>, ou seja, 65 dias a partir de hoje. A taxa de inscrição é de R$ 80,00.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Cargos de auditoria e fiscalização costumam aceitar também formações afins, o que tende a ampliar a concorrência. Confirme a exigência exata no edital.</p><p>A organização é da <b>IBGP Concursos</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
   "bancaDominio": "ibgpconcursos.com.br",
   "pdfArquivo": "data/editais-pdf/e-868ad33e742c-63fae306.pdf",
   "pdfArquivoEm": "2026-09-08"
@@ -3264,7 +3260,7 @@
    ]
   },
   "pdfEdital": "https://cdnsite.institutoconsulplan.org.br/concursos/1331/555360588c374dd5a5ef8499bf2f01d7.pdf",
-  "editorial": "<p>O CIDENNF - Consórcio Público Intermunicipal de Desenvolvimento do Norte e Noroeste Fluminense abriu concurso público de âmbito municipal, em RJ, com vaga para <b>Contador</b>. São 5 vaga(s) imediata(s) mais cadastro de reserva.</p><p>A remuneração do cargo é de <b>R$ 5.020,00</b>. O valor está em linha com a mediana dos concursos contábeis hoje no radar (R$ 4.852,57).</p><p>As inscrições vão de 13/08/2026 a <b>14/09/2026</b> — restam apenas 6 dia(s).</p><p>A seleção prevê provas objetivas e avaliação de títulos.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Confirme a exigência exata no edital.</p><p>A organização é da <b>Instituto Consulplan</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
+  "editorial": "<p>O CIDENNF - Consórcio Público Intermunicipal de Desenvolvimento do Norte e Noroeste Fluminense abriu concurso público de âmbito municipal, em RJ, com vaga para <b>Contador</b>. São 5 vaga(s) imediata(s) mais cadastro de reserva.</p><p>A remuneração do cargo é de <b>R$ 5.020,00</b>. O valor está em linha com a mediana dos concursos contábeis hoje no radar (R$ 4.396,32).</p><p>As inscrições vão de 13/08/2026 a <b>14/09/2026</b> — restam apenas 6 dia(s).</p><p>A seleção prevê provas objetivas e avaliação de títulos.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Confirme a exigência exata no edital.</p><p>A organização é da <b>Instituto Consulplan</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
   "banca": "Instituto Consulplan",
   "bancaDominio": "institutoconsulplan.org.br",
   "pdfArquivo": "data/editais-pdf/e-8a3f46821d27-3ff9fbcc.pdf",
@@ -3307,7 +3303,7 @@
    ]
   },
   "pdfEdital": "https://novo.ibgpconcursos.com.br/rest/concurso/download/edital/23768/?file=site/anexos/739/01%20-%20ANEXO%20I%20-%20REQUISITOS.pdf",
-  "editorial": "<p>A Prefeitura de Contagem abriu concurso público de âmbito municipal, em Contagem / MG, com vaga para <b>Contador</b>. São 3 vaga(s).</p><p>A remuneração do cargo é de <b>R$ 6.020,23</b>. O valor está em linha com a mediana dos concursos contábeis hoje no radar (R$ 4.852,57).</p><p>As inscrições vão de 19/10/2026 a <b>17/11/2026</b>, ou seja, 70 dias a partir de hoje. A taxa de inscrição é de R$ 100,00.</p><p>A seleção prevê prova objetiva, prova discursiva e prova de títulos, com prova marcada para 24/01/2027.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Confirme a exigência exata no edital.</p><p>A organização é da <b>IBGP Concursos</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
+  "editorial": "<p>A Prefeitura de Contagem abriu concurso público de âmbito municipal, em Contagem / MG, com vaga para <b>Contador</b>. São 3 vaga(s).</p><p>A remuneração do cargo é de <b>R$ 6.020,23</b>. É um valor acima da mediana dos concursos contábeis hoje no radar (R$ 4.396,32).</p><p>As inscrições vão de 19/10/2026 a <b>17/11/2026</b>, ou seja, 70 dias a partir de hoje. A taxa de inscrição é de R$ 100,00.</p><p>A seleção prevê prova objetiva, prova discursiva e prova de títulos, com prova marcada para 24/01/2027.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Confirme a exigência exata no edital.</p><p>A organização é da <b>IBGP Concursos</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
   "banca": "IBGP Concursos",
   "bancaDominio": "ibgpconcursos.com.br",
   "pdfArquivo": "data/editais-pdf/e-76b7bd27677d-1856e0b0.pdf",
@@ -3320,10 +3316,10 @@
   "uf": "SP",
   "cidade": "",
   "vagas": "1 + CR",
-  "salario": 11576.25,
+  "salario": 4837.22,
   "salarioObs": "",
   "cargaHoraria": "",
-  "escolaridade": "superior",
+  "escolaridade": "medio",
   "nivel": "municipal",
   "status": "encerrando",
   "inscricaoInicio": "2026-08-03",
@@ -3337,7 +3333,7 @@
   "_trecho": " Autarquia Municipal de Saúde de Itapecerica da Serra - SP abre concurso público com salários de até R$ 11.576,25 {\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"NewsArticle\",\"@id\":\"https://www.pciconcursos.com.br/noticias/autarquia-municipal-de-saude-de-itapecerica-da-serra-sp-abre-concurso-pu",
   "revisado": false,
   "procedencia": "https://www.pciconcursos.com.br/noticias/autarquia-municipal-de-saude-de-itapecerica-da-serra-sp-abre-concurso-publico-com-salarios-de-ate-11576",
-  "siteInscricao": "https://www.avancasp.org.br/informacoes/269/",
+  "siteInscricao": "https://www.avancasp.org.br/informacoes/266/",
   "lat": -23.7161,
   "lon": -46.8572,
   "geoAprox": false,
@@ -3347,12 +3343,10 @@
     "Provas objetivas"
    ]
   },
-  "pdfEdital": "https://anexos-r2.selecao.net.br/uploads/301/concursos/269/anexos/b5c9637f-a423-4da5-8aaf-38e19c35e48f.pdf",
-  "editorial": "<p>A Autarquia Municipal de Saúde de Itapecerica da Serra abriu concurso público de âmbito municipal, em SP, com vaga para <b>Técnico Em Contabilidade</b>. São 1 vaga(s) imediata(s) mais cadastro de reserva.</p><p>A remuneração do cargo é de <b>R$ 11.576,25</b>. É um valor acima da mediana dos concursos contábeis hoje no radar (R$ 4.852,57).</p><p>As inscrições vão de 03/08/2026 a <b>08/09/2026</b> — <b>hoje é o último dia</b>.</p><p>A seleção prevê provas objetivas.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Confirme a exigência exata no edital.</p><p>A organização é da <b>AvançaSP</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
+  "pdfEdital": "https://anexos-r2.selecao.net.br/uploads/301/concursos/266/anexos/05d3a1ad-808d-4e2d-847b-c5d419c417ce.pdf",
+  "editorial": "<p>A Autarquia Municipal de Saúde de Itapecerica da Serra abriu concurso público de âmbito municipal, em SP, com vaga para <b>Técnico Em Contabilidade</b>. São 1 vaga(s) imediata(s) mais cadastro de reserva.</p><p>A remuneração do cargo é de <b>R$ 4.837,22</b>. O valor está em linha com a mediana dos concursos contábeis hoje no radar (R$ 4.396,32).</p><p>As inscrições vão de 03/08/2026 a <b>08/09/2026</b> — <b>hoje é o último dia</b>.</p><p>A seleção prevê provas objetivas.</p><p>A vaga é de nível médio/técnico — o requisito costuma ser curso técnico em contabilidade com registro no CRC. Confirme a exigência exata no edital.</p><p>A organização é da <b>AvançaSP</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
   "banca": "AvançaSP",
-  "bancaDominio": "avancasp.org.br",
-  "pdfArquivo": "data/editais-pdf/e-8ae1ed707c66-5f0886da.pdf",
-  "pdfArquivoEm": "2026-09-08"
+  "bancaDominio": "avancasp.org.br"
  },
  {
   "id": "e-d6d580e07db4",
@@ -3425,7 +3419,7 @@
   "lon": -42.4139,
   "geoAprox": false,
   "revisado": false,
-  "editorial": "<p>O MUNICÍPIO DE IPABA abriu concurso público de âmbito municipal, em Ipaba / MG, com vaga para <b>Contador</b>. São 1 vaga(s).</p><p>A remuneração do cargo é de <b>R$ 4.396,32</b>. O valor está em linha com a mediana dos concursos contábeis hoje no radar (R$ 5.554,20).</p><p>As inscrições vão de 09/09/2026 a <b>08/10/2026</b>, ou seja, 30 dias a partir de hoje. A taxa de inscrição é de R$ 100,00.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Confirme a exigência exata no edital.</p><p>A organização é da <b>IBGP Concursos</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
+  "editorial": "<p>O MUNICÍPIO DE IPABA abriu concurso público de âmbito municipal, em Ipaba / MG, com vaga para <b>Contador</b>. São 1 vaga(s).</p><p>A remuneração do cargo é de <b>R$ 4.396,32</b>. O valor está em linha com a mediana dos concursos contábeis hoje no radar (R$ 4.396,32).</p><p>As inscrições vão de 09/09/2026 a <b>08/10/2026</b>, ou seja, 30 dias a partir de hoje. A taxa de inscrição é de R$ 100,00.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Confirme a exigência exata no edital.</p><p>A organização é da <b>IBGP Concursos</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
   "bancaDominio": "ibgpconcursos.com.br",
   "pdfArquivo": "data/editais-pdf/e-16f96b801833-6ebf71a2.pdf",
   "pdfArquivoEm": "2026-09-08"
@@ -3462,7 +3456,7 @@
   "lon": -44.261,
   "geoAprox": false,
   "revisado": false,
-  "editorial": "<p>O MUNICÍPIO DE SÃO JOÃO DEL-REI abriu concurso público de âmbito municipal, em São João Del-Rei / MG, com vaga para <b>Técnico Em Contabilidade</b>. São 1 vaga(s).</p><p>A remuneração do cargo é de <b>R$ 2.693,37</b>. O valor fica abaixo da mediana dos concursos contábeis hoje no radar (R$ 5.554,20).</p><p>As inscrições vão de 13/10/2026 a <b>12/11/2026</b>, ou seja, 65 dias a partir de hoje. A taxa de inscrição é de R$ 80,00.</p><p>A vaga é de nível médio/técnico — o requisito costuma ser curso técnico em contabilidade com registro no CRC. Confirme a exigência exata no edital.</p><p>A organização é da <b>IBGP Concursos</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
+  "editorial": "<p>O MUNICÍPIO DE SÃO JOÃO DEL-REI abriu concurso público de âmbito municipal, em São João Del-Rei / MG, com vaga para <b>Técnico Em Contabilidade</b>. São 1 vaga(s).</p><p>A remuneração do cargo é de <b>R$ 2.693,37</b>. O valor fica abaixo da mediana dos concursos contábeis hoje no radar (R$ 4.396,32).</p><p>As inscrições vão de 13/10/2026 a <b>12/11/2026</b>, ou seja, 65 dias a partir de hoje. A taxa de inscrição é de R$ 80,00.</p><p>A vaga é de nível médio/técnico — o requisito costuma ser curso técnico em contabilidade com registro no CRC. Confirme a exigência exata no edital.</p><p>A organização é da <b>IBGP Concursos</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
   "bancaDominio": "ibgpconcursos.com.br",
   "pdfArquivo": "data/editais-pdf/e-497444ffb59d-acaf291f.pdf",
   "pdfArquivoEm": "2026-09-08"
@@ -3536,7 +3530,7 @@
   "lon": -45.3498,
   "geoAprox": false,
   "revisado": false,
-  "editorial": "<p>CÂMARA MUNICIPAL DE LAMBARI abriu concurso público de âmbito municipal, em Lambari / MG, com vaga para <b>Contador Público</b>. São 1 vaga(s).</p><p>A remuneração do cargo é de <b>R$ 5.500,00</b>. O valor está em linha com a mediana dos concursos contábeis hoje no radar (R$ 5.554,20).</p><p>As inscrições vão de 20/10/2026 a <b>18/11/2026</b>, ou seja, 71 dias a partir de hoje. A taxa de inscrição é de R$ 100,00.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Confirme a exigência exata no edital.</p><p>A organização é da <b>IBGP Concursos</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
+  "editorial": "<p>CÂMARA MUNICIPAL DE LAMBARI abriu concurso público de âmbito municipal, em Lambari / MG, com vaga para <b>Contador Público</b>. São 1 vaga(s).</p><p>A remuneração do cargo é de <b>R$ 5.500,00</b>. O valor está em linha com a mediana dos concursos contábeis hoje no radar (R$ 4.396,32).</p><p>As inscrições vão de 20/10/2026 a <b>18/11/2026</b>, ou seja, 71 dias a partir de hoje. A taxa de inscrição é de R$ 100,00.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Confirme a exigência exata no edital.</p><p>A organização é da <b>IBGP Concursos</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
   "bancaDominio": "ibgpconcursos.com.br",
   "pdfArquivo": "data/editais-pdf/e-9ee6677ddfb3-cadf4709.pdf",
   "pdfArquivoEm": "2026-09-08"
@@ -3616,7 +3610,7 @@
   "lon": -48.549,
   "geoAprox": false,
   "revisado": false,
-  "editorial": "<p>O Município de Matinhos abriu concurso público de âmbito municipal, em Matinhos / PR, com vaga para <b>Contador</b>. São 1 vaga(s).</p><p>A remuneração do cargo é de <b>R$ 7.421,02</b>. O valor está em linha com a mediana dos concursos contábeis hoje no radar (R$ 5.554,20).</p><p>As inscrições vão de 05/08/2026 a <b>03/09/2026</b>. O prazo já encerrou.</p><p>A seleção prevê prova objetiva, com prova marcada para 20/09/2026.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Confirme a exigência exata no edital.</p><p>A organização é da <b>FAFIPA</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
+  "editorial": "<p>O Município de Matinhos abriu concurso público de âmbito municipal, em Matinhos / PR, com vaga para <b>Contador</b>. São 1 vaga(s).</p><p>A remuneração do cargo é de <b>R$ 7.421,02</b>. É um valor acima da mediana dos concursos contábeis hoje no radar (R$ 4.396,32).</p><p>As inscrições vão de 05/08/2026 a <b>03/09/2026</b>. O prazo já encerrou.</p><p>A seleção prevê prova objetiva, com prova marcada para 20/09/2026.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Confirme a exigência exata no edital.</p><p>A organização é da <b>FAFIPA</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
   "banca": "FAFIPA",
   "bancaDominio": "fundacaofafipa.org.br"
  },
@@ -3656,7 +3650,7 @@
    ]
   },
   "pdfEdital": "https://paulodefrontin.rj.gov.br/wp-content/plugins/frontin-core/assets/documents/edital-concurso-01-2026.pdf",
-  "editorial": "<p>A Prefeitura de Engenheiro Paulo de Frontin abriu concurso público de âmbito municipal, em Engenheiro Paulo de Frontin / RJ, com vaga para <b>Contador</b>. São 1 vaga(s).</p><p>A remuneração do cargo é de <b>R$ 4.273,72</b>. O valor está em linha com a mediana dos concursos contábeis hoje no radar (R$ 4.852,57).</p><p>As inscrições vão de 14/08/2026 a <b>17/09/2026</b>, ou seja, 9 dias a partir de hoje.</p><p>A seleção prevê prova objetiva e avaliação de títulos.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Confirme a exigência exata no edital.</p><p>A organização é da <b>Instituto Access</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
+  "editorial": "<p>A Prefeitura de Engenheiro Paulo de Frontin abriu concurso público de âmbito municipal, em Engenheiro Paulo de Frontin / RJ, com vaga para <b>Contador</b>. São 1 vaga(s).</p><p>A remuneração do cargo é de <b>R$ 4.273,72</b>. O valor está em linha com a mediana dos concursos contábeis hoje no radar (R$ 4.396,32).</p><p>As inscrições vão de 14/08/2026 a <b>17/09/2026</b>, ou seja, 9 dias a partir de hoje.</p><p>A seleção prevê prova objetiva e avaliação de títulos.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Confirme a exigência exata no edital.</p><p>A organização é da <b>Instituto Access</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
   "banca": "Instituto Access",
   "bancaDominio": "access.org.br",
   "pdfArquivo": "data/editais-pdf/e-49be55bc1b50-2e335e95.pdf",
@@ -3811,7 +3805,7 @@
   "lon": -51.095,
   "geoAprox": false,
   "revisado": false,
-  "editorial": "<p>O Município de Calmon abriu concurso público de âmbito municipal, em Calmon / SC, com vaga para <b>Contador</b>. A oferta é para cadastro de reserva.</p><p>A remuneração do cargo é de <b>R$ 7.314,30</b>. O valor está em linha com a mediana dos concursos contábeis hoje no radar (R$ 5.554,20).</p><p>As inscrições vão de 23/08/2026 a <b>14/09/2026</b> — restam apenas 6 dia(s).</p><p>A seleção prevê prova objetiva, com prova marcada para 11/10/2026.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Confirme a exigência exata no edital.</p><p>A organização é da <b>Fundação FAFIPA</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
+  "editorial": "<p>O Município de Calmon abriu concurso público de âmbito municipal, em Calmon / SC, com vaga para <b>Contador</b>. A oferta é para cadastro de reserva.</p><p>A remuneração do cargo é de <b>R$ 7.314,30</b>. É um valor acima da mediana dos concursos contábeis hoje no radar (R$ 4.396,32).</p><p>As inscrições vão de 23/08/2026 a <b>14/09/2026</b> — restam apenas 6 dia(s).</p><p>A seleção prevê prova objetiva, com prova marcada para 11/10/2026.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Confirme a exigência exata no edital.</p><p>A organização é da <b>Fundação FAFIPA</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
   "banca": "Fundação FAFIPA",
   "bancaDominio": "fundacaofafipa.org.br",
   "pdfArquivo": "data/editais-pdf/e-811397055bbf-b2e5ca15.pdf",
@@ -4009,7 +4003,7 @@
   "lon": -49.6892,
   "geoAprox": false,
   "revisado": false,
-  "editorial": "<p>A Câmara de José Bonifácio abriu concurso público de âmbito municipal, em José Bonifácio / SP, com vaga para <b>Contador</b>. São 1 vaga(s).</p><p>A remuneração do cargo é de <b>R$ 6.100,00</b>. O valor está em linha com a mediana dos concursos contábeis hoje no radar (R$ 4.852,57).</p><p>As inscrições vão de 28/08/2026 a <b>16/09/2026</b>, ou seja, 8 dias a partir de hoje.</p><p>A seleção prevê provas objetivas e avaliação de títulos.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Confirme a exigência exata no edital.</p><p>A organização é da <b>INEPAM</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
+  "editorial": "<p>A Câmara de José Bonifácio abriu concurso público de âmbito municipal, em José Bonifácio / SP, com vaga para <b>Contador</b>. São 1 vaga(s).</p><p>A remuneração do cargo é de <b>R$ 6.100,00</b>. É um valor acima da mediana dos concursos contábeis hoje no radar (R$ 4.396,32).</p><p>As inscrições vão de 28/08/2026 a <b>16/09/2026</b>, ou seja, 8 dias a partir de hoje.</p><p>A seleção prevê provas objetivas e avaliação de títulos.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Confirme a exigência exata no edital.</p><p>A organização é da <b>INEPAM</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
   "bancaDominio": "inepam.org.br",
   "pdfArquivo": "data/editais-pdf/e-e6d1015cba4b-23acdb49.pdf",
   "pdfArquivoEm": "2026-09-08"
@@ -4091,7 +4085,7 @@
   "lon": -48.1336,
   "geoAprox": false,
   "revisado": false,
-  "editorial": "<p>A Prefeitura de Anhembi abriu concurso público de âmbito municipal, em Anhembi / SP, com vaga para <b>Analista De Contabilidade</b>. São 1 vaga(s).</p><p>A remuneração do cargo é de <b>R$ 4.273,67</b>. O valor está em linha com a mediana dos concursos contábeis hoje no radar (R$ 4.852,57).</p><p>As inscrições vão de 01/09/2026 a <b>25/09/2026</b>, ou seja, 17 dias a partir de hoje.</p><p>A seleção prevê prova objetiva, prova prática e prova de títulos.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Confirme a exigência exata no edital.</p><p>A organização é da <b>INEPAM</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
+  "editorial": "<p>A Prefeitura de Anhembi abriu concurso público de âmbito municipal, em Anhembi / SP, com vaga para <b>Analista De Contabilidade</b>. São 1 vaga(s).</p><p>A remuneração do cargo é de <b>R$ 4.273,67</b>. O valor está em linha com a mediana dos concursos contábeis hoje no radar (R$ 4.396,32).</p><p>As inscrições vão de 01/09/2026 a <b>25/09/2026</b>, ou seja, 17 dias a partir de hoje.</p><p>A seleção prevê prova objetiva, prova prática e prova de títulos.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Confirme a exigência exata no edital.</p><p>A organização é da <b>INEPAM</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
   "bancaDominio": "inepam.org.br",
   "pdfArquivo": "data/editais-pdf/e-60b6a1b16704-9de2560a.pdf",
   "pdfArquivoEm": "2026-09-08"
@@ -4132,7 +4126,7 @@
   "lon": -42.7202,
   "geoAprox": false,
   "revisado": false,
-  "editorial": "<p>A Prefeitura de Tanguá abriu concurso público de âmbito municipal, em Tanguá / RJ, com vaga para <b>Fiscal De Tributos</b>. São 2 vaga(s).</p><p>A remuneração do cargo é de <b>R$ 2.992,50</b>. O valor fica abaixo da mediana dos concursos contábeis hoje no radar (R$ 4.852,57).</p><p>As inscrições vão de 01/09/2026 a <b>12/10/2026</b>, ou seja, 34 dias a partir de hoje.</p><p>A seleção prevê provas objetivas.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Cargos de auditoria e fiscalização costumam aceitar também formações afins, o que tende a ampliar a concorrência. Confirme a exigência exata no edital.</p><p>A organização é da <b>Ibdoprojetos</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
+  "editorial": "<p>A Prefeitura de Tanguá abriu concurso público de âmbito municipal, em Tanguá / RJ, com vaga para <b>Fiscal De Tributos</b>. São 2 vaga(s).</p><p>A remuneração do cargo é de <b>R$ 2.992,50</b>. O valor fica abaixo da mediana dos concursos contábeis hoje no radar (R$ 4.396,32).</p><p>As inscrições vão de 01/09/2026 a <b>12/10/2026</b>, ou seja, 34 dias a partir de hoje.</p><p>A seleção prevê provas objetivas.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Cargos de auditoria e fiscalização costumam aceitar também formações afins, o que tende a ampliar a concorrência. Confirme a exigência exata no edital.</p><p>A organização é da <b>Ibdoprojetos</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
   "bancaDominio": "ibdoprojetos.org.br",
   "pdfArquivo": "data/editais-pdf/e-313b98c6b47b-c312453f.pdf",
   "pdfArquivoEm": "2026-09-08"
@@ -4146,7 +4140,7 @@
   "cidade": "São Luís",
   "vagas": "76",
   "salario": 14675.58,
-  "salarioObs": "",
+  "salarioObs": "a partir de",
   "cargaHoraria": "",
   "escolaridade": "superior",
   "nivel": "estadual",
@@ -4157,7 +4151,7 @@
   "taxaInscricao": 0,
   "editalUrl": "edital.html?id=e-481017e19c94",
   "siteInscricao": "https://www.cebraspe.org.br/concursos/PERICIA_OFICIAL_MA_26",
-  "pdfEdital": "https://cdn.cebraspe.org.br/concursos/PERICIA_OFICIAL_MA_26/arquivos/74E03858B03ED6DADB2853B8FE9146D865348D136214591DA8357B850D550190.pdf",
+  "pdfEdital": "",
   "procedencia": "https://www.cebraspe.org.br/concursos/PERICIA_OFICIAL_MA_26",
   "fonte": "CEBRASPE",
   "capturadoEm": "2026-09-08T10:04:52",
@@ -4169,10 +4163,8 @@
   "lon": -44.30682,
   "geoAprox": false,
   "revisado": false,
-  "editorial": "<p>O PERICIA OFICIAL MA abriu concurso público de âmbito estadual, em São Luís / MA, com vaga para <b>Perito Criminal — Contador, Economista, Matemático</b>. São 76 vaga(s).</p><p>A remuneração do cargo é de <b>R$ 14.675,58</b>. É um valor acima da mediana dos concursos contábeis hoje no radar (R$ 5.554,20).</p><p>As inscrições vão de 31/07/2026 a <b>05/10/2026</b>, ou seja, 27 dias a partir de hoje.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Confirme a exigência exata no edital.</p><p>A organização é da <b>CESPE/CEBRASPE</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
-  "bancaDominio": "cebraspe.org.br",
-  "pdfArquivo": "data/editais-pdf/e-481017e19c94-eee38500.pdf",
-  "pdfArquivoEm": "2026-09-08"
+  "editorial": "<p>O PERICIA OFICIAL MA abriu concurso público de âmbito estadual, em São Luís / MA, com vaga para <b>Perito Criminal — Contador, Economista, Matemático</b>. São 76 vaga(s).</p><p>A remuneração divulgada para o concurso é de <b>R$ 14.675,58</b>. Esse valor ainda não foi conferido no anexo de vencimentos e pode ser de outro cargo do mesmo edital — confirme antes de se inscrever. a partir de.</p><p>As inscrições vão de 31/07/2026 a <b>05/10/2026</b>, ou seja, 27 dias a partir de hoje.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Confirme a exigência exata no edital.</p><p>A organização é da <b>CESPE/CEBRASPE</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
+  "bancaDominio": "cebraspe.org.br"
  },
  {
   "id": "e-6389b328f91f",
@@ -4248,7 +4240,7 @@
   "lon": -47.6047,
   "geoAprox": false,
   "revisado": false,
-  "editorial": "<p>A Câmara de Rio das Pedras abriu concurso público de âmbito municipal, em Rio das Pedras / SP, com vaga para <b>Contador</b>. A oferta é para cadastro de reserva.</p><p>A remuneração do cargo é de <b>R$ 5.856,50</b>. O valor está em linha com a mediana dos concursos contábeis hoje no radar (R$ 4.852,57).</p><p>As inscrições vão de 04/09/2026 a <b>06/10/2026</b>, ou seja, 28 dias a partir de hoje.</p><p>A seleção prevê prova objetiva.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Confirme a exigência exata no edital.</p><p>A organização é da <b>Omniinstituto</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
+  "editorial": "<p>A Câmara de Rio das Pedras abriu concurso público de âmbito municipal, em Rio das Pedras / SP, com vaga para <b>Contador</b>. A oferta é para cadastro de reserva.</p><p>A remuneração do cargo é de <b>R$ 5.856,50</b>. O valor está em linha com a mediana dos concursos contábeis hoje no radar (R$ 4.396,32).</p><p>As inscrições vão de 04/09/2026 a <b>06/10/2026</b>, ou seja, 28 dias a partir de hoje.</p><p>A seleção prevê prova objetiva.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Confirme a exigência exata no edital.</p><p>A organização é da <b>Omniinstituto</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
   "bancaDominio": "omniinstituto.org.br",
   "pdfArquivo": "data/editais-pdf/e-9ad915e17323-584400ce.pdf",
   "pdfArquivoEm": "2026-09-08"
@@ -4368,7 +4360,7 @@
   "lon": -47.4018,
   "geoAprox": false,
   "revisado": false,
-  "editorial": "<p>A Prefeitura de Limeira abriu concurso público de âmbito municipal, em Limeira / SP, com vaga para <b>Técnico De Contabilidade</b>. São 3 vaga(s) imediata(s) mais cadastro de reserva.</p><p>A remuneração do cargo é de <b>R$ 3.418,00</b>. O valor está em linha com a mediana dos concursos contábeis hoje no radar (R$ 4.852,57).</p><p>As inscrições vão de 31/07/2026 a <b>21/09/2026</b>, ou seja, 13 dias a partir de hoje.</p><p>A seleção prevê provas objetivas.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Confirme a exigência exata no edital.</p><p>A organização é da <b>AvançaSP</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
+  "editorial": "<p>A Prefeitura de Limeira abriu concurso público de âmbito municipal, em Limeira / SP, com vaga para <b>Técnico De Contabilidade</b>. São 3 vaga(s) imediata(s) mais cadastro de reserva.</p><p>A remuneração do cargo é de <b>R$ 3.418,00</b>. O valor está em linha com a mediana dos concursos contábeis hoje no radar (R$ 4.396,32).</p><p>As inscrições vão de 31/07/2026 a <b>21/09/2026</b>, ou seja, 13 dias a partir de hoje.</p><p>A seleção prevê provas objetivas.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Confirme a exigência exata no edital.</p><p>A organização é da <b>AvançaSP</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
   "bancaDominio": "avancasp.org.br",
   "pdfArquivo": "data/editais-pdf/e-7281537970e6-d164ad13.pdf",
   "pdfArquivoEm": "2026-09-08"
@@ -4440,7 +4432,7 @@
   "pdfEdital": "https://concursos.cesgranrio.org.br/media/gpoweb-prd-hibrido3/eventos/22/conteudos/b3fad7f4-0e95-4549-aad6-141abb519072.pdf?sv=2025-01-05&se=2036-08-28T17%3A34%3A50Z&sr=c&sp=r&sig=8fxOSoMXGR%2FUYGMTk5e1syUy%2FlNqaAFxysYc6DgBBKw%3D",
   "banca": "CESGRANRIO",
   "bancaDominio": "cesgranrio.org.br",
-  "editorial": "<p>O TRANSPETRO - Petrobras Transporte S.A. abriu concurso público de âmbito federal, em RJ, com vaga para <b>Profissional de Nível Superior — Contabilidade</b>. São 6 vaga(s).</p><p>A remuneração do cargo é de <b>R$ 8.647,34</b>. É um valor acima da mediana dos concursos contábeis hoje no radar (R$ 5.554,20).</p><p>As inscrições vão de 12/08/2026 a <b>14/09/2026</b> — restam apenas 6 dia(s).</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Confirme a exigência exata no edital.</p><p>A organização é da <b>CESGRANRIO</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
+  "editorial": "<p>O TRANSPETRO - Petrobras Transporte S.A. abriu concurso público de âmbito federal, em RJ, com vaga para <b>Profissional de Nível Superior — Contabilidade</b>. São 6 vaga(s).</p><p>A remuneração do cargo é de <b>R$ 8.647,34</b>. É um valor acima da mediana dos concursos contábeis hoje no radar (R$ 4.396,32).</p><p>As inscrições vão de 12/08/2026 a <b>14/09/2026</b> — restam apenas 6 dia(s).</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Confirme a exigência exata no edital.</p><p>A organização é da <b>CESGRANRIO</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
   "pdfArquivo": "data/editais-pdf/e-0ca5f1246a0c-a3b55d4d.pdf",
   "pdfArquivoEm": "2026-08-31"
  },
@@ -4547,7 +4539,7 @@
    ]
   },
   "pdfEdital": "https://fundacaolasalle.org.br/wp-content/uploads/2026/08/ed_abert_aguadeivoti1026.pdf",
-  "editorial": "<p>O Água de Ivoti - Autarquia de Abastecimento de Água e Esgotamento Sanitário abriu concurso público de âmbito federal, em RS, com vaga para <b>Contador</b>. A oferta é para cadastro de reserva.</p><p>A remuneração do cargo é de <b>R$ 4.650,29</b>. O valor está em linha com a mediana dos concursos contábeis hoje no radar (R$ 5.554,20).</p><p>As inscrições vão de 03/08/2026 a <b>02/09/2026</b>. O prazo já encerrou.</p><p>A seleção prevê provas objetivas.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Confirme a exigência exata no edital.</p><p>A organização é da <b>Fundação La Salle</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
+  "editorial": "<p>O Água de Ivoti - Autarquia de Abastecimento de Água e Esgotamento Sanitário abriu concurso público de âmbito federal, em RS, com vaga para <b>Contador</b>. A oferta é para cadastro de reserva.</p><p>A remuneração do cargo é de <b>R$ 4.650,29</b>. O valor está em linha com a mediana dos concursos contábeis hoje no radar (R$ 4.396,32).</p><p>As inscrições vão de 03/08/2026 a <b>02/09/2026</b>. O prazo já encerrou.</p><p>A seleção prevê provas objetivas.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Confirme a exigência exata no edital.</p><p>A organização é da <b>Fundação La Salle</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
   "banca": "Fundação La Salle",
   "bancaDominio": "fundacaolasalle.org.br"
  },
@@ -4657,7 +4649,7 @@
   "lon": -47.1933,
   "geoAprox": false,
   "revisado": false,
-  "editorial": "<p>O MUNICÍPIO DE COROMANDEL abriu concurso público de âmbito municipal, em Coromandel / MG, com vaga para <b>Controlador Interno</b>. São 1 vaga(s).</p><p>A remuneração do cargo é de <b>R$ 7.821,98</b>. É um valor acima da mediana dos concursos contábeis hoje no radar (R$ 5.554,20).</p><p>As inscrições vão de 08/09/2026 a <b>08/10/2026</b>, ou seja, 30 dias a partir de hoje. A taxa de inscrição é de R$ 100,00.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Confirme a exigência exata no edital.</p><p>A organização é da <b>IBGP Concursos</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
+  "editorial": "<p>O MUNICÍPIO DE COROMANDEL abriu concurso público de âmbito municipal, em Coromandel / MG, com vaga para <b>Controlador Interno</b>. São 1 vaga(s).</p><p>A remuneração do cargo é de <b>R$ 7.821,98</b>. É um valor acima da mediana dos concursos contábeis hoje no radar (R$ 4.396,32).</p><p>As inscrições vão de 08/09/2026 a <b>08/10/2026</b>, ou seja, 30 dias a partir de hoje. A taxa de inscrição é de R$ 100,00.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Confirme a exigência exata no edital.</p><p>A organização é da <b>IBGP Concursos</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
   "bancaDominio": "ibgpconcursos.com.br",
   "pdfArquivo": "data/editais-pdf/e-b41d44b06836-e467f7f7.pdf",
   "pdfArquivoEm": "2026-08-31"
@@ -4697,7 +4689,7 @@
   "lon": -44.4255,
   "geoAprox": false,
   "revisado": false,
-  "editorial": "<p>A Prefeitura de Jaborandi abriu concurso público de âmbito municipal, em Jaborandi / BA, com vaga para <b>Agente De Arrecadação</b>. São 3 vaga(s).</p><p>A remuneração do cargo é de <b>R$ 1.755,00</b>. O valor fica abaixo da mediana dos concursos contábeis hoje no radar (R$ 4.852,57).</p><p>As inscrições vão de 03/08/2026 a <b>04/09/2026</b>. O prazo já encerrou.</p><p>A seleção prevê prova objetiva.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Confirme a exigência exata no edital.</p><p>A organização é da <b>AB Concursos Públicos</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
+  "editorial": "<p>A Prefeitura de Jaborandi abriu concurso público de âmbito municipal, em Jaborandi / BA, com vaga para <b>Agente De Arrecadação</b>. São 3 vaga(s).</p><p>A remuneração do cargo é de <b>R$ 1.755,00</b>. O valor fica abaixo da mediana dos concursos contábeis hoje no radar (R$ 4.396,32).</p><p>As inscrições vão de 03/08/2026 a <b>04/09/2026</b>. O prazo já encerrou.</p><p>A seleção prevê prova objetiva.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Confirme a exigência exata no edital.</p><p>A organização é da <b>AB Concursos Públicos</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
   "banca": "AB Concursos Públicos",
   "bancaDominio": "abconcursospublicos.org"
  },
@@ -4736,7 +4728,7 @@
   "lon": -39.7238,
   "geoAprox": false,
   "revisado": false,
-  "editorial": "<p>A Prefeitura de Exu abriu concurso público de âmbito municipal, em Exu / PE, com vaga para <b>Fiscal De Tributos</b>. São 1 vaga(s).</p><p>A remuneração do cargo é de <b>R$ 2.280,96</b>. O valor fica abaixo da mediana dos concursos contábeis hoje no radar (R$ 5.554,20).</p><p>As inscrições vão de 15/07/2026 a <b>31/08/2026</b>. O prazo já encerrou.</p><p>A seleção prevê prova objetiva.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Cargos de auditoria e fiscalização costumam aceitar também formações afins, o que tende a ampliar a concorrência. Confirme a exigência exata no edital.</p><p>A organização é da <b>Seleção Concursos</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
+  "editorial": "<p>A Prefeitura de Exu abriu concurso público de âmbito municipal, em Exu / PE, com vaga para <b>Fiscal De Tributos</b>. São 1 vaga(s).</p><p>A remuneração do cargo é de <b>R$ 2.280,96</b>. O valor fica abaixo da mediana dos concursos contábeis hoje no radar (R$ 4.396,32).</p><p>As inscrições vão de 15/07/2026 a <b>31/08/2026</b>. O prazo já encerrou.</p><p>A seleção prevê prova objetiva.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Cargos de auditoria e fiscalização costumam aceitar também formações afins, o que tende a ampliar a concorrência. Confirme a exigência exata no edital.</p><p>A organização é da <b>Seleção Concursos</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
   "banca": "Seleção Concursos",
   "bancaDominio": "igeduc.selecao.net.br"
  },
@@ -4775,7 +4767,7 @@
   "lon": -48.1232,
   "geoAprox": false,
   "revisado": false,
-  "editorial": "<p>A Câmara de Araguatins abriu concurso público de âmbito municipal, em Araguatins / TO, com vaga para <b>Auxiliar De Contabilidade</b>. São 1 vaga(s).</p><p>A remuneração do cargo é de <b>R$ 2.400,00</b>. O valor fica abaixo da mediana dos concursos contábeis hoje no radar (R$ 4.852,57).</p><p>As inscrições vão de 07/08/2026 a <b>07/09/2026</b>. O prazo já encerrou.</p><p>A seleção prevê prova objetiva.</p><p>A vaga é de nível médio/técnico — o requisito costuma ser curso técnico em contabilidade com registro no CRC. Confirme a exigência exata no edital.</p><p>A organização é da <b>Instituto Vicente Nelson</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
+  "editorial": "<p>A Câmara de Araguatins abriu concurso público de âmbito municipal, em Araguatins / TO, com vaga para <b>Auxiliar De Contabilidade</b>. São 1 vaga(s).</p><p>A remuneração do cargo é de <b>R$ 2.400,00</b>. O valor fica abaixo da mediana dos concursos contábeis hoje no radar (R$ 4.396,32).</p><p>As inscrições vão de 07/08/2026 a <b>07/09/2026</b>. O prazo já encerrou.</p><p>A seleção prevê prova objetiva.</p><p>A vaga é de nível médio/técnico — o requisito costuma ser curso técnico em contabilidade com registro no CRC. Confirme a exigência exata no edital.</p><p>A organização é da <b>Instituto Vicente Nelson</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
   "banca": "Instituto Vicente Nelson",
   "bancaDominio": "institutovicentenelson.com.br"
  },
@@ -4814,7 +4806,7 @@
   "lon": -49.535,
   "geoAprox": false,
   "revisado": false,
-  "editorial": "<p>A Prefeitura de Contenda abriu concurso público de âmbito municipal, em Contenda / PR, com vaga para <b>Fiscal De Tributos</b>. São 2 vaga(s).</p><p>A remuneração do cargo é de <b>R$ 5.109,95</b>. O valor está em linha com a mediana dos concursos contábeis hoje no radar (R$ 4.852,57).</p><p>As inscrições vão de 03/08/2026 a <b>31/08/2026</b>. O prazo já encerrou.</p><p>A seleção prevê provas objetivas.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Cargos de auditoria e fiscalização costumam aceitar também formações afins, o que tende a ampliar a concorrência. Confirme a exigência exata no edital.</p><p>A organização é da <b>Fundação FAFIPA</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
+  "editorial": "<p>A Prefeitura de Contenda abriu concurso público de âmbito municipal, em Contenda / PR, com vaga para <b>Fiscal De Tributos</b>. São 2 vaga(s).</p><p>A remuneração do cargo é de <b>R$ 5.109,95</b>. O valor está em linha com a mediana dos concursos contábeis hoje no radar (R$ 4.396,32).</p><p>As inscrições vão de 03/08/2026 a <b>31/08/2026</b>. O prazo já encerrou.</p><p>A seleção prevê provas objetivas.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Cargos de auditoria e fiscalização costumam aceitar também formações afins, o que tende a ampliar a concorrência. Confirme a exigência exata no edital.</p><p>A organização é da <b>Fundação FAFIPA</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
   "banca": "Fundação FAFIPA",
   "bancaDominio": "fundacaofafipa.org.br"
  },
@@ -4927,7 +4919,7 @@
   "lon": -48.7417,
   "geoAprox": false,
   "revisado": false,
-  "editorial": "<p>A Prefeitura de Trombas abriu concurso público de âmbito municipal, em Trombas / GO, com vaga para <b>Controlador Interno</b>. São 1 vaga(s).</p><p>A remuneração do cargo é de <b>R$ 3.000,00</b>. O valor fica abaixo da mediana dos concursos contábeis hoje no radar (R$ 4.852,57).</p><p>As inscrições vão de 01/08/2026 a <b>01/09/2026</b>. O prazo já encerrou.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Confirme a exigência exata no edital.</p><p>A organização é da <b>FATEC Cáceres</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
+  "editorial": "<p>A Prefeitura de Trombas abriu concurso público de âmbito municipal, em Trombas / GO, com vaga para <b>Controlador Interno</b>. São 1 vaga(s).</p><p>A remuneração do cargo é de <b>R$ 3.000,00</b>. O valor fica abaixo da mediana dos concursos contábeis hoje no radar (R$ 4.396,32).</p><p>As inscrições vão de 01/08/2026 a <b>01/09/2026</b>. O prazo já encerrou.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Confirme a exigência exata no edital.</p><p>A organização é da <b>FATEC Cáceres</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
   "banca": "FATEC Cáceres",
   "bancaDominio": "fateccacu.edu.br"
  },
@@ -4966,7 +4958,7 @@
   "lon": -51.9084,
   "geoAprox": false,
   "revisado": false,
-  "editorial": "<p>A Prefeitura de Mirante do Paranapanema abriu concurso público de âmbito municipal, em Mirante do Paranapanema / SP, com vaga para <b>Fiscal De Rendas</b>. São 1 vaga(s).</p><p>A remuneração do cargo é de <b>R$ 2.589,66</b>. O valor fica abaixo da mediana dos concursos contábeis hoje no radar (R$ 5.554,20).</p><p>As inscrições vão de 17/08/2026 a <b>07/09/2026</b>. O prazo já encerrou.</p><p>A seleção prevê provas objetivas.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Cargos de auditoria e fiscalização costumam aceitar também formações afins, o que tende a ampliar a concorrência. Confirme a exigência exata no edital.</p><p>A organização é da <b>CONSESP</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
+  "editorial": "<p>A Prefeitura de Mirante do Paranapanema abriu concurso público de âmbito municipal, em Mirante do Paranapanema / SP, com vaga para <b>Fiscal De Rendas</b>. São 1 vaga(s).</p><p>A remuneração do cargo é de <b>R$ 2.589,66</b>. O valor fica abaixo da mediana dos concursos contábeis hoje no radar (R$ 4.396,32).</p><p>As inscrições vão de 17/08/2026 a <b>07/09/2026</b>. O prazo já encerrou.</p><p>A seleção prevê provas objetivas.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Cargos de auditoria e fiscalização costumam aceitar também formações afins, o que tende a ampliar a concorrência. Confirme a exigência exata no edital.</p><p>A organização é da <b>CONSESP</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
   "banca": "CONSESP",
   "bancaDominio": "consesp.com.br"
  },
@@ -5005,7 +4997,7 @@
   "lon": -46.9359,
   "geoAprox": false,
   "revisado": false,
-  "editorial": "<p>A Prefeitura de Arraias abriu concurso público de âmbito municipal, em Arraias / TO, com vaga para <b>Fiscal De Tributos</b>. São 2 vaga(s).</p><p>A remuneração do cargo é de <b>R$ 1.661,88</b>. O valor fica abaixo da mediana dos concursos contábeis hoje no radar (R$ 4.852,57).</p><p>As inscrições vão de 08/07/2026 a <b>31/08/2026</b>. O prazo já encerrou.</p><p>A seleção prevê provas objetivas.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Cargos de auditoria e fiscalização costumam aceitar também formações afins, o que tende a ampliar a concorrência. Confirme a exigência exata no edital.</p><p>A organização é da <b>ICAP</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
+  "editorial": "<p>A Prefeitura de Arraias abriu concurso público de âmbito municipal, em Arraias / TO, com vaga para <b>Fiscal De Tributos</b>. São 2 vaga(s).</p><p>A remuneração do cargo é de <b>R$ 1.661,88</b>. O valor fica abaixo da mediana dos concursos contábeis hoje no radar (R$ 4.396,32).</p><p>As inscrições vão de 08/07/2026 a <b>31/08/2026</b>. O prazo já encerrou.</p><p>A seleção prevê provas objetivas.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Cargos de auditoria e fiscalização costumam aceitar também formações afins, o que tende a ampliar a concorrência. Confirme a exigência exata no edital.</p><p>A organização é da <b>ICAP</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
   "banca": "ICAP",
   "bancaDominio": "icap-to.com.br"
  },
@@ -5123,7 +5115,7 @@
    ]
   },
   "pdfEdital": "https://app.inepam.org.br/concurso/downloadAnexo.do?idAnexo=2651",
-  "editorial": "<p>A Prefeitura de Auriflama abriu concurso público de âmbito municipal, em Auriflama / SP, com vaga para <b>Auditor Fiscal</b>. São 1 vaga(s) imediata(s) mais cadastro de reserva.</p><p>A remuneração do cargo é de <b>R$ 6.502,13</b>. O valor está em linha com a mediana dos concursos contábeis hoje no radar (R$ 4.852,57).</p><p>As inscrições vão de 10/08/2026 a <b>01/09/2026</b>. O prazo já encerrou.</p><p>A seleção prevê provas objetivas e avaliação de títulos.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Cargos de auditoria e fiscalização costumam aceitar também formações afins, o que tende a ampliar a concorrência. Confirme a exigência exata no edital.</p><p>A organização é da <b>INEPAM</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
+  "editorial": "<p>A Prefeitura de Auriflama abriu concurso público de âmbito municipal, em Auriflama / SP, com vaga para <b>Auditor Fiscal</b>. São 1 vaga(s) imediata(s) mais cadastro de reserva.</p><p>A remuneração do cargo é de <b>R$ 6.502,13</b>. É um valor acima da mediana dos concursos contábeis hoje no radar (R$ 4.396,32).</p><p>As inscrições vão de 10/08/2026 a <b>01/09/2026</b>. O prazo já encerrou.</p><p>A seleção prevê provas objetivas e avaliação de títulos.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Cargos de auditoria e fiscalização costumam aceitar também formações afins, o que tende a ampliar a concorrência. Confirme a exigência exata no edital.</p><p>A organização é da <b>INEPAM</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
   "banca": "INEPAM",
   "bancaDominio": "inepam.org.br"
  },
@@ -5155,7 +5147,7 @@
   "lat": -22.5646,
   "lon": -47.4018,
   "geoAprox": false,
-  "editorial": "<p>A Prefeitura de Limeira abriu concurso público de âmbito municipal, em Limeira / SP, com vaga para <b>Técnico De Contabilidade</b>. São 3 vaga(s) imediata(s) mais cadastro de reserva.</p><p>A remuneração do cargo é de <b>R$ 3.418,00</b>. O valor está em linha com a mediana dos concursos contábeis hoje no radar (R$ 4.852,57).</p><p>As inscrições vão de 31/07/2026 a <b>31/08/2026</b>. O prazo já encerrou.</p><p>A seleção prevê provas objetivas.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Confirme a exigência exata no edital.</p><p>A organização é da <b>AvançaSP</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
+  "editorial": "<p>A Prefeitura de Limeira abriu concurso público de âmbito municipal, em Limeira / SP, com vaga para <b>Técnico De Contabilidade</b>. São 3 vaga(s) imediata(s) mais cadastro de reserva.</p><p>A remuneração do cargo é de <b>R$ 3.418,00</b>. O valor está em linha com a mediana dos concursos contábeis hoje no radar (R$ 4.396,32).</p><p>As inscrições vão de 31/07/2026 a <b>31/08/2026</b>. O prazo já encerrou.</p><p>A seleção prevê provas objetivas.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Confirme a exigência exata no edital.</p><p>A organização é da <b>AvançaSP</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
   "banca": "AvançaSP",
   "pdfEdital": "https://anexos-r2.selecao.net.br/uploads/301/concursos/21/anexos/a4ef6a57-6b06-4b09-82df-608c418cbab4.pdf",
   "resumo": "",
@@ -5233,7 +5225,7 @@
   "lon": -46.8711,
   "geoAprox": false,
   "revisado": false,
-  "editorial": "<p>A Prefeitura de Paracatu abriu concurso público de âmbito municipal, em Paracatu / MG, com vaga para <b>Técnico Em Contabilidade</b>. A oferta é para cadastro de reserva.</p><p>A remuneração do cargo é de <b>R$ 3.226,83</b>. O valor fica abaixo da mediana dos concursos contábeis hoje no radar (R$ 4.852,57).</p><p>As inscrições vão de 03/08/2026 a <b>03/09/2026</b>. O prazo já encerrou.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Confirme a exigência exata no edital.</p><p>A organização é da <b>IBGP Concursos</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
+  "editorial": "<p>A Prefeitura de Paracatu abriu concurso público de âmbito municipal, em Paracatu / MG, com vaga para <b>Técnico Em Contabilidade</b>. A oferta é para cadastro de reserva.</p><p>A remuneração do cargo é de <b>R$ 3.226,83</b>. O valor está em linha com a mediana dos concursos contábeis hoje no radar (R$ 4.396,32).</p><p>As inscrições vão de 03/08/2026 a <b>03/09/2026</b>. O prazo já encerrou.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Confirme a exigência exata no edital.</p><p>A organização é da <b>IBGP Concursos</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
   "bancaDominio": "ibgpconcursos.com.br"
  },
  {
@@ -5274,7 +5266,7 @@
   "lon": -42.0213,
   "geoAprox": false,
   "revisado": false,
-  "editorial": "<p>A Prefeitura de Faria Lemos abriu concurso público de âmbito municipal, em Faria Lemos / MG, com vaga para <b>Tesoureiro</b>. São 1 vaga(s).</p><p>A remuneração do cargo é de <b>R$ 2.662,58</b>. O valor fica abaixo da mediana dos concursos contábeis hoje no radar (R$ 4.852,57).</p><p>As inscrições vão de 05/08/2026 a <b>04/09/2026</b>. O prazo já encerrou.</p><p>A seleção prevê prova objetiva, prova prática e prova de títulos.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Confirme a exigência exata no edital.</p><p>A organização é da <b>IBGP Concursos</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
+  "editorial": "<p>A Prefeitura de Faria Lemos abriu concurso público de âmbito municipal, em Faria Lemos / MG, com vaga para <b>Tesoureiro</b>. São 1 vaga(s).</p><p>A remuneração do cargo é de <b>R$ 2.662,58</b>. O valor fica abaixo da mediana dos concursos contábeis hoje no radar (R$ 4.396,32).</p><p>As inscrições vão de 05/08/2026 a <b>04/09/2026</b>. O prazo já encerrou.</p><p>A seleção prevê prova objetiva, prova prática e prova de títulos.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Confirme a exigência exata no edital.</p><p>A organização é da <b>IBGP Concursos</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
   "bancaDominio": "ibgpconcursos.com.br"
  },
  {
@@ -5312,7 +5304,7 @@
   "lon": -41.7722,
   "geoAprox": false,
   "revisado": false,
-  "editorial": "<p>A Câmara Municipal de Seabra abriu concurso público de âmbito municipal, em Seabra / BA, com vaga para <b>Contador</b>.</p><p>A remuneração do cargo é de <b>R$ 4.000,00</b>. O valor está em linha com a mediana dos concursos contábeis hoje no radar (R$ 5.554,20).</p><p>As inscrições vão de 14/08/2026 a <b>06/09/2026</b>. O prazo já encerrou.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Confirme a exigência exata no edital.</p><p>A organização é da <b>ISET</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
+  "editorial": "<p>A Câmara Municipal de Seabra abriu concurso público de âmbito municipal, em Seabra / BA, com vaga para <b>Contador</b>.</p><p>A remuneração do cargo é de <b>R$ 4.000,00</b>. O valor está em linha com a mediana dos concursos contábeis hoje no radar (R$ 4.396,32).</p><p>As inscrições vão de 14/08/2026 a <b>06/09/2026</b>. O prazo já encerrou.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Confirme a exigência exata no edital.</p><p>A organização é da <b>ISET</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
   "bancaDominio": "iset.selecao.net.br"
  },
  {
@@ -5465,7 +5457,7 @@
   "lon": -49.2733,
   "geoAprox": true,
   "revisado": false,
-  "editorial": "<p>O MatinhosPREV - Instituto de Previdência dos Servidores Públicos de Matinhos abriu concurso público de âmbito municipal, em PR, com vaga para <b>Contador</b>. São 1 vaga(s).</p><p>A remuneração do cargo é de <b>R$ 7.421,02</b>. O valor está em linha com a mediana dos concursos contábeis hoje no radar (R$ 5.554,20).</p><p>As inscrições vão de 05/08/2026 a <b>03/09/2026</b>. O prazo já encerrou.</p><p>A seleção prevê prova objetiva.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Confirme a exigência exata no edital.</p><p>A organização é da <b>Fundação FAFIPA</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
+  "editorial": "<p>O MatinhosPREV - Instituto de Previdência dos Servidores Públicos de Matinhos abriu concurso público de âmbito municipal, em PR, com vaga para <b>Contador</b>. São 1 vaga(s).</p><p>A remuneração do cargo é de <b>R$ 7.421,02</b>. É um valor acima da mediana dos concursos contábeis hoje no radar (R$ 4.396,32).</p><p>As inscrições vão de 05/08/2026 a <b>03/09/2026</b>. O prazo já encerrou.</p><p>A seleção prevê prova objetiva.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Confirme a exigência exata no edital.</p><p>A organização é da <b>Fundação FAFIPA</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
   "bancaDominio": "fundacaofafipa.org.br"
  },
  {
@@ -5851,7 +5843,7 @@
   "lon": -36.7788,
   "geoAprox": false,
   "revisado": false,
-  "editorial": "<p>A Prefeitura de Alagoinha abriu concurso público de âmbito municipal, em Alagoinha / PE, com vaga para <b>Fiscal De Tributos</b>. São 1 vaga(s).</p><p>A remuneração do cargo é de <b>R$ 1.621,00</b>. O valor fica abaixo da mediana dos concursos contábeis hoje no radar (R$ 5.554,20).</p><p>As inscrições vão de 14/07/2026 a <b>24/08/2026</b>. O prazo já encerrou.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Cargos de auditoria e fiscalização costumam aceitar também formações afins, o que tende a ampliar a concorrência. Confirme a exigência exata no edital.</p><p>A organização é da <b>Seleção Concursos</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
+  "editorial": "<p>A Prefeitura de Alagoinha abriu concurso público de âmbito municipal, em Alagoinha / PE, com vaga para <b>Fiscal De Tributos</b>. São 1 vaga(s).</p><p>A remuneração do cargo é de <b>R$ 1.621,00</b>. O valor fica abaixo da mediana dos concursos contábeis hoje no radar (R$ 4.396,32).</p><p>As inscrições vão de 14/07/2026 a <b>24/08/2026</b>. O prazo já encerrou.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Cargos de auditoria e fiscalização costumam aceitar também formações afins, o que tende a ampliar a concorrência. Confirme a exigência exata no edital.</p><p>A organização é da <b>Seleção Concursos</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
   "bancaDominio": "igeduc.selecao.net.br"
  },
  {
@@ -5885,7 +5877,7 @@
   "resumo": "Confira vagas para níveis fundamental, médio e superior. As oportunidades abrangem cargos como advogado, motorista, técnico administrativo e serviços gerais em regime de 40 horas semanais.",
   "detalhes": {},
   "pdfEdital": "https://anexos-r2.selecao.net.br/uploads/792/concursos/44/anexos/a1197cbe-f340-4266-9220-1feb3dbcf542.pdf",
-  "editorial": "<p>A Câmara de Seabra abriu concurso público de âmbito municipal, em Seabra / BA, com vaga para <b>Auxiliar De Contabilidade</b>. São 1 vaga(s).</p><p>A remuneração do cargo é de <b>R$ 2.500,00</b>. O valor fica abaixo da mediana dos concursos contábeis hoje no radar (R$ 5.554,20).</p><p>As inscrições vão de 14/08/2026 a <b>30/08/2026</b>. O prazo já encerrou.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Confirme a exigência exata no edital.</p><p>A organização é da <b>Seleção Concursos</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
+  "editorial": "<p>A Câmara de Seabra abriu concurso público de âmbito municipal, em Seabra / BA, com vaga para <b>Auxiliar De Contabilidade</b>. São 1 vaga(s).</p><p>A remuneração do cargo é de <b>R$ 2.500,00</b>. O valor fica abaixo da mediana dos concursos contábeis hoje no radar (R$ 4.396,32).</p><p>As inscrições vão de 14/08/2026 a <b>30/08/2026</b>. O prazo já encerrou.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Confirme a exigência exata no edital.</p><p>A organização é da <b>Seleção Concursos</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
   "banca": "Seleção Concursos",
   "bancaDominio": "iset.selecao.net.br"
  },
@@ -6039,7 +6031,7 @@
   "lon": -43.583,
   "geoAprox": false,
   "revisado": false,
-  "editorial": "<p>A Prefeitura de Nova União abriu concurso público de âmbito municipal, em Nova União / MG, com vaga para <b>Fiscal De Tributos</b>. São 1 vaga(s).</p><p>A remuneração do cargo é de <b>R$ 2.653,39</b>. O valor fica abaixo da mediana dos concursos contábeis hoje no radar (R$ 5.554,20).</p><p>As inscrições vão de 27/07/2026 a <b>27/08/2026</b>. O prazo já encerrou.</p><p>A seleção prevê prova objetiva, prova discursiva e prova de títulos.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Cargos de auditoria e fiscalização costumam aceitar também formações afins, o que tende a ampliar a concorrência. Confirme a exigência exata no edital.</p><p>A organização é da <b>IBGP Concursos</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
+  "editorial": "<p>A Prefeitura de Nova União abriu concurso público de âmbito municipal, em Nova União / MG, com vaga para <b>Fiscal De Tributos</b>. São 1 vaga(s).</p><p>A remuneração do cargo é de <b>R$ 2.653,39</b>. O valor fica abaixo da mediana dos concursos contábeis hoje no radar (R$ 4.396,32).</p><p>As inscrições vão de 27/07/2026 a <b>27/08/2026</b>. O prazo já encerrou.</p><p>A seleção prevê prova objetiva, prova discursiva e prova de títulos.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Cargos de auditoria e fiscalização costumam aceitar também formações afins, o que tende a ampliar a concorrência. Confirme a exigência exata no edital.</p><p>A organização é da <b>IBGP Concursos</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
   "banca": "IBGP Concursos",
   "bancaDominio": "ibgpconcursos.com.br"
  },
@@ -6078,7 +6070,7 @@
   "lon": -53.2575,
   "geoAprox": false,
   "revisado": false,
-  "editorial": "<p>A Prefeitura de Nova Aurora abriu concurso público de âmbito municipal, em Nova Aurora / PR, com vaga para <b>Fiscal De Tributos</b>. A oferta é para cadastro de reserva.</p><p>A remuneração do cargo é de <b>R$ 5.157,61</b>. O valor está em linha com a mediana dos concursos contábeis hoje no radar (R$ 5.554,20).</p><p>As inscrições vão de 28/07/2026 a <b>26/08/2026</b>. O prazo já encerrou.</p><p>A seleção prevê provas objetivas.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Cargos de auditoria e fiscalização costumam aceitar também formações afins, o que tende a ampliar a concorrência. Confirme a exigência exata no edital.</p><p>A organização é da <b>Fundação FAFIPA</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
+  "editorial": "<p>A Prefeitura de Nova Aurora abriu concurso público de âmbito municipal, em Nova Aurora / PR, com vaga para <b>Fiscal De Tributos</b>. A oferta é para cadastro de reserva.</p><p>A remuneração do cargo é de <b>R$ 5.157,61</b>. O valor está em linha com a mediana dos concursos contábeis hoje no radar (R$ 4.396,32).</p><p>As inscrições vão de 28/07/2026 a <b>26/08/2026</b>. O prazo já encerrou.</p><p>A seleção prevê provas objetivas.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Cargos de auditoria e fiscalização costumam aceitar também formações afins, o que tende a ampliar a concorrência. Confirme a exigência exata no edital.</p><p>A organização é da <b>Fundação FAFIPA</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
   "banca": "Fundação FAFIPA",
   "bancaDominio": "fundacaofafipa.org.br"
  },
@@ -6296,7 +6288,7 @@
    "isencao": "toggleClass('abrir'); }) Certames Concurso Público Concurso Público da Câmara Municipal de Seabra Inscrições de 14/08/2026 a 30/08/2026 Inscrição Online Informações Gerais Edital: 01 de 13/08/2026 Inscrições: 14/08/2026 00:00 a 30/08/2026 00:00 Pedidos de Isen"
   },
   "revisado": false,
-  "editorial": "<p>A Câmara Municipal de Seabra abriu concurso público de âmbito municipal, em Seabra / BA, com vaga para <b>Contador</b>.</p><p>A remuneração do cargo é de <b>R$ 4.000,00</b>. O valor está em linha com a mediana dos concursos contábeis hoje no radar (R$ 5.554,20).</p><p>As inscrições vão de 14/08/2026 a <b>30/08/2026</b>. O prazo já encerrou.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Confirme a exigência exata no edital.</p><p>A organização é da <b>ISET</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
+  "editorial": "<p>A Câmara Municipal de Seabra abriu concurso público de âmbito municipal, em Seabra / BA, com vaga para <b>Contador</b>.</p><p>A remuneração do cargo é de <b>R$ 4.000,00</b>. O valor está em linha com a mediana dos concursos contábeis hoje no radar (R$ 4.396,32).</p><p>As inscrições vão de 14/08/2026 a <b>30/08/2026</b>. O prazo já encerrou.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Confirme a exigência exata no edital.</p><p>A organização é da <b>ISET</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
   "banca": "ISET",
   "lat": -12.4169,
   "lon": -41.7722,
@@ -6338,7 +6330,7 @@
   "lon": -49.2448,
   "geoAprox": false,
   "revisado": false,
-  "editorial": "<p>A Prefeitura da Estância Turística de Ibirá abriu concurso público de âmbito municipal, em Ibirá / SP, com vaga para <b>Fiscal De Tributos</b>. São 1 vaga(s) imediata(s) mais cadastro de reserva.</p><p>A remuneração do cargo é de <b>R$ 1.757,50</b>. O valor fica abaixo da mediana dos concursos contábeis hoje no radar (R$ 5.554,20).</p><p>As inscrições vão de 27/07/2026 a <b>26/08/2026</b>. O prazo já encerrou.</p><p>A seleção prevê provas objetivas.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Cargos de auditoria e fiscalização costumam aceitar também formações afins, o que tende a ampliar a concorrência. Confirme a exigência exata no edital.</p><p>A organização é da <b>Instituto Aplicativa</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
+  "editorial": "<p>A Prefeitura da Estância Turística de Ibirá abriu concurso público de âmbito municipal, em Ibirá / SP, com vaga para <b>Fiscal De Tributos</b>. São 1 vaga(s) imediata(s) mais cadastro de reserva.</p><p>A remuneração do cargo é de <b>R$ 1.757,50</b>. O valor fica abaixo da mediana dos concursos contábeis hoje no radar (R$ 4.396,32).</p><p>As inscrições vão de 27/07/2026 a <b>26/08/2026</b>. O prazo já encerrou.</p><p>A seleção prevê provas objetivas.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Cargos de auditoria e fiscalização costumam aceitar também formações afins, o que tende a ampliar a concorrência. Confirme a exigência exata no edital.</p><p>A organização é da <b>Instituto Aplicativa</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
   "banca": "Instituto Aplicativa",
   "bancaDominio": "aplicativa.selecao.net.br"
  },
@@ -6379,7 +6371,7 @@
    ]
   },
   "pdfEdital": "https://cdn-arquivo.concursos.srv.br/APRENDER_SC/00253/PUBLICACOES/EDITAL_014_2026_CP_001_2026_SALTO_VELOSO_2026_07_30_14_25_55.pdf",
-  "editorial": "<p>A Prefeitura de Salto Veloso abriu concurso público de âmbito municipal, em Salto Veloso / SC, com vaga para <b>Contador</b>. São 1 + Cadastro de Reserva vaga(s).</p><p>A remuneração do cargo é de <b>R$ 9.151,71</b>. É um valor acima da mediana dos concursos contábeis hoje no radar (R$ 5.554,20).</p><p>As inscrições vão de 30/07/2026 a <b>28/08/2026</b>. O prazo já encerrou.</p><p>A seleção prevê prova objetiva, prova prática e prova de títulos.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Confirme a exigência exata no edital.</p><p>A organização é da <b>Aprendersc</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
+  "editorial": "<p>A Prefeitura de Salto Veloso abriu concurso público de âmbito municipal, em Salto Veloso / SC, com vaga para <b>Contador</b>. São 1 + Cadastro de Reserva vaga(s).</p><p>A remuneração do cargo é de <b>R$ 9.151,71</b>. É um valor acima da mediana dos concursos contábeis hoje no radar (R$ 4.396,32).</p><p>As inscrições vão de 30/07/2026 a <b>28/08/2026</b>. O prazo já encerrou.</p><p>A seleção prevê prova objetiva, prova prática e prova de títulos.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Confirme a exigência exata no edital.</p><p>A organização é da <b>Aprendersc</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
   "banca": "Aprendersc",
   "bancaDominio": "aprendersc.srv.br"
  },
@@ -6423,7 +6415,7 @@
   "lon": -50.9192,
   "geoAprox": false,
   "revisado": false,
-  "editorial": "<p>A Câmara de Rio Verde abriu concurso público de âmbito municipal, em Rio Verde / GO, com vaga para <b>Analista De Controle Interno</b>. São 2 vaga(s).</p><p>A remuneração do cargo é de <b>R$ 7.241,14</b>. O valor está em linha com a mediana dos concursos contábeis hoje no radar (R$ 5.554,20).</p><p>As inscrições seguem até <b>21/09/2026</b>, ou seja, 13 dias a partir de hoje.</p><p>A seleção prevê provas objetivas, prova objetiva, prova de títulos e prova prática.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Confirme a exigência exata no edital.</p><p>A organização é da <b>UNIRV</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
+  "editorial": "<p>A Câmara de Rio Verde abriu concurso público de âmbito municipal, em Rio Verde / GO, com vaga para <b>Analista De Controle Interno</b>. São 2 vaga(s).</p><p>A remuneração divulgada para o concurso é de <b>R$ 7.241,14</b>. Esse valor ainda não foi conferido no anexo de vencimentos e pode ser de outro cargo do mesmo edital — confirme antes de se inscrever. a partir de.</p><p>As inscrições seguem até <b>21/09/2026</b>, ou seja, 13 dias a partir de hoje.</p><p>A seleção prevê provas objetivas, prova objetiva, prova de títulos e prova prática.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Confirme a exigência exata no edital.</p><p>A organização é da <b>UNIRV</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
   "banca": "UNIRV",
   "bancaDominio": "unirv.edu.br",
   "pdfArquivo": "data/editais-pdf/e-fbe570bf2dba-a2d34183.pdf",
@@ -6470,7 +6462,7 @@
   "lon": -39.7078,
   "geoAprox": false,
   "revisado": false,
-  "editorial": "<p>A Câmara de Pedra Branca abriu concurso público de âmbito municipal, em Pedra Branca / CE, com vaga para <b>Analista De Controle Interno</b>. São 1 vaga(s).</p><p>A remuneração do cargo é de <b>R$ 4.000,00</b>. O valor está em linha com a mediana dos concursos contábeis hoje no radar (R$ 5.554,20).</p><p>As inscrições seguem até <b>24/08/2026</b>. O prazo já encerrou.</p><p>A seleção prevê prova objetiva, avaliação de títulos e prova de títulos.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Confirme a exigência exata no edital.</p><p>A organização é da <b>Inbrasp</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
+  "editorial": "<p>A Câmara de Pedra Branca abriu concurso público de âmbito municipal, em Pedra Branca / CE, com vaga para <b>Analista De Controle Interno</b>. São 1 vaga(s).</p><p>A remuneração do cargo é de <b>R$ 4.000,00</b>. O valor está em linha com a mediana dos concursos contábeis hoje no radar (R$ 4.396,32).</p><p>As inscrições seguem até <b>24/08/2026</b>. O prazo já encerrou.</p><p>A seleção prevê prova objetiva, avaliação de títulos e prova de títulos.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Confirme a exigência exata no edital.</p><p>A organização é da <b>Inbrasp</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
   "banca": "Inbrasp",
   "bancaDominio": "inbrasp.org"
  },
@@ -6584,7 +6576,7 @@
   "lat": -23.6437,
   "lon": -46.8576,
   "geoAprox": false,
-  "editorial": "<p>A Prefeitura de Embu das Artes abriu concurso público de âmbito municipal, em Embu das Artes / SP, com vaga para <b>Contador</b>. São 1 vaga(s) imediata(s) mais cadastro de reserva.</p><p>A remuneração do cargo é de <b>R$ 6.574,76</b>. O valor está em linha com a mediana dos concursos contábeis hoje no radar (R$ 5.554,20).</p><p>As inscrições seguem até <b>08/10/2026</b>, ou seja, 30 dias a partir de hoje.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Confirme a exigência exata no edital.</p><p>A organização é da <b>INEPAM</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
+  "editorial": "<p>A Prefeitura de Embu das Artes abriu concurso público de âmbito municipal, em Embu das Artes / SP, com vaga para <b>Contador</b>. São 1 vaga(s) imediata(s) mais cadastro de reserva.</p><p>A remuneração do cargo é de <b>R$ 6.574,76</b>. É um valor acima da mediana dos concursos contábeis hoje no radar (R$ 4.396,32).</p><p>As inscrições seguem até <b>08/10/2026</b>, ou seja, 30 dias a partir de hoje.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Confirme a exigência exata no edital.</p><p>A organização é da <b>INEPAM</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
   "banca": "INEPAM",
   "pdfEdital": "https://app.inepam.org.br/concurso/downloadAnexo.do?idAnexo=2621",
   "bancaDominio": "inepam.org.br",
@@ -6649,7 +6641,7 @@
   "lat": -21.8942,
   "lon": -49.5914,
   "geoAprox": false,
-  "editorial": "<p>A Prefeitura de Guarantã abriu concurso público de âmbito municipal, em Guarantã / SP, com vaga para <b>Contador</b>. São 1 vaga(s).</p><p>A remuneração do cargo é de <b>R$ 5.503,44</b>. O valor está em linha com a mediana dos concursos contábeis hoje no radar (R$ 5.554,20).</p><p>As inscrições seguem até <b>02/09/2026</b>. O prazo já encerrou.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Confirme a exigência exata no edital.</p><p>A organização é da <b>Aplicativa</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
+  "editorial": "<p>A Prefeitura de Guarantã abriu concurso público de âmbito municipal, em Guarantã / SP, com vaga para <b>Contador</b>. São 1 vaga(s).</p><p>A remuneração do cargo é de <b>R$ 5.503,44</b>. O valor está em linha com a mediana dos concursos contábeis hoje no radar (R$ 4.396,32).</p><p>As inscrições seguem até <b>02/09/2026</b>. O prazo já encerrou.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Confirme a exigência exata no edital.</p><p>A organização é da <b>Aplicativa</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
   "banca": "Aplicativa",
   "pdfEdital": "https://anexos-r2.selecao.net.br/uploads/820/concursos/63/anexos/f73774a7-01a6-47e6-a774-81951588b94b.pdf",
   "bancaDominio": "aplicativa.selecao.net.br"
