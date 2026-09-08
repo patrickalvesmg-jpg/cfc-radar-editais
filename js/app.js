@@ -7,6 +7,7 @@ import {
   ESFERA, brl, dataBR, diasAte, numeroVagas, esc,
   cardEdital, prioridadePrazo, observar,
   renderStats, renderFeed, ligarMenuMobile, ligarBarraRolagem, carregarEditais,
+  dataUltimaVarredura,
 } from './comum.js';
 
 import { exigirLogin, usuario, sair } from './sessao.js';
@@ -62,6 +63,13 @@ const estado = {
 function filtrar(){
   const termo = estado.busca.trim().toLowerCase();
   const f = estado.filtros;
+  // "Mais recentes" não é só ordenação: é um recorte — só quem a
+  // ÚLTIMA varredura do robô trouxe, não a lista inteira reordenada.
+  // Calculado uma vez aqui porque dataUltimaVarredura() varre a
+  // lista toda; refazer isso por edital dentro do .filter() seria
+  // O(n²) sem necessidade.
+  const diaUltimaVarredura = estado.ordem === 'novos'
+    ? dataUltimaVarredura(estado.editais) : '';
 
   return estado.editais.filter(e => {
     if(estado.status !== 'todos' && e.status !== estado.status) return false;
@@ -70,6 +78,7 @@ function filtrar(){
     if(f.nivel && e.nivel !== f.nivel) return false;
     if(f.escolaridade && e.escolaridade !== f.escolaridade) return false;
     if(f.salarioMin && e.salario < Number(f.salarioMin)) return false;
+    if(diaUltimaVarredura && (e.capturadoEm || '').slice(0, 10) !== diaUltimaVarredura) return false;
 
     if(termo){
       const alvo = [e.orgao, e.cargo, e.banca, e.cidade, e.uf].join(' ').toLowerCase();
@@ -87,6 +96,7 @@ function ordenar(lista){
     case 'vagas':
       return copia.sort((a,b) => numeroVagas(b.vagas) - numeroVagas(a.vagas));
     case 'recente':
+    case 'novos':
       return copia.sort((a,b) => new Date(b.capturadoEm) - new Date(a.capturadoEm));
     case 'prazo':
     default:
@@ -138,9 +148,15 @@ function render(){
   });
 
   const resumo = document.getElementById('resumo');
-  resumo.textContent = lista.length
-    ? `${lista.length} ${lista.length === 1 ? 'edital encontrado' : 'editais encontrados'}`
-    : '';
+  if(!lista.length){
+    resumo.textContent = '';
+  }else if(estado.ordem === 'novos'){
+    const dia = dataUltimaVarredura(estado.editais);
+    resumo.textContent = `${lista.length} ${lista.length === 1 ? 'edital novo' : 'editais novos'}`
+      + (dia ? ` na varredura de ${dataBR(dia)}` : '');
+  }else{
+    resumo.textContent = `${lista.length} ${lista.length === 1 ? 'edital encontrado' : 'editais encontrados'}`;
+  }
 
   renderChips();
   atualizarContagens();

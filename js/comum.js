@@ -341,6 +341,28 @@ export async function carregarEditais(){
   });
 }
 
+/**
+ * Dia (AAAA-MM-DD) da varredura mais recente entre os editais dados —
+ * não a "última visita da pessoa" (isso é js/novidades.js), o dia em
+ * que o robô rodou pela última vez. Usado pelo filtro "Mais recentes"
+ * (ordem "novos" em app.js) e pelo painel do Felipe.
+ */
+export function dataUltimaVarredura(lista){
+  let maior = '';
+  for(const e of lista){
+    const d = (e.capturadoEm || '').slice(0, 10);
+    if(d > maior) maior = d;
+  }
+  return maior;
+}
+
+/** Só os editais capturados no dia da varredura mais recente. */
+export function editaisDaUltimaVarredura(lista){
+  const dia = dataUltimaVarredura(lista);
+  if(!dia) return [];
+  return lista.filter(e => (e.capturadoEm || '').slice(0, 10) === dia);
+}
+
 
 /**
  * Sombra na barra fixa quando a página rola.

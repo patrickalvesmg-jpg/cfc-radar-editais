@@ -24,6 +24,10 @@
 
 import { brl, dataBR, cardEdital, observar, carregarEditais } from './comum.js';
 
+/* agruparPorVarredura vive aqui (não em comum.js) porque só o painel
+   precisa da lista completa de semanas — o site público usa só a
+   mais recente, via editaisDaUltimaVarredura() de comum.js. */
+
 /** Agrupa os editais ativos por dia de captura — cada dia distinto é
  *  uma varredura (o robô roda uma vez por semana, então cada grupo
  *  tende a ser uma segunda-feira diferente). Mais recente primeiro. */

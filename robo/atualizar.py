@@ -138,9 +138,28 @@ def mesclar(existentes: list[dict], novos: list[dict]) -> tuple[list[dict], int,
                     atualizados_ct += 1
             continue
 
+        # Salário LIDO DO ANEXO não pode ser sobrescrito pela manchete.
+        #
+        # O `salario` que a fonte traz é o teto do concurso inteiro
+        # ("salários de até R$ 19.535"), quase sempre de outro cargo. O
+        # `aprofundar.py` corrige isso abrindo o PDF e lendo a linha do
+        # cargo — e ter `pdfEdital` é justamente a prova de que o valor
+        # veio de lá (mesma regra que o card usa para escrever
+        # "Salário" em vez de "Divulgado", ver cardEdital em comum.js).
+        #
+        # Sem esta trava, a varredura seguinte desfazia a correção: o
+        # aprofundamento roda com `--pendentes` e não revisita quem já
+        # tem PDF, então o valor errado ficava publicado a semana
+        # inteira. Medido em 08/09/2026 — 5 regressões numa varredura
+        # só, entre elas Cachoeira do Sul (Contador de R$ 4.486,69
+        # voltou a mostrar os R$ 19.535,28 do cargo mais bem pago).
+        protegidos = set()
+        if (atual.get("pdfEdital") or "").strip() and atual.get("salario"):
+            protegidos = {"salario", "salarioObs"}
+
         mudou = False
         for campo, valor in novo.items():
-            if campo in ("id", "revisado"):
+            if campo in ("id", "revisado") or campo in protegidos:
                 continue
             # Não troca informação existente por vazio.
             if valor in ("", 0, None) and atual.get(campo) not in ("", 0, None):
