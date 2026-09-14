@@ -63,14 +63,33 @@ CARGO_DETALHE = re.compile(
     re.I,
 )
 
+# O domínio da banca no texto ("as inscrições são no site X").
+#
+# A lista de terminações era fechada em org/com/net/gov/edu, e isso
+# deixava de fora banca hospedada em domínio novo: a Câmara de Ibirama
+# inscreve em `portal.sctreinamentos.selecao.site` e o edital saía SEM
+# LINK NENHUM, o que esconde o card do site inteiro (achado em
+# 14/09/2026 — 15 dos 31 editais novos ficaram invisíveis assim).
+#
+# Agora aceita qualquer terminação de 2 a 12 letras e subdomínio de
+# vários níveis. O que impede lixo não é mais a lista de TLDs: é o
+# DOMINIO_PROIBIDO logo abaixo, que barra agregador e rede social.
 SITE_OFICIAL = re.compile(
     r"(?:pelo|no|atrav[ée]s do|por meio do)\s+(?:site|endere[çc]o|portal)\s+"
-    r"((?:https?://)?(?:www\.)?[\w-]+\.(?:org|com|net|gov|edu)(?:\.br)?)",
+    r"((?:https?://)?(?:[\w-]+\.){1,4}[a-z]{2,12}(?:\.br)?)",
     re.I,
 )
 DOMINIO_PROIBIDO = re.compile(
     r"pciconcursos|schema\.org|pci\.app\.br|google|facebook|whatsapp"
-    r"|instagram|twitter|youtube|linkedin|leaflet|unpkg|chatgpt",
+    r"|instagram|twitter|youtube|linkedin|leaflet|unpkg|chatgpt"
+    # Infraestrutura da própria página, não banca: o fallback de "pega
+    # qualquer link externo" mandava o candidato para o servidor de
+    # fontes do Google (achado em 14/09/2026 — 11 editais receberam
+    # fonts.gstatic.com como "site de inscrição").
+    r"|gstatic|googleapis|cloudflare|jsdelivr|bootstrapcdn|jquery"
+    r"|fontawesome|cdnjs|/wp-content/|/wp-includes/|adsbygoogle"
+    r"|doubleclick|googletagmanager|concursosnobrasil|jcconcursos"
+    r"|folhadirigida|qconcursos|grancursos|estrategiaconcursos",
     re.I,
 )
 
@@ -118,17 +137,36 @@ def _salario(texto: str) -> float:
 
 
 def _site_inscricao(texto: str, html: str) -> str:
-    """Página do concurso na banca, ou o domínio dela."""
-    for u in dict.fromkeys(re.findall(r'href="(https?://[^"]+)"', html)):
-        if DOMINIO_PROIBIDO.search(u) or CAMINHO_NAO_E_EDITAL.search(u):
-            continue
+    """Endereço para onde mandar o candidato.
+
+    Preferimos a página do concurso; o site da banca é o plano B.
+    Decisão do Patrick (14/09/2026): quando não achamos a página
+    específica, vale mandar para a home da banca — de lá a pessoa
+    encontra o concurso. Ficar SEM LINK é pior, porque o card some do
+    site (a regra de "beco sem saída" esconde quem não tem para onde
+    ir), e o concurso deixa de existir para quem procura.
+    """
+    externos = [u for u in dict.fromkeys(re.findall(r'href="(https?://[^"]+)"', html))
+                if not DOMINIO_PROIBIDO.search(u) and not CAMINHO_NAO_E_EDITAL.search(u)]
+
+    # 1ª escolha: o link já aponta para a página do certame.
+    for u in externos:
         if re.search(r"/(?:concurso|edital|informacoes|processo)", u, re.I):
             return u
 
+    # 2ª escolha: o domínio citado no texto ("inscrições no site X").
     m = SITE_OFICIAL.search(texto)
     if m and not DOMINIO_PROIBIDO.search(m.group(1)):
         alvo = m.group(1)
         return alvo if alvo.startswith("http") else f"https://{alvo}"
+
+    # 3ª escolha: qualquer link externo da matéria que tenha cara de
+    # banca. Prefere o que NÃO é site de prefeitura (.gov.br costuma
+    # ser o órgão, que raramente hospeda a inscrição).
+    naogov = [u for u in externos if ".gov.br" not in u.lower()]
+    for u in (naogov or externos):
+        return u
+
     return ""
 
 

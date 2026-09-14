@@ -16,3 +16,6 @@ varredura.log
 # para o Patrick revisar antes de qualquer coisa virar oficial, não
 # dado de produção. Cada rodada reescreve por cima.
 robo/sondagem-ultima.json
+
+# Página temporária de conferência (não faz parte do site)
+conferencia-novos.html
