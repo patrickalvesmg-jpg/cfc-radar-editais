@@ -356,6 +356,18 @@ export function dataUltimaVarredura(lista){
   return maior;
 }
 
+/**
+ * O edital ENTROU no radar nesta data? Diferente de ter sido visto de
+ * novo pela fonte: `capturadoEm` é a primeira captura e não muda mais
+ * (a varredura só atualiza `vistoEm`, ver mesclar() em atualizar.py).
+ * Antes dessa separação o filtro "Novos concursos" mostrava 93 editais
+ * quando só 26 eram novos — todo edital ainda listado renascia a cada
+ * semana.
+ */
+export function entrouEm(edital, dia){
+  return (edital.capturadoEm || '').slice(0, 10) === dia;
+}
+
 /** Só os editais capturados no dia da varredura mais recente. */
 export function editaisDaUltimaVarredura(lista){
   const dia = dataUltimaVarredura(lista);

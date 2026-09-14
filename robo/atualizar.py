@@ -157,6 +157,20 @@ def mesclar(existentes: list[dict], novos: list[dict]) -> tuple[list[dict], int,
         if (atual.get("pdfEdital") or "").strip() and atual.get("salario"):
             protegidos = {"salario", "salarioObs"}
 
+        # `capturadoEm` é QUANDO O EDITAL ENTROU NO RADAR, não quando a
+        # fonte o mostrou pela última vez. Como `extrair.montar()` grava
+        # a hora de agora a cada passagem, deixar a varredura sobrescrever
+        # fazia todo edital ainda listado "nascer" de novo toda semana: em
+        # 14/09/2026 o filtro "Novos concursos" mostrou 93 quando só 26
+        # eram novos de fato — 78 antigos tinham a data reescrita.
+        #
+        # Quem foi visto pela última vez é `vistoEm`, logo abaixo: serve
+        # para saber se a fonte ainda publica o edital, sem mentir sobre
+        # a novidade.
+        protegidos.add("capturadoEm")
+        if novo.get("capturadoEm"):
+            atual["vistoEm"] = novo["capturadoEm"]
+
         mudou = False
         for campo, valor in novo.items():
             if campo in ("id", "revisado") or campo in protegidos:
