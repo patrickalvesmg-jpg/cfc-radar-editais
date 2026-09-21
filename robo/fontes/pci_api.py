@@ -100,7 +100,16 @@ DOMINIO_PROIBIDO = re.compile(
 # não o edital — o card levava quem clicasse a um documento errado.
 CAMINHO_NAO_E_EDITAL = re.compile(
     r"isen[çc][ãa]o|resultado|convoca[çc][ãa]o|recurso|gabarito"
-    r"|homologa[çc][ãa]o|classifica[çc][ãa]o",
+    r"|homologa[çc][ãa]o|classifica[çc][ãa]o"
+    # Tela de login / área do candidato: quem chega ali não vê o
+    # concurso, vê um formulário de senha. O portal da banca é sempre
+    # melhor destino — de lá a pessoa acha o certame. Achado pelo
+    # Patrick em 14/09/2026: a CPCON/UEPB entrava como
+    # `sistemas.cpcon.uepb.edu.br/sigeps-app/login` em vez de
+    # `cpcon.uepb.edu.br`. O pci.py já barrava isso em _e_util; aqui
+    # faltava.
+    r"|/login|/entrar|/acesso|area[-_]?do[-_]?candidato|minha[-_]?conta"
+    r"|/cadastr|/inscricao/novo",
     re.I,
 )
 

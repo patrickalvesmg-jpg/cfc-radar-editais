@@ -65,3 +65,21 @@ def test_infraestrutura_nao_rouba_a_vez_da_banca():
     html = ('<a href="https://fonts.gstatic.com">fonte</a>'
             '<a href="https://portal.bancaboa.selecao.site/">Banca</a>')
     assert "bancaboa" in _site_inscricao("", html)
+
+
+def test_tela_de_login_nao_vira_destino():
+    """Quem cai numa tela de login não vê o concurso, vê um campo de
+    senha. Caso real: CPCON/UEPB entrava como
+    sistemas.cpcon.uepb.edu.br/sigeps-app/login (Patrick, 14/09/2026)."""
+    html = ('<a href="https://sistemas.cpcon.uepb.edu.br/sigeps-app/login">Entrar</a>'
+            '<a href="https://cpcon.uepb.edu.br/">CPCON</a>')
+    r = _site_inscricao("", html)
+    assert "/login" not in r
+    assert r == "https://cpcon.uepb.edu.br/"
+
+
+def test_portal_da_banca_preferido_mesmo_sozinho_o_login_sendo_unico():
+    """Só havendo login, melhor devolver vazio do que mandar para a
+    tela de senha — o card some, mas ninguém é enganado."""
+    html = '<a href="https://sistemas.exemplo.br/sigeps-app/login">Entrar</a>'
+    assert _site_inscricao("", html) == ""

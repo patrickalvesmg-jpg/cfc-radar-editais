@@ -96,6 +96,24 @@ def status_por_prazo(edital: dict) -> str:
 
     if dias < 0:
         return "encerrado"
+
+    # Edital publicado cuja inscrição ainda NÃO ABRIU é "previsto", não
+    # "aberto" — quem clicasse hoje não teria como se inscrever. A
+    # função só olhava o fim do prazo, então concurso que abre daqui a
+    # 20 dias entrava como aberto e a aba "Previstos" ficava sempre
+    # vazia (achado em 14/09/2026; a API do PCI tinha 84 nessa
+    # situação, 10 deles com cargo contábil explícito).
+    #
+    # A virada para "aberto" acontece sozinha: no dia em que a
+    # inscrição abre, esta mesma função deixa de ver início no futuro.
+    inicio = (edital.get("inscricaoInicio") or "")[:10]
+    if inicio:
+        try:
+            if (date.fromisoformat(inicio) - date.today()).days > 0:
+                return "previsto"
+        except ValueError:
+            pass
+
     if dias <= 7:
         return "encerrando"
     return "aberto"
