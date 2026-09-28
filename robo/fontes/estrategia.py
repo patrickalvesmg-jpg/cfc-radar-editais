@@ -70,16 +70,37 @@ def nome_cidade(orgao: str) -> str:
     em vez de receber um palpite errado.
     """
     m = re.search(
-        r"(?:prefeitura|c[âa]mara|munic[íi]pio)\s*"
-        r"(?:municipal\s*)?(?:d[aeo]s?\s+)?"
+        # O rótulo pode vir encadeado: "Prefeitura DO MUNICÍPIO DE
+        # Trindade". Sem repetir o grupo, a captura começava em
+        # "Município" e a cidade ia para o site como "Município de
+        # Trindade" (visto em 21/09/2026).
+        # O rótulo pode vir encadeado ("Prefeitura DO MUNICÍPIO DE X")
+        # e pode juntar dois órgãos ("Prefeitura E CÂMARA DE X" — o
+        # concurso é dos dois, mas a cidade é uma só; sem o "e" aqui, a
+        # cidade ia para o site como "e Câmara de Siqueira Campos").
+        r"(?:(?:prefeitura|c[âa]mara|munic[íi]pio)\s*"
+        # "Câmara Municipal DE VEREADORES de Jaborá": sem pular o
+        # "de vereadores", a cidade saía "Vereadores de Jaborá", não
+        # batia no IBGE e o edital ficava sem UF (28/09/2026).
+        r"(?:municipal\s*)?(?:de\s+vereadores\s+)?(?:e\s+)?(?:d[aeo]s?\s+)?){1,3}"
         r"(?:est[âa]ncia\s+tur[íi]stica\s+d[aeo]\s+)?"
-        r"([A-ZÀ-Ú][^\s,/-]*(?:\s+(?:d[aeo]s?\s+)?[A-ZÀ-Ú][^\s,/-]*){0,3})",
+        # O hífen faz PARTE do nome de muita cidade — "São João
+        # del-Rei", "Mogi-Guaçu", "Santa Rita d'Oeste". Parar nele
+        # truncava a cidade para "São João del", e aí a chave do id não
+        # batia com a do IBGP ("São João Del-Rei"): o mesmo concurso
+        # virava dois cards, com salários que divergiam 3,7x
+        # (21/09/2026). Só o hífen CERCADO DE ESPAÇO separa de verdade.
+        r"([A-ZÀ-Ú][^\s,/]*(?:[-'][^\s,/]+)*"
+        r"(?:\s+(?:d[aeo]s?\s+)?[A-ZÀ-Ú][^\s,/]*(?:[-'][^\s,/]+)*){0,3})",
         str(orgao or ""),
         re.I,
     )
     if not m:
         return ""
     nome = re.sub(r"\s+", " ", m.group(1)).strip(" -–—/")
+    # Conjunção pendurada no fim, de "São João del-Rei E DAMAE": o
+    # nome da cidade não termina em preposição nem artigo.
+    nome = re.sub(r"\s+(?:e|d[aeo]s?|com)$", "", nome, flags=re.I).strip()
     return nome if len(nome) > 2 else ""
 
 

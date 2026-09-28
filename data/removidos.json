@@ -34,5 +34,71 @@
     "cargo": "Auditor Estadual De Finanças Públicas - Ciências Contábeis",
     "motivo": "duplicata de edital já publicado (mesmo órgão e prazo)",
     "em": "2026-09-28"
+  },
+  "e-ee445e952c1f": {
+    "orgao": "PERICIA OFICIAL MA",
+    "cargo": "Perito Criminal — Contador, Economista, Matemático",
+    "motivo": "duplicata do e-481017e19c94 já publicado",
+    "em": "2026-09-28"
+  },
+  "e-a4eb24c9914a": {
+    "orgao": "Prefeitura Municipal de Ipumirim",
+    "cargo": "Tesoureiro",
+    "motivo": "duplicata do e-df08ba3c2c05 já publicado",
+    "em": "2026-09-28"
+  },
+  "e-de188d9edb28": {
+    "orgao": "Prefeitura Municipal de Jaborá",
+    "cargo": "Controlador Interno",
+    "motivo": "duplicata do e-80c2a19e24f6 já publicado",
+    "em": "2026-09-28"
+  },
+  "e-3e90b173f49c": {
+    "orgao": "Conselho Regional de Educação Física da 22ª Região – Cref22",
+    "cargo": "Contador",
+    "motivo": "duplicata do e-ad28caea5ec0 já publicado",
+    "em": "2026-09-28"
+  },
+  "e-b9e003891788": {
+    "orgao": "FUNSAUD - Fundação de Serviços de Saúde de Dourados",
+    "cargo": "Técnico De Contabilidade",
+    "motivo": "removido na conferência do Patrick",
+    "em": "2026-09-28"
+  },
+  "e-5f8e8a65613c": {
+    "orgao": "Câmara de Goianinha",
+    "cargo": "Controlador Interno",
+    "motivo": "removido na conferência do Patrick",
+    "em": "2026-09-28"
+  },
+  "e-862798fc1f8e": {
+    "orgao": "Prefeitura, Câmara e Comodoro-Previ de Comodoro",
+    "cargo": "Contador",
+    "motivo": "removido na conferência do Patrick",
+    "em": "2026-09-28"
+  },
+  "e-ebaad3913199": {
+    "orgao": "Câmara de Descanso",
+    "cargo": "Controlador Interno",
+    "motivo": "removido na conferência do Patrick",
+    "em": "2026-09-28"
+  },
+  "e-71be5e187967": {
+    "orgao": "Câmara de Capinópolis",
+    "cargo": "Contador",
+    "motivo": "removido na conferência do Patrick",
+    "em": "2026-09-28"
+  },
+  "e-6f430369cb21": {
+    "orgao": "PRUDENPREV - Sistema de Previdência do Município de Presidente Prudente",
+    "cargo": "Contador",
+    "motivo": "removido na conferência do Patrick",
+    "em": "2026-09-28"
+  },
+  "e-5ca3fa5213cd": {
+    "orgao": "FJPO - Fundação José Pedro de Oliveira",
+    "cargo": "Contador",
+    "motivo": "removido na conferência do Patrick",
+    "em": "2026-09-28"
   }
 }

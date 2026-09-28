@@ -15,7 +15,7 @@
   {
     "dominio": "fundacaofafipa.org.br",
     "nome": "Fundação FAFIPA",
-    "editais": 11,
+    "editais": 14,
     "fontePrimaria": true,
     "site": "https://www.fundacaofafipa.org.br/",
     "estados": [
@@ -33,7 +33,7 @@
   {
     "dominio": "cebraspe.org.br",
     "nome": "CESPE/CEBRASPE",
-    "editais": 9,
+    "editais": 11,
     "fontePrimaria": true,
     "site": "https://www.cebraspe.org.br/",
     "estados": [
@@ -67,9 +67,27 @@
     "situacao": "reserva"
   },
   {
+    "dominio": "igeduc.selecao.net.br",
+    "nome": "Igeduc",
+    "editais": 10,
+    "fontePrimaria": false,
+    "site": "https://igeduc.selecao.net.br/",
+    "estados": [],
+    "situacao": "reserva"
+  },
+  {
+    "dominio": "amauc.selecao.net.br",
+    "nome": "AMAUC",
+    "editais": 6,
+    "fontePrimaria": false,
+    "site": "https://amauc.selecao.net.br/",
+    "estados": [],
+    "situacao": "reserva"
+  },
+  {
     "dominio": "concursosfcc.com.br",
     "nome": "FCC",
-    "editais": 5,
+    "editais": 6,
     "fontePrimaria": false,
     "site": "https://www.concursosfcc.com.br/",
     "estados": [
@@ -102,10 +120,57 @@
   {
     "dominio": "inepam.org.br",
     "nome": "INEPAM",
-    "editais": 5,
+    "editais": 6,
     "fontePrimaria": false,
     "site": "https://inepam.org.br/",
     "estados": [],
+    "situacao": "reserva"
+  },
+  {
+    "dominio": "avancasp.org.br",
+    "nome": "AvançaSP",
+    "editais": 5,
+    "fontePrimaria": true,
+    "site": "https://www.avancasp.org.br/",
+    "estados": [
+      "MG",
+      "RJ",
+      "SP"
+    ],
+    "situacao": "reserva"
+  },
+  {
+    "dominio": "consesp.com.br",
+    "nome": "CONSESP",
+    "editais": 5,
+    "fontePrimaria": false,
+    "site": "https://www.consesp.com.br/",
+    "estados": [
+      "GO",
+      "MG",
+      "MS",
+      "PR",
+      "SC",
+      "SP"
+    ],
+    "situacao": "reserva"
+  },
+  {
+    "dominio": "ibam-concursos.org.br",
+    "nome": "IBAM Concursos",
+    "editais": 5,
+    "fontePrimaria": false,
+    "site": "https://www.ibam-concursos.org.br/",
+    "estados": [
+      "AL",
+      "BA",
+      "ES",
+      "MG",
+      "PE",
+      "RJ",
+      "SC",
+      "SP"
+    ],
     "situacao": "reserva"
   },
   {
@@ -140,6 +205,28 @@
     "situacao": "em_uso"
   },
   {
+    "dominio": "institutoverbena.ufg.br",
+    "nome": "Institutoverbena",
+    "editais": 5,
+    "fontePrimaria": false,
+    "site": "https://institutoverbena.ufg.br/",
+    "estados": [],
+    "situacao": "reserva"
+  },
+  {
+    "dominio": "itame.com.br",
+    "nome": "Itame Concursos",
+    "editais": 5,
+    "fontePrimaria": false,
+    "site": "https://www.itame.com.br/",
+    "estados": [
+      "GO",
+      "MG",
+      "MT"
+    ],
+    "situacao": "reserva"
+  },
+  {
     "dominio": "objetivas.com.br",
     "nome": "Objetiva Concursos",
     "editais": 5,
@@ -161,59 +248,75 @@
     "situacao": "em_uso"
   },
   {
-    "dominio": "consesp.com.br",
-    "nome": "CONSESP",
+    "dominio": "cotec.fadenor.com.br",
+    "nome": "COTEC",
     "editais": 4,
     "fontePrimaria": false,
-    "site": "https://www.consesp.com.br/",
-    "estados": [
-      "GO",
-      "MG",
-      "MS",
-      "PR",
-      "SC",
-      "SP"
-    ],
-    "situacao": "reserva"
-  },
-  {
-    "dominio": "ibam-concursos.org.br",
-    "nome": "IBAM Concursos",
-    "editais": 4,
-    "fontePrimaria": false,
-    "site": "https://www.ibam-concursos.org.br/",
-    "estados": [
-      "AL",
-      "BA",
-      "ES",
-      "MG",
-      "PE",
-      "RJ",
-      "SC",
-      "SP"
-    ],
-    "situacao": "reserva"
-  },
-  {
-    "dominio": "igeduc.selecao.net.br",
-    "nome": "Igeduc",
-    "editais": 4,
-    "fontePrimaria": false,
-    "site": "https://igeduc.selecao.net.br/",
+    "site": "https://cotec.fadenor.com.br/",
     "estados": [],
     "situacao": "reserva"
   },
   {
-    "dominio": "avancasp.org.br",
-    "nome": "AvançaSP",
-    "editais": 3,
-    "fontePrimaria": true,
-    "site": "https://www.avancasp.org.br/",
+    "dominio": "institutolegalle.org.br",
+    "nome": "Instituto Legalle",
+    "editais": 4,
+    "fontePrimaria": false,
+    "site": "https://institutolegalle.org.br/",
+    "estados": [],
+    "situacao": "reserva"
+  },
+  {
+    "dominio": "institutomais.org.br",
+    "nome": "Instituto Mais",
+    "editais": 4,
+    "fontePrimaria": false,
+    "site": "https://www.institutomais.org.br/",
     "estados": [
+      "BA",
       "MG",
-      "RJ",
+      "RS",
+      "SC",
       "SP"
     ],
+    "situacao": "reserva"
+  },
+  {
+    "dominio": "legalleconcursos.com.br",
+    "nome": "Legalle Concursos",
+    "editais": 4,
+    "fontePrimaria": false,
+    "site": "https://portal.editais.legalleconcursos.com.br/",
+    "estados": [
+      "BA",
+      "MG",
+      "PI",
+      "PR",
+      "RO",
+      "RS",
+      "SC",
+      "SP"
+    ],
+    "situacao": "em_uso"
+  },
+  {
+    "dominio": "ameosc.org.br",
+    "nome": "AMEOSC",
+    "editais": 3,
+    "fontePrimaria": false,
+    "site": "https://www.ameosc.org.br/",
+    "estados": [
+      "MG",
+      "SC"
+    ],
+    "situacao": "reserva"
+  },
+  {
+    "dominio": "aprendersc.srv.br",
+    "nome": "Aprendersc",
+    "editais": 3,
+    "fontePrimaria": false,
+    "site": "https://aprendersc.srv.br/",
+    "estados": [],
     "situacao": "reserva"
   },
   {
@@ -226,6 +329,17 @@
       "MG",
       "SE",
       "SP"
+    ],
+    "situacao": "reserva"
+  },
+  {
+    "dominio": "furb.br",
+    "nome": "FURB",
+    "editais": 3,
+    "fontePrimaria": false,
+    "site": "https://www.furb.br/",
+    "estados": [
+      "SC"
     ],
     "situacao": "reserva"
   },
@@ -255,30 +369,88 @@
     "situacao": "reserva"
   },
   {
-    "dominio": "access.org.br",
-    "nome": "Instituto Access",
+    "dominio": "ibdoprojetos.org.br",
+    "nome": "Ibdoprojetos",
     "editais": 3,
-    "fontePrimaria": true,
-    "site": "https://concursos.access.org.br/",
+    "fontePrimaria": false,
+    "site": "https://ibdoprojetos.org.br/",
+    "estados": [],
+    "situacao": "reserva"
+  },
+  {
+    "dominio": "imais.org.br",
+    "nome": "IMAIS",
+    "editais": 3,
+    "fontePrimaria": false,
+    "site": "https://imais.org.br/",
+    "estados": [],
+    "situacao": "reserva"
+  },
+  {
+    "dominio": "institutoaplicativa.org.br",
+    "nome": "Instituto Aplicativa",
+    "editais": 3,
+    "fontePrimaria": false,
+    "site": "https://institutoaplicativa.org.br/",
+    "estados": [],
+    "situacao": "reserva"
+  },
+  {
+    "dominio": "nossorumo.org.br",
+    "nome": "Instituto Nosso Rumo",
+    "editais": 3,
+    "fontePrimaria": false,
+    "site": "https://www.nossorumo.org.br/",
     "estados": [
+      "AC",
+      "AL",
       "ES",
       "MG",
+      "MS",
+      "PA",
+      "PE",
+      "PR",
+      "RJ",
+      "RO",
+      "SP"
+    ],
+    "situacao": "reserva"
+  },
+  {
+    "dominio": "quadrix.org.br",
+    "nome": "Instituto Quadrix",
+    "editais": 3,
+    "fontePrimaria": false,
+    "site": "https://www.quadrix.org.br/",
+    "estados": [
+      "AC",
+      "AL",
+      "AM",
+      "AP",
+      "BA",
+      "CE",
+      "DF",
+      "ES",
+      "GO",
+      "MA",
+      "MG",
+      "MS",
+      "MT",
+      "PA",
+      "PB",
       "PE",
       "PI",
       "PR",
       "RJ",
+      "RN",
+      "RO",
+      "RR",
+      "RS",
       "SC",
-      "SP"
+      "SE",
+      "SP",
+      "TO"
     ],
-    "situacao": "em_uso"
-  },
-  {
-    "dominio": "institutolegalle.org.br",
-    "nome": "Instituto Legalle",
-    "editais": 3,
-    "fontePrimaria": false,
-    "site": "https://institutolegalle.org.br/",
-    "estados": [],
     "situacao": "reserva"
   },
   {
@@ -291,43 +463,26 @@
     "situacao": "reserva"
   },
   {
-    "dominio": "itame.com.br",
-    "nome": "Itame Concursos",
+    "dominio": "concursosjcm.com.br",
+    "nome": "JCM Concursos",
     "editais": 3,
     "fontePrimaria": false,
-    "site": "https://www.itame.com.br/",
+    "site": "https://www.concursosjcm.com.br/",
     "estados": [
-      "GO",
-      "MG",
-      "MT"
+      "MG"
     ],
     "situacao": "reserva"
   },
   {
-    "dominio": "legalleconcursos.com.br",
-    "nome": "Legalle Concursos",
-    "editais": 3,
+    "dominio": "actio.srv.br",
+    "nome": "ACTIO ASSESSORIA",
+    "editais": 2,
     "fontePrimaria": false,
-    "site": "https://portal.editais.legalleconcursos.com.br/",
+    "site": "https://portal.actio.srv.br/",
     "estados": [
-      "BA",
-      "MG",
-      "PI",
-      "PR",
-      "RO",
-      "RS",
       "SC",
       "SP"
     ],
-    "situacao": "em_uso"
-  },
-  {
-    "dominio": "amauc.selecao.net.br",
-    "nome": "AMAUC",
-    "editais": 2,
-    "fontePrimaria": false,
-    "site": "https://amauc.selecao.net.br/",
-    "estados": [],
     "situacao": "reserva"
   },
   {
@@ -340,21 +495,53 @@
     "situacao": "reserva"
   },
   {
-    "dominio": "aprendersc.srv.br",
-    "nome": "Aprendersc",
+    "dominio": "concursosfau.com.br",
+    "nome": "Concursosfau",
     "editais": 2,
     "fontePrimaria": false,
-    "site": "https://aprendersc.srv.br/",
+    "site": "https://concursosfau.com.br/",
     "estados": [],
     "situacao": "reserva"
   },
   {
-    "dominio": "cotec.fadenor.com.br",
-    "nome": "COTEC",
+    "dominio": "exitusconcursos.net.br",
+    "nome": "Exitus Concursos",
     "editais": 2,
     "fontePrimaria": false,
-    "site": "https://cotec.fadenor.com.br/",
+    "site": "https://portal.exitusconcursos.net.br/",
+    "estados": [
+      "PR",
+      "SP"
+    ],
+    "situacao": "reserva"
+  },
+  {
+    "dominio": "fateccacu.edu.br",
+    "nome": "FATEC Cáceres",
+    "editais": 2,
+    "fontePrimaria": false,
+    "site": "https://fateccacu.edu.br/",
     "estados": [],
+    "situacao": "reserva"
+  },
+  {
+    "dominio": "fenix.selecao.site",
+    "nome": "FENIX",
+    "editais": 2,
+    "fontePrimaria": false,
+    "site": "https://fenix.selecao.site/",
+    "estados": [],
+    "situacao": "reserva"
+  },
+  {
+    "dominio": "fundacaolasalle.org.br",
+    "nome": "Fundação La Salle",
+    "editais": 2,
+    "fontePrimaria": false,
+    "site": "https://fundacaolasalle.org.br/",
+    "estados": [
+      "RS"
+    ],
     "situacao": "reserva"
   },
   {
@@ -380,11 +567,55 @@
     "situacao": "reserva"
   },
   {
-    "dominio": "ibdoprojetos.org.br",
-    "nome": "Ibdoprojetos",
+    "dominio": "ibade.selecao.site",
+    "nome": "IBADE",
     "editais": 2,
     "fontePrimaria": false,
-    "site": "https://ibdoprojetos.org.br/",
+    "site": "https://ibade.selecao.site/",
+    "estados": [],
+    "situacao": "reserva"
+  },
+  {
+    "dominio": "idecan.org.br",
+    "nome": "IDECAN",
+    "editais": 2,
+    "fontePrimaria": false,
+    "site": "https://idecan.org.br/",
+    "estados": [
+      "AC",
+      "AL",
+      "AP",
+      "BA",
+      "CE",
+      "DF",
+      "ES",
+      "GO",
+      "MA",
+      "MG",
+      "MS",
+      "PA",
+      "PB",
+      "PE",
+      "PI",
+      "PR",
+      "RJ",
+      "RN",
+      "RO",
+      "RR",
+      "RS",
+      "SC",
+      "SE",
+      "SP",
+      "TO"
+    ],
+    "situacao": "reserva"
+  },
+  {
+    "dominio": "igeduc.org.br",
+    "nome": "Igeduc",
+    "editais": 2,
+    "fontePrimaria": false,
+    "site": "https://igeduc.org.br/",
     "estados": [],
     "situacao": "reserva"
   },
@@ -398,6 +629,24 @@
     "situacao": "reserva"
   },
   {
+    "dominio": "access.org.br",
+    "nome": "Instituto Access",
+    "editais": 2,
+    "fontePrimaria": true,
+    "site": "https://concursos.access.org.br/",
+    "estados": [
+      "ES",
+      "MG",
+      "PE",
+      "PI",
+      "PR",
+      "RJ",
+      "SC",
+      "SP"
+    ],
+    "situacao": "em_uso"
+  },
+  {
     "dominio": "ajuri.org.br",
     "nome": "Instituto Ajuri",
     "editais": 2,
@@ -409,12 +658,39 @@
     "situacao": "reserva"
   },
   {
-    "dominio": "institutoaplicativa.org.br",
-    "nome": "Instituto Aplicativa",
+    "dominio": "institutoaocp.org.br",
+    "nome": "Instituto AOCP",
     "editais": 2,
     "fontePrimaria": false,
-    "site": "https://institutoaplicativa.org.br/",
-    "estados": [],
+    "site": "https://www.institutoaocp.org.br/",
+    "estados": [
+      "AC",
+      "AL",
+      "AM",
+      "BA",
+      "CE",
+      "DF",
+      "ES",
+      "GO",
+      "MA",
+      "MG",
+      "MS",
+      "MT",
+      "PA",
+      "PB",
+      "PE",
+      "PI",
+      "PR",
+      "RJ",
+      "RN",
+      "RO",
+      "RR",
+      "RS",
+      "SC",
+      "SE",
+      "SP",
+      "TO"
+    ],
     "situacao": "reserva"
   },
   {
@@ -447,42 +723,6 @@
     "situacao": "reserva"
   },
   {
-    "dominio": "institutomais.org.br",
-    "nome": "Instituto Mais",
-    "editais": 2,
-    "fontePrimaria": false,
-    "site": "https://www.institutomais.org.br/",
-    "estados": [
-      "BA",
-      "MG",
-      "RS",
-      "SC",
-      "SP"
-    ],
-    "situacao": "reserva"
-  },
-  {
-    "dominio": "nossorumo.org.br",
-    "nome": "Instituto Nosso Rumo",
-    "editais": 2,
-    "fontePrimaria": false,
-    "site": "https://www.nossorumo.org.br/",
-    "estados": [
-      "AC",
-      "AL",
-      "ES",
-      "MG",
-      "MS",
-      "PA",
-      "PE",
-      "PR",
-      "RJ",
-      "RO",
-      "SP"
-    ],
-    "situacao": "reserva"
-  },
-  {
     "dominio": "institutounicampo.com.br",
     "nome": "Instituto UniCampo",
     "editais": 2,
@@ -501,15 +741,6 @@
     "situacao": "reserva"
   },
   {
-    "dominio": "institutoverbena.ufg.br",
-    "nome": "Institutoverbena",
-    "editais": 2,
-    "fontePrimaria": false,
-    "site": "https://institutoverbena.ufg.br/",
-    "estados": [],
-    "situacao": "reserva"
-  },
-  {
     "dominio": "integribrasil.com.br",
     "nome": "Integri Brasil",
     "editais": 2,
@@ -522,17 +753,6 @@
     "situacao": "reserva"
   },
   {
-    "dominio": "concursosjcm.com.br",
-    "nome": "JCM Concursos",
-    "editais": 2,
-    "fontePrimaria": false,
-    "site": "https://www.concursosjcm.com.br/",
-    "estados": [
-      "MG"
-    ],
-    "situacao": "reserva"
-  },
-  {
     "dominio": "omniinstituto.org.br",
     "nome": "Omniinstituto",
     "editais": 2,
@@ -540,6 +760,27 @@
     "site": "https://omniinstituto.org.br/",
     "estados": [],
     "situacao": "reserva"
+  },
+  {
+    "dominio": "selecon.org.br",
+    "nome": "SELECON",
+    "editais": 2,
+    "fontePrimaria": false,
+    "site": "https://selecon.org.br/",
+    "estados": [
+      "BA",
+      "MA",
+      "MG",
+      "MS",
+      "MT",
+      "RJ",
+      "RO",
+      "RR",
+      "SC",
+      "SE",
+      "SP"
+    ],
+    "situacao": "em_uso"
   },
   {
     "dominio": "selecao.net.br",
@@ -557,6 +798,20 @@
     "fontePrimaria": false,
     "site": "https://unirv.edu.br/",
     "estados": [],
+    "situacao": "reserva"
+  },
+  {
+    "dominio": "universidadepatativa.com.br",
+    "nome": "UPA",
+    "editais": 2,
+    "fontePrimaria": false,
+    "site": "https://www.universidadepatativa.com.br/",
+    "estados": [
+      "AL",
+      "CE",
+      "PE",
+      "SC"
+    ],
     "situacao": "reserva"
   },
   {
@@ -604,18 +859,6 @@
     "situacao": "reserva"
   },
   {
-    "dominio": "actio.srv.br",
-    "nome": "ACTIO ASSESSORIA",
-    "editais": 1,
-    "fontePrimaria": false,
-    "site": "https://portal.actio.srv.br/",
-    "estados": [
-      "SC",
-      "SP"
-    ],
-    "situacao": "reserva"
-  },
-  {
     "dominio": "alphaselecoes.com.br",
     "nome": "Alphaselecoes",
     "editais": 1,
@@ -625,15 +868,12 @@
     "situacao": "reserva"
   },
   {
-    "dominio": "ameosc.org.br",
-    "nome": "AMEOSC",
+    "dominio": "amvapsaude.com.br",
+    "nome": "Amvapsaude",
     "editais": 1,
     "fontePrimaria": false,
-    "site": "https://www.ameosc.org.br/",
-    "estados": [
-      "MG",
-      "SC"
-    ],
+    "site": "https://amvapsaude.com.br/",
+    "estados": [],
     "situacao": "reserva"
   },
   {
@@ -715,6 +955,33 @@
     "situacao": "reserva"
   },
   {
+    "dominio": "consulpam.com.br",
+    "nome": "Consulpam",
+    "editais": 1,
+    "fontePrimaria": false,
+    "site": "https://consulpam.com.br/",
+    "estados": [
+      "BA",
+      "CE",
+      "DF",
+      "GO",
+      "MA",
+      "MG",
+      "PA",
+      "PB",
+      "PE",
+      "PI",
+      "PR",
+      "RJ",
+      "RN",
+      "RS",
+      "SC",
+      "SP",
+      "TO"
+    ],
+    "situacao": "em_uso"
+  },
+  {
     "dominio": "cpcon.uepb.edu.br",
     "nome": "CPCON",
     "editais": 1,
@@ -729,6 +996,15 @@
     "editais": 1,
     "fontePrimaria": false,
     "site": "https://cruzeta.rn.gov.br/",
+    "estados": [],
+    "situacao": "reserva"
+  },
+  {
+    "dominio": "dourados.ms.gov.br",
+    "nome": "Dourados",
+    "editais": 1,
+    "fontePrimaria": false,
+    "site": "https://dourados.ms.gov.br/",
     "estados": [],
     "situacao": "reserva"
   },
@@ -765,21 +1041,38 @@
     "situacao": "reserva"
   },
   {
-    "dominio": "fateccacu.edu.br",
-    "nome": "FATEC Cáceres",
+    "dominio": "conhecimento.fgv.br",
+    "nome": "FGV",
     "editais": 1,
     "fontePrimaria": false,
-    "site": "https://fateccacu.edu.br/",
-    "estados": [],
-    "situacao": "reserva"
-  },
-  {
-    "dominio": "fenix.selecao.site",
-    "nome": "FENIX",
-    "editais": 1,
-    "fontePrimaria": false,
-    "site": "https://fenix.selecao.site/",
-    "estados": [],
+    "site": "https://conhecimento.fgv.br/",
+    "estados": [
+      "AC",
+      "AL",
+      "AM",
+      "BA",
+      "CE",
+      "DF",
+      "ES",
+      "GO",
+      "MA",
+      "MG",
+      "MS",
+      "MT",
+      "PA",
+      "PE",
+      "PI",
+      "PR",
+      "RJ",
+      "RN",
+      "RO",
+      "RR",
+      "RS",
+      "SC",
+      "SE",
+      "SP",
+      "TO"
+    ],
     "situacao": "reserva"
   },
   {
@@ -805,6 +1098,15 @@
     "situacao": "reserva"
   },
   {
+    "dominio": "fundacaocetap.com.br",
+    "nome": "Fundacaocetap",
+    "editais": 1,
+    "fontePrimaria": false,
+    "site": "https://fundacaocetap.com.br/",
+    "estados": [],
+    "situacao": "reserva"
+  },
+  {
     "dominio": "fundatec.org.br",
     "nome": "FUNDATEC",
     "editais": 1,
@@ -821,28 +1123,6 @@
       "SC",
       "SP",
       "TO"
-    ],
-    "situacao": "reserva"
-  },
-  {
-    "dominio": "fundacaolasalle.org.br",
-    "nome": "Fundação La Salle",
-    "editais": 1,
-    "fontePrimaria": false,
-    "site": "https://fundacaolasalle.org.br/",
-    "estados": [
-      "RS"
-    ],
-    "situacao": "reserva"
-  },
-  {
-    "dominio": "furb.br",
-    "nome": "FURB",
-    "editais": 1,
-    "fontePrimaria": false,
-    "site": "https://www.furb.br/",
-    "estados": [
-      "SC"
     ],
     "situacao": "reserva"
   },
@@ -870,6 +1150,26 @@
     "situacao": "reserva"
   },
   {
+    "dominio": "ganzaroliassessoria.com.br",
+    "nome": "Ganzaroli",
+    "editais": 1,
+    "fontePrimaria": false,
+    "site": "https://site.ganzaroliassessoria.com.br/",
+    "estados": [
+      "GO"
+    ],
+    "situacao": "reserva"
+  },
+  {
+    "dominio": "goianinha.rn.leg.br",
+    "nome": "Goianinha",
+    "editais": 1,
+    "fontePrimaria": false,
+    "site": "https://goianinha.rn.leg.br/",
+    "estados": [],
+    "situacao": "reserva"
+  },
+  {
     "dominio": "iadhedconcursos.org",
     "nome": "Iadhedconcursos",
     "editais": 1,
@@ -890,15 +1190,6 @@
       "RJ",
       "RS"
     ],
-    "situacao": "reserva"
-  },
-  {
-    "dominio": "ibade.selecao.site",
-    "nome": "IBADE",
-    "editais": 1,
-    "fontePrimaria": false,
-    "site": "https://ibade.selecao.site/",
-    "estados": [],
     "situacao": "reserva"
   },
   {
@@ -937,41 +1228,6 @@
     "estados": [
       "MA",
       "PA",
-      "TO"
-    ],
-    "situacao": "reserva"
-  },
-  {
-    "dominio": "idecan.org.br",
-    "nome": "IDECAN",
-    "editais": 1,
-    "fontePrimaria": false,
-    "site": "https://idecan.org.br/",
-    "estados": [
-      "AC",
-      "AL",
-      "AP",
-      "BA",
-      "CE",
-      "DF",
-      "ES",
-      "GO",
-      "MA",
-      "MG",
-      "MS",
-      "PA",
-      "PB",
-      "PE",
-      "PI",
-      "PR",
-      "RJ",
-      "RN",
-      "RO",
-      "RR",
-      "RS",
-      "SC",
-      "SE",
-      "SP",
       "TO"
     ],
     "situacao": "reserva"
@@ -1026,15 +1282,6 @@
     "situacao": "reserva"
   },
   {
-    "dominio": "imais.org.br",
-    "nome": "IMAIS",
-    "editais": 1,
-    "fontePrimaria": false,
-    "site": "https://imais.org.br/",
-    "estados": [],
-    "situacao": "reserva"
-  },
-  {
     "dominio": "imam.org.br",
     "nome": "IMAM Concursos",
     "editais": 1,
@@ -1043,6 +1290,22 @@
     "estados": [
       "MG",
       "RJ"
+    ],
+    "situacao": "reserva"
+  },
+  {
+    "dominio": "imperioconcursos.com.br",
+    "nome": "Império Concursos",
+    "editais": 1,
+    "fontePrimaria": false,
+    "site": "https://portal.imperioconcursos.com.br/",
+    "estados": [
+      "MG",
+      "MS",
+      "MT",
+      "PR",
+      "SC",
+      "SP"
     ],
     "situacao": "reserva"
   },
@@ -1070,6 +1333,25 @@
     "situacao": "reserva"
   },
   {
+    "dominio": "institutodom.com",
+    "nome": "Instituto DOM",
+    "editais": 1,
+    "fontePrimaria": false,
+    "site": "https://www.institutodom.com/",
+    "estados": [
+      "AL",
+      "ES",
+      "MG",
+      "MS",
+      "MT",
+      "PR",
+      "RS",
+      "SC",
+      "SP"
+    ],
+    "situacao": "reserva"
+  },
+  {
     "dominio": "institutoibepp.com.br",
     "nome": "Instituto IBEPP",
     "editais": 1,
@@ -1079,48 +1361,20 @@
     "situacao": "reserva"
   },
   {
-    "dominio": "quadrix.org.br",
-    "nome": "Instituto Quadrix",
-    "editais": 1,
-    "fontePrimaria": false,
-    "site": "https://www.quadrix.org.br/",
-    "estados": [
-      "AC",
-      "AL",
-      "AM",
-      "AP",
-      "BA",
-      "CE",
-      "DF",
-      "ES",
-      "GO",
-      "MA",
-      "MG",
-      "MS",
-      "MT",
-      "PA",
-      "PB",
-      "PE",
-      "PI",
-      "PR",
-      "RJ",
-      "RN",
-      "RO",
-      "RR",
-      "RS",
-      "SC",
-      "SE",
-      "SP",
-      "TO"
-    ],
-    "situacao": "reserva"
-  },
-  {
     "dominio": "institutovicentenelson.com.br",
     "nome": "Instituto Vicente Nelson",
     "editais": 1,
     "fontePrimaria": false,
     "site": "https://institutovicentenelson.com.br/",
+    "estados": [],
+    "situacao": "reserva"
+  },
+  {
+    "dominio": "institutofenix.selecao.net.br",
+    "nome": "Institutofenix",
+    "editais": 1,
+    "fontePrimaria": false,
+    "site": "https://institutofenix.selecao.net.br/",
     "estados": [],
     "situacao": "reserva"
   },
@@ -1197,6 +1451,15 @@
     "situacao": "reserva"
   },
   {
+    "dominio": "legatus.org.br",
+    "nome": "Legatus",
+    "editais": 1,
+    "fontePrimaria": false,
+    "site": "https://legatus.org.br/",
+    "estados": [],
+    "situacao": "reserva"
+  },
+  {
     "dominio": "msconc.com.br",
     "nome": "MS Concursos",
     "editais": 1,
@@ -1243,6 +1506,15 @@
     "situacao": "reserva"
   },
   {
+    "dominio": "paulodefrontin.rj.gov.br",
+    "nome": "Paulodefrontin",
+    "editais": 1,
+    "fontePrimaria": false,
+    "site": "https://paulodefrontin.rj.gov.br/",
+    "estados": [],
+    "situacao": "reserva"
+  },
+  {
     "dominio": "prefeitura.poa.br",
     "nome": "Prefeitura",
     "editais": 1,
@@ -1270,6 +1542,15 @@
     "situacao": "reserva"
   },
   {
+    "dominio": "saojoaodelreimg.appcidades.com.br",
+    "nome": "Saojoaodelreimg",
+    "editais": 1,
+    "fontePrimaria": false,
+    "site": "https://saojoaodelreimg.appcidades.com.br/",
+    "estados": [],
+    "situacao": "reserva"
+  },
+  {
     "dominio": "sctreinamentos.selecao.site",
     "nome": "Sctreinamentos",
     "editais": 1,
@@ -1279,32 +1560,11 @@
     "situacao": "reserva"
   },
   {
-    "dominio": "selecon.org.br",
-    "nome": "SELECON",
+    "dominio": "selecon-mt.selecao.net.br",
+    "nome": "Selecon mt",
     "editais": 1,
     "fontePrimaria": false,
-    "site": "https://selecon.org.br/",
-    "estados": [
-      "BA",
-      "MA",
-      "MG",
-      "MS",
-      "MT",
-      "RJ",
-      "RO",
-      "RR",
-      "SC",
-      "SE",
-      "SP"
-    ],
-    "situacao": "em_uso"
-  },
-  {
-    "dominio": "sistemas.institutoverbena.ufg.br",
-    "nome": "Sistemas",
-    "editais": 1,
-    "fontePrimaria": false,
-    "site": "https://sistemas.institutoverbena.ufg.br/",
+    "site": "https://selecon-mt.selecao.net.br/",
     "estados": [],
     "situacao": "reserva"
   },
@@ -1324,6 +1584,17 @@
     "fontePrimaria": false,
     "site": "https://tjpr.jus.br/",
     "estados": [],
+    "situacao": "reserva"
+  },
+  {
+    "dominio": "ufmt.br",
+    "nome": "UFMT",
+    "editais": 1,
+    "fontePrimaria": false,
+    "site": "https://www.ufmt.br/",
+    "estados": [
+      "MT"
+    ],
     "situacao": "reserva"
   },
   {
@@ -1941,33 +2212,6 @@
     "situacao": "reserva"
   },
   {
-    "dominio": "consulpam.com.br",
-    "nome": "Consulpam",
-    "editais": 0,
-    "fontePrimaria": false,
-    "site": "https://consulpam.com.br/",
-    "estados": [
-      "BA",
-      "CE",
-      "DF",
-      "GO",
-      "MA",
-      "MG",
-      "PA",
-      "PB",
-      "PE",
-      "PI",
-      "PR",
-      "RJ",
-      "RN",
-      "RS",
-      "SC",
-      "SP",
-      "TO"
-    ],
-    "situacao": "em_uso"
-  },
-  {
     "dominio": "consulplan.net",
     "nome": "Consulplan",
     "editais": 0,
@@ -2272,18 +2516,6 @@
     "situacao": "reserva"
   },
   {
-    "dominio": "exitusconcursos.net.br",
-    "nome": "Exitus Concursos",
-    "editais": 0,
-    "fontePrimaria": false,
-    "site": "https://portal.exitusconcursos.net.br/",
-    "estados": [
-      "PR",
-      "SP"
-    ],
-    "situacao": "reserva"
-  },
-  {
     "dominio": "facape.br",
     "nome": "Facape",
     "editais": 0,
@@ -2528,41 +2760,6 @@
     "site": "https://www.fgrconcursos.org.br/",
     "estados": [
       "MG"
-    ],
-    "situacao": "reserva"
-  },
-  {
-    "dominio": "conhecimento.fgv.br",
-    "nome": "FGV",
-    "editais": 0,
-    "fontePrimaria": false,
-    "site": "https://conhecimento.fgv.br/",
-    "estados": [
-      "AC",
-      "AL",
-      "AM",
-      "BA",
-      "CE",
-      "DF",
-      "ES",
-      "GO",
-      "MA",
-      "MG",
-      "MS",
-      "MT",
-      "PA",
-      "PE",
-      "PI",
-      "PR",
-      "RJ",
-      "RN",
-      "RO",
-      "RR",
-      "RS",
-      "SC",
-      "SE",
-      "SP",
-      "TO"
     ],
     "situacao": "reserva"
   },
@@ -2825,17 +3022,6 @@
     "estados": [
       "MA",
       "PI"
-    ],
-    "situacao": "reserva"
-  },
-  {
-    "dominio": "ganzaroliassessoria.com.br",
-    "nome": "Ganzaroli",
-    "editais": 0,
-    "fontePrimaria": false,
-    "site": "https://site.ganzaroliassessoria.com.br/",
-    "estados": [
-      "GO"
     ],
     "situacao": "reserva"
   },
@@ -3461,22 +3647,6 @@
     "situacao": "orgao_publico"
   },
   {
-    "dominio": "imperioconcursos.com.br",
-    "nome": "Império Concursos",
-    "editais": 0,
-    "fontePrimaria": false,
-    "site": "https://portal.imperioconcursos.com.br/",
-    "estados": [
-      "MG",
-      "MS",
-      "MT",
-      "PR",
-      "SC",
-      "SP"
-    ],
-    "situacao": "reserva"
-  },
-  {
     "dominio": "paconcursos.selecao.net.br",
     "nome": "Inaz do Pará",
     "editais": 0,
@@ -3562,42 +3732,6 @@
     "situacao": "reserva"
   },
   {
-    "dominio": "institutoaocp.org.br",
-    "nome": "Instituto AOCP",
-    "editais": 0,
-    "fontePrimaria": false,
-    "site": "https://www.institutoaocp.org.br/",
-    "estados": [
-      "AC",
-      "AL",
-      "AM",
-      "BA",
-      "CE",
-      "DF",
-      "ES",
-      "GO",
-      "MA",
-      "MG",
-      "MS",
-      "MT",
-      "PA",
-      "PB",
-      "PE",
-      "PI",
-      "PR",
-      "RJ",
-      "RN",
-      "RO",
-      "RR",
-      "RS",
-      "SC",
-      "SE",
-      "SP",
-      "TO"
-    ],
-    "situacao": "reserva"
-  },
-  {
     "dominio": "aplicativa.net.br",
     "nome": "Instituto Aplicativa",
     "editais": 0,
@@ -3632,25 +3766,6 @@
     "site": "https://www.institutobrio.org.br/",
     "estados": [
       "MG",
-      "SP"
-    ],
-    "situacao": "reserva"
-  },
-  {
-    "dominio": "institutodom.com",
-    "nome": "Instituto DOM",
-    "editais": 0,
-    "fontePrimaria": false,
-    "site": "https://www.institutodom.com/",
-    "estados": [
-      "AL",
-      "ES",
-      "MG",
-      "MS",
-      "MT",
-      "PR",
-      "RS",
-      "SC",
       "SP"
     ],
     "situacao": "reserva"
@@ -4835,17 +4950,6 @@
     "situacao": "reserva"
   },
   {
-    "dominio": "ufmt.br",
-    "nome": "UFMT",
-    "editais": 0,
-    "fontePrimaria": false,
-    "site": "https://www.ufmt.br/",
-    "estados": [
-      "MT"
-    ],
-    "situacao": "reserva"
-  },
-  {
     "dominio": "ufop.br",
     "nome": "UFOP",
     "editais": 0,
@@ -5370,20 +5474,6 @@
     "site": "https://univesp.br/",
     "estados": [
       "SP"
-    ],
-    "situacao": "reserva"
-  },
-  {
-    "dominio": "universidadepatativa.com.br",
-    "nome": "UPA",
-    "editais": 0,
-    "fontePrimaria": false,
-    "site": "https://www.universidadepatativa.com.br/",
-    "estados": [
-      "AL",
-      "CE",
-      "PE",
-      "SC"
     ],
     "situacao": "reserva"
   },

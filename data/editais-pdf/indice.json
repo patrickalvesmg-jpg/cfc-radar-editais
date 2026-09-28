@@ -1,7 +1,7 @@
 {
  "e-02597b08196d": {
   "arquivo": "data/editais-pdf/e-02597b08196d-b2ec4ff8.pdf",
-  "baixadoEm": "2026-09-21",
+  "baixadoEm": "2026-09-28",
   "bytes": 879436,
   "origem": "https://cdnsite.institutoconsulplan.org.br/concursos/1337/c62122d38c664b599d6e966ea19948de.pdf",
   "sha256_8": "b2ec4ff8"
@@ -15,28 +15,28 @@
  },
  "e-02df32b3e8d6": {
   "arquivo": "data/editais-pdf/e-02df32b3e8d6-4ca30f68.pdf",
-  "baixadoEm": "2026-09-21",
+  "baixadoEm": "2026-09-28",
   "bytes": 205990,
   "origem": "https://novo.ibgpconcursos.com.br/rest/concurso/download/edital/24180/?file=site/anexos/784/01%20-%20ANEXO%20I%20-%20CARGOS%20ESCOLARIDADES%20JORNADAS%20VAGAS%20E%20VENCIMENTOS.pdf",
   "sha256_8": "4ca30f68"
  },
  "e-087c938eb916": {
   "arquivo": "data/editais-pdf/e-087c938eb916-8e30ea4e.pdf",
-  "baixadoEm": "2026-09-21",
+  "baixadoEm": "2026-09-28",
   "bytes": 729181,
   "origem": "https://anexos-r2.selecao.net.br/uploads/827/concursos/50/anexos/bbf1da08-d987-420a-8933-62d9bd2902eb.pdf",
   "sha256_8": "8e30ea4e"
  },
- "e-0fdec8095a55": {
-  "arquivo": "data/editais-pdf/e-0fdec8095a55-e58fdc88.pdf",
-  "baixadoEm": "2026-09-21",
-  "bytes": 716609,
-  "origem": "https://anexos-r2.selecao.net.br/uploads/861/concursos/3070/anexos/f196fabd-7d4e-49e6-bb8c-1fcc400cab06.pdf",
-  "sha256_8": "e58fdc88"
+ "e-13d86ac950d7": {
+  "arquivo": "data/editais-pdf/e-13d86ac950d7-cadf4709.pdf",
+  "baixadoEm": "2026-09-28",
+  "bytes": 174458,
+  "origem": "https://novo.ibgpconcursos.com.br/rest/concurso/download/edital/23893/?file=site/anexos/747/01%20-%20ANEXO%20I%20-REQUISITO_JORNADA_VAGA_VENCIMENTO.pdf",
+  "sha256_8": "cadf4709"
  },
  "e-14bc25fd0f60": {
   "arquivo": "data/editais-pdf/e-14bc25fd0f60-4e19e157.pdf",
-  "baixadoEm": "2026-09-21",
+  "baixadoEm": "2026-09-28",
   "bytes": 868685,
   "origem": "https://cdnsite.institutoconsulplan.org.br/concursos/1307/c7759d2af2fa461a8e593ccaf8e7d44b.pdf",
   "sha256_8": "4e19e157"
@@ -48,40 +48,103 @@
   "origem": "https://novo.ibgpconcursos.com.br/rest/concurso/download/edital/23230/?file=site/anexos/710/01%20-%20ANEXO%20I%20%96%20REQUISITOS.pdf",
   "sha256_8": "6ebf71a2"
  },
+ "e-19414ddfd45f": {
+  "arquivo": "data/editais-pdf/e-19414ddfd45f-8030bfb7.pdf",
+  "baixadoEm": "2026-09-28",
+  "bytes": 432173,
+  "origem": "https://anexos-r2.selecao.net.br/uploads/797/concursos/174/anexos/e1bc2336-dc1e-4da1-b206-ebd4f01ad25d.pdf",
+  "sha256_8": "8030bfb7"
+ },
+ "e-19bbc2c1f8fb": {
+  "arquivo": "data/editais-pdf/e-19bbc2c1f8fb-ddb3b963.pdf",
+  "baixadoEm": "2026-09-28",
+  "bytes": 176344,
+  "origem": "https://anexos-r2.selecao.net.br/uploads/846/concursos/34/anexos/f57e36e1-f5c9-438c-ba75-92118a3a53f6.pdf",
+  "sha256_8": "ddb3b963"
+ },
+ "e-1b7350f32a74": {
+  "arquivo": "data/editais-pdf/e-1b7350f32a74-47053daf.pdf",
+  "baixadoEm": "2026-09-28",
+  "bytes": 894785,
+  "origem": "https://anexos-r2.selecao.net.br/uploads/617/concursos/139/anexos/966f6752-0a9e-49fd-a39b-a306796f5ab8.pdf",
+  "sha256_8": "47053daf"
+ },
+ "e-20b584449b3b": {
+  "arquivo": "data/editais-pdf/e-20b584449b3b-0b768e24.pdf",
+  "baixadoEm": "2026-09-28",
+  "bytes": 318176,
+  "origem": "https://anexos-r2.selecao.net.br/uploads/797/concursos/173/anexos/f0e868ab-b4a1-4c08-8137-2ce61917e71f.pdf",
+  "sha256_8": "0b768e24"
+ },
+ "e-291fe031f6ed": {
+  "arquivo": "data/editais-pdf/e-291fe031f6ed-6e395c1b.pdf",
+  "baixadoEm": "2026-09-28",
+  "bytes": 108731,
+  "origem": "https://imeso.com.br/arquivo.php?file=edital/1/137/5b77bbcb222ca9d276a98e16171ef955.pdf",
+  "sha256_8": "6e395c1b"
+ },
  "e-2b0270eaf394": {
   "arquivo": "data/editais-pdf/e-2b0270eaf394-fca85c7e.pdf",
-  "baixadoEm": "2026-09-21",
+  "baixadoEm": "2026-09-28",
   "bytes": 385853,
   "origem": "https://s3.amazonaws.com/sgs.institutoideap.com.br/camara-municipal-de-rio-piracicaba/1/1-2026/anexos/anexos--edital-concurso-publico-01-2026--camara-municipal-de-rio-piracicaba.pdf",
   "sha256_8": "fca85c7e"
  },
+ "e-2beda1732b18": {
+  "arquivo": "data/editais-pdf/e-2beda1732b18-36993f7f.pdf",
+  "baixadoEm": "2026-09-28",
+  "bytes": 865392,
+  "origem": "https://anexos-r2.selecao.net.br/uploads/301/concursos/279/anexos/c28884d9-8fb7-4db6-ab57-699f4f9241da.pdf",
+  "sha256_8": "36993f7f"
+ },
  "e-313b98c6b47b": {
   "arquivo": "data/editais-pdf/e-313b98c6b47b-c312453f.pdf",
-  "baixadoEm": "2026-09-21",
+  "baixadoEm": "2026-09-28",
   "bytes": 687798,
   "origem": "https://anexos-r2.selecao.net.br/uploads/331/concursos/107/anexos/d6deaf2c-6d35-4b0b-a164-1c695804e199.pdf",
   "sha256_8": "c312453f"
  },
  "e-3142cb4f75e1": {
-  "arquivo": "data/editais-pdf/e-3142cb4f75e1-05c041d5.pdf",
-  "baixadoEm": "2026-09-21",
-  "bytes": 636940,
-  "origem": "https://anexos-r2.selecao.net.br/uploads/281/concursos/4211/anexos/60596272-71a2-4d82-893d-18c55be15ae4.pdf",
-  "sha256_8": "05c041d5"
+  "arquivo": "data/editais-pdf/e-3142cb4f75e1-3f2cb8fe.pdf",
+  "baixadoEm": "2026-09-28",
+  "bytes": 641240,
+  "origem": "https://anexos-r2.selecao.net.br/uploads/281/concursos/4211/anexos/758a9e11-e25b-46df-ac62-cb1272676bfc.pdf",
+  "sha256_8": "3f2cb8fe"
+ },
+ "e-364147f2009e": {
+  "arquivo": "data/editais-pdf/e-364147f2009e-8bfe6d11.pdf",
+  "baixadoEm": "2026-09-28",
+  "bytes": 851758,
+  "origem": "https://fundacaolasalle.org.br/wp-content/uploads/2026/09/ed_abert_ivoti19726.pdf",
+  "sha256_8": "8bfe6d11"
+ },
+ "e-39f73b60ec91": {
+  "arquivo": "data/editais-pdf/e-39f73b60ec91-32ee6e8b.pdf",
+  "baixadoEm": "2026-09-28",
+  "bytes": 387238,
+  "origem": "https://anexos-r2.selecao.net.br/uploads/827/concursos/52/anexos/be4d0fbd-158c-4317-83ef-d3b0a504d412.pdf",
+  "sha256_8": "32ee6e8b"
  },
  "e-3bde63443829": {
   "arquivo": "data/editais-pdf/e-3bde63443829-ddb3b963.pdf",
-  "baixadoEm": "2026-09-21",
+  "baixadoEm": "2026-09-28",
   "bytes": 176344,
   "origem": "https://anexos-r2.selecao.net.br/uploads/846/concursos/34/anexos/f57e36e1-f5c9-438c-ba75-92118a3a53f6.pdf",
   "sha256_8": "ddb3b963"
  },
  "e-402b65f01904": {
   "arquivo": "data/editais-pdf/e-402b65f01904-9b987121.pdf",
-  "baixadoEm": "2026-09-21",
+  "baixadoEm": "2026-09-28",
   "bytes": 211217,
   "origem": "https://novo.ibgpconcursos.com.br/rest/concurso/download/edital/22185/?file=site/anexos/665/01%20-%20ANEXO%20I%20-%20CARGOS%20ESCOLARIDADES%20JORNADAS%20VAGAS%20E%20VENCIMENTOS%20-%20FINAL%20-RETIFICA%C7%C3O%20N%BA%2003.pdf",
   "sha256_8": "9b987121"
+ },
+ "e-41edcf5b7129": {
+  "arquivo": "data/editais-pdf/e-41edcf5b7129-f411c926.pdf",
+  "baixadoEm": "2026-09-28",
+  "bytes": 813064,
+  "origem": "https://anexos-r2.selecao.net.br/uploads/797/concursos/176/anexos/d8313714-27a1-4538-8ad4-63c84e637749.pdf",
+  "sha256_8": "f411c926"
  },
  "e-4284dbf14bc9": {
   "arquivo": "data/editais-pdf/e-4284dbf14bc9-c9afdd89.pdf",
@@ -99,14 +162,14 @@
  },
  "e-44bf03a16d51": {
   "arquivo": "data/editais-pdf/e-44bf03a16d51-f09418ba.pdf",
-  "baixadoEm": "2026-09-21",
+  "baixadoEm": "2026-09-28",
   "bytes": 176766,
   "origem": "https://novo.ibgpconcursos.com.br/rest/concurso/download/edital/23877/?file=site/anexos/746/01%20-%20ANEXO%20I%20%96%20REQUISITOS.pdf",
   "sha256_8": "f09418ba"
  },
  "e-4705496de5d1": {
   "arquivo": "data/editais-pdf/e-4705496de5d1-6ebf71a2.pdf",
-  "baixadoEm": "2026-09-21",
+  "baixadoEm": "2026-09-28",
   "bytes": 257830,
   "origem": "https://novo.ibgpconcursos.com.br/rest/concurso/download/edital/23230/?file=site/anexos/710/01%20-%20ANEXO%20I%20%96%20REQUISITOS.pdf",
   "sha256_8": "6ebf71a2"
@@ -119,53 +182,53 @@
   "sha256_8": "eee38500"
  },
  "e-497444ffb59d": {
-  "arquivo": "data/editais-pdf/e-497444ffb59d-acaf291f.pdf",
-  "baixadoEm": "2026-08-31",
-  "bytes": 129169,
-  "origem": "https://novo.ibgpconcursos.com.br/rest/concurso/download/edital/23685/?file=site/anexos/736/01%20-%20ANEXO%20I%20%96%20REQUISITOS_DAMAE.pdf",
-  "sha256_8": "acaf291f"
+  "arquivo": "data/editais-pdf/e-497444ffb59d-da744790.pdf",
+  "baixadoEm": "2026-09-28",
+  "bytes": 145680,
+  "origem": "https://novo.ibgpconcursos.com.br/rest/concurso/download/edital/23645/?file=site/anexos/681/01%20-%20ANEXO%20I%20%96%20REQUISITOS_PSP.pdf",
+  "sha256_8": "da744790"
  },
  "e-4a0909c14560": {
   "arquivo": "data/editais-pdf/e-4a0909c14560-e467f7f7.pdf",
-  "baixadoEm": "2026-09-21",
+  "baixadoEm": "2026-09-28",
   "bytes": 126196,
   "origem": "https://novo.ibgpconcursos.com.br/rest/concurso/download/edital/22347/?file=site/anexos/684/01%20-%20ANEXO%20I%20-REQUISITO_JORNADA_VAGA_VENCIMENTO.pdf",
   "sha256_8": "e467f7f7"
  },
  "e-4bbc091378e8": {
   "arquivo": "data/editais-pdf/e-4bbc091378e8-482b85f1.pdf",
-  "baixadoEm": "2026-09-21",
+  "baixadoEm": "2026-09-28",
   "bytes": 971441,
   "origem": "https://anexos-r2.selecao.net.br/uploads/361/concursos/2607/anexos/85029c9d-6603-4e9a-b520-ab5b318ac0c0.pdf",
   "sha256_8": "482b85f1"
  },
  "e-4fdc63521949": {
-  "arquivo": "data/editais-pdf/e-4fdc63521949-a133da88.pdf",
-  "baixadoEm": "2026-09-21",
-  "bytes": 1043827,
-  "origem": "https://sistemas.institutoverbena.ufg.br/2026/concurso-camara-mutunopolis/sistema/arquivos/editais/Edital_Concurso_P%C3%BAblico_da_C%C3%A2mara_Municipal_de_Mutun%C3%B3polis.pdf",
-  "sha256_8": "a133da88"
+  "arquivo": "data/editais-pdf/e-4fdc63521949-8a3631ef.pdf",
+  "baixadoEm": "2026-09-28",
+  "bytes": 1044995,
+  "origem": "https://sistemas.institutoverbena.ufg.br/2026/concurso-camara-mutunopolis/sistema/arquivos/Edital_Consolidado_Concurso_P%C3%BAblico_da_C%C3%A2mara_Municipal_de_Mutun%C3%B3polis_1.pdf",
+  "sha256_8": "8a3631ef"
  },
  "e-514530b6bdd5": {
   "arquivo": "data/editais-pdf/e-514530b6bdd5-005b8854.pdf",
-  "baixadoEm": "2026-09-21",
+  "baixadoEm": "2026-09-28",
   "bytes": 735971,
   "origem": "https://anexos-r2.selecao.net.br/uploads/281/concursos/4205/anexos/1474a5ca-a79a-4f78-a916-8e2cbef19e3a.pdf",
   "sha256_8": "005b8854"
  },
  "e-52abd0b3bd38": {
   "arquivo": "data/editais-pdf/e-52abd0b3bd38-88468351.pdf",
-  "baixadoEm": "2026-09-21",
+  "baixadoEm": "2026-09-28",
   "bytes": 2358813,
   "origem": "https://anexos-r2.selecao.net.br/uploads/807/concursos/32/anexos/7dc0aeaa-d381-4ee1-a796-975c12a3271c.pdf",
   "sha256_8": "88468351"
  },
  "e-53279f91d0d0": {
-  "arquivo": "data/editais-pdf/e-53279f91d0d0-49eda624.pdf",
-  "baixadoEm": "2026-09-21",
-  "bytes": 4066134,
-  "origem": "https://anexos-r2.selecao.net.br/uploads/17/concursos/267/anexos/faf421df-d2ff-46f8-a399-0415b40adaf1.pdf",
-  "sha256_8": "49eda624"
+  "arquivo": "data/editais-pdf/e-53279f91d0d0-7151c748.pdf",
+  "baixadoEm": "2026-09-28",
+  "bytes": 1269889,
+  "origem": "https://anexos-r2.selecao.net.br/uploads/17/concursos/267/anexos/1eeb9e15-d962-4e14-be59-3faf96ab60b0.pdf",
+  "sha256_8": "7151c748"
  },
  "e-538d1b1b4359": {
   "arquivo": "data/editais-pdf/e-538d1b1b4359-a051ed38.pdf",
@@ -181,54 +244,54 @@
   "origem": "https://heitorai.go.gov.br/arquivos/edital-concurso-publico.pdf",
   "sha256_8": "afa9ecad"
  },
- "e-60b6a1b16704": {
-  "arquivo": "data/editais-pdf/e-60b6a1b16704-9de2560a.pdf",
-  "baixadoEm": "2026-09-21",
-  "bytes": 1097897,
-  "origem": "https://app.inepam.org.br/concurso/downloadAnexo.do?idAnexo=2714",
-  "sha256_8": "9de2560a"
- },
- "e-6106896a4955": {
-  "arquivo": "data/editais-pdf/e-6106896a4955-465011aa.pdf",
-  "baixadoEm": "2026-09-21",
-  "bytes": 264787,
-  "origem": "https://novo.ibgpconcursos.com.br/rest/concurso/download/edital/21894/?file=site/anexos/670/01%20-%20ANEXO%20I%20-%20CARGOS%20ESC.%20JORNADAS%20VAGAS%20E%20VENCIMENTOS%20-%20RETIFICA%C7%C3O%20N%BA%2001.pdf",
-  "sha256_8": "465011aa"
+ "e-5f497601f05d": {
+  "arquivo": "data/editais-pdf/e-5f497601f05d-f195e94f.pdf",
+  "baixadoEm": "2026-09-28",
+  "bytes": 769168,
+  "origem": "https://anexos-r2.selecao.net.br/uploads/422/concursos/182/anexos/259fa813-67ef-4f37-88f5-5a9e78ed5bcb.pdf",
+  "sha256_8": "f195e94f"
  },
  "e-6c4486b6e77f": {
   "arquivo": "data/editais-pdf/e-6c4486b6e77f-7b99c837.pdf",
-  "baixadoEm": "2026-09-21",
+  "baixadoEm": "2026-09-28",
   "bytes": 857396,
   "origem": "https://funvapi.com.br/wp-content/uploads/2026/09/EDITAL-DE-CONCURSO-PUBLICO-DOM-EXPEDITO-LOPES-PIAUI-001-2026-3.pdf",
   "sha256_8": "7b99c837"
  },
+ "e-6d972392d446": {
+  "arquivo": "data/editais-pdf/e-6d972392d446-bce2edaa.pdf",
+  "baixadoEm": "2026-09-28",
+  "bytes": 1548920,
+  "origem": "https://anexos-r2.selecao.net.br/uploads/797/concursos/105/anexos/c9aa2137-b84c-4d93-83dc-7660ad6817bc.pdf",
+  "sha256_8": "bce2edaa"
+ },
  "e-6e23f02d1fbd": {
   "arquivo": "data/editais-pdf/e-6e23f02d1fbd-1e5b8376.pdf",
-  "baixadoEm": "2026-09-21",
+  "baixadoEm": "2026-09-28",
   "bytes": 1386637,
   "origem": "https://anexos-r2.selecao.net.br/uploads/361/concursos/2621/anexos/2265efae-b4a5-48a7-9821-2a40d71a3fee.pdf",
   "sha256_8": "1e5b8376"
  },
  "e-6eff3750b520": {
   "arquivo": "data/editais-pdf/e-6eff3750b520-33f29641.pdf",
-  "baixadoEm": "2026-09-21",
+  "baixadoEm": "2026-09-28",
   "bytes": 1241874,
   "origem": "https://anexos-r2.selecao.net.br/uploads/858/concursos/5/anexos/d704f695-1b85-479f-b136-ad9e93e232d4.pdf",
   "sha256_8": "33f29641"
  },
- "e-7281537970e6": {
-  "arquivo": "data/editais-pdf/e-7281537970e6-d164ad13.pdf",
-  "baixadoEm": "2026-09-21",
-  "bytes": 1530927,
-  "origem": "https://anexos-r2.selecao.net.br/uploads/301/concursos/21/anexos/a4ef6a57-6b06-4b09-82df-608c418cbab4.pdf",
-  "sha256_8": "d164ad13"
+ "e-703a8973f8cd": {
+  "arquivo": "data/editais-pdf/e-703a8973f8cd-2481b01b.pdf",
+  "baixadoEm": "2026-09-28",
+  "bytes": 212550,
+  "origem": "https://www.concursosfau.com.br//sistema/uploads/RETIFICACAO_ANEXO_II_-_CONTEUDO_PROGRAMATICO_3.pdf",
+  "sha256_8": "2481b01b"
  },
- "e-738acdd04f04": {
-  "arquivo": "data/editais-pdf/e-738acdd04f04-8dba13a6.pdf",
-  "baixadoEm": "2026-09-21",
-  "bytes": 101094,
-  "origem": "https://institutolegalle.org.br/termos.pdf",
-  "sha256_8": "8dba13a6"
+ "e-71d41b2cdb9d": {
+  "arquivo": "data/editais-pdf/e-71d41b2cdb9d-278a05af.pdf",
+  "baixadoEm": "2026-09-28",
+  "bytes": 746040,
+  "origem": "https://anexos-r2.selecao.net.br/uploads/828/concursos/95/anexos/50fdb863-d866-4da7-afde-cf050ac54a5c.pdf",
+  "sha256_8": "278a05af"
  },
  "e-76b7bd27677d": {
   "arquivo": "data/editais-pdf/e-76b7bd27677d-1856e0b0.pdf",
@@ -237,54 +300,82 @@
   "origem": "https://novo.ibgpconcursos.com.br/rest/concurso/download/edital/23768/?file=site/anexos/739/01%20-%20ANEXO%20I%20-%20REQUISITOS.pdf",
   "sha256_8": "1856e0b0"
  },
+ "e-783cd018a246": {
+  "arquivo": "data/editais-pdf/e-783cd018a246-cbf7c42f.pdf",
+  "baixadoEm": "2026-09-28",
+  "bytes": 737908,
+  "origem": "https://anexos-r2.selecao.net.br/uploads/861/concursos/3071/anexos/1afe4f0b-7113-4dad-bf04-0c578b3fd24a.pdf",
+  "sha256_8": "cbf7c42f"
+ },
  "e-79fbb9a78a96": {
   "arquivo": "data/editais-pdf/e-79fbb9a78a96-739b4efa.pdf",
-  "baixadoEm": "2026-09-21",
+  "baixadoEm": "2026-09-28",
   "bytes": 101882,
   "origem": "https://anexos-r2.selecao.net.br/uploads/846/concursos/32/anexos/26f6b740-d572-4213-b269-7d88674780b9.pdf",
   "sha256_8": "739b4efa"
  },
+ "e-7f9d1b5e2b8f": {
+  "arquivo": "data/editais-pdf/e-7f9d1b5e2b8f-eb7622cc.pdf",
+  "baixadoEm": "2026-09-28",
+  "bytes": 206443,
+  "origem": "https://anexos-r2.selecao.net.br/uploads/797/concursos/168/anexos/96b5d443-d3c3-4664-8e79-563050c71648.pdf",
+  "sha256_8": "eb7622cc"
+ },
  "e-806e186d6508": {
   "arquivo": "data/editais-pdf/e-806e186d6508-31b3486c.pdf",
-  "baixadoEm": "2026-09-21",
+  "baixadoEm": "2026-09-28",
   "bytes": 477820,
   "origem": "https://anexos-r2.selecao.net.br/uploads/331/concursos/106/anexos/7645a8b3-fbf6-4d07-8bdb-c26e58feff66.pdf",
   "sha256_8": "31b3486c"
  },
  "e-80c2a19e24f6": {
-  "arquivo": "data/editais-pdf/e-80c2a19e24f6-38ed0ecb.pdf",
-  "baixadoEm": "2026-09-21",
-  "bytes": 228459,
-  "origem": "https://anexos-r2.selecao.net.br/uploads/617/concursos/143/anexos/b9695cc0-a2c4-4e78-ab85-562acc6597df.pdf",
-  "sha256_8": "38ed0ecb"
- },
- "e-82f8ce2d7309": {
-  "arquivo": "data/editais-pdf/e-82f8ce2d7309-e9f52f8c.pdf",
-  "baixadoEm": "2026-09-21",
-  "bytes": 55140,
-  "origem": "https://anexos-r2.selecao.net.br/uploads/815/concursos/104/anexos/41e0a937-5019-4a8a-ab69-892ca437ff10.pdf",
-  "sha256_8": "e9f52f8c"
+  "arquivo": "data/editais-pdf/e-80c2a19e24f6-47053daf.pdf",
+  "baixadoEm": "2026-09-28",
+  "bytes": 894785,
+  "origem": "https://anexos-r2.selecao.net.br/uploads/617/concursos/139/anexos/966f6752-0a9e-49fd-a39b-a306796f5ab8.pdf",
+  "sha256_8": "47053daf"
  },
  "e-868ad33e742c": {
-  "arquivo": "data/editais-pdf/e-868ad33e742c-63fae306.pdf",
-  "baixadoEm": "2026-08-31",
-  "bytes": 190215,
-  "origem": "https://novo.ibgpconcursos.com.br/rest/concurso/download/edital/23655/?file=site/anexos/733/01%20-%20ANEXO%20I%20%96%20REQUISITOS_02-2026.pdf",
-  "sha256_8": "63fae306"
+  "arquivo": "data/editais-pdf/e-868ad33e742c-da744790.pdf",
+  "baixadoEm": "2026-09-28",
+  "bytes": 145680,
+  "origem": "https://novo.ibgpconcursos.com.br/rest/concurso/download/edital/23645/?file=site/anexos/681/01%20-%20ANEXO%20I%20%96%20REQUISITOS_PSP.pdf",
+  "sha256_8": "da744790"
  },
  "e-8765850de9a5": {
   "arquivo": "data/editais-pdf/e-8765850de9a5-fd3885bf.pdf",
-  "baixadoEm": "2026-09-21",
+  "baixadoEm": "2026-09-28",
   "bytes": 835352,
   "origem": "https://www.imam.org.br/documentos/EditalCamaraDivisaNovaConcuso001202691639210066104270828.pdf",
   "sha256_8": "fd3885bf"
  },
  "e-9475f863d83f": {
   "arquivo": "data/editais-pdf/e-9475f863d83f-7e75b5ec.pdf",
-  "baixadoEm": "2026-09-21",
+  "baixadoEm": "2026-09-28",
   "bytes": 1961648,
   "origem": "https://funvapi.com.br/wp-content/uploads/2026/08/EDITAL-DE-CONCURSO-PUBLICO-BELO-JARDIM-PERNAMBUCO-001-2026.pdf",
   "sha256_8": "7e75b5ec"
+ },
+ "e-95d4a99b80c1": {
+  "arquivo": "data/editais-pdf/e-95d4a99b80c1-9435180f.pdf",
+  "baixadoEm": "2026-09-28",
+  "bytes": 1025692,
+  "origem": "https://anexos-r2.selecao.net.br/uploads/807/concursos/35/anexos/b38f0f4f-065c-46de-b786-4c9f5c59850b.pdf",
+  "sha256_8": "9435180f"
+ },
+ "e-97737a503c12": {
+  "arquivo": "data/editais-pdf/e-97737a503c12-c8f5d2af.pdf",
+  "baixadoEm": "2026-09-28",
+  "bytes": 693051,
+  "origem": "https://www.institutomais.org.br/ckfinder/userfiles/files/Retifica%c3%a7%c3%a3o%20002%20ao%20Edital%200012026.pdf",
+  "sha256_8": "c8f5d2af"
+ },
+ "e-978db7a7b78a": {
+  "arquivo": "data/editais-pdf/e-978db7a7b78a-b565fb92.pdf",
+  "baixadoEm": "2026-09-28",
+  "bytes": 713053,
+  "origem": "https://anexos-r2.selecao.net.br/uploads/739/concursos/99/anexos/95216fb2-9f67-47a8-85af-6f03d7f50ffa.pdf",
+  "sha256_8": "b565fb92"
  },
  "e-97a671a62d52": {
   "arquivo": "data/editais-pdf/e-97a671a62d52-04225f1c.pdf",
@@ -295,14 +386,14 @@
  },
  "e-9ad915e17323": {
   "arquivo": "data/editais-pdf/e-9ad915e17323-584400ce.pdf",
-  "baixadoEm": "2026-09-21",
+  "baixadoEm": "2026-09-28",
   "bytes": 478123,
   "origem": "https://anexos-r2.selecao.net.br/uploads/745/concursos/45/anexos/d8ddb1c8-becf-45e3-88fd-d7e5c65df736.pdf",
   "sha256_8": "584400ce"
  },
  "e-9e466e051b5d": {
   "arquivo": "data/editais-pdf/e-9e466e051b5d-fe050e7f.pdf",
-  "baixadoEm": "2026-09-21",
+  "baixadoEm": "2026-09-28",
   "bytes": 172132,
   "origem": "https://www.ibam-concursos.org.br/documento/anx1pmc0126.pdf",
   "sha256_8": "fe050e7f"
@@ -316,14 +407,21 @@
  },
  "e-a4bdadbad29c": {
   "arquivo": "data/editais-pdf/e-a4bdadbad29c-a2d34183.pdf",
-  "baixadoEm": "2026-09-21",
+  "baixadoEm": "2026-09-28",
   "bytes": 2282375,
   "origem": "https://www.unirv.edu.br//conteudos/fckfiles/files/UniRV%20-%20Manual%20do%20Estudante%202025%20v2.pdf",
   "sha256_8": "a2d34183"
  },
+ "e-a542b0fc98ad": {
+  "arquivo": "data/editais-pdf/e-a542b0fc98ad-b59cfd23.pdf",
+  "baixadoEm": "2026-09-28",
+  "bytes": 415857,
+  "origem": "https://anexos-r2.selecao.net.br/uploads/797/concursos/172/anexos/021dd8a7-fc7c-4ab6-83a0-0e3befcf936c.pdf",
+  "sha256_8": "b59cfd23"
+ },
  "e-a8d20f0ea8a0": {
   "arquivo": "data/editais-pdf/e-a8d20f0ea8a0-c27f0d42.pdf",
-  "baixadoEm": "2026-09-21",
+  "baixadoEm": "2026-09-28",
   "bytes": 2893289,
   "origem": "https://institutounicampo.com.br/concurso/processo-de-selecao-de-pessoal-psp-concurso-publico-do-municipio-de-vere-pr/edital-n-001-2026-edital-de-abertura-completo-com-anexo",
   "sha256_8": "c27f0d42"
@@ -337,17 +435,24 @@
  },
  "e-ab4e14a3d343": {
   "arquivo": "data/editais-pdf/e-ab4e14a3d343-29f24f30.pdf",
-  "baixadoEm": "2026-09-21",
+  "baixadoEm": "2026-09-28",
   "bytes": 872674,
   "origem": "https://cdnsite.institutoconsulplan.org.br/concursos/1334/815046ea9adc49d592525985c9557c22.pdf",
   "sha256_8": "29f24f30"
  },
  "e-ab9c7f82b374": {
-  "arquivo": "data/editais-pdf/e-ab9c7f82b374-34994a27.pdf",
-  "baixadoEm": "2026-09-21",
-  "bytes": 249746,
-  "origem": "https://www.msmconsultoria.com.br/2026/pm_campanario/quadroiv.pdf",
-  "sha256_8": "34994a27"
+  "arquivo": "data/editais-pdf/e-ab9c7f82b374-caf47ef4.pdf",
+  "baixadoEm": "2026-09-28",
+  "bytes": 292947,
+  "origem": "https://www.msmconsultoria.com.br/2026/pm_campanario/hipossuficientes.pdf",
+  "sha256_8": "caf47ef4"
+ },
+ "e-b0d89ce44268": {
+  "arquivo": "data/editais-pdf/e-b0d89ce44268-32b216b2.pdf",
+  "baixadoEm": "2026-09-28",
+  "bytes": 1688048,
+  "origem": "https://sistemas.institutoverbena.ufg.br/2026/concurso-camara-pires-do-rio/sistema/arquivos/editais/Edital_de_Abertura_N%C2%BA_01-2026_Concurso_P%C3%BAblico_da_C%C3%A2mara_Municipal_de_Pires_do_Rio-GO.pdf",
+  "sha256_8": "32b216b2"
  },
  "e-b155a35bae4a": {
   "arquivo": "data/editais-pdf/e-b155a35bae4a-e7299613.pdf",
@@ -363,51 +468,86 @@
   "origem": "https://novo.ibgpconcursos.com.br/rest/concurso/download/edital/22347/?file=site/anexos/684/01%20-%20ANEXO%20I%20-REQUISITO_JORNADA_VAGA_VENCIMENTO.pdf",
   "sha256_8": "e467f7f7"
  },
+ "e-b47b6e7046c1": {
+  "arquivo": "data/editais-pdf/e-b47b6e7046c1-015e137e.pdf",
+  "baixadoEm": "2026-09-28",
+  "bytes": 393209,
+  "origem": "https://anexos-r2.selecao.net.br/uploads/797/concursos/171/anexos/b3a9b86c-ae3f-473c-92e4-8bea4f588875.pdf",
+  "sha256_8": "015e137e"
+ },
  "e-b624c9b43ba6": {
   "arquivo": "data/editais-pdf/e-b624c9b43ba6-d049b759.pdf",
-  "baixadoEm": "2026-09-21",
+  "baixadoEm": "2026-09-28",
   "bytes": 1274606,
   "origem": "https://anexos-r2.selecao.net.br/uploads/781/concursos/44/anexos/6446ac1d-6281-48f7-bdef-c0e5bcaca84e.pdf",
   "sha256_8": "d049b759"
  },
+ "e-bb469f123067": {
+  "arquivo": "data/editais-pdf/e-bb469f123067-4d28bbe2.pdf",
+  "baixadoEm": "2026-09-28",
+  "bytes": 263218,
+  "origem": "https://institutolegalle.org.br/arquivo.php?file=edital/1/83/56fb372b95acd3628e7d7679c8791422.pdf",
+  "sha256_8": "4d28bbe2"
+ },
  "e-bc766b049bf4": {
   "arquivo": "data/editais-pdf/e-bc766b049bf4-0565c3b5.pdf",
-  "baixadoEm": "2026-09-21",
+  "baixadoEm": "2026-09-28",
   "bytes": 151017,
   "origem": "https://novo.ibgpconcursos.com.br/rest/concurso/download/edital/23586/?file=site/anexos/731/01%20-%20ANEXO%20I%20%96%20REQUISITOS_PCD.pdf",
   "sha256_8": "0565c3b5"
  },
+ "e-bff3e0afe3a8": {
+  "arquivo": "data/editais-pdf/e-bff3e0afe3a8-c312453f.pdf",
+  "baixadoEm": "2026-09-28",
+  "bytes": 687798,
+  "origem": "https://anexos-r2.selecao.net.br/uploads/331/concursos/107/anexos/d6deaf2c-6d35-4b0b-a164-1c695804e199.pdf",
+  "sha256_8": "c312453f"
+ },
+ "e-c4077e07cd78": {
+  "arquivo": "data/editais-pdf/e-c4077e07cd78-8a3631ef.pdf",
+  "baixadoEm": "2026-09-28",
+  "bytes": 1044995,
+  "origem": "https://sistemas.institutoverbena.ufg.br/2026/concurso-camara-mutunopolis/sistema/arquivos/Edital_Consolidado_Concurso_P%C3%BAblico_da_C%C3%A2mara_Municipal_de_Mutun%C3%B3polis_1.pdf",
+  "sha256_8": "8a3631ef"
+ },
  "e-c7b942594568": {
   "arquivo": "data/editais-pdf/e-c7b942594568-1856e0b0.pdf",
-  "baixadoEm": "2026-08-31",
+  "baixadoEm": "2026-09-28",
   "bytes": 276290,
   "origem": "https://novo.ibgpconcursos.com.br/rest/concurso/download/edital/23768/?file=site/anexos/739/01%20-%20ANEXO%20I%20-%20REQUISITOS.pdf",
   "sha256_8": "1856e0b0"
  },
  "e-ce09a1439cf8": {
   "arquivo": "data/editais-pdf/e-ce09a1439cf8-4e31ef15.pdf",
-  "baixadoEm": "2026-09-21",
+  "baixadoEm": "2026-09-28",
   "bytes": 396730,
   "origem": "https://anexos-r2.selecao.net.br/uploads/882/concursos/7/anexos/b0631da5-aae4-4d6c-a6b5-d9753869a0bc.pdf",
   "sha256_8": "4e31ef15"
  },
+ "e-d573fffb2684": {
+  "arquivo": "data/editais-pdf/e-d573fffb2684-d32d62f5.pdf",
+  "baixadoEm": "2026-09-28",
+  "bytes": 896077,
+  "origem": "https://www.fateccacu.edu.br/static/docs/concursos/inaciolandia/edital-001-2026.2331e8d1dc1b.pdf",
+  "sha256_8": "d32d62f5"
+ },
  "e-d6b4ec097a43": {
   "arquivo": "data/editais-pdf/e-d6b4ec097a43-b6a7a3f2.pdf",
-  "baixadoEm": "2026-09-21",
+  "baixadoEm": "2026-09-28",
   "bytes": 2212033,
   "origem": "https://anexos-r2.selecao.net.br/uploads/140/concursos/544/anexos/6220e2a6-1c0e-49c5-a6cd-2ececf14dc7b.pdf",
   "sha256_8": "b6a7a3f2"
  },
  "e-df08ba3c2c05": {
   "arquivo": "data/editais-pdf/e-df08ba3c2c05-e5cf0ba9.pdf",
-  "baixadoEm": "2026-09-21",
+  "baixadoEm": "2026-09-28",
   "bytes": 1108837,
   "origem": "https://anexos-r2.selecao.net.br/uploads/617/concursos/144/anexos/52567387-d033-475b-8123-c682bff8fab6.pdf",
   "sha256_8": "e5cf0ba9"
  },
  "e-dfc80c1e089c": {
   "arquivo": "data/editais-pdf/e-dfc80c1e089c-46b1728a.pdf",
-  "baixadoEm": "2026-09-21",
+  "baixadoEm": "2026-09-28",
   "bytes": 573806,
   "origem": "https://anexos-r2.selecao.net.br/uploads/810/concursos/199/anexos/1722d5e5-2e07-4a17-ae16-2dcc41848c37.pdf",
   "sha256_8": "46b1728a"
@@ -426,12 +566,19 @@
   "origem": "https://cdn.versatilsolucoesadm.com.br/edital/1/45/9e7512e3a65624133b286eebd41454f1.pdf",
   "sha256_8": "584ea63c"
  },
- "e-fbe570bf2dba": {
-  "arquivo": "data/editais-pdf/e-fbe570bf2dba-a2d34183.pdf",
-  "baixadoEm": "2026-08-31",
-  "bytes": 2282375,
-  "origem": "https://www.unirv.edu.br//conteudos/fckfiles/files/UniRV%20-%20Manual%20do%20Estudante%202025%20v2.pdf",
-  "sha256_8": "a2d34183"
+ "e-ea126be13df6": {
+  "arquivo": "data/editais-pdf/e-ea126be13df6-e4bf7d3d.pdf",
+  "baixadoEm": "2026-09-28",
+  "bytes": 449079,
+  "origem": "https://www.concursosfau.com.br//sistema/uploads/ANEXO_I_-_REQUISITOS_E_ATRIBUICOES_DO_CARGO_-_PREFEITURA_4.pdf",
+  "sha256_8": "e4bf7d3d"
+ },
+ "e-fc1e9213349d": {
+  "arquivo": "data/editais-pdf/e-fc1e9213349d-6b6aa916.pdf",
+  "baixadoEm": "2026-09-28",
+  "bytes": 1451513,
+  "origem": "https://www.legatus.org.br/concursos/3261/download/",
+  "sha256_8": "6b6aa916"
  },
  "e-fc3872c0787f": {
   "arquivo": "data/editais-pdf/e-fc3872c0787f-f9fd68b3.pdf",
@@ -439,5 +586,19 @@
   "bytes": 201615,
   "origem": "https://cdn.institutoiaspe.com.br/edital/1/12/ff98f58f14299abe91582366503bad41.pdf",
   "sha256_8": "f9fd68b3"
+ },
+ "e-fd654e8b3be2": {
+  "arquivo": "data/editais-pdf/e-fd654e8b3be2-bde0500d.pdf",
+  "baixadoEm": "2026-09-28",
+  "bytes": 135158,
+  "origem": "https://imeso.com.br/arquivo.php?file=edital/1/136/a9fd7dfe45e9fe7a1f35b5e3d59824f9.pdf",
+  "sha256_8": "bde0500d"
+ },
+ "e-fdc9486e873e": {
+  "arquivo": "data/editais-pdf/e-fdc9486e873e-c141e1a3.pdf",
+  "baixadoEm": "2026-09-28",
+  "bytes": 242022,
+  "origem": "https://anexos-r2.selecao.net.br/uploads/846/concursos/35/anexos/4556ade4-0e47-41e7-a676-e8f938947d52.pdf",
+  "sha256_8": "c141e1a3"
  }
 }
