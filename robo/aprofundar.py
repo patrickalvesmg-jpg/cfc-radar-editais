@@ -242,7 +242,10 @@ def aprofundar_um(pagina, edital: dict) -> dict:
         texto, dados = mod_salario.baixar_pdf_completo(pdf)
         if dados and edital.get("id"):
             arquivo_pdf.guardar_bytes(edital["id"], pdf, dados)
-        if texto:
+        # Salário conferido por humano (`revisado`) não é relido: a
+        # leitura do PDF é justamente o que ele corrigiu. Sem esta trava
+        # a rodada seguinte desfazia a conferência de 28/09/2026.
+        if texto and not edital.get("revisado"):
             valor, obs = mod_salario.resolver(edital.get("cargo", ""), texto)
             if valor is not None:
                 antes = edital.get("salario")

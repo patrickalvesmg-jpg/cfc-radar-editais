@@ -60,6 +60,7 @@ FONTES = (
 
 RAIZ = Path(__file__).resolve().parent.parent
 ARQUIVO = RAIZ / "data" / "editais.json"
+REMOVIDOS = RAIZ / "data" / "removidos.json"
 
 # Campos que o robô extrai mal e o humano costuma corrigir à mão.
 # Uma vez revisado, o robô não encosta mais neles.
@@ -77,6 +78,13 @@ def carregar_existentes() -> list[dict]:
     except json.JSONDecodeError as e:
         # Melhor abortar que sobrescrever um arquivo bom com lixo.
         sys.exit(f"ERRO: {ARQUIVO} está corrompido ({e}). Nada foi alterado.")
+
+
+def carregar_removidos() -> set[str]:
+    """Ids que o Patrick removeu na conferência — nunca voltam."""
+    if not REMOVIDOS.exists():
+        return set()
+    return set(json.loads(REMOVIDOS.read_text(encoding="utf-8")))
 
 
 def status_por_prazo(edital: dict) -> str:
@@ -354,6 +362,16 @@ def main() -> int:
     novos = [e for e in novos if not config.area_alheia(e.get("cargo", ""))]
     if len(novos) < antes_area:
         print(f"  Descartados por área não-contábil: {antes_area - len(novos)}")
+
+    # Removidos na conferência humana (data/removidos.json). Sem esta
+    # trava a varredura seguinte recapturava o edital e ele voltava ao
+    # site — a fonte continua publicando, só quem conferiu sabe que é
+    # repetido, de outra área ou com vaga que não é contábil.
+    removidos = carregar_removidos()
+    antes_rem = len(novos)
+    novos = [e for e in novos if e.get("id") not in removidos]
+    if len(novos) < antes_rem:
+        print(f"  Ignorados por remoção manual: {antes_rem - len(novos)}")
 
     # Coordenadas para o mapa. Fonte separada porque o Estratégia informa
     # a ÁREA do concurso, nunca o cargo — não serve para criar edital,

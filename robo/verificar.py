@@ -130,6 +130,11 @@ with sync_playwright() as pw:
             conferiu += 1
             if url != e.get("pdfEdital"):
                 e["pdfEdital"] = url
+        elif e.get("revisado"):
+            # Salário conferido por humano vence a leitura do PDF — só
+            # avisa a divergência, para quem revisou decidir.
+            print(f"  [{i}/{len(alvos)}] REVISADO, PDF diz R$ {valor:,.2f} "
+                  f"(mantido R$ {atual or 0:,.2f})  {nome:24} {cargo[:20]}", flush=True)
         else:
             corrigiu += 1
             print(f"  [{i}/{len(alvos)}] R$ {atual if atual is not None else 0:>9,.2f} "
