@@ -282,6 +282,17 @@ def geolocalizar(editais: list[dict], geo: dict, municipios: dict) -> None:
             uf = _uf_por_cidade(e, municipios)
             if uf:
                 e["uf"] = uf
+                # O id foi calculado na captura, com a UF ainda vazia
+                # (cidade||cargo|prazo). Sem recalcular, o mesmo concurso
+                # vindo de uma fonte que informa a UF ganha OUTRO id e
+                # vira um segundo card — a Câmara de Jaborá voltou assim
+                # pela AMAUC em 05/10/2026. Só mexe no id que nasceu sem
+                # UF, para não trocar o de registro já publicado.
+                sem_uf = extrair.id_estavel(e.get("cidade", ""), "",
+                                            e.get("cargo", ""), e.get("inscricaoFim", ""))
+                if e.get("id") == sem_uf:
+                    e["id"] = extrair.id_estavel(e.get("cidade", ""), uf,
+                                                 e.get("cargo", ""), e.get("inscricaoFim", ""))
 
         if not uf:
             continue
@@ -386,6 +397,9 @@ def main() -> int:
     existentes = carregar_existentes()
     municipios = estrategia.coletar_municipios()
     geolocalizar(novos + existentes, geo, municipios)
+    # A geolocalização pode ter corrigido o id (UF deduzida pela cidade):
+    # repassa a trava de removidos com o id definitivo.
+    novos = [e for e in novos if e.get("id") not in removidos]
     final, ct_novos, ct_atualizados = mesclar(existentes, novos)
 
     # Editais encerrados FICAM no acervo (decisão do Patrick, 21/08/2026).
