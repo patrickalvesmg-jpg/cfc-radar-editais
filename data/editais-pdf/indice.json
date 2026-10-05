@@ -20,6 +20,13 @@
   "origem": "https://novo.ibgpconcursos.com.br/rest/concurso/download/edital/24180/?file=site/anexos/784/01%20-%20ANEXO%20I%20-%20CARGOS%20ESCOLARIDADES%20JORNADAS%20VAGAS%20E%20VENCIMENTOS.pdf",
   "sha256_8": "4ca30f68"
  },
+ "e-035f54e46e82": {
+  "arquivo": "data/editais-pdf/e-035f54e46e82-71d82e49.pdf",
+  "baixadoEm": "2026-10-05",
+  "bytes": 228492,
+  "origem": "https://cruzeta.rn.gov.br/uploads/PublicaA-A-oRegulamentoCertificadodeBoasPrA-ticas-e85feada.pdf",
+  "sha256_8": "71d82e49"
+ },
  "e-0835f5852328": {
   "arquivo": "data/editais-pdf/e-0835f5852328-87e05ef7.pdf",
   "baixadoEm": "2026-10-05",
@@ -120,7 +127,7 @@
  },
  "e-313b98c6b47b": {
   "arquivo": "data/editais-pdf/e-313b98c6b47b-c312453f.pdf",
-  "baixadoEm": "2026-09-28",
+  "baixadoEm": "2026-10-05",
   "bytes": 687798,
   "origem": "https://anexos-r2.selecao.net.br/uploads/331/concursos/107/anexos/d6deaf2c-6d35-4b0b-a164-1c695804e199.pdf",
   "sha256_8": "c312453f"
@@ -155,7 +162,7 @@
  },
  "e-3bde63443829": {
   "arquivo": "data/editais-pdf/e-3bde63443829-ddb3b963.pdf",
-  "baixadoEm": "2026-09-28",
+  "baixadoEm": "2026-10-05",
   "bytes": 176344,
   "origem": "https://anexos-r2.selecao.net.br/uploads/846/concursos/34/anexos/f57e36e1-f5c9-438c-ba75-92118a3a53f6.pdf",
   "sha256_8": "ddb3b963"
@@ -232,7 +239,7 @@
  },
  "e-4fdc63521949": {
   "arquivo": "data/editais-pdf/e-4fdc63521949-8a3631ef.pdf",
-  "baixadoEm": "2026-09-28",
+  "baixadoEm": "2026-10-05",
   "bytes": 1044995,
   "origem": "https://sistemas.institutoverbena.ufg.br/2026/concurso-camara-mutunopolis/sistema/arquivos/Edital_Consolidado_Concurso_P%C3%BAblico_da_C%C3%A2mara_Municipal_de_Mutun%C3%B3polis_1.pdf",
   "sha256_8": "8a3631ef"
@@ -344,7 +351,7 @@
  },
  "e-76b7bd27677d": {
   "arquivo": "data/editais-pdf/e-76b7bd27677d-1856e0b0.pdf",
-  "baixadoEm": "2026-09-21",
+  "baixadoEm": "2026-10-05",
   "bytes": 276290,
   "origem": "https://novo.ibgpconcursos.com.br/rest/concurso/download/edital/23768/?file=site/anexos/739/01%20-%20ANEXO%20I%20-%20REQUISITOS.pdf",
   "sha256_8": "1856e0b0"
@@ -546,11 +553,11 @@
   "sha256_8": "d1cdc94a"
  },
  "e-bb469f123067": {
-  "arquivo": "data/editais-pdf/e-bb469f123067-3e9bb6a3.pdf",
+  "arquivo": "data/editais-pdf/e-bb469f123067-8dba13a6.pdf",
   "baixadoEm": "2026-10-05",
-  "bytes": 234630,
-  "origem": "https://institutolegalle.org.br/arquivo.php?file=edital/1/83/1c765f720e98d1819a0ef56904aa46aa.pdf",
-  "sha256_8": "3e9bb6a3"
+  "bytes": 101094,
+  "origem": "https://institutolegalle.org.br/termos.pdf",
+  "sha256_8": "8dba13a6"
  },
  "e-bc766b049bf4": {
   "arquivo": "data/editais-pdf/e-bc766b049bf4-0565c3b5.pdf",

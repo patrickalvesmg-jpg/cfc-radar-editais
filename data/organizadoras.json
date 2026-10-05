@@ -210,15 +210,6 @@
     "situacao": "em_uso"
   },
   {
-    "dominio": "amauc.selecao.net.br",
-    "nome": "AMAUC",
-    "editais": 4,
-    "fontePrimaria": false,
-    "site": "https://amauc.selecao.net.br/",
-    "estados": [],
-    "situacao": "reserva"
-  },
-  {
     "dominio": "consesp.com.br",
     "nome": "CONSESP",
     "editais": 4,
@@ -281,15 +272,6 @@
     "situacao": "reserva"
   },
   {
-    "dominio": "institutoverbena.ufg.br",
-    "nome": "Institutoverbena",
-    "editais": 4,
-    "fontePrimaria": false,
-    "site": "https://institutoverbena.ufg.br/",
-    "estados": [],
-    "situacao": "reserva"
-  },
-  {
     "dominio": "legalleconcursos.com.br",
     "nome": "Legalle Concursos",
     "editais": 4,
@@ -308,15 +290,12 @@
     "situacao": "em_uso"
   },
   {
-    "dominio": "ameosc.org.br",
-    "nome": "AMEOSC",
+    "dominio": "amauc.selecao.net.br",
+    "nome": "AMAUC",
     "editais": 3,
     "fontePrimaria": false,
-    "site": "https://www.ameosc.org.br/",
-    "estados": [
-      "MG",
-      "SC"
-    ],
+    "site": "https://amauc.selecao.net.br/",
+    "estados": [],
     "situacao": "reserva"
   },
   {
@@ -401,15 +380,6 @@
     "situacao": "reserva"
   },
   {
-    "dominio": "institutoaplicativa.org.br",
-    "nome": "Instituto Aplicativa",
-    "editais": 3,
-    "fontePrimaria": false,
-    "site": "https://institutoaplicativa.org.br/",
-    "estados": [],
-    "situacao": "reserva"
-  },
-  {
     "dominio": "nossorumo.org.br",
     "nome": "Instituto Nosso Rumo",
     "editais": 3,
@@ -473,6 +443,15 @@
     "editais": 3,
     "fontePrimaria": false,
     "site": "https://institutotupy.com.br/",
+    "estados": [],
+    "situacao": "reserva"
+  },
+  {
+    "dominio": "institutoverbena.ufg.br",
+    "nome": "Institutoverbena",
+    "editais": 3,
+    "fontePrimaria": false,
+    "site": "https://institutoverbena.ufg.br/",
     "estados": [],
     "situacao": "reserva"
   },
@@ -550,6 +529,18 @@
     "estados": [
       "SC",
       "SP"
+    ],
+    "situacao": "reserva"
+  },
+  {
+    "dominio": "ameosc.org.br",
+    "nome": "AMEOSC",
+    "editais": 2,
+    "fontePrimaria": false,
+    "site": "https://www.ameosc.org.br/",
+    "estados": [
+      "MG",
+      "SC"
     ],
     "situacao": "reserva"
   },
@@ -678,6 +669,15 @@
     "situacao": "reserva"
   },
   {
+    "dominio": "institutoaplicativa.org.br",
+    "nome": "Instituto Aplicativa",
+    "editais": 2,
+    "fontePrimaria": false,
+    "site": "https://institutoaplicativa.org.br/",
+    "estados": [],
+    "situacao": "reserva"
+  },
+  {
     "dominio": "institutoatame.org.br",
     "nome": "Instituto Atame",
     "editais": 2,
@@ -791,6 +791,15 @@
     "editais": 2,
     "fontePrimaria": false,
     "site": "https://selecao.net.br/",
+    "estados": [],
+    "situacao": "reserva"
+  },
+  {
+    "dominio": "sistemas.institutoverbena.ufg.br",
+    "nome": "Sistemas",
+    "editais": 2,
+    "fontePrimaria": false,
+    "site": "https://sistemas.institutoverbena.ufg.br/",
     "estados": [],
     "situacao": "reserva"
   },
@@ -997,6 +1006,15 @@
     "editais": 1,
     "fontePrimaria": false,
     "site": "https://cruzeta.rn.gov.br/",
+    "estados": [],
+    "situacao": "reserva"
+  },
+  {
+    "dominio": "descanso.sc.gov.br",
+    "nome": "Descanso",
+    "editais": 1,
+    "fontePrimaria": false,
+    "site": "https://descanso.sc.gov.br/",
     "estados": [],
     "situacao": "reserva"
   },
@@ -1400,6 +1418,15 @@
     "situacao": "reserva"
   },
   {
+    "dominio": "institutoaplicativa.selecao.net.br",
+    "nome": "Institutoaplicativa",
+    "editais": 1,
+    "fontePrimaria": false,
+    "site": "https://institutoaplicativa.selecao.net.br/",
+    "estados": [],
+    "situacao": "reserva"
+  },
+  {
     "dominio": "institutofenix.selecao.net.br",
     "nome": "Institutofenix",
     "editais": 1,
@@ -1595,15 +1622,6 @@
     "editais": 1,
     "fontePrimaria": false,
     "site": "https://selecon-mt.selecao.net.br/",
-    "estados": [],
-    "situacao": "reserva"
-  },
-  {
-    "dominio": "sistemas.institutoverbena.ufg.br",
-    "nome": "Sistemas",
-    "editais": 1,
-    "fontePrimaria": false,
-    "site": "https://sistemas.institutoverbena.ufg.br/",
     "estados": [],
     "situacao": "reserva"
   },
