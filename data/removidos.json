@@ -100,5 +100,29 @@
     "cargo": "Contador",
     "motivo": "removido na conferência do Patrick",
     "em": "2026-09-28"
+  },
+  "e-5ce2ad73a332": {
+    "orgao": "Conselho Regional de Educação Física da 22ª Região – Cref22",
+    "cargo": "Contador",
+    "motivo": "duplicata do e-ad28caea5ec0 já publicado (IBADE sem datas, UF errada)",
+    "em": "2026-10-12"
+  },
+  "e-a1020d2657c8": {
+    "orgao": "Câmara Municipal de Itacarambi",
+    "cargo": "Controlador Interno",
+    "motivo": "removido na conferência do Patrick",
+    "em": "2026-10-12"
+  },
+  "e-cbfc6c2e78a2": {
+    "orgao": "Prefeitura de Acaraú",
+    "cargo": "Contador",
+    "motivo": "removido na conferência do Patrick",
+    "em": "2026-10-12"
+  },
+  "e-af6240d71933": {
+    "orgao": "Prefeitura de Floresta",
+    "cargo": "Fiscal De Tributos",
+    "motivo": "removido na conferência do Patrick",
+    "em": "2026-10-12"
   }
 }
