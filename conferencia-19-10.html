@@ -1,0 +1,565 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Conferência Radar 19/10</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&family=IBM+Plex+Sans:wght@400;600&display=swap">
+<style>
+:root{--bg:#f6f7f4;--card:#ffffff;--tinta:#16211b;--suave:#5b675f;--linha:#dde2da;--verde:#1f6e4a;--ambar:#94620a;--verm:#a3362a;--azul:#2c5a86;--realce:#e9f1ea}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark;--bg:#0f1411;--card:#161d18;--tinta:#e7ece6;--suave:#9aa69d;--linha:#2a332c;--verde:#6cc79a;--ambar:#e0ad4c;--verm:#ef7d6d;--azul:#86b3e0;--realce:#1b2a20}}
+:root[data-theme="dark"]{color-scheme:dark;--bg:#0f1411;--card:#161d18;--tinta:#e7ece6;--suave:#9aa69d;--linha:#2a332c;--verde:#6cc79a;--ambar:#e0ad4c;--verm:#ef7d6d;--azul:#86b3e0;--realce:#1b2a20}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--tinta);font:15px/1.5 "IBM Plex Sans",ui-sans-serif,system-ui,"Segoe UI",sans-serif;padding-inline:16px}
+.wrap{max-width:1120px;margin:0 auto;padding-block:36px 72px}
+h1{font:600 clamp(1.45rem,3.6vw,1.9rem)/1.2 "IBM Plex Sans",system-ui,sans-serif;margin:0 0 6px;letter-spacing:-.015em;text-wrap:balance}
+h2{font-size:1.15rem;margin:40px 0 4px;text-wrap:balance}
+.lead{color:var(--suave);margin:0 0 22px;max-width:68ch}
+.secao-sub{color:var(--suave);margin:0 0 14px;max-width:72ch}
+.resumo{display:flex;flex-wrap:wrap;gap:10px}
+.chip{background:var(--card);border:1px solid var(--linha);border-radius:8px;padding:10px 14px;min-width:120px}
+.chip b{display:block;font:600 1.4rem/1.2 "IBM Plex Mono",ui-monospace,monospace}
+.chip span{color:var(--suave);font-size:.8rem}
+.chip.ok b{color:var(--verde)} .chip.duv b{color:var(--ambar)} .chip.dup b{color:var(--verm)}
+.tab{overflow-x:auto;border:1px solid var(--linha);border-radius:10px;background:var(--card)}
+table{width:100%;border-collapse:collapse}
+th{text-align:left;font-size:.72rem;text-transform:uppercase;letter-spacing:.06em;color:var(--suave);padding:11px 12px;border-bottom:1px solid var(--linha);font-weight:600}
+td{padding:13px 12px;border-bottom:1px solid var(--linha);vertical-align:top}
+tr:last-child td{border-bottom:0}
+tr.feito td{opacity:.45} tr.feito td.ck{opacity:1}
+tr.eh-dup td{background:color-mix(in srgb,var(--verm) 6%,transparent)}
+td.ck,th.ck{width:34px;padding-right:0}
+input[type=checkbox]{width:18px;height:18px;accent-color:var(--verde);cursor:pointer}
+.uf{display:inline-block;margin-left:7px;font:500 .68rem "IBM Plex Mono",monospace;color:var(--suave);border:1px solid var(--linha);border-radius:4px;padding:1px 5px;vertical-align:middle}
+.org,.sub{display:block;font-size:.8rem;color:var(--suave);margin-top:3px}
+.num{font-variant-numeric:tabular-nums;white-space:nowrap}
+.valor{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:.92rem}
+.rot{display:block;font-size:.7rem;text-transform:uppercase;letter-spacing:.05em;margin-top:3px}
+.rot.ok{color:var(--verde)} .rot.duv{color:var(--ambar)}
+.vazio{color:var(--suave);font-style:italic;font-size:.85rem}
+.st{display:block;font-size:.7rem;text-transform:uppercase;letter-spacing:.05em;color:var(--suave);margin-top:3px}
+.st.aberto{color:var(--verde)} .st.previsto{color:var(--azul)} .st.urg{color:var(--verm);font-weight:600}
+.links{font-size:.86rem;min-width:190px} .links a{color:var(--verde);text-underline-offset:2px}
+a:focus-visible,input:focus-visible{outline:2px solid var(--azul);outline-offset:2px}
+.nota{margin:8px 0 0;font-size:.8rem;line-height:1.45;padding:7px 9px;border-radius:6px;border-left:3px solid}
+.nota.dup{border-color:var(--verm);background:color-mix(in srgb,var(--verm) 9%,transparent)}
+.nota.prorr{border-color:var(--ambar);background:color-mix(in srgb,var(--ambar) 10%,transparent)}
+.nota.info{border-color:var(--suave);background:color-mix(in srgb,var(--suave) 8%,transparent)}
+.como{background:var(--realce);border-radius:10px;padding:14px 16px;margin:22px 0 0;font-size:.9rem;max-width:80ch}
+.como p{margin:0} .como p+p{margin-top:6px}
+details{margin-top:36px;color:var(--suave)} details li{margin:3px 0}
+.campo{display:block;margin-top:8px}.campo span{display:block;font-size:.68rem;text-transform:uppercase;letter-spacing:.05em;color:var(--suave)}
+.campo input{width:128px;font:500 .88rem "IBM Plex Mono",monospace;padding:5px 7px;border:1px solid var(--linha);border-radius:6px;background:var(--bg);color:var(--tinta)}
+.campo input.alterado{border-color:var(--verde);background:var(--realce)}
+.rem{display:flex;align-items:center;gap:5px;margin-top:6px;font-size:.75rem;color:var(--suave);cursor:pointer}.rem input{width:14px;height:14px;accent-color:var(--verm)}
+tr.removendo td{background:color-mix(in srgb,var(--verm) 7%,transparent)}
+.barra{position:sticky;bottom:0;margin-top:24px;background:var(--card);border:1px solid var(--linha);border-radius:10px;padding:12px 14px;display:flex;flex-wrap:wrap;align-items:center;gap:12px;box-shadow:0 -4px 16px rgba(0,0,0,.08)}
+.barra button{font:600 .9rem "IBM Plex Sans",sans-serif;background:var(--verde);color:var(--card);border:0;border-radius:7px;padding:9px 16px;cursor:pointer}
+.barra button:focus-visible{outline:2px solid var(--azul);outline-offset:2px}
+#status{color:var(--suave);font-size:.86rem}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+@media (max-width:760px){thead{display:none}tr{display:grid;grid-template-columns:34px 1fr;padding:6px 0;border-bottom:1px solid var(--linha)}td{border:0;padding:4px 10px}td.ck{grid-row:span 5;padding-top:10px}.links{min-width:0}}
+</style>
+</head><body><div class="wrap">
+<h1>Editais para conferir</h1>
+<p class="lead">Varredura de 19/10/2026. Entram só os que continuam válidos (inscrição não vencida e com link) e ainda não foram conferidos. Ordem: prazo mais curto primeiro.</p>
+<div class="resumo">
+ <div class="chip"><b>64</b><span>pendentes válidos</span></div>
+ <div class="chip ok"><b>15</b><span>com salário lido no PDF</span></div>
+ <div class="chip duv"><b>49</b><span>para você conferir</span></div>
+ <div class="chip dup"><b>4</b><span>possíveis repetidos</span></div>
+</div>
+<div class="como"><p><strong>Lido no PDF</strong> quer dizer que o robô baixou o edital da banca e leu o salário do cargo. Esses só precisam de uma olhada rápida.</p>
+<p><strong>Da fonte, não conferido</strong> quer dizer que ninguém abriu o edital. O salário é o que a fonte divulgou e pode ser o teto do concurso ou de outro cargo (foi o caso de Urussanga, Colinas e Água Limpa em 12/10). Abra a página do concurso e confira cargo, salário e prazo.</p>
+<p>A caixinha à esquerda marca o que você já conferiu. Se o salário estiver errado, digite o certo no campo <strong>Salário certo</strong>. Se o edital não deve ir ao ar, marque <strong>não publicar</strong>. No fim, clique em <strong>Salvar correções</strong>: o arquivo <code>correcoes-radar-19-10.json</code> vai para a sua pasta Downloads e eu leio de lá.</p></div>
+<h2>Novos desta varredura (28)</h2>
+<p class="secao-sub">Capturados em 19/10. Abra a página do concurso e confira cargo, salário e prazo.</p>
+<div class="tab"><table><thead><tr><th class="ck"><span class="sr">Conferido</span></th><th>Onde</th><th>Cargo</th><th>Salário</th><th>Inscrição até</th><th>Conferir em</th></tr></thead><tbody><tr id="r-e-04c0a49dba27" class="">
+<td class="ck"><input type="checkbox" id="ck-9671779f2d" aria-label="Conferido"></td>
+<td><strong>Tarumã</strong><span class="uf">SP</span><span class="org">Prefeitura de Tarumã</span></td>
+<td>Analista Contábil<span class="sub">Vagas: CR</span></td>
+<td class="num"><span class="valor">R$ 23.539,17</span><span class="rot duv">da fonte, não conferido</span><label class="campo"><span>Salário certo</span><input type="text" inputmode="decimal" placeholder="ex.: 4.950,18" data-id="e-04c0a49dba27" data-nome="Prefeitura de Tarumã — Analista Contábil" value=""></label><label class="rem"><input type="checkbox" data-remover="e-04c0a49dba27"> não publicar</label></td>
+<td class="num">22/10/2026<span class="st encerrando urg">fecha em breve</span></td>
+<td class="links"><a href="https://www.ipell.com.br/informacoes/61/" target="_blank" rel="noopener">Página do concurso</a><p class="nota prorr">Já está no ar com prazo até 19/10/2026. Este traz prazo até 22/10/2026: confira se é prorrogação ou edital novo.</p><p class="nota info">Salário alto para o cargo: pode ser o teto do concurso, e não o deste cargo.</p></td>
+</tr><tr id="r-e-fd483dfb7356" class="">
+<td class="ck"><input type="checkbox" id="ck-17a138cf35" aria-label="Conferido"></td>
+<td><strong>Santa Rita do Araguaia</strong><span class="uf">GO</span><span class="org">Prefeitura de Santa Rita do Araguaia</span></td>
+<td>Contador<span class="sub">Vagas: —</span></td>
+<td class="num"><span class="valor">R$ 3.895,92</span><span class="rot duv">da fonte, não conferido</span><label class="campo"><span>Salário certo</span><input type="text" inputmode="decimal" placeholder="ex.: 4.950,18" data-id="e-fd483dfb7356" data-nome="Prefeitura de Santa Rita do Araguaia — Contador" value=""></label><label class="rem"><input type="checkbox" data-remover="e-fd483dfb7356"> não publicar</label></td>
+<td class="num">23/10/2026<span class="st encerrando urg">fecha em breve</span></td>
+<td class="links"><a href="https://www.santaritadoaraguaia.go.gov.br/" target="_blank" rel="noopener">Página do concurso</a></td>
+</tr><tr id="r-e-d337bd85ed0e" class="">
+<td class="ck"><input type="checkbox" id="ck-dbcd864889" aria-label="Conferido"></td>
+<td><strong>CREMERJ - Conselho Regional </strong><span class="uf">RJ</span><span class="org">CREMERJ - Conselho Regional de Medicina do Rio de Janeiro</span></td>
+<td>Analista Contábil<span class="sub">Vagas: CR</span></td>
+<td class="num"><span class="valor">R$ 18.000,00</span><span class="rot duv">da fonte, não conferido</span><label class="campo"><span>Salário certo</span><input type="text" inputmode="decimal" placeholder="ex.: 4.950,18" data-id="e-d337bd85ed0e" data-nome="CREMERJ - Conselho Regional de Medicina  — Analista Contábil" value=""></label><label class="rem"><input type="checkbox" data-remover="e-d337bd85ed0e"> não publicar</label></td>
+<td class="num">29/10/2026<span class="st aberto">aberto</span></td>
+<td class="links"><a href="https://www.institutoconsulplan.org.br/cremerj2026" target="_blank" rel="noopener">Página do concurso</a></td>
+</tr><tr id="r-e-c771bb3e37b1" class="">
+<td class="ck"><input type="checkbox" id="ck-4051cd4765" aria-label="Conferido"></td>
+<td><strong>Candeias do Jamari</strong><span class="uf">RO</span><span class="org">Câmara de Candeias do Jamari</span></td>
+<td>Analista Contábil<span class="sub">Vagas: 1</span></td>
+<td class="num"><span class="valor">R$ 3.500,00</span><span class="rot duv">da fonte, não conferido</span><label class="campo"><span>Salário certo</span><input type="text" inputmode="decimal" placeholder="ex.: 4.950,18" data-id="e-c771bb3e37b1" data-nome="Câmara de Candeias do Jamari — Analista Contábil" value=""></label><label class="rem"><input type="checkbox" data-remover="e-c771bb3e37b1"> não publicar</label></td>
+<td class="num">30/10/2026<span class="st aberto">aberto</span></td>
+<td class="links"><a href="https://novo.ibgpconcursos.com.br/concurso.jsp?cod=784" target="_blank" rel="noopener">Página do concurso</a></td>
+</tr><tr id="r-e-3e5c7a4ecb8d" class="">
+<td class="ck"><input type="checkbox" id="ck-c738a8b9a3" aria-label="Conferido"></td>
+<td><strong>Paraíso das Águas</strong><span class="uf">MS</span><span class="org">Câmara de Paraíso das Águas</span></td>
+<td>Contador<span class="sub">Vagas: 1</span></td>
+<td class="num"><span class="valor">R$ 8.160,14</span><span class="rot duv">da fonte, não conferido</span><label class="campo"><span>Salário certo</span><input type="text" inputmode="decimal" placeholder="ex.: 4.950,18" data-id="e-3e5c7a4ecb8d" data-nome="Câmara de Paraíso das Águas — Contador" value=""></label><label class="rem"><input type="checkbox" data-remover="e-3e5c7a4ecb8d"> não publicar</label></td>
+<td class="num">02/11/2026<span class="st aberto">aberto</span></td>
+<td class="links"><a href="https://aplims.selecao.net.br/informacoes/10/" target="_blank" rel="noopener">Página do concurso</a></td>
+</tr><tr id="r-e-cc51fe7ac48a" class="eh-dup">
+<td class="ck"><input type="checkbox" id="ck-dd42e799e1" aria-label="Conferido"></td>
+<td><strong>CGU - Controladoria-Geral da</strong><span class="uf">—</span><span class="org">CGU - Controladoria-Geral da União</span></td>
+<td>Auditor Federal De Finanças E Controle<span class="sub">Vagas: —</span></td>
+<td class="num"><span class="valor">R$ 20.000,00</span><span class="rot duv">da fonte, não conferido</span><label class="campo"><span>Salário certo</span><input type="text" inputmode="decimal" placeholder="ex.: 4.950,18" data-id="e-cc51fe7ac48a" data-nome="CGU - Controladoria-Geral da União — Auditor Federal De Finanças E Controle" value=""></label><label class="rem"><input type="checkbox" data-remover="e-cc51fe7ac48a"> não publicar</label></td>
+<td class="num">04/11/2026<span class="st aberto">aberto</span></td>
+<td class="links"><a href="https://www.cebraspe.org.br/concursos/cgu_26_affc" target="_blank" rel="noopener">Página do concurso</a><p class="nota dup">Parece repetido: já está no ar com o mesmo órgão, cargo e prazo (04/11/2026). Marque <strong>não publicar</strong>.</p><p class="nota info">Sem UF no cadastro: a conferência de segurança barra a publicação até a UF ser informada.</p></td>
+</tr><tr id="r-e-3e5e88f92b0f" class="">
+<td class="ck"><input type="checkbox" id="ck-53a6a53678" aria-label="Conferido"></td>
+<td><strong>Embaúba</strong><span class="uf">SP</span><span class="org">Prefeitura de Embaúba</span></td>
+<td>Controlador Interno<span class="sub">Vagas: 1</span></td>
+<td class="num"><span class="valor">R$ 5.600,00</span><span class="rot duv">da fonte, não conferido</span><label class="campo"><span>Salário certo</span><input type="text" inputmode="decimal" placeholder="ex.: 4.950,18" data-id="e-3e5e88f92b0f" data-nome="Prefeitura de Embaúba — Controlador Interno" value=""></label><label class="rem"><input type="checkbox" data-remover="e-3e5e88f92b0f"> não publicar</label></td>
+<td class="num">05/11/2026<span class="st aberto">aberto</span></td>
+<td class="links"><a href="https://www.ipell.com.br/informacoes/62/" target="_blank" rel="noopener">Página do concurso</a></td>
+</tr><tr id="r-e-a6074291b645" class="">
+<td class="ck"><input type="checkbox" id="ck-8cf135e6e3" aria-label="Conferido"></td>
+<td><strong>Bagé</strong><span class="uf">RS</span><span class="org">Câmara de Vereadores de Bagé</span></td>
+<td>Contador<span class="sub">Vagas: CR</span></td>
+<td class="num"><span class="valor">R$ 3.872,44</span><span class="rot duv">da fonte, não conferido</span><label class="campo"><span>Salário certo</span><input type="text" inputmode="decimal" placeholder="ex.: 4.950,18" data-id="e-a6074291b645" data-nome="Câmara de Vereadores de Bagé — Contador" value=""></label><label class="rem"><input type="checkbox" data-remover="e-a6074291b645"> não publicar</label></td>
+<td class="num">06/11/2026<span class="st aberto">aberto</span></td>
+<td class="links"><a href="https://www.fundatec.org.br/" target="_blank" rel="noopener">Página do concurso</a></td>
+</tr><tr id="r-e-6d4d553353fa" class="">
+<td class="ck"><input type="checkbox" id="ck-760bba3264" aria-label="Conferido"></td>
+<td><strong>Firmino Alves</strong><span class="uf">BA</span><span class="org">Prefeitura Municipal de Firmino Alves</span></td>
+<td>Agente De Tributos<span class="sub">Vagas: —</span></td>
+<td class="num"><span class="valor">R$ 4.867,77</span><span class="rot duv">da fonte, não conferido</span><label class="campo"><span>Salário certo</span><input type="text" inputmode="decimal" placeholder="ex.: 4.950,18" data-id="e-6d4d553353fa" data-nome="Prefeitura Municipal de Firmino Alves — Agente De Tributos" value=""></label><label class="rem"><input type="checkbox" data-remover="e-6d4d553353fa"> não publicar</label></td>
+<td class="num">09/11/2026<span class="st aberto">aberto</span></td>
+<td class="links"><a href="https://www.msconc.com.br/informacoes/121/" target="_blank" rel="noopener">Página do concurso</a></td>
+</tr><tr id="r-e-4c1c28a7491a" class="">
+<td class="ck"><input type="checkbox" id="ck-dfd60fd79b" aria-label="Conferido"></td>
+<td><strong>Firmino Alves</strong><span class="uf">BA</span><span class="org">Prefeitura de Firmino Alves</span></td>
+<td>Fiscal De Tributos<span class="sub">Vagas: 2</span></td>
+<td class="num"><span class="valor">R$ 4.867,77</span><span class="rot duv">da fonte, não conferido</span><label class="campo"><span>Salário certo</span><input type="text" inputmode="decimal" placeholder="ex.: 4.950,18" data-id="e-4c1c28a7491a" data-nome="Prefeitura de Firmino Alves — Fiscal De Tributos" value=""></label><label class="rem"><input type="checkbox" data-remover="e-4c1c28a7491a"> não publicar</label></td>
+<td class="num">09/11/2026<span class="st aberto">aberto</span></td>
+<td class="links"><a href="https://concursos.msconc.com.br/" target="_blank" rel="noopener">Página do concurso</a></td>
+</tr><tr id="r-e-de281724387d" class="">
+<td class="ck"><input type="checkbox" id="ck-625f38612b" aria-label="Conferido"></td>
+<td><strong>Florestópolis</strong><span class="uf">PR</span><span class="org">Prefeitura de Florestópolis</span></td>
+<td>Contador<span class="sub">Vagas: CR</span></td>
+<td class="num"><span class="valor">R$ 15.389,87</span><span class="rot duv">da fonte, não conferido</span><label class="campo"><span>Salário certo</span><input type="text" inputmode="decimal" placeholder="ex.: 4.950,18" data-id="e-de281724387d" data-nome="Prefeitura de Florestópolis — Contador" value=""></label><label class="rem"><input type="checkbox" data-remover="e-de281724387d"> não publicar</label></td>
+<td class="num">10/11/2026<span class="st previsto">previsto</span></td>
+<td class="links"><a href="https://www.gamaconsult.com.br/" target="_blank" rel="noopener">Página do concurso</a><p class="nota info">Salário alto para o cargo: pode ser o teto do concurso, e não o deste cargo.</p></td>
+</tr><tr id="r-e-ae9df1c82e56" class="">
+<td class="ck"><input type="checkbox" id="ck-3bbf70a313" aria-label="Conferido"></td>
+<td><strong>Nova Boa Vista</strong><span class="uf">RS</span><span class="org">Prefeitura de Nova Boa Vista</span></td>
+<td>Técnico De Contabilidade<span class="sub">Vagas: Cadastro de Reserva</span></td>
+<td class="num"><span class="valor">R$ 12.039,12</span><span class="rot duv">da fonte, não conferido</span><label class="campo"><span>Salário certo</span><input type="text" inputmode="decimal" placeholder="ex.: 4.950,18" data-id="e-ae9df1c82e56" data-nome="Prefeitura de Nova Boa Vista — Técnico De Contabilidade" value=""></label><label class="rem"><input type="checkbox" data-remover="e-ae9df1c82e56"> não publicar</label></td>
+<td class="num">10/11/2026<span class="st aberto">aberto</span></td>
+<td class="links"><a href="https://fundacaolasalle.org.br/concursos" target="_blank" rel="noopener">Página do concurso</a></td>
+</tr><tr id="r-e-937aba977710" class="">
+<td class="ck"><input type="checkbox" id="ck-64aad6cf0a" aria-label="Conferido"></td>
+<td><strong>SAAE - Serviço Autônomo de Á</strong><span class="uf">ES</span><span class="org">SAAE - Serviço Autônomo de Água e Esgoto de Iconha</span></td>
+<td>Contador<span class="sub">Vagas: 1</span></td>
+<td class="num"><span class="valor">R$ 3.236,14</span><span class="rot duv">da fonte, não conferido</span><label class="campo"><span>Salário certo</span><input type="text" inputmode="decimal" placeholder="ex.: 4.950,18" data-id="e-937aba977710" data-nome="SAAE - Serviço Autônomo de Água e Esgoto — Contador" value=""></label><label class="rem"><input type="checkbox" data-remover="e-937aba977710"> não publicar</label></td>
+<td class="num">10/11/2026<span class="st previsto">previsto</span></td>
+<td class="links"><a href="https://institutoreferencia.org.br/noticia/85/atencao-em-breve-novo-edital-de-concurso-pubico-" target="_blank" rel="noopener">Página do concurso</a></td>
+</tr><tr id="r-e-c689c5de814a" class="">
+<td class="ck"><input type="checkbox" id="ck-78b55805ba" aria-label="Conferido"></td>
+<td><strong>INB - Indústrias Nucleares d</strong><span class="uf">—</span><span class="org">INB - Indústrias Nucleares do Brasil S.A.</span></td>
+<td>Contador<span class="sub">Vagas: —</span></td>
+<td class="num"><span class="valor">R$ 8.374,00</span><span class="rot duv">da fonte, não conferido</span><label class="campo"><span>Salário certo</span><input type="text" inputmode="decimal" placeholder="ex.: 4.950,18" data-id="e-c689c5de814a" data-nome="INB - Indústrias Nucleares do Brasil S.A — Contador" value=""></label><label class="rem"><input type="checkbox" data-remover="e-c689c5de814a"> não publicar</label></td>
+<td class="num">11/11/2026<span class="st aberto">aberto</span></td>
+<td class="links"><a href="https://conhecimento.fgv.br/processoseletivo/inb2026" target="_blank" rel="noopener">Página do concurso</a><p class="nota info">Sem UF no cadastro: a conferência de segurança barra a publicação até a UF ser informada.</p></td>
+</tr><tr id="r-e-96b00c2e3133" class="">
+<td class="ck"><input type="checkbox" id="ck-e206f68a35" aria-label="Conferido"></td>
+<td><strong>Montenegro</strong><span class="uf">RS</span><span class="org">Prefeitura de Montenegro</span></td>
+<td>Auditor De Controle Interno<span class="sub">Vagas: Engenharia Civil</span></td>
+<td class="num"><span class="valor">R$ 9.848,34</span><span class="rot duv">da fonte, não conferido</span><label class="campo"><span>Salário certo</span><input type="text" inputmode="decimal" placeholder="ex.: 4.950,18" data-id="e-96b00c2e3133" data-nome="Prefeitura de Montenegro — Auditor De Controle Interno" value=""></label><label class="rem"><input type="checkbox" data-remover="e-96b00c2e3133"> não publicar</label></td>
+<td class="num">13/11/2026<span class="st aberto">aberto</span></td>
+<td class="links"><a href="https://www2.fundatec.org.br/2026/10/15/abertas-inscricoes-para-concurso-publico-da-prefeitura-de-montenegro/" target="_blank" rel="noopener">Página do concurso</a></td>
+</tr><tr id="r-e-3644c5b75e17" class="">
+<td class="ck"><input type="checkbox" id="ck-60acbb0e7a" aria-label="Conferido"></td>
+<td><strong>Francisco Macedo</strong><span class="uf">PI</span><span class="org">Prefeitura de Francisco Macedo</span></td>
+<td>Técnico De Controle Interno<span class="sub">Vagas: 1 + CR</span></td>
+<td class="num"><span class="valor">R$ 4.318,18</span><span class="rot duv">da fonte, não conferido</span><label class="campo"><span>Salário certo</span><input type="text" inputmode="decimal" placeholder="ex.: 4.950,18" data-id="e-3644c5b75e17" data-nome="Prefeitura de Francisco Macedo — Técnico De Controle Interno" value=""></label><label class="rem"><input type="checkbox" data-remover="e-3644c5b75e17"> não publicar</label></td>
+<td class="num">14/11/2026<span class="st aberto">aberto</span></td>
+<td class="links"><a href="https://inscricao.institutoibed.org/recruitment/show/21" target="_blank" rel="noopener">Página do concurso</a></td>
+</tr><tr id="r-e-dc68d6b57289" class="">
+<td class="ck"><input type="checkbox" id="ck-3307b86306" aria-label="Conferido"></td>
+<td><strong>Ilhota</strong><span class="uf">SC</span><span class="org">Prefeitura de Ilhota</span></td>
+<td>Contador<span class="sub">Vagas: CR</span></td>
+<td class="num"><span class="valor">R$ 21.113,16</span><span class="rot duv">da fonte, não conferido</span><label class="campo"><span>Salário certo</span><input type="text" inputmode="decimal" placeholder="ex.: 4.950,18" data-id="e-dc68d6b57289" data-nome="Prefeitura de Ilhota — Contador" value=""></label><label class="rem"><input type="checkbox" data-remover="e-dc68d6b57289"> não publicar</label></td>
+<td class="num">14/11/2026<span class="st aberto">aberto</span></td>
+<td class="links"><a href="https://acesseconcursossc.com.br/" target="_blank" rel="noopener">Página do concurso</a><p class="nota info">Salário alto para o cargo: pode ser o teto do concurso, e não o deste cargo.</p></td>
+</tr><tr id="r-e-e444e16e937c" class="">
+<td class="ck"><input type="checkbox" id="ck-d6b9c6f2ac" aria-label="Conferido"></td>
+<td><strong>Rio Negrinho</strong><span class="uf">SC</span><span class="org">Prefeitura de Rio Negrinho, FMC, IPRERIO e SAMAE</span></td>
+<td>Contador<span class="sub">Vagas: 1</span></td>
+<td class="num"><span class="valor">R$ 18.538,78</span><span class="rot duv">da fonte, não conferido</span><label class="campo"><span>Salário certo</span><input type="text" inputmode="decimal" placeholder="ex.: 4.950,18" data-id="e-e444e16e937c" data-nome="Prefeitura de Rio Negrinho, FMC, IPRERIO — Contador" value=""></label><label class="rem"><input type="checkbox" data-remover="e-e444e16e937c"> não publicar</label></td>
+<td class="num">15/11/2026<span class="st aberto">aberto</span></td>
+<td class="links"><a href="https://rionegrinho.atende.net/" target="_blank" rel="noopener">Página do concurso</a><p class="nota info">Salário alto para o cargo: pode ser o teto do concurso, e não o deste cargo.</p></td>
+</tr><tr id="r-e-dcd3db8b689c" class="">
+<td class="ck"><input type="checkbox" id="ck-f70c034f85" aria-label="Conferido"></td>
+<td><strong>Água Branca</strong><span class="uf">PB</span><span class="org">Prefeitura de Água Branca</span></td>
+<td>Fiscal De Tributos<span class="sub">Vagas: 1</span></td>
+<td class="num"><span class="valor">R$ 3.242,00</span><span class="rot duv">da fonte, não conferido</span><label class="campo"><span>Salário certo</span><input type="text" inputmode="decimal" placeholder="ex.: 4.950,18" data-id="e-dcd3db8b689c" data-nome="Prefeitura de Água Branca — Fiscal De Tributos" value=""></label><label class="rem"><input type="checkbox" data-remover="e-dcd3db8b689c"> não publicar</label></td>
+<td class="num">15/11/2026<span class="st aberto">aberto</span></td>
+<td class="links"><a href="https://funvapi.com.br/index.php/2026/10/02/guarda-civil-municipal-gcm-prefeitura-mun-de-agua-branca-pb/" target="_blank" rel="noopener">Página do concurso</a><p class="nota prorr">Já está no ar com prazo até 06/11/2026. Este traz prazo até 15/11/2026: confira se é prorrogação ou edital novo.</p></td>
+</tr><tr id="r-e-385a81dc6c37" class="">
+<td class="ck"><input type="checkbox" id="ck-87a3c23266" aria-label="Conferido"></td>
+<td><strong>Ibiúna</strong><span class="uf">SP</span><span class="org">Câmara da Estância Turística de Ibiúna</span></td>
+<td>Controlador Interno<span class="sub">Vagas: 1 + CR</span></td>
+<td class="num"><span class="valor">R$ 5.570,09</span><span class="rot duv">da fonte, não conferido</span><label class="campo"><span>Salário certo</span><input type="text" inputmode="decimal" placeholder="ex.: 4.950,18" data-id="e-385a81dc6c37" data-nome="Câmara da Estância Turística de Ibiúna — Controlador Interno" value=""></label><label class="rem"><input type="checkbox" data-remover="e-385a81dc6c37"> não publicar</label></td>
+<td class="num">16/11/2026<span class="st aberto">aberto</span></td>
+<td class="links"><a href="https://abcp.selecao.net.br/informacoes/2876/" target="_blank" rel="noopener">Página do concurso</a></td>
+</tr><tr id="r-e-e10361e7b356" class="">
+<td class="ck"><input type="checkbox" id="ck-08e5f36b60" aria-label="Conferido"></td>
+<td><strong>Iporã do Oeste</strong><span class="uf">SC</span><span class="org">Prefeitura de Iporã do Oeste</span></td>
+<td>Analista De Controle Interno<span class="sub">Vagas: —</span></td>
+<td class="num"><span class="valor">R$ 19.265,80</span><span class="rot duv">da fonte, não conferido</span><label class="campo"><span>Salário certo</span><input type="text" inputmode="decimal" placeholder="ex.: 4.950,18" data-id="e-e10361e7b356" data-nome="Prefeitura de Iporã do Oeste — Analista De Controle Interno" value=""></label><label class="rem"><input type="checkbox" data-remover="e-e10361e7b356"> não publicar</label></td>
+<td class="num">16/11/2026<span class="st aberto">aberto</span></td>
+<td class="links"><a href="https://iporadooeste.atende.net/" target="_blank" rel="noopener">Página do concurso</a><p class="nota info">Salário alto para o cargo: pode ser o teto do concurso, e não o deste cargo.</p></td>
+</tr><tr id="r-e-811bb6d22a3a" class="">
+<td class="ck"><input type="checkbox" id="ck-209194a525" aria-label="Conferido"></td>
+<td><strong>Louveira</strong><span class="uf">SP</span><span class="org">Prefeitura de Louveira</span></td>
+<td>Contador<span class="sub">Vagas: 1 + CR</span></td>
+<td class="num"><span class="valor">R$ 8.738,00</span><span class="rot duv">da fonte, não conferido</span><label class="campo"><span>Salário certo</span><input type="text" inputmode="decimal" placeholder="ex.: 4.950,18" data-id="e-811bb6d22a3a" data-nome="Prefeitura de Louveira — Contador" value=""></label><label class="rem"><input type="checkbox" data-remover="e-811bb6d22a3a"> não publicar</label></td>
+<td class="num">16/11/2026<span class="st aberto">aberto</span></td>
+<td class="links"><a href="https://www.avancasp.org.br/" target="_blank" rel="noopener">Página do concurso</a></td>
+</tr><tr id="r-e-406810a5fc63" class="">
+<td class="ck"><input type="checkbox" id="ck-334828598a" aria-label="Conferido"></td>
+<td><strong>Murutinga do Sul</strong><span class="uf">SP</span><span class="org">Prefeitura de Murutinga do Sul</span></td>
+<td>Auxiliar De Contabilidade<span class="sub">Vagas: 1</span></td>
+<td class="num"><span class="valor">R$ 5.118,20</span><span class="rot duv">da fonte, não conferido</span><label class="campo"><span>Salário certo</span><input type="text" inputmode="decimal" placeholder="ex.: 4.950,18" data-id="e-406810a5fc63" data-nome="Prefeitura de Murutinga do Sul — Auxiliar De Contabilidade" value=""></label><label class="rem"><input type="checkbox" data-remover="e-406810a5fc63"> não publicar</label></td>
+<td class="num">16/11/2026<span class="st previsto">previsto</span></td>
+<td class="links"><a href="https://www.conscamweb.com.br/" target="_blank" rel="noopener">Página do concurso</a></td>
+</tr><tr id="r-e-8741fd9faf1c" class="">
+<td class="ck"><input type="checkbox" id="ck-4111f8157c" aria-label="Conferido"></td>
+<td><strong>Ferreiros</strong><span class="uf">PE</span><span class="org">Prefeitura de Ferreiros</span></td>
+<td>Contador<span class="sub">Vagas: 1</span></td>
+<td class="num"><span class="valor">R$ 4.179,47</span><span class="rot duv">da fonte, não conferido</span><label class="campo"><span>Salário certo</span><input type="text" inputmode="decimal" placeholder="ex.: 4.950,18" data-id="e-8741fd9faf1c" data-nome="Prefeitura de Ferreiros — Contador" value=""></label><label class="rem"><input type="checkbox" data-remover="e-8741fd9faf1c"> não publicar</label></td>
+<td class="num">19/11/2026<span class="st aberto">aberto</span></td>
+<td class="links"><a href="https://www.idhtec.org.br" target="_blank" rel="noopener">Página do concurso</a></td>
+</tr><tr id="r-e-9461a357c273" class="">
+<td class="ck"><input type="checkbox" id="ck-646dd9e44b" aria-label="Conferido"></td>
+<td><strong>Itapororoca</strong><span class="uf">PB</span><span class="org">Prefeitura de Itapororoca</span></td>
+<td>Contador<span class="sub">Vagas: —</span></td>
+<td class="num"><span class="valor">R$ 10.000,00</span><span class="rot duv">da fonte, não conferido</span><label class="campo"><span>Salário certo</span><input type="text" inputmode="decimal" placeholder="ex.: 4.950,18" data-id="e-9461a357c273" data-nome="Prefeitura de Itapororoca — Contador" value=""></label><label class="rem"><input type="checkbox" data-remover="e-9461a357c273"> não publicar</label></td>
+<td class="num">20/11/2026<span class="st aberto">aberto</span></td>
+<td class="links"><a href="https://concursos.facetconcursos.com.br/informacoes/52/" target="_blank" rel="noopener">Página do concurso</a></td>
+</tr><tr id="r-e-20b62bf32380" class="">
+<td class="ck"><input type="checkbox" id="ck-740e454a17" aria-label="Conferido"></td>
+<td><strong>Ipê</strong><span class="uf">RS</span><span class="org">Prefeitura de Ipê</span></td>
+<td>Agente De Controle Interno<span class="sub">Vagas: CR</span></td>
+<td class="num"><span class="valor">R$ 20.745,08</span><span class="rot duv">da fonte, não conferido</span><label class="campo"><span>Salário certo</span><input type="text" inputmode="decimal" placeholder="ex.: 4.950,18" data-id="e-20b62bf32380" data-nome="Prefeitura de Ipê — Agente De Controle Interno" value=""></label><label class="rem"><input type="checkbox" data-remover="e-20b62bf32380"> não publicar</label></td>
+<td class="num">23/11/2026<span class="st previsto">previsto</span></td>
+<td class="links"><a href="https://www.objetivas.com.br/" target="_blank" rel="noopener">Página do concurso</a><p class="nota info">Salário alto para o cargo: pode ser o teto do concurso, e não o deste cargo.</p></td>
+</tr><tr id="r-e-d7eca43e0b64" class="">
+<td class="ck"><input type="checkbox" id="ck-b41afcbc80" aria-label="Conferido"></td>
+<td><strong>Novo Cabrais</strong><span class="uf">RS</span><span class="org">Prefeitura de Novo Cabrais</span></td>
+<td>Técnico Em Contabilidade<span class="sub">Vagas: CR</span></td>
+<td class="num"><span class="valor">R$ 19.089,94</span><span class="rot duv">da fonte, não conferido</span><label class="campo"><span>Salário certo</span><input type="text" inputmode="decimal" placeholder="ex.: 4.950,18" data-id="e-d7eca43e0b64" data-nome="Prefeitura de Novo Cabrais — Técnico Em Contabilidade" value=""></label><label class="rem"><input type="checkbox" data-remover="e-d7eca43e0b64"> não publicar</label></td>
+<td class="num">23/11/2026<span class="st previsto">previsto</span></td>
+<td class="links"><a href="https://www.objetivas.com.br/" target="_blank" rel="noopener">Página do concurso</a><p class="nota info">Salário alto para o cargo: pode ser o teto do concurso, e não o deste cargo.</p></td>
+</tr><tr id="r-e-f04e641b42f6" class="">
+<td class="ck"><input type="checkbox" id="ck-54b9c4fcc2" aria-label="Conferido"></td>
+<td><strong>Ribeirãozinho do Maranhão</strong><span class="uf">MA</span><span class="org">Prefeitura de Ribeirãozinho do Maranhão</span></td>
+<td>Contador<span class="sub">Vagas: —</span></td>
+<td class="num"><span class="valor">R$ 6.500,00</span><span class="rot duv">da fonte, não conferido</span><label class="campo"><span>Salário certo</span><input type="text" inputmode="decimal" placeholder="ex.: 4.950,18" data-id="e-f04e641b42f6" data-nome="Prefeitura de Ribeirãozinho do Maranhão — Contador" value=""></label><label class="rem"><input type="checkbox" data-remover="e-f04e641b42f6"> não publicar</label></td>
+<td class="num">01/12/2026<span class="st previsto">previsto</span></td>
+<td class="links"><a href="https://1392.sousandrade.org.br/" target="_blank" rel="noopener">Página do concurso</a></td>
+</tr></tbody></table></div>
+<h2>Já estavam no arquivo e ainda não foram conferidos (36)</h2>
+<p class="secao-sub">Capturados em varreduras anteriores e nunca marcados como conferidos. Mesma conferência.</p>
+<div class="tab"><table><thead><tr><th class="ck"><span class="sr">Conferido</span></th><th>Onde</th><th>Cargo</th><th>Salário</th><th>Inscrição até</th><th>Conferir em</th></tr></thead><tbody><tr id="r-e-6389b328f91f" class="">
+<td class="ck"><input type="checkbox" id="ck-7e319308e8" aria-label="Conferido"></td>
+<td><strong>Estância Balneária de Itanhaém</strong><span class="uf">SP</span><span class="org">Câmara da Estância Balneária de Itanhaém</span></td>
+<td>Assistente De Contabilidade<span class="sub">Vagas: 1</span></td>
+<td class="num"><span class="valor">R$ 7.097,00</span><span class="rot duv">da fonte, não conferido</span><label class="campo"><span>Salário certo</span><input type="text" inputmode="decimal" placeholder="ex.: 4.950,18" data-id="e-6389b328f91f" data-nome="Câmara da Estância Balneária de Itanhaém — Assistente De Contabilidade" value=""></label><label class="rem"><input type="checkbox" data-remover="e-6389b328f91f"> não publicar</label></td>
+<td class="num">19/10/2026<span class="st encerrando urg">fecha em breve</span></td>
+<td class="links"><a href="https://www.itanhaem.sp.leg.br/" target="_blank" rel="noopener">Página do concurso</a></td>
+</tr><tr id="r-e-df08ba3c2c05" class="">
+<td class="ck"><input type="checkbox" id="ck-08385aacc4" aria-label="Conferido"></td>
+<td><strong>Ipumirim</strong><span class="uf">SC</span><span class="org">Prefeitura de Ipumirim</span></td>
+<td>Tesoureiro<span class="sub">Vagas: CR</span></td>
+<td class="num"><span class="valor">R$ 5.028,72</span><span class="rot duv">da fonte, não conferido</span><label class="campo"><span>Salário certo</span><input type="text" inputmode="decimal" placeholder="ex.: 4.950,18" data-id="e-df08ba3c2c05" data-nome="Prefeitura de Ipumirim — Tesoureiro" value=""></label><label class="rem"><input type="checkbox" data-remover="e-df08ba3c2c05"> não publicar</label></td>
+<td class="num">19/10/2026<span class="st encerrando urg">fecha em breve</span></td>
+<td class="links"><a href="https://amauc.selecao.net.br/informacoes/144/" target="_blank" rel="noopener">Página do concurso</a><p class="nota dup">Você já removeu este órgão/cargo antes. Marque <strong>não publicar</strong> se continuar valendo.</p></td>
+</tr><tr id="r-e-ab03bc964802" class="">
+<td class="ck"><input type="checkbox" id="ck-4fbf71c01e" aria-label="Conferido"></td>
+<td><strong>Trindade</strong><span class="uf">PE</span><span class="org">Prefeitura do Município de Trindade</span></td>
+<td>Agente De Tributos<span class="sub">Vagas: 3</span></td>
+<td class="num"><span class="valor">R$ 3.242,00</span><span class="rot duv">da fonte, não conferido</span><label class="campo"><span>Salário certo</span><input type="text" inputmode="decimal" placeholder="ex.: 4.950,18" data-id="e-ab03bc964802" data-nome="Prefeitura do Município de Trindade — Agente De Tributos" value=""></label><label class="rem"><input type="checkbox" data-remover="e-ab03bc964802"> não publicar</label></td>
+<td class="num">19/10/2026<span class="st encerrando urg">fecha em breve</span></td>
+<td class="links"><a href="https://igeduc.selecao.net.br/informacoes/188/" target="_blank" rel="noopener">Página do concurso</a></td>
+</tr><tr id="r-e-88f01bfd5459" class="">
+<td class="ck"><input type="checkbox" id="ck-36896adb28" aria-label="Conferido"></td>
+<td><strong>CREF22 - Conselho Regional d</strong><span class="uf">ES</span><span class="org">CREF22 - Conselho Regional de Educação Física da 22ª Região</span></td>
+<td>Advogado I, Analista Administrativo I, Contador I<span class="sub">Vagas: —</span></td>
+<td class="num"><span class="valor">R$ 5.500,00</span><span class="rot duv">da fonte, não conferido</span><label class="campo"><span>Salário certo</span><input type="text" inputmode="decimal" placeholder="ex.: 4.950,18" data-id="e-88f01bfd5459" data-nome="CREF22 - Conselho Regional de Educação F — Advogado I, Analista Administrativo I, Contador I" value=""></label><label class="rem"><input type="checkbox" data-remover="e-88f01bfd5459"> não publicar</label></td>
+<td class="num">20/10/2026<span class="st encerrando urg">fecha em breve</span></td>
+<td class="links"><a href="https://www.ibade.org.br" target="_blank" rel="noopener">Página do concurso</a></td>
+</tr><tr id="r-e-02df32b3e8d6" class="">
+<td class="ck"><input type="checkbox" id="ck-c162ee34b8" aria-label="Conferido"></td>
+<td><strong>Candeias do Jamari</strong><span class="uf">RO</span><span class="org">Câmara de Candeias do Jamari</span></td>
+<td>Analista Contábil<span class="sub">Vagas: 1</span></td>
+<td class="num"><span class="valor">R$ 3.000,00</span><span class="rot duv">da fonte, não conferido</span><label class="campo"><span>Salário certo</span><input type="text" inputmode="decimal" placeholder="ex.: 4.950,18" data-id="e-02df32b3e8d6" data-nome="Câmara de Candeias do Jamari — Analista Contábil" value=""></label><label class="rem"><input type="checkbox" data-remover="e-02df32b3e8d6"> não publicar</label></td>
+<td class="num">20/10/2026<span class="st encerrando urg">fecha em breve</span></td>
+<td class="links"><a href="https://novo.ibgpconcursos.com.br/concurso.jsp?cod=784" target="_blank" rel="noopener">Página do concurso</a></td>
+</tr><tr id="r-e-555836337276" class="">
+<td class="ck"><input type="checkbox" id="ck-16abbfb9ca" aria-label="Conferido"></td>
+<td><strong>Heitoraí</strong><span class="uf">GO</span><span class="org">Prefeitura de Heitoraí</span></td>
+<td>Fiscal De Tributos<span class="sub">Vagas: 1</span></td>
+<td class="num"><span class="valor">R$ 2.710,76</span><span class="rot ok">lido no PDF</span><label class="campo"><span>Salário certo</span><input type="text" inputmode="decimal" placeholder="ex.: 4.950,18" data-id="e-555836337276" data-nome="Prefeitura de Heitoraí — Fiscal De Tributos" value=""></label><label class="rem"><input type="checkbox" data-remover="e-555836337276"> não publicar</label></td>
+<td class="num">20/10/2026<span class="st encerrando urg">fecha em breve</span></td>
+<td class="links"><a href="https://anexos-r2.selecao.net.br/uploads/807/concursos/31/anexos/708063ff-d733-47e0-be20-779dc210038b.pdf" target="_blank" rel="noopener">Edital (PDF)</a> · <a href="https://itame.selecao.net.br/informacoes/31/" target="_blank" rel="noopener">Página do concurso</a></td>
+</tr><tr id="r-e-52abd0b3bd38" class="">
+<td class="ck"><input type="checkbox" id="ck-cf70d55434" aria-label="Conferido"></td>
+<td><strong>Hidrolina</strong><span class="uf">GO</span><span class="org">Prefeitura de Hidrolina</span></td>
+<td>Fiscal De Tributos<span class="sub">Vagas: 1</span></td>
+<td class="num"><span class="valor">R$ 3.847,97</span><span class="rot duv">da fonte, não conferido</span><label class="campo"><span>Salário certo</span><input type="text" inputmode="decimal" placeholder="ex.: 4.950,18" data-id="e-52abd0b3bd38" data-nome="Prefeitura de Hidrolina — Fiscal De Tributos" value=""></label><label class="rem"><input type="checkbox" data-remover="e-52abd0b3bd38"> não publicar</label></td>
+<td class="num">20/10/2026<span class="st encerrando urg">fecha em breve</span></td>
+<td class="links"><a href="https://concurso.itame.com.br/concursos_detalhes.aspx?conid=rrurlv8Wb2Q=" target="_blank" rel="noopener">Página do concurso</a></td>
+</tr><tr id="r-e-291fe031f6ed" class="">
+<td class="ck"><input type="checkbox" id="ck-8bfd0bf2cd" aria-label="Conferido"></td>
+<td><strong>Capelinha</strong><span class="uf">MG</span><span class="org">Câmara de Capelinha</span></td>
+<td>Contador<span class="sub">Vagas: 1</span></td>
+<td class="num"><span class="valor">R$ 4.527,60</span><span class="rot duv">da fonte, não conferido</span><label class="campo"><span>Salário certo</span><input type="text" inputmode="decimal" placeholder="ex.: 4.950,18" data-id="e-291fe031f6ed" data-nome="Câmara de Capelinha — Contador" value=""></label><label class="rem"><input type="checkbox" data-remover="e-291fe031f6ed"> não publicar</label></td>
+<td class="num">21/10/2026<span class="st encerrando urg">fecha em breve</span></td>
+<td class="links"><a href="https://portal.imeso.com.br" target="_blank" rel="noopener">Página do concurso</a></td>
+</tr><tr id="r-e-538d1b1b4359" class="">
+<td class="ck"><input type="checkbox" id="ck-f332b7e8eb" aria-label="Conferido"></td>
+<td><strong>SEFAZ - Secretaria de Estado</strong><span class="uf">AL</span><span class="org">SEFAZ - Secretaria de Estado da Fazenda de Alagoas</span></td>
+<td>Auditor Fiscal Da Administração Tributária Estadual<span class="sub">Vagas: CR</span></td>
+<td class="num"><span class="valor">R$ 25.270,68</span><span class="rot ok">lido no PDF</span><label class="campo"><span>Salário certo</span><input type="text" inputmode="decimal" placeholder="ex.: 4.950,18" data-id="e-538d1b1b4359" data-nome="SEFAZ - Secretaria de Estado da Fazenda  — Auditor Fiscal Da Administração Tributária Estadual" value=""></label><label class="rem"><input type="checkbox" data-remover="e-538d1b1b4359"> não publicar</label></td>
+<td class="num">21/10/2026<span class="st encerrando urg">fecha em breve</span></td>
+<td class="links"><a href="https://www.cebraspe.org.br/concursos/sefaz_al_26" target="_blank" rel="noopener">Página do concurso</a><p class="nota info">Salário alto para o cargo: pode ser o teto do concurso, e não o deste cargo.</p></td>
+</tr><tr id="r-e-02597b08196d" class="">
+<td class="ck"><input type="checkbox" id="ck-f4ef2cc872" aria-label="Conferido"></td>
+<td><strong>CREMERJ - Conselho Regional </strong><span class="uf">RJ</span><span class="org">CREMERJ - Conselho Regional de Medicina do Rio de Janeiro</span></td>
+<td>Analista Contábil<span class="sub">Vagas: CR</span></td>
+<td class="num"><span class="valor">R$ 6.084,46</span><span class="rot duv">da fonte, não conferido</span><label class="campo"><span>Salário certo</span><input type="text" inputmode="decimal" placeholder="ex.: 4.950,18" data-id="e-02597b08196d" data-nome="CREMERJ - Conselho Regional de Medicina  — Analista Contábil" value=""></label><label class="rem"><input type="checkbox" data-remover="e-02597b08196d"> não publicar</label></td>
+<td class="num">22/10/2026<span class="st encerrando urg">fecha em breve</span></td>
+<td class="links"><a href="https://www.institutoconsulplan.org.br/cremerj2026" target="_blank" rel="noopener">Página do concurso</a></td>
+</tr><tr id="r-e-a4bdadbad29c" class="">
+<td class="ck"><input type="checkbox" id="ck-aeb73f3fb8" aria-label="Conferido"></td>
+<td><strong>Rio Verde</strong><span class="uf">GO</span><span class="org">Prefeitura de Rio Verde</span></td>
+<td>Auditor Fiscal Da Receita Municipal<span class="sub">Vagas: —</span></td>
+<td class="num"><span class="valor">R$ 4.809,00</span><span class="rot duv">da fonte, não conferido</span><label class="campo"><span>Salário certo</span><input type="text" inputmode="decimal" placeholder="ex.: 4.950,18" data-id="e-a4bdadbad29c" data-nome="Prefeitura de Rio Verde — Auditor Fiscal Da Receita Municipal" value=""></label><label class="rem"><input type="checkbox" data-remover="e-a4bdadbad29c"> não publicar</label></td>
+<td class="num">22/10/2026<span class="st encerrando urg">fecha em breve</span></td>
+<td class="links"><a href="https://www.unirv.edu.br/paginas.php?id=22" target="_blank" rel="noopener">Página do concurso</a></td>
+</tr><tr id="r-e-9bbae4b143d0" class="">
+<td class="ck"><input type="checkbox" id="ck-dd4e1ed4c0" aria-label="Conferido"></td>
+<td><strong>CRO - Conselho Regional de O</strong><span class="uf">SE</span><span class="org">CRO - Conselho Regional de Odontologia de Sergipe</span></td>
+<td>Analista Contábil<span class="sub">Vagas: 10 CR</span></td>
+<td class="num"><span class="valor">R$ 4.504,61</span><span class="rot duv">da fonte, não conferido</span><label class="campo"><span>Salário certo</span><input type="text" inputmode="decimal" placeholder="ex.: 4.950,18" data-id="e-9bbae4b143d0" data-nome="CRO - Conselho Regional de Odontologia d — Analista Contábil" value=""></label><label class="rem"><input type="checkbox" data-remover="e-9bbae4b143d0"> não publicar</label></td>
+<td class="num">26/10/2026<span class="st encerrando urg">fecha em breve</span></td>
+<td class="links"><a href="https://www.institutoconsulplan.org.br" target="_blank" rel="noopener">Página do concurso</a></td>
+</tr><tr id="r-e-fcf4189e0882" class="">
+<td class="ck"><input type="checkbox" id="ck-b38f4a3740" aria-label="Conferido"></td>
+<td><strong>Capinzal</strong><span class="uf">SC</span><span class="org">Câmara de Capinzal</span></td>
+<td>Contador<span class="sub">Vagas: 1</span></td>
+<td class="num"><span class="valor">R$ 4.534,82</span><span class="rot duv">da fonte, não conferido</span><label class="campo"><span>Salário certo</span><input type="text" inputmode="decimal" placeholder="ex.: 4.950,18" data-id="e-fcf4189e0882" data-nome="Câmara de Capinzal — Contador" value=""></label><label class="rem"><input type="checkbox" data-remover="e-fcf4189e0882"> não publicar</label></td>
+<td class="num">28/10/2026<span class="st aberto">aberto</span></td>
+<td class="links"><a href="https://concursos.furb.br/" target="_blank" rel="noopener">Página do concurso</a></td>
+</tr><tr id="r-e-53279f91d0d0" class="">
+<td class="ck"><input type="checkbox" id="ck-6413da3159" aria-label="Conferido"></td>
+<td><strong>Pedro Teixeira</strong><span class="uf">MG</span><span class="org">Prefeitura de Pedro Teixeira</span></td>
+<td>Controlador Interno<span class="sub">Vagas: 1</span></td>
+<td class="num"><span class="valor">R$ 3.127,80</span><span class="rot ok">lido no PDF</span><label class="campo"><span>Salário certo</span><input type="text" inputmode="decimal" placeholder="ex.: 4.950,18" data-id="e-53279f91d0d0" data-nome="Prefeitura de Pedro Teixeira — Controlador Interno" value=""></label><label class="rem"><input type="checkbox" data-remover="e-53279f91d0d0"> não publicar</label></td>
+<td class="num">30/10/2026<span class="st aberto">aberto</span></td>
+<td class="links"><a href="https://anexos-r2.selecao.net.br/uploads/17/concursos/267/anexos/1eeb9e15-d962-4e14-be59-3faf96ab60b0.pdf" target="_blank" rel="noopener">Edital (PDF)</a> · <a href="https://www.concursosjcm.com.br/informacoes/267/" target="_blank" rel="noopener">Página do concurso</a></td>
+</tr><tr id="r-e-bc766b049bf4" class="">
+<td class="ck"><input type="checkbox" id="ck-62f78f7a06" aria-label="Conferido"></td>
+<td><strong>Dores do Indaiá</strong><span class="uf">MG</span><span class="org">Câmara de Dores do Indaiá</span></td>
+<td>Controlador Interno<span class="sub">Vagas: 1</span></td>
+<td class="num"><span class="valor">R$ 4.500,00</span><span class="rot ok">lido no PDF</span><label class="campo"><span>Salário certo</span><input type="text" inputmode="decimal" placeholder="ex.: 4.950,18" data-id="e-bc766b049bf4" data-nome="Câmara de Dores do Indaiá — Controlador Interno" value=""></label><label class="rem"><input type="checkbox" data-remover="e-bc766b049bf4"> não publicar</label></td>
+<td class="num">03/11/2026<span class="st aberto">aberto</span></td>
+<td class="links"><a href="https://novo.ibgpconcursos.com.br/rest/concurso/download/edital/23586/?file=site/anexos/731/01%20-%20ANEXO%20I%20%96%20REQUISITOS_PCD.pdf" target="_blank" rel="noopener">Edital (PDF)</a> · <a href="https://novo.ibgpconcursos.com.br/concurso.jsp?cod=731" target="_blank" rel="noopener">Página do concurso</a></td>
+</tr><tr id="r-e-14bc25fd0f60" class="">
+<td class="ck"><input type="checkbox" id="ck-9a5ae378ce" aria-label="Conferido"></td>
+<td><strong>Belo Vale</strong><span class="uf">MG</span><span class="org">Prefeitura de Belo Vale</span></td>
+<td>Analista Contábil<span class="sub">Vagas: 1</span></td>
+<td class="num"><span class="valor">R$ 6.173,36</span><span class="rot ok">lido no PDF</span><label class="campo"><span>Salário certo</span><input type="text" inputmode="decimal" placeholder="ex.: 4.950,18" data-id="e-14bc25fd0f60" data-nome="Prefeitura de Belo Vale — Analista Contábil" value=""></label><label class="rem"><input type="checkbox" data-remover="e-14bc25fd0f60"> não publicar</label></td>
+<td class="num">03/11/2026<span class="st aberto">aberto</span></td>
+<td class="links"><a href="https://cdnsite.institutoconsulplan.org.br/concursos/1307/c7759d2af2fa461a8e593ccaf8e7d44b.pdf" target="_blank" rel="noopener">Edital (PDF)</a> · <a href="https://www.institutoconsulplan.org.br/pref-belo2026" target="_blank" rel="noopener">Página do concurso</a></td>
+</tr><tr id="r-e-402b65f01904" class="">
+<td class="ck"><input type="checkbox" id="ck-9488472f5c" aria-label="Conferido"></td>
+<td><strong>Lagoa da Prata</strong><span class="uf">MG</span><span class="org">Prefeitura de Lagoa da Prata</span></td>
+<td>Técnico Em Contabilidade<span class="sub">Vagas: 2</span></td>
+<td class="num"><span class="valor">R$ 3.859,65</span><span class="rot ok">lido no PDF</span><label class="campo"><span>Salário certo</span><input type="text" inputmode="decimal" placeholder="ex.: 4.950,18" data-id="e-402b65f01904" data-nome="Prefeitura de Lagoa da Prata — Técnico Em Contabilidade" value=""></label><label class="rem"><input type="checkbox" data-remover="e-402b65f01904"> não publicar</label></td>
+<td class="num">03/11/2026<span class="st aberto">aberto</span></td>
+<td class="links"><a href="https://novo.ibgpconcursos.com.br/rest/concurso/download/edital/24437/?file=site/anexos/791/01%20-%20ANEXO%20I%20-%20REQUISITOS.pdf" target="_blank" rel="noopener">Edital (PDF)</a> · <a href="https://novo.ibgpconcursos.com.br/concurso.jsp?cod=791" target="_blank" rel="noopener">Página do concurso</a></td>
+</tr><tr id="r-e-6d99db1949b8" class="">
+<td class="ck"><input type="checkbox" id="ck-d82d2d8d5b" aria-label="Conferido"></td>
+<td><strong>São Vicente de Minas</strong><span class="uf">MG</span><span class="org">Prefeitura de São Vicente de Minas</span></td>
+<td>Controlador Interno<span class="sub">Vagas: 1</span></td>
+<td class="num"><span class="valor">R$ 15.142,28</span><span class="rot duv">da fonte, não conferido</span><label class="campo"><span>Salário certo</span><input type="text" inputmode="decimal" placeholder="ex.: 4.950,18" data-id="e-6d99db1949b8" data-nome="Prefeitura de São Vicente de Minas — Controlador Interno" value=""></label><label class="rem"><input type="checkbox" data-remover="e-6d99db1949b8"> não publicar</label></td>
+<td class="num">05/11/2026<span class="st aberto">aberto</span></td>
+<td class="links"><a href="https://www.access.org.br" target="_blank" rel="noopener">Página do concurso</a><p class="nota info">Salário alto para o cargo: pode ser o teto do concurso, e não o deste cargo.</p></td>
+</tr><tr id="r-e-be13b9b78d6a" class="">
+<td class="ck"><input type="checkbox" id="ck-efd23f61c8" aria-label="Conferido"></td>
+<td><strong>Aracati</strong><span class="uf">CE</span><span class="org">Prefeitura de Aracati</span></td>
+<td>Auditor Fiscal<span class="sub">Vagas: 7</span></td>
+<td class="num"><span class="valor">R$ 5.431,00</span><span class="rot duv">da fonte, não conferido</span><label class="campo"><span>Salário certo</span><input type="text" inputmode="decimal" placeholder="ex.: 4.950,18" data-id="e-be13b9b78d6a" data-nome="Prefeitura de Aracati — Auditor Fiscal" value=""></label><label class="rem"><input type="checkbox" data-remover="e-be13b9b78d6a"> não publicar</label></td>
+<td class="num">06/11/2026<span class="st aberto">aberto</span></td>
+<td class="links"><a href="https://centraldeconcursos.fcpc.ufc.br" target="_blank" rel="noopener">Página do concurso</a></td>
+</tr><tr id="r-e-ec5eb52cd7cc" class="">
+<td class="ck"><input type="checkbox" id="ck-075ab0e70b" aria-label="Conferido"></td>
+<td><strong>Conceição do Mato Dentro</strong><span class="uf">MG</span><span class="org">Prefeitura de Conceição do Mato Dentro</span></td>
+<td>Auditor Fiscal<span class="sub">Vagas: 3</span></td>
+<td class="num"><span class="valor">R$ 21.138,26</span><span class="rot duv">da fonte, não conferido</span><label class="campo"><span>Salário certo</span><input type="text" inputmode="decimal" placeholder="ex.: 4.950,18" data-id="e-ec5eb52cd7cc" data-nome="Prefeitura de Conceição do Mato Dentro — Auditor Fiscal" value=""></label><label class="rem"><input type="checkbox" data-remover="e-ec5eb52cd7cc"> não publicar</label></td>
+<td class="num">06/11/2026<span class="st aberto">aberto</span></td>
+<td class="links"><a href="https://www.gestaodeconcursos.com.br" target="_blank" rel="noopener">Página do concurso</a><p class="nota info">Salário alto para o cargo: pode ser o teto do concurso, e não o deste cargo.</p></td>
+</tr><tr id="r-e-3b44a3f0dfbb" class="">
+<td class="ck"><input type="checkbox" id="ck-36de614b29" aria-label="Conferido"></td>
+<td><strong>TCE - Tribunal de Contas do </strong><span class="uf">GO</span><span class="org">TCE - Tribunal de Contas do Estado de Goiás</span></td>
+<td>Técnico De Controle Externo<span class="sub">Vagas: —</span></td>
+<td class="num"><span class="valor">R$ 11.862,19</span><span class="rot duv">da fonte, não conferido</span><label class="campo"><span>Salário certo</span><input type="text" inputmode="decimal" placeholder="ex.: 4.950,18" data-id="e-3b44a3f0dfbb" data-nome="TCE - Tribunal de Contas do Estado de Go — Técnico De Controle Externo" value=""></label><label class="rem"><input type="checkbox" data-remover="e-3b44a3f0dfbb"> não publicar</label></td>
+<td class="num">06/11/2026<span class="st aberto">aberto</span></td>
+<td class="links"><a href="https://www.concursosfcc.com.br" target="_blank" rel="noopener">Página do concurso</a></td>
+</tr><tr id="r-e-8765850de9a5" class="">
+<td class="ck"><input type="checkbox" id="ck-ad96f7cb4e" aria-label="Conferido"></td>
+<td><strong>Divisa Nova</strong><span class="uf">MG</span><span class="org">Câmara de Divisa Nova</span></td>
+<td>Contador<span class="sub">Vagas: 1</span></td>
+<td class="num"><span class="valor">R$ 3.868,20</span><span class="rot duv">da fonte, não conferido</span><label class="campo"><span>Salário certo</span><input type="text" inputmode="decimal" placeholder="ex.: 4.950,18" data-id="e-8765850de9a5" data-nome="Câmara de Divisa Nova — Contador" value=""></label><label class="rem"><input type="checkbox" data-remover="e-8765850de9a5"> não publicar</label></td>
+<td class="num">10/11/2026<span class="st aberto">aberto</span></td>
+<td class="links"><a href="https://www.imam.org.br" target="_blank" rel="noopener">Página do concurso</a></td>
+</tr><tr id="r-e-d6b4ec097a43" class="">
+<td class="ck"><input type="checkbox" id="ck-ea2f9dc114" aria-label="Conferido"></td>
+<td><strong>Santana de Pirapama</strong><span class="uf">MG</span><span class="org">Prefeitura de Santana de Pirapama</span></td>
+<td>Fiscal De Tributos<span class="sub">Vagas: 1</span></td>
+<td class="num"><span class="valor">R$ 2.255,25</span><span class="rot ok">lido no PDF</span><label class="campo"><span>Salário certo</span><input type="text" inputmode="decimal" placeholder="ex.: 4.950,18" data-id="e-d6b4ec097a43" data-nome="Prefeitura de Santana de Pirapama — Fiscal De Tributos" value=""></label><label class="rem"><input type="checkbox" data-remover="e-d6b4ec097a43"> não publicar</label></td>
+<td class="num">10/11/2026<span class="st aberto">aberto</span></td>
+<td class="links"><a href="https://anexos-r2.selecao.net.br/uploads/140/concursos/544/anexos/6220e2a6-1c0e-49c5-a6cd-2ececf14dc7b.pdf" target="_blank" rel="noopener">Edital (PDF)</a> · <a href="https://www.exameconsultores.com.br/" target="_blank" rel="noopener">Página do concurso</a></td>
+</tr><tr id="r-e-868ad33e742c" class="">
+<td class="ck"><input type="checkbox" id="ck-df00ff3c90" aria-label="Conferido"></td>
+<td><strong>São João del-Rei</strong><span class="uf">MG</span><span class="org">Prefeitura de São João del-Rei</span></td>
+<td>Agente Fiscal De Tributos<span class="sub">Vagas: 3</span></td>
+<td class="num"><span class="valor">R$ 4.040,05</span><span class="rot ok">lido no PDF</span><label class="campo"><span>Salário certo</span><input type="text" inputmode="decimal" placeholder="ex.: 4.950,18" data-id="e-868ad33e742c" data-nome="Prefeitura de São João del-Rei — Agente Fiscal De Tributos" value=""></label><label class="rem"><input type="checkbox" data-remover="e-868ad33e742c"> não publicar</label></td>
+<td class="num">12/11/2026<span class="st aberto">aberto</span></td>
+<td class="links"><a href="https://novo.ibgpconcursos.com.br/rest/concurso/download/edital/23645/?file=site/anexos/681/01%20-%20ANEXO%20I%20%96%20REQUISITOS_PSP_Retif%201.pdf" target="_blank" rel="noopener">Edital (PDF)</a> · <a href="https://novo.ibgpconcursos.com.br/concurso.jsp?cod=734" target="_blank" rel="noopener">Página do concurso</a></td>
+</tr><tr id="r-e-497444ffb59d" class="">
+<td class="ck"><input type="checkbox" id="ck-bcc72ff86e" aria-label="Conferido"></td>
+<td><strong>São João del-Rei</strong><span class="uf">MG</span><span class="org">Prefeitura de São João del-Rei e DAMAE - Departamento Autônomo Municipal de Água e Esgoto</span></td>
+<td>Técnico Em Contabilidade<span class="sub">Vagas: 1</span></td>
+<td class="num"><span class="valor">R$ 2.693,37</span><span class="rot ok">lido no PDF</span><label class="campo"><span>Salário certo</span><input type="text" inputmode="decimal" placeholder="ex.: 4.950,18" data-id="e-497444ffb59d" data-nome="Prefeitura de São João del-Rei e DAMAE - — Técnico Em Contabilidade" value=""></label><label class="rem"><input type="checkbox" data-remover="e-497444ffb59d"> não publicar</label></td>
+<td class="num">12/11/2026<span class="st aberto">aberto</span></td>
+<td class="links"><a href="https://novo.ibgpconcursos.com.br/rest/concurso/download/edital/23645/?file=site/anexos/681/01%20-%20ANEXO%20I%20%96%20REQUISITOS_PSP_Retif%201.pdf" target="_blank" rel="noopener">Edital (PDF)</a> · <a href="https://novo.ibgpconcursos.com.br/concurso.jsp?cod=734" target="_blank" rel="noopener">Página do concurso</a></td>
+</tr><tr id="r-e-849370d89fba" class="">
+<td class="ck"><input type="checkbox" id="ck-9be57bae01" aria-label="Conferido"></td>
+<td><strong>DPE - Defensoria Pública do </strong><span class="uf">PB</span><span class="org">DPE - Defensoria Pública do Estado da Paraíba</span></td>
+<td>Auditor Interno<span class="sub">Vagas: 1</span></td>
+<td class="num"><span class="valor">R$ 5.197,50</span><span class="rot duv">da fonte, não conferido</span><label class="campo"><span>Salário certo</span><input type="text" inputmode="decimal" placeholder="ex.: 4.950,18" data-id="e-849370d89fba" data-nome="DPE - Defensoria Pública do Estado da Pa — Auditor Interno" value=""></label><label class="rem"><input type="checkbox" data-remover="e-849370d89fba"> não publicar</label></td>
+<td class="num">13/11/2026<span class="st aberto">aberto</span></td>
+<td class="links"><a href="https://www.concursosfcc.com.br/" target="_blank" rel="noopener">Página do concurso</a></td>
+</tr><tr id="r-e-76b7bd27677d" class="">
+<td class="ck"><input type="checkbox" id="ck-a824df2904" aria-label="Conferido"></td>
+<td><strong>Contagem</strong><span class="uf">MG</span><span class="org">MUNICÍPIO DE CONTAGEM</span></td>
+<td>Contador<span class="sub">Vagas: 3</span></td>
+<td class="num"><span class="valor">R$ 6.020,23</span><span class="rot ok">lido no PDF</span><label class="campo"><span>Salário certo</span><input type="text" inputmode="decimal" placeholder="ex.: 4.950,18" data-id="e-76b7bd27677d" data-nome="MUNICÍPIO DE CONTAGEM — Contador" value=""></label><label class="rem"><input type="checkbox" data-remover="e-76b7bd27677d"> não publicar</label></td>
+<td class="num">17/11/2026<span class="st aberto">aberto</span></td>
+<td class="links"><a href="https://novo.ibgpconcursos.com.br/rest/concurso/download/edital/23768/?file=site/anexos/739/01%20-%20ANEXO%20I%20-%20REQUISITOS.pdf" target="_blank" rel="noopener">Edital (PDF)</a> · <a href="https://novo.ibgpconcursos.com.br/informacoes/739/" target="_blank" rel="noopener">Página do concurso</a></td>
+</tr><tr id="r-e-c7b942594568" class="">
+<td class="ck"><input type="checkbox" id="ck-8b3fd07ed3" aria-label="Conferido"></td>
+<td><strong>Contagem</strong><span class="uf">MG</span><span class="org">Prefeitura de Contagem</span></td>
+<td>Auditor De Controle Interno - Ciências Contábeis<span class="sub">Vagas: 1</span></td>
+<td class="num"><span class="valor">R$ 13.305,57</span><span class="rot ok">lido no PDF</span><label class="campo"><span>Salário certo</span><input type="text" inputmode="decimal" placeholder="ex.: 4.950,18" data-id="e-c7b942594568" data-nome="Prefeitura de Contagem — Auditor De Controle Interno - Ciências Contábeis" value=""></label><label class="rem"><input type="checkbox" data-remover="e-c7b942594568"> não publicar</label></td>
+<td class="num">17/11/2026<span class="st aberto">aberto</span></td>
+<td class="links"><a href="https://novo.ibgpconcursos.com.br/rest/concurso/download/edital/23768/?file=site/anexos/739/01%20-%20ANEXO%20I%20-%20REQUISITOS.pdf" target="_blank" rel="noopener">Edital (PDF)</a> · <a href="https://novo.ibgpconcursos.com.br/concurso.jsp?cod=739" target="_blank" rel="noopener">Página do concurso</a></td>
+</tr><tr id="r-e-9ee6677ddfb3" class="">
+<td class="ck"><input type="checkbox" id="ck-70b3ab0c66" aria-label="Conferido"></td>
+<td><strong>Lambari</strong><span class="uf">MG</span><span class="org">CÂMARA MUNICIPAL DE LAMBARI</span></td>
+<td>Contador Público<span class="sub">Vagas: 1</span></td>
+<td class="num"><span class="valor">R$ 5.500,00</span><span class="rot ok">lido no PDF</span><label class="campo"><span>Salário certo</span><input type="text" inputmode="decimal" placeholder="ex.: 4.950,18" data-id="e-9ee6677ddfb3" data-nome="CÂMARA MUNICIPAL DE LAMBARI — Contador Público" value=""></label><label class="rem"><input type="checkbox" data-remover="e-9ee6677ddfb3"> não publicar</label></td>
+<td class="num">18/11/2026<span class="st previsto">previsto</span></td>
+<td class="links"><a href="https://novo.ibgpconcursos.com.br/rest/concurso/download/edital/23893/?file=site/anexos/747/01%20-%20ANEXO%20I%20-REQUISITO_JORNADA_VAGA_VENCIMENTO.pdf" target="_blank" rel="noopener">Edital (PDF)</a> · <a href="https://novo.ibgpconcursos.com.br/informacoes/747/" target="_blank" rel="noopener">Página do concurso</a></td>
+</tr><tr id="r-e-44bf03a16d51" class="">
+<td class="ck"><input type="checkbox" id="ck-c536e18939" aria-label="Conferido"></td>
+<td><strong>Pirapora</strong><span class="uf">MG</span><span class="org">SAAE - Serviço Autônomo de Água e Esgoto do Município de Pirapora</span></td>
+<td>Contador<span class="sub">Vagas: 1</span></td>
+<td class="num"><span class="valor">R$ 4.848,48</span><span class="rot ok">lido no PDF</span><label class="campo"><span>Salário certo</span><input type="text" inputmode="decimal" placeholder="ex.: 4.950,18" data-id="e-44bf03a16d51" data-nome="SAAE - Serviço Autônomo de Água e Esgoto — Contador" value=""></label><label class="rem"><input type="checkbox" data-remover="e-44bf03a16d51"> não publicar</label></td>
+<td class="num">18/11/2026<span class="st previsto">previsto</span></td>
+<td class="links"><a href="https://novo.ibgpconcursos.com.br/rest/concurso/download/edital/23877/?file=site/anexos/746/01%20-%20ANEXO%20I%20%96%20REQUISITOS.pdf" target="_blank" rel="noopener">Edital (PDF)</a> · <a href="https://novo.ibgpconcursos.com.br/concurso.jsp?cod=746" target="_blank" rel="noopener">Página do concurso</a></td>
+</tr><tr id="r-e-806e186d6508" class="">
+<td class="ck"><input type="checkbox" id="ck-6fff3f66d9" aria-label="Conferido"></td>
+<td><strong>Tiradentes</strong><span class="uf">MG</span><span class="org">Câmara de Tiradentes</span></td>
+<td>Controlador Interno<span class="sub">Vagas: 1</span></td>
+<td class="num"><span class="valor">R$ 2.952,86</span><span class="rot ok">lido no PDF</span><label class="campo"><span>Salário certo</span><input type="text" inputmode="decimal" placeholder="ex.: 4.950,18" data-id="e-806e186d6508" data-nome="Câmara de Tiradentes — Controlador Interno" value=""></label><label class="rem"><input type="checkbox" data-remover="e-806e186d6508"> não publicar</label></td>
+<td class="num">24/11/2026<span class="st previsto">previsto</span></td>
+<td class="links"><a href="https://anexos-r2.selecao.net.br/uploads/331/concursos/106/anexos/7645a8b3-fbf6-4d07-8bdb-c26e58feff66.pdf" target="_blank" rel="noopener">Edital (PDF)</a> · <a href="https://concursos.ibdoprojetos.org.br/informacoes/106/" target="_blank" rel="noopener">Página do concurso</a></td>
+</tr><tr id="r-e-e754e51f2554" class="">
+<td class="ck"><input type="checkbox" id="ck-8fb2cb92b1" aria-label="Conferido"></td>
+<td><strong>Nova Ponte</strong><span class="uf">MG</span><span class="org">Câmara de Nova Ponte</span></td>
+<td>Controlador Interno<span class="sub">Vagas: 1</span></td>
+<td class="num"><span class="valor">R$ 5.200,00</span><span class="rot ok">lido no PDF</span><label class="campo"><span>Salário certo</span><input type="text" inputmode="decimal" placeholder="ex.: 4.950,18" data-id="e-e754e51f2554" data-nome="Câmara de Nova Ponte — Controlador Interno" value=""></label><label class="rem"><input type="checkbox" data-remover="e-e754e51f2554"> não publicar</label></td>
+<td class="num">26/11/2026<span class="st previsto">previsto</span></td>
+<td class="links"><a href="https://cdn.versatilsolucoesadm.com.br/edital/1/45/9e7512e3a65624133b286eebd41454f1.pdf" target="_blank" rel="noopener">Edital (PDF)</a> · <a href="https://portal.versatilsolucoesadm.com.br/sobre" target="_blank" rel="noopener">Página do concurso</a></td>
+</tr><tr id="r-e-e7911b5f458e" class="">
+<td class="ck"><input type="checkbox" id="ck-816a7e3f01" aria-label="Conferido"></td>
+<td><strong>Tupaciguara</strong><span class="uf">MG</span><span class="org">Câmara de Tupaciguara</span></td>
+<td>Contador<span class="sub">Vagas: 1</span></td>
+<td class="num"><span class="valor">R$ 5.627,27</span><span class="rot duv">da fonte, não conferido</span><label class="campo"><span>Salário certo</span><input type="text" inputmode="decimal" placeholder="ex.: 4.950,18" data-id="e-e7911b5f458e" data-nome="Câmara de Tupaciguara — Contador" value=""></label><label class="rem"><input type="checkbox" data-remover="e-e7911b5f458e"> não publicar</label></td>
+<td class="num">07/12/2026<span class="st previsto">previsto</span></td>
+<td class="links"><a href="https://portal.iadhedconcursos.org" target="_blank" rel="noopener">Página do concurso</a></td>
+</tr><tr id="r-e-ab4e14a3d343" class="">
+<td class="ck"><input type="checkbox" id="ck-44c8e84cc0" aria-label="Conferido"></td>
+<td><strong>Alvinópolis</strong><span class="uf">MG</span><span class="org">Prefeitura de Alvinópolis</span></td>
+<td>Contador<span class="sub">Vagas: 1</span></td>
+<td class="num"><span class="valor">R$ 3.445,18</span><span class="rot duv">da fonte, não conferido</span><label class="campo"><span>Salário certo</span><input type="text" inputmode="decimal" placeholder="ex.: 4.950,18" data-id="e-ab4e14a3d343" data-nome="Prefeitura de Alvinópolis — Contador" value=""></label><label class="rem"><input type="checkbox" data-remover="e-ab4e14a3d343"> não publicar</label></td>
+<td class="num">15/12/2026<span class="st previsto">previsto</span></td>
+<td class="links"><a href="https://www.institutoconsulplan.org.br/pref-alvinopolis2026" target="_blank" rel="noopener">Página do concurso</a></td>
+</tr><tr id="r-e-3bde63443829" class="">
+<td class="ck"><input type="checkbox" id="ck-38d3b3d5f4" aria-label="Conferido"></td>
+<td><strong>Hospital Municipal Dr. Gil A</strong><span class="uf">MG</span><span class="org">Hospital Municipal Dr. Gil Alves</span></td>
+<td>Contador<span class="sub">Vagas: 1</span></td>
+<td class="num"><span class="valor">R$ 2.178,26</span><span class="rot duv">da fonte, não conferido</span><label class="campo"><span>Salário certo</span><input type="text" inputmode="decimal" placeholder="ex.: 4.950,18" data-id="e-3bde63443829" data-nome="Hospital Municipal Dr. Gil Alves — Contador" value=""></label><label class="rem"><input type="checkbox" data-remover="e-3bde63443829"> não publicar</label></td>
+<td class="num">28/12/2026<span class="st previsto">previsto</span></td>
+<td class="links"><a href="https://www.cotec.fadenor.com.br/informacoes/34/" target="_blank" rel="noopener">Página do concurso</a></td>
+</tr><tr id="r-e-087c938eb916" class="">
+<td class="ck"><input type="checkbox" id="ck-28d6b50026" aria-label="Conferido"></td>
+<td><strong>São Pedro da União</strong><span class="uf">MG</span><span class="org">Prefeitura de São Pedro da União</span></td>
+<td>Fiscal De Tributos<span class="sub">Vagas: 1</span></td>
+<td class="num"><span class="valor">R$ 2.496,05</span><span class="rot duv">da fonte, não conferido</span><label class="campo"><span>Salário certo</span><input type="text" inputmode="decimal" placeholder="ex.: 4.950,18" data-id="e-087c938eb916" data-nome="Prefeitura de São Pedro da União — Fiscal De Tributos" value=""></label><label class="rem"><input type="checkbox" data-remover="e-087c938eb916"> não publicar</label></td>
+<td class="num">28/12/2026<span class="st previsto">previsto</span></td>
+<td class="links"><a href="https://institutoaplicativa.selecao.net.br/informacoes/50/" target="_blank" rel="noopener">Página do concurso</a></td>
+</tr></tbody></table></div>
+<div class="barra"><button type="button" id="salvar">Salvar correções</button><span id="status">Nenhuma correção nova.</span></div>
+<details><summary>1 fora do site que não vão ao ar (sem link de inscrição)</summary><ul><li>CREF - Conselho Regional de Educação Física (RO) — Contador — até 30/10/2026</li></ul></details>
+</div>
+<script>
+(function(){
+  const K='conf-1910';let s={};
+  try{s=JSON.parse(localStorage.getItem(K)||'{}')}catch(e){}
+  document.querySelectorAll('input[type=checkbox]').forEach(function(c){
+    const tr=c.closest('tr');
+    if(s[c.id]){c.checked=true;tr.classList.add('feito')}
+    c.addEventListener('change',function(){
+      tr.classList.toggle('feito',c.checked);s[c.id]=c.checked;
+      try{localStorage.setItem(K,JSON.stringify(s))}catch(e){}
+    });
+  });
+
+  const K2='conf-1910-cor';let c={};
+  try{c=JSON.parse(localStorage.getItem(K2)||'{}')}catch(e){}
+  function aplicar(){
+    document.querySelectorAll('input[data-id]').forEach(function(i){const v=c[i.dataset.id];if(v&&v.salario!=null){i.value=v.salario}i.classList.toggle('alterado',!!i.value)});
+    document.querySelectorAll('input[data-remover]').forEach(function(i){const v=c[i.dataset.remover];i.checked=!!(v&&v.remover);i.closest('tr').classList.toggle('removendo',i.checked)});
+    contar();
+  }
+  function guardar(){try{localStorage.setItem(K2,JSON.stringify(c))}catch(e){}}
+  function contar(){const n=Object.keys(c).filter(function(k){return c[k].salario||c[k].remover}).length;document.getElementById('status').textContent=n?n+' correção(ões) anotada(s). Clique em Salvar para gerar o arquivo.':'Nenhuma correção nova.'}
+  function reg(id,nome){return c[id]||(c[id]={nome:nome})}
+  document.querySelectorAll('input[data-id]').forEach(function(i){i.addEventListener('input',function(){const r=reg(i.dataset.id,i.dataset.nome);r.salario=i.value.trim();if(!r.salario)delete r.salario;i.classList.toggle('alterado',!!i.value);guardar();contar()})});
+  document.querySelectorAll('input[data-remover]').forEach(function(i){i.addEventListener('change',function(){const tr=i.closest('tr');const r=reg(i.dataset.remover,tr.querySelector('input[data-id]').dataset.nome);r.remover=i.checked;if(!i.checked)delete r.remover;tr.classList.toggle('removendo',i.checked);guardar();contar()})});
+  document.getElementById('salvar').addEventListener('click',function(){
+    const saida={geradoEm:new Date().toISOString(),correcoes:{}};
+    Object.keys(c).forEach(function(k){if(c[k].salario||c[k].remover)saida.correcoes[k]=c[k]});
+    const blob=new Blob([JSON.stringify(saida,null,2)],{type:'application/json'});
+    const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='correcoes-radar-19-10.json';document.body.appendChild(a);a.click();a.remove();
+    document.getElementById('status').textContent='Salvo em Downloads/correcoes-radar-19-10.json ('+Object.keys(saida.correcoes).length+' correções). Pode me avisar.';
+  });
+  aplicar();
+})();
+</script>
+</body></html>
