@@ -90,10 +90,17 @@ def carregar_removidos() -> set[str]:
 def status_por_prazo(edital: dict) -> str:
     """Reavalia o status pela data — um edital aberto ontem pode ter
     encerrado hoje, e ninguém vai corrigir isso à mão todo dia."""
-    if edital.get("revisado") and edital.get("status") == "previsto":
-        return "previsto"
-
     fim = edital.get("inscricaoFim")
+    # "previsto" confirmado à mão vale enquanto o prazo não venceu; depois
+    # disso o edital encerrou (achado 27/10: Inaciolândia e Rio Azul
+    # ficavam "previsto" com a inscrição já terminada e travavam o conferir).
+    if edital.get("revisado") and edital.get("status") == "previsto":
+        try:
+            if not fim or date.fromisoformat(fim[:10]) >= date.today():
+                return "previsto"
+        except ValueError:
+            return "previsto"
+
     if not fim:
         return edital.get("status") or "previsto"
 

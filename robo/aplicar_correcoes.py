@@ -29,7 +29,9 @@ rem = json.loads(rem_c.read_text(encoding="utf-8"))
 
 
 def valor(s):
-    s = s.strip()
+    s = re.sub(r"^(R\$|\$)\s*", "", s.strip())
+    if re.fullmatch(r"\d+,\d{1,2}", s):  # "3032,75" sem ponto de milhar
+        return float(s.replace(",", "."))
     if re.fullmatch(r"\d{1,3}(\.\d{3})*,\d{1,2}", s):
         return float(s.replace(".", "").replace(",", "."))
     if re.fullmatch(r"\d{1,3}(\.\d{3})+\.\d{2}", s):  # "3.552.47" digitado com ponto
