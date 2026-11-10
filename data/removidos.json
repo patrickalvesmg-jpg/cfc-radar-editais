@@ -418,5 +418,11 @@
     "cargo": "Controlador Interno",
     "motivo": "removido na conferência do Patrick",
     "em": "2026-11-10"
+  },
+  "e-c74932a7d176": {
+    "orgao": "Câmara de Jacutinga",
+    "cargo": "Auxiliar De Serviços Gerais, Auxiliar De Secretaria, Contador Geral",
+    "motivo": "duplicata de Jacutinga (e-30231e12f971, cargo corrigido para Contador Geral) recapturada na varredura de 09/11 - removido por Claude",
+    "em": "2026-11-10"
   }
 }

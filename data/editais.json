@@ -307,46 +307,6 @@
     "editorial": "<p>A Prefeitura de Jandira abriu concurso público de âmbito municipal, em Jandira / SP, com vaga para <b>Agente Fiscal De Renda</b>. São 1 vaga(s).</p><p>A remuneração divulgada para o concurso é de <b>R$ 6.812,14</b>. Esse valor ainda não foi conferido no anexo de vencimentos e pode ser de outro cargo do mesmo edital — confirme antes de se inscrever.</p><p>As inscrições vão de 16/11/2026 a <b>04/01/2027</b>, ou seja, 56 dias a partir de hoje.</p><p>A seleção prevê prova objetiva e prova prática.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Cargos de auditoria e fiscalização costumam aceitar também formações afins, o que tende a ampliar a concorrência. Confirme a exigência exata no edital.</p>"
   },
   {
-    "id": "e-c74932a7d176",
-    "orgao": "Câmara de Jacutinga",
-    "cargo": "Auxiliar De Serviços Gerais, Auxiliar De Secretaria, Contador Geral",
-    "banca": "Instituto INDEC",
-    "uf": "MG",
-    "cidade": "Jacutinga",
-    "vagas": "",
-    "salario": 8054.31,
-    "salarioObs": "",
-    "cargaHoraria": "",
-    "escolaridade": "superior",
-    "nivel": "municipal",
-    "status": "previsto",
-    "inscricaoInicio": "2026-12-28",
-    "inscricaoFim": "2027-02-04",
-    "dataProva": "",
-    "taxaInscricao": 0,
-    "editalUrl": "edital.html?id=e-c74932a7d176",
-    "siteInscricao": "https://institutoindec.org.br/concursos/publicacoes/C%C3%82MARA+MUNICIPAL+DE+JACUTINGA/186",
-    "pdfEdital": "",
-    "procedencia": "https://www.pciconcursos.com.br/noticias/camara-de-jacutinga-mg-abre-concurso-publico-com-salarios-de-ate-8054",
-    "fonte": "PCI Concursos",
-    "capturadoEm": "2026-11-09T09:13:17",
-    "confianca": "media",
-    "_trecho": "Câmara de Jacutinga - MG abre concurso público com salários de até R$ 8.054,31 Entrar com Google // Aguarda DOM carregar document.addEventListener('DOMContentLoaded', function () { // Botão de login const btnLogin = document.getElementById('btn-login'); if (btnLogin) { btnLogin.addEventListener('cli",
-    "resumo": "",
-    "detalhes": {
-      "etapas": [
-        "Prova objetiva"
-      ],
-      "provaTexto": "prova objetiva cuja aplicação está prevista para 7 de março de 2027"
-    },
-    "lat": -22.286,
-    "lon": -46.6166,
-    "geoAprox": false,
-    "revisado": true,
-    "editorial": "<p>A Câmara de Jacutinga abriu concurso público de âmbito municipal, em Jacutinga / MG, com vaga para <b>Auxiliar De Serviços Gerais, Auxiliar De Secretaria, Contador Geral</b>.</p><p>A remuneração divulgada para o concurso é de <b>R$ 8.054,31</b>. Esse valor ainda não foi conferido no anexo de vencimentos e pode ser de outro cargo do mesmo edital — confirme antes de se inscrever.</p><p>As inscrições vão de 28/12/2026 a <b>04/02/2027</b>, ou seja, 87 dias a partir de hoje.</p><p>A seleção prevê prova objetiva.</p><p>A vaga é de nível superior — o requisito costuma ser bacharelado em Ciências Contábeis com registro no CRC. Confirme a exigência exata no edital.</p><p>A organização é da <b>Instituto INDEC</b>. Vale consultar provas anteriores da banca: o estilo de cobrança costuma se repetir de um certame para outro.</p>",
-    "bancaDominio": "institutoindec.org.br"
-  },
-  {
     "id": "e-cb87986a77e7",
     "orgao": "Prefeitura de Inhapim",
     "cargo": "Contador",
