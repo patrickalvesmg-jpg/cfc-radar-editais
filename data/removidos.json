@@ -316,5 +316,107 @@
     "cargo": "Controlador Interno",
     "motivo": "removido na conferência do Patrick",
     "em": "2026-10-27"
+  },
+  "e-e0df146da334": {
+    "orgao": "Instituto de Previdência e Assistência dos Servidores do Município de Porto Velho – Ipam",
+    "cargo": "Analista Autárquico- Auditor Controle Interno",
+    "motivo": "sem salário no edital (só cronograma) e cargo não exclusivo de contador (Direito/Contabilidade/Adm/Economia/Atuariais) - removido por Claude em 04/11",
+    "em": "2026-11-04"
+  },
+  "e-ea8b5519e857": {
+    "orgao": "Prefeitura de Queimados",
+    "cargo": "Contador",
+    "motivo": "duplicata da retificação do concurso de Queimados já no acervo (e-7fc94744e799), encerrado - removido por Claude em 04/11",
+    "em": "2026-11-04"
+  },
+  "e-f7b7a0ad0e74": {
+    "orgao": "Prefeitura de Cláudio - Secretaria Municipal de Educação",
+    "cargo": "Contador",
+    "motivo": "removido na conferência do Patrick",
+    "em": "2026-11-10"
+  },
+  "e-a5d86bcab4df": {
+    "orgao": "Prefeitura de Piracema",
+    "cargo": "Contador",
+    "motivo": "removido na conferência do Patrick",
+    "em": "2026-11-10"
+  },
+  "e-abb0568254af": {
+    "orgao": "Prefeitura de São Julião",
+    "cargo": "Controlador Interno",
+    "motivo": "removido na conferência do Patrick",
+    "em": "2026-11-10"
+  },
+  "e-087ace355d1e": {
+    "orgao": "Prefeitura de Floresta",
+    "cargo": "Fiscal De Tributos",
+    "motivo": "removido na conferência do Patrick",
+    "em": "2026-11-10"
+  },
+  "e-df317cc615f8": {
+    "orgao": "Prefeitura de Campo Grande do Piauí",
+    "cargo": "Fiscal De Tributos",
+    "motivo": "removido na conferência do Patrick",
+    "em": "2026-11-10"
+  },
+  "e-644975382545": {
+    "orgao": "Prefeitura de Major Vieira",
+    "cargo": "Agente Fiscal De Tributos",
+    "motivo": "removido na conferência do Patrick",
+    "em": "2026-11-10"
+  },
+  "e-fb221c41f59d": {
+    "orgao": "Câmara de Cachoeiro de Itapemirim",
+    "cargo": "Auditor Interno Público",
+    "motivo": "removido na conferência do Patrick",
+    "em": "2026-11-10"
+  },
+  "e-c99831381b50": {
+    "orgao": "Prefeitura de Juquiá",
+    "cargo": "Controlador Interno",
+    "motivo": "removido na conferência do Patrick",
+    "em": "2026-11-10"
+  },
+  "e-f9c7b8189ac1": {
+    "orgao": "Prefeitura de Colatina",
+    "cargo": "Contador",
+    "motivo": "removido na conferência do Patrick",
+    "em": "2026-11-10"
+  },
+  "e-53bd9228bd9a": {
+    "orgao": "Câmara de Altair",
+    "cargo": "Agente De Controle Interno",
+    "motivo": "removido na conferência do Patrick",
+    "em": "2026-11-10"
+  },
+  "e-df293ca12ee3": {
+    "orgao": "Câmara de Quatro Barras",
+    "cargo": "Contador",
+    "motivo": "removido na conferência do Patrick",
+    "em": "2026-11-10"
+  },
+  "e-b2c77ac66a04": {
+    "orgao": "Câmara de Portel",
+    "cargo": "Controlador Interno",
+    "motivo": "removido na conferência do Patrick",
+    "em": "2026-11-10"
+  },
+  "e-c31482020f7c": {
+    "orgao": "Prefeitura de Santa Luzia d'Oeste",
+    "cargo": "Contador",
+    "motivo": "removido na conferência do Patrick",
+    "em": "2026-11-10"
+  },
+  "e-34ac19c0780e": {
+    "orgao": "Câmara de São João do Piauí",
+    "cargo": "Controlador Interno",
+    "motivo": "removido na conferência do Patrick",
+    "em": "2026-11-10"
+  },
+  "e-6f82c4c00128": {
+    "orgao": "Prefeitura e Câmara de Faina",
+    "cargo": "Controlador Interno",
+    "motivo": "removido na conferência do Patrick",
+    "em": "2026-11-10"
   }
 }
