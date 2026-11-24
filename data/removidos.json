@@ -424,5 +424,101 @@
     "cargo": "Auxiliar De Serviços Gerais, Auxiliar De Secretaria, Contador Geral",
     "motivo": "duplicata de Jacutinga (e-30231e12f971, cargo corrigido para Contador Geral) recapturada na varredura de 09/11 - removido por Claude",
     "em": "2026-11-10"
+  },
+  "e-ea50f79b5d2e": {
+    "orgao": "Instituto de Acesso",
+    "cargo": "Contabilidade",
+    "motivo": "cadastro corrigido na verificação de 24/11/2026; agora é e-47f523931fa0",
+    "em": "2026-11-24"
+  },
+  "e-8d5ba528f8f3": {
+    "orgao": "05 - Conselho Regional de Psicologia da 5ª Região",
+    "cargo": "Contador",
+    "motivo": "cadastro corrigido na verificação de 24/11/2026; agora é e-a1b26c2d9ce8",
+    "em": "2026-11-24"
+  },
+  "e-e3df56d891c2": {
+    "orgao": "Prefeitura de Iepê",
+    "cargo": "Contador",
+    "motivo": "cadastro corrigido na verificação de 24/11/2026; agora é e-c55d66ceabe0",
+    "em": "2026-11-24"
+  },
+  "e-5babf119fea8": {
+    "orgao": "CIS - Companhia Ituana de Saneamento",
+    "cargo": "Controlador Interno",
+    "motivo": "cadastro corrigido na verificação de 24/11/2026; agora é e-2984610a9dc7",
+    "em": "2026-11-24"
+  },
+  "e-84c72bd6d350": {
+    "orgao": "IFG - Instituto Federal de Educação, Ciência e Tecnologia de Goiás",
+    "cargo": "Técnico Em Contabilidade",
+    "motivo": "cadastro corrigido na verificação de 24/11/2026; agora é e-ac805c2dc03d",
+    "em": "2026-11-24"
+  },
+  "e-a5edb66b2f4b": {
+    "orgao": "SBMG S.A. - Terminais Aéreos de Maringá",
+    "cargo": "Assistente Contábil",
+    "motivo": "cadastro corrigido na verificação de 24/11/2026; agora é e-afc8a8f60863",
+    "em": "2026-11-24"
+  },
+  "e-4a76d0a5686a": {
+    "orgao": "Instituto Nacional de Seleção",
+    "cargo": "Contabilidade E Finanças",
+    "motivo": "removido na conferência do Patrick",
+    "em": "2026-11-24"
+  },
+  "e-7143de43adf5": {
+    "orgao": "PREFEITURA MUNICIPAL DE CERQUILHO",
+    "cargo": "Fiscalização E Arrecadação",
+    "motivo": "removido na conferência do Patrick",
+    "em": "2026-11-24"
+  },
+  "e-7c63c2247724": {
+    "orgao": "Prefeitura de Sales",
+    "cargo": "Contador",
+    "motivo": "removido na conferência do Patrick",
+    "em": "2026-11-24"
+  },
+  "e-7b4789ea93e9": {
+    "orgao": "Prefeitura de Santa Terezinha do Progresso",
+    "cargo": "Tesoureiro",
+    "motivo": "removido na conferência do Patrick",
+    "em": "2026-11-24"
+  },
+  "e-139d9eda4586": {
+    "orgao": "Município de Alvorada",
+    "cargo": "Contador",
+    "motivo": "removido na conferência do Patrick",
+    "em": "2026-11-24"
+  },
+  "e-64abcd6364d6": {
+    "orgao": "Prefeitura de Gurjão",
+    "cargo": "Analista De Controle Interno",
+    "motivo": "removido na conferência do Patrick",
+    "em": "2026-11-24"
+  },
+  "e-75863931a8be": {
+    "orgao": "Prefeitura de Chapada",
+    "cargo": "Tesoureiro",
+    "motivo": "removido na conferência do Patrick",
+    "em": "2026-11-24"
+  },
+  "e-cb87986a77e7": {
+    "orgao": "Prefeitura de Inhapim",
+    "cargo": "Contador",
+    "motivo": "removido na conferência do Patrick",
+    "em": "2026-11-24"
+  },
+  "e-f0fc25cf0219": {
+    "orgao": "Prefeitura de Santa Terezinha do Progresso",
+    "cargo": "Tesoureiro",
+    "motivo": "removido na conferência do Patrick",
+    "em": "2026-11-24"
+  },
+  "e-1c1d3854ccf6": {
+    "orgao": "Prefeitura de Ijuí",
+    "cargo": "Analista De Controle Interno",
+    "motivo": "removido na conferência do Patrick",
+    "em": "2026-11-24"
   }
 }

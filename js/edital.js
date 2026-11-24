@@ -15,7 +15,7 @@ import {
 import { logado } from './sessao.js';
 
 /** Domínios que nunca devem virar link: agregadores concorrentes. */
-const BLOQUEADOS = /pciconcursos|jcconcursos|concursosnobrasil|folhadirigida|qconcursos|grancursos|estrategiaconcursos/i;
+const BLOQUEADOS = /pciconcursos|jcconcursos|concursosnobrasil|folhadirigida|qconcursos|grancursos|estrategiaconcursos|claude\.ai|chatgpt|openai\.com|anthropic\.com/i;
 
 // Bancas fora do ar (auditado em 31/08/2026). O nome continua sendo
 // exibido — é informação verdadeira sobre quem organiza —, mas sem
